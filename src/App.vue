@@ -1,8 +1,12 @@
 <template>
     <div class="fn">
+        <!--<FnSideProduct></FnSideProduct>-->
+        <FnSide></FnSide>
+        <!--<FnSeach></FnSeach>-->
         <div class="wrapper">
             <div class="wrapper_top">
                 <FnNav></FnNav>
+                <router-view/>
             </div>
             <FnFooter></FnFooter>
         </div>
@@ -16,125 +20,23 @@
 <script>
 import FnFooter  from './components/FnFooter'
 import FnNav  from './components/FnNav'
+import FnSeach  from './components/FnSearch'
+import FnSide  from './components/FnSide'
+import FnSideProduct  from './components/FnSideProduct'
 
 export default {
     // name:'',
     components:{
         FnNav,
-        FnFooter
+        FnFooter,
+        FnSeach,
+        FnSide,
+        FnSideProduct,
     },
 }
 </script>
 
 <style>
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    font,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        outline: 0;
-        font-weight: inherit;
-        font-style: inherit;
-        font-size: 100%;
-        font-family: inherit;
-        vertical-align: baseline;
-        box-sizing: border-box;
-    }
-    :focus {
-        outline: 0;
-    }
-    ol,
-    ul {
-        list-style: none;
-    }
-    table {
-        border-collapse: separate;
-        border-spacing: 0;
-    }
-    caption,
-    th,
-    td {
-        text-align: left;
-        font-weight: normal;
-    }
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
-        content: "";
-    }
-    blockquote,
-    q {
-        quotes: "" "";
-    }
-    a{
-        text-decoration: none;
-        display: block;
-    }
-    body {
-        line-height: 1;
-        color: black;
-        background: white;
-    }
-    .public_flex {
-        display: flex;
-    }
     .fn{
         font-family: Helvetica, Arila, "LiHei Pro", "Microsoft JhengHei", "新細明體", serif;
         height: 100vh;
@@ -160,6 +62,7 @@ export default {
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
+        background-color: #fff;
     }
     @media (max-width: 1200px) {
         .fn .wrapper {

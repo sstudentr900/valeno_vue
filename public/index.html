@@ -1,17 +1,204 @@
 <!DOCTYPE html>
 <html lang="">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+    <style>
+        html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        font,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-weight: inherit;
+            font-style: inherit;
+            font-size: 100%;
+            font-family: inherit;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+        
+        input {
+            box-sizing: border-box;
+        }
+        
+         :focus {
+            outline: 0;
+        }
+        
+        ol,
+        ul {
+            list-style: none;
+        }
+        
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        
+        caption,
+        th,
+        td {
+            text-align: left;
+            font-weight: normal;
+        }
+        
+        blockquote:before,
+        blockquote:after,
+        q:before,
+        q:after {
+            content: "";
+        }
+        
+        blockquote,
+        q {
+            quotes: "" "";
+        }
+        
+        a {
+            text-decoration: none;
+            display: block;
+        }
+        
+        body {
+            line-height: 1;
+            color: black;
+            background: white;
+        }
+        
+        .public_flex {
+            display: flex;
+        }
+        
+        .public_buttons {
+            text-align: right;
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .public_buttons .btns {
+            font-size: 1.2rem;
+            margin: 3px;
+            padding: 10px;
+            background: #222;
+            border: 1px solid #222;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+            transition: color 0.5s linear;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        
+        .public_buttons .btns.white-btn {
+            background: #fff;
+            color: #222;
+        }
+        
+        .public_buttons .btns:before,
+        .public_buttons .btns:after {
+            content: "";
+            width: 0;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            background: #c1894c;
+            z-index: -1;
+            -moz-transition: linear 0.3s;
+            -o-transition: linear 0.3s;
+            -webkit-transition: linear 0.3s;
+            transition: linear 0.3s;
+        }
+        
+        .public_buttons .btns:after {
+            right: 0;
+        }
+        
+        .public_buttons .btns:before {
+            left: 0;
+        }
+        
+        .public_buttons .btns:hover {
+            color: #fff;
+            border-color: #c1894c;
+        }
+        
+        .public_buttons .btns:hover:before,
+        .public_buttons .btns:hover:after {
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-  </body>
+</body>
+
 </html>

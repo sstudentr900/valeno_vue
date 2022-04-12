@@ -1,10 +1,8 @@
 <template>
-    <div class="nav">
+    <div class="navObj">
         <div class="top">
             <div class="left">
-                <a href="index.html">
-                    <img src="@/assets/logo.jpg" alt="" />
-                </a>
+                <router-link to="/"><img src="@/assets/logo.jpg" alt="" /></router-link>
             </div>
             <div class="right">
                 <h2>0800-000-070</h2>
@@ -14,38 +12,27 @@
         <div class="bottom">
             <ul>
                 <li>
-                <a href="product.html" data-title="商品專區"
-                    ><span>PRODUCT</span></a
-                >
+                    <router-link to="product" data-title="商品專區"><span>PRODUCT</span></router-link>
+                    <!--<a href="product.html" data-title="商品專區"><span>PRODUCT</span></a>-->
                 </li>
                 <li>
-                <a href="new.html" data-title="最新消息"><span>NEWS</span></a>
+                    <router-link to="news" data-title="最新消息"><span>NEWS</span></router-link>
                 </li>
                 <li>
-                <a href="technology.html" data-title="美妝分享"
-                    ><span>BEAUTY</span></a
-                >
+                    <router-link to="beauty" data-title="美妝分享"><span>BEAUTY</span></router-link>
                 </li>
                 <li>
-                <a href="information.html" data-title="門市位置"
-                    ><span>STORE</span></a
-                >
+                    <router-link to="store" data-title="門市位置"><span>STORE</span></router-link>
                 </li>
                 <li>
-                <a href="contact.html" data-title="聯絡我們"
-                    ><span>CONTACT</span></a
-                >
+                    <router-link to="contact" data-title="聯絡我們"><span>CONTACT</span></router-link>
                 </li>
             </ul>
             <div class="btns">
-                <a href="member_login.html" title="會員專區">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/></svg>
-                </a>
-                <a href="faq.html" title="購物常見問題">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.25 17c0 .69-.559 1.25-1.25 1.25-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25zm1.393-9.998c-.608-.616-1.515-.955-2.551-.955-2.18 0-3.59 1.55-3.59 3.95h2.011c0-1.486.829-2.013 1.538-2.013.634 0 1.307.421 1.364 1.226.062.847-.39 1.277-.962 1.821-1.412 1.343-1.438 1.993-1.432 3.468h2.005c-.013-.664.03-1.203.935-2.178.677-.73 1.519-1.638 1.536-3.022.011-.924-.284-1.719-.854-2.297z"/></svg>
-                </a>
+                <router-link to="member" title="會員專區"><svg viewBox="0 0 24 24"><path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/></svg></router-link>
+                <router-link to="question" title="購物常見問題"><svg viewBox="0 0 24 24"><path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.25 17c0 .69-.559 1.25-1.25 1.25-.689 0-1.25-.56-1.25-1.25s.561-1.25 1.25-1.25c.691 0 1.25.56 1.25 1.25zm1.393-9.998c-.608-.616-1.515-.955-2.551-.955-2.18 0-3.59 1.55-3.59 3.95h2.011c0-1.486.829-2.013 1.538-2.013.634 0 1.307.421 1.364 1.226.062.847-.39 1.277-.962 1.821-1.412 1.343-1.438 1.993-1.432 3.468h2.005c-.013-.664.03-1.203.935-2.178.677-.73 1.519-1.638 1.536-3.022.011-.924-.284-1.719-.854-2.297z"/></svg></router-link>
                 <a title="搜尋" id="searchBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg>
                 </a>
             </div>
         </div>
@@ -59,44 +46,44 @@ export default {
 </script>
 
 <style scoped>
-.nav .top { 
+.navObj .top { 
     display: flex;
     justify-content: space-between; 
 }
-.nav .top .left img { width: 260px; }
-.nav .top .right { text-align: right; }
-.nav .top .right h2 { 
+.navObj .top .left img { width: 260px; }
+.navObj .top .right { text-align: right; }
+.navObj .top .right h2 { 
     font-size: 2.625rem;
     color: #000; 
 }
-.nav .top .right p{
+.navObj .top .right p{
     font-size: 14px;
     line-height: 1.4;
     color: #666;
 } 
 @media (max-width: 576px) {
-    .nav .top .left img { width: 200px; }
-    .nav .top .right { display: none; } 
+    .navObj .top .left img { width: 200px; }
+    .navObj .top .right { display: none; } 
 }
-.nav .bottom {
+.navObj .bottom {
     display: flex;
-    padding: 15px 0;
+    padding: 12px 6px;
     border: 1px solid #000;
     border-left: none;
     border-right: none;
     margin: 15px 0;
     justify-content: space-between;
 }
-.nav .bottom ul { 
+.navObj .bottom ul { 
     display: flex;
     font-size: 0; 
 }
-.nav .bottom ul li {
+.navObj .bottom ul li {
     padding: 0;
     position: relative;
 }
-.nav .bottom ul li a { font-size: 1.125rem; color: #000;padding: 0 20px;font-weight: bold;}
-.nav .bottom ul li a:before {
+.navObj .bottom ul li a { font-size: 1.125rem; color: #000;padding: 0 20px;font-weight: bold;}
+.navObj .bottom ul li a:before {
     content: attr(data-title);
     display: block;
     font-size: 1.125rem;
@@ -105,7 +92,7 @@ export default {
     transition: ease 0.5s;
 
 }
-.nav .bottom ul li a span {
+.navObj .bottom ul li a span {
     display: block;
     position: absolute;
     top: 50%;
@@ -115,24 +102,24 @@ export default {
     color: #000;
     font-size: 1.125rem;
 }
-.nav .bottom ul li:hover a:before,
-.nav .bottom ul li.active a:before {
+.navObj .bottom ul li:hover a:before,
+.navObj .bottom ul li.active a:before {
     opacity: 1;
     transform: translateY(0%) scale(1);
 }
-.nav .bottom ul li:hover a span,
-.nav .bottom ul li.active a span {
+.navObj .bottom ul li:hover a span,
+.navObj .bottom ul li.active a span {
     transform: translate(-50%, 50%) scale(0.5);
     opacity: 0;
     visibility: hidden;
 }
-.nav .bottom ul li a:hover { color: #000; }
-.nav .bottom ul li:first-child a{ padding-left: 0; }
-.nav .bottom .btns{
+.navObj .bottom ul li a:hover { color: #000; }
+.navObj .bottom ul li:first-child a{ padding-left: 0; }
+.navObj .bottom .btns{
     transition: ease 0.6s;
     display: flex;
 }
-.nav .bottom .btns a {
+.navObj .bottom .btns a {
     /* font-size: 1.3rem; */
     /* color: #666; */
     margin-left: 10px;
@@ -142,11 +129,11 @@ export default {
     /* transition: ease 0.3s; */
     cursor: pointer;
 }
-.nav .bottom .btns a svg{
-    fill: #666;
+.navObj .bottom .btns a svg{
+    fill: #7c7c7c;
     height: 18px;
 }
-.nav .bottom .btns a:hover svg{
+.navObj .bottom .btns a:hover svg{
     fill: #000;
 }
 
