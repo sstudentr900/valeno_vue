@@ -1,5 +1,5 @@
 <template>
-    <div id="productListObj" class="sideProductObj active">
+    <div id="productListObj" class="sideProductObj">
         <div id="sideArea" class="box active">
             <a class="close"><span></span></a>
             <div id="recent_list" class="main">

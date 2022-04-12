@@ -1,5 +1,5 @@
 <template>
-    <div id="searchObj" class="searchObj active">
+    <div id="searchObj" class="searchObj">
         <div class="box">
             <form action="product_search.html">
                 <a class="close"><span></span></a>
