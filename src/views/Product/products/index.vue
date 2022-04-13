@@ -1,6 +1,6 @@
 <template>
     <div class="products">
-        <h4 class="puplic_title">#臉部彩妝</h4>
+        <h4 class="public_title">#臉部彩妝</h4>
         <div class="content public_scrollTop">
             <a href="product_view.html" class="public_item">
                 <div class="img">

@@ -1,6 +1,6 @@
 <template>
     <div class="products">
-        <h2 class="puplic_title">#NEW ARRIVAL</h2>
+        <h2 class="public_title">#NEW ARRIVAL</h2>
         <div class="content public_scrollTop">
             <div class="left">
                 <img class="lazy" src="@/assets/in01.jpg" alt="">

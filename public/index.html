@@ -127,20 +127,20 @@
             color: black;
             background: white;
         }
-        .puplic_title{
+        .public_title{
             color: #000;
             font-weight: bold;
             text-align: center;
         }
-        h2.puplic_title{
+        h2.public_title{
             font-size: 60px;
             margin: 60px 0 40px;
         }
-        h3.puplic_title{
+        h3.public_title{
             font-size: 42px;
             margin: 40px 0 ;
         }
-        h4.puplic_title{
+        h4.public_title{
             font-size: 28px;
             margin: 40px 0 ;
         }
@@ -288,6 +288,133 @@
         .public_buttons .btns:hover:after {
             width: 50%;
         }
+        /*public_form*/
+        .public_form{
+            padding: 10px 0;
+        }
+        .public_form>.public_flex{
+            padding: 10px 0;
+            flex-wrap: nowrap;
+        }
+        .public_form .tit{
+            font-size: 1rem;
+        }
+        .public_form .tit{
+            flex: 0 0 90px;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        .public_form input[type="text"]{
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 2px;
+            padding: 5px 10px;
+            flex: 1;
+            height: 35px;
+            font-size: 1rem;
+        }
+        .public_form .code{
+            display: flex;
+        }
+        .public_form .code input{
+            width: 50%;
+        }
+        .public_form .code a{
+            flex: 0 0 110px;
+            margin-left: 10px;
+        }
+        .public_form .forget{
+            display: flex;
+            font-family: "Oswald-Light";
+            font-weight: bold;
+            color: #000;
+            font-size: 14px;
+            align-items: center;
+        }
+        .public_form .forget .check{
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #c3c3c3;
+            margin-right: 10px;
+            padding-right: 10px;
+        }
+        .public_form .forget .check input{
+            margin: 0;
+            margin-right: 5px;
+        }
+        .public_form .forget a{
+            color: inherit;
+        }
+        .public_form .forget a:hover {
+            color: #c1894c;
+        }
+        .public_form .buttons{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .public_form .buttons .public_btn{
+            width: 49%;
+        }
+        .public_btn{
+            padding: 15px 5px;
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857;
+            text-align: center;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            background-image: none;
+            background: #000;
+            text-decoration: none;
+            color: #fff;
+            border: none;
+            text-decoration: none;
+            border: 1px solid #000;
+            transition: linear 0.3s;
+            width: 100%;
+        }
+        .public_btn:hover{
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+        }
+        .public_btn.fb{
+            background: #39579b;
+            border-color: #39579b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .public_btn.fb svg{
+            width: 16px;
+            height: auto;
+            margin-right: 5px;
+            fill: #fff;
+            margin-top: -1px;
+            transition: linear 0.3s;
+        }
+        .public_btn.fb:hover{
+            color: #39579b;
+            background: #fff;
+        }
+        .public_btn.fb:hover svg{
+            fill: #39579b;
+        }
+        .public_btn.white{
+            background: #fff;
+            border-color: #222;
+            color: #222;
+        }
+        .public_btn.white:hover{
+            background: #222;
+            color: #fff;
+        }
+
     </style>
 </head>
 

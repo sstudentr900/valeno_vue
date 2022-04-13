@@ -1,122 +1,127 @@
 <template>
-  <div class="news">
-      <h3 class="puplic_title">#NEWS</h3>
-      <div class="public_flex">
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n01.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n02.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n03.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n04.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n05.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n01.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n02.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n04.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-          <a href="new_view.html">
-              <div class="top">
-                  <div class="img">
-                      <img src="@/assets/n03.jpg">
-                  </div>
-                  <span class="data">JUN 06, 2017</span>
-              </div>
-              <div class="bottom">
-                  <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                  <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-              </div>
-          </a>
-      </div>
-  </div>
+    <div class="news">
+        <h3 class="public_title">#NEWS</h3>
+        <div class="public_flex">
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n01.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n02.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n03.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n04.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n05.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n01.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n02.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n04.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+            <a href="new_view.html">
+                <div class="top">
+                    <div class="img">
+                        <img src="@/assets/n03.jpg">
+                    </div>
+                    <span class="data">JUN 06, 2017</span>
+                </div>
+                <div class="bottom">
+                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
+                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
+                </div>
+            </a>
+        </div>
+        <FnPagers></FnPagers>
+    </div>
 </template>
 
 <script>
+import FnPagers from '@/components/FnPagers'
 export default {
-  name: 'news',
+    name: 'news',
+    components:{
+        FnPagers,
+    },
 }
 </script>
 <style scoped>

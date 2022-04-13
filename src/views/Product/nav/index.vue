@@ -1,6 +1,6 @@
 <template>
     <div class="nav">
-        <h4 class="puplic_title">#PRODUCT</h4>
+        <h4 class="public_title">#PRODUCT</h4>
         <ul>
             <li class="active">
                 <div>臉部彩妝<span class="icon"></span></div>
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style scoped>
-.nav > .puplic_title{
+.nav > .public_title{
     text-align: left;
     margin-top: 0;
     margin-bottom: 20px;

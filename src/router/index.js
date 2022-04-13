@@ -5,6 +5,8 @@ import News from '@/views/News'
 import Beauty from '@/views/Beauty'
 import Store from '@/views/Store'
 import Contact from '@/views/Contact'
+import Member from '@/views/Member'
+import Question from '@/views/Question'
 
 const routes = [{
         path: '/',
@@ -39,15 +41,19 @@ const routes = [{
     {
         path: '/member',
         name: 'member',
-        component: () =>
-            import ('../views/MemberView.vue')
+        component: Member
     },
     {
         path: '/question',
         name: 'question',
-        component: () =>
-            import ('../views/QuestionView.vue')
+        component: Question
     },
+    // {
+    //     path: '/question',
+    //     name: 'question',
+    //     component: () =>
+    //         import ('../views/Question/QuestionView.vue')
+    // },
 ]
 
 const router = createRouter({

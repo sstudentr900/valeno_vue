@@ -1,6 +1,6 @@
 <template>
     <div class="news">
-        <h2 class="puplic_title">#LATEST NEWS</h2>
+        <h2 class="public_title">#LATEST NEWS</h2>
         <div id="slideshow02" class="slide puplic_scrollTop">
             <ul>
                 <li>
