@@ -1,7 +1,11 @@
 <template>
     <div class="slide">
         <ul>
-            <li class="active">
+            <li v-for="(item,index) in slideData" :key="item.id" :class="{active:index==0}">
+                <img :src="require(`@/assets/${item.image}`)">
+                <!--<img :src="src" alt="">-->
+            </li>
+            <!--<li class="active">
                 <img src="@/assets/ban1.jpg" alt="">
             </li>
             <li>
@@ -9,18 +13,38 @@
             </li>
             <li>
                 <img src="@/assets/ban1.jpg" alt="">
-            </li>
+            </li>-->
         </ul>
         <div class="dotdiv">
             <div class="pre"></div>
             <div class="next"></div>
             <!-- <div class="dots"></div> -->
         </div>
+        <!--<p>{{slideData}}</p>-->
     </div>
 </template>
 <script>
+import {mapState} from 'vuex';
 export default {
     name:'slide',
+    data(){
+        return {
+            // src: require("../../../assets/ban1.jpg")
+        }
+    },
+    //組件掛載完畢
+    mounted(){
+        //執行store
+        // this.$store.dispatch('home/slide')
+    },
+    computed:{
+        ...mapState('home',['slideData']),
+    },
+    methods: {
+        imgSrc(src){
+            return '@/assets/'+src
+        }
+    },
 }
 </script>
 
