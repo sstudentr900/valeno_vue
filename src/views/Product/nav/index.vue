@@ -2,7 +2,15 @@
     <div class="nav">
         <h4 class="public_title">#PRODUCT</h4>
         <ul>
-            <li class="active">
+            <li v-for="(item) in nav" :key="item.id" :class="{active:item.id==nav1Id}">
+                <div @click="nav1(item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
+                <ul v-if="item.child">
+                    <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==nav2Id}">
+                        <a @click="nav2(item.id,item2.id)">{{item2.name}}</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- <li class="active">
                 <div>臉部彩妝<span class="icon"></span></div>
                 <ul>
                     <li class="active"><a href="" title="">妝前修飾乳</a></li>
@@ -55,13 +63,57 @@
             </li>
             <li>
                 <div>其他</div>
-            </li>
+            </li> -->
         </ul>
     </div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
     name:'navs',
+    data(){
+        return {
+            nav1Id: this.$route.params.id1,
+            nav2Id: this.$route.params.id2,
+        }
+    },
+    mounted(){
+        // this.$store.dispatch('product/nav')
+    },
+    computed:{
+        ...mapState('product',['nav'])
+    },
+    methods:{
+        goSearch(event){
+            //路由跳轉
+            //this.$router.push({name:'product',query:{id1:'1',id2:'2'}})
+            //product?id1=1&id2=2
+            let element = event.target;
+            // console.log(element)
+            // console.log(element.dataset)
+            let {id1,id2} = element.dataset;
+            let location = {name:'search',query:{}}
+            if(id1){
+                console.log(id1)
+            }
+            if(id2){
+                console.log(id2,location)
+                location.query.id1 = id1
+                location.query.id2 = id2
+                this.$router.push(location)
+            }
+        },
+        nav1(id){
+            this.nav1Id = id
+            // console.log('107',id)
+        },
+        nav2(id1,id2){
+            this.nav2Id = id2
+            // console.log('110',id1,id2)
+            this.$router.push({name:'product',params:{id1:id1,id2:id2}})
+        },
+    }
+
 }
 </script>
 
@@ -94,7 +146,7 @@ export default {
     margin-top: -3px;
     transform: rotate(45deg);
 }
-.nav > ul > li.active > div.icon:after {
+.nav > ul > li.active > div .icon:after {
     content: "";
     transform: rotate(0deg);
 }

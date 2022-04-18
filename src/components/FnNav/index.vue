@@ -12,20 +12,19 @@
         <div class="bottom">
             <ul>
                 <li>
-                    <router-link to="product" data-title="商品專區"><span>PRODUCT</span></router-link>
-                    <!--<a href="product.html" data-title="商品專區"><span>PRODUCT</span></a>-->
+                    <router-link :to="{ name: 'product', params: { id1: 1, id2: 1 }}" data-title="商品專區"><span>PRODUCT</span></router-link>
                 </li>
                 <li>
-                    <router-link to="news" data-title="最新消息"><span>NEWS</span></router-link>
+                    <router-link to="/news" data-title="最新消息"><span>NEWS</span></router-link>
                 </li>
                 <li>
-                    <router-link to="beauty" data-title="美妝分享"><span>BEAUTY</span></router-link>
+                    <router-link to="/beauty" data-title="美妝分享"><span>BEAUTY</span></router-link>
                 </li>
                 <li>
-                    <router-link to="store" data-title="門市位置"><span>STORE</span></router-link>
+                    <router-link to="/store" data-title="門市位置"><span>STORE</span></router-link>
                 </li>
                 <li>
-                    <router-link to="contact" data-title="聯絡我們"><span>CONTACT</span></router-link>
+                    <router-link to="/contact" data-title="聯絡我們"><span>CONTACT</span></router-link>
                 </li>
             </ul>
             <div class="btns">
