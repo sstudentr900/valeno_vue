@@ -1,2 +1,4 @@
 import requests from './request';
-export const reqHomeSlide = () => requests({ url: '/api', method: 'get' });
+import mockrequests from './mockAjax';
+export const reqHomeSlide2 = () => requests({ url: '/api', method: 'get' });
+export const reqHomeSlide = () => mockrequests.get('/homeSlide');

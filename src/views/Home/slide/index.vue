@@ -1,9 +1,8 @@
 <template>
     <div class="slide">
         <ul>
-            <li v-for="(item,index) in slideData" :key="item.id" :class="{active:index==0}">
+            <li v-for="(item,index) in slide" :key="item.id" :class="{active:index==0}">
                 <img :src="require(`@/assets/${item.image}`)">
-                <!--<img :src="src" alt="">-->
             </li>
             <!--<li class="active">
                 <img src="@/assets/ban1.jpg" alt="">
@@ -20,7 +19,6 @@
             <div class="next"></div>
             <!-- <div class="dots"></div> -->
         </div>
-        <!--<p>{{slideData}}</p>-->
     </div>
 </template>
 <script>
@@ -35,15 +33,12 @@ export default {
     //組件掛載完畢
     mounted(){
         //執行store
-        // this.$store.dispatch('home/slide')
+        this.$store.dispatch('home/slide')
     },
     computed:{
-        ...mapState('home',['slideData']),
+        ...mapState('home',['slide']),
     },
     methods: {
-        imgSrc(src){
-            return '@/assets/'+src
-        }
     },
 }
 </script>

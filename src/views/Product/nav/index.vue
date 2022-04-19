@@ -3,10 +3,10 @@
         <h4 class="public_title">#PRODUCT</h4>
         <ul>
             <li v-for="(item) in nav" :key="item.id" :class="{active:item.id==nav1Id}">
-                <div @click="nav1(item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
+                <div @click="nav1(item.child,item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
                 <ul v-if="item.child">
                     <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==nav2Id}">
-                        <a @click="nav2(item.id,item2.id)">{{item2.name}}</a>
+                        <a @click="nav2(item2.id)">{{item2.name}}</a>
                     </li>
                 </ul>
             </li>
@@ -73,8 +73,8 @@ export default {
     name:'navs',
     data(){
         return {
-            nav1Id: this.$route.params.id1,
-            nav2Id: this.$route.params.id2,
+            nav1Id: this.$route.params?this.$route.params.id:0,
+            nav2Id: this.$route.params?this.$route.params.id:0,
         }
     },
     mounted(){
@@ -103,14 +103,21 @@ export default {
                 this.$router.push(location)
             }
         },
-        nav1(id){
-            this.nav1Id = id
+        nav1(child,id){
+            if(this.nav1Id == id){
+                this.nav1Id = 0
+            }else{
+                this.nav1Id = id
+            }
+            if(!child){
+                this.$router.push({name:'product',params:{id:id}})
+            }
             // console.log('107',id)
         },
-        nav2(id1,id2){
-            this.nav2Id = id2
+        nav2(id){
+            this.nav2Id = id
             // console.log('110',id1,id2)
-            this.$router.push({name:'product',params:{id1:id1,id2:id2}})
+            this.$router.push({name:'product',params:{id:id}})
         },
     }
 
@@ -184,15 +191,23 @@ export default {
 }
 .nav > ul > li ul {
     font-size: 0.9rem;
-    margin-bottom: 10px;
-    display: none;
+    /* margin-bottom: 10px; */
+    /* display: none; */
+    max-height: 0;
+    transition: max-height .2s ease;
+    overflow: hidden;
 }
 .nav > ul > li.active ul{
-    display: block;
+    /* display: block; */
+    max-height: 300px;
+    transition: max-height .6s .1s ease;
 } 
 .nav > ul > li ul li {
     border-bottom: 1px solid #eee;
 }
+.nav > ul > li ul li:last-child{
+    margin-bottom: 10px;
+} 
 .nav > ul > li ul li:hover{
     background: #f9f9f9;
 }
@@ -201,6 +216,7 @@ export default {
     color: #666;
     display: block;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 .nav > ul > li ul li.active a {
     color: #c1894c;

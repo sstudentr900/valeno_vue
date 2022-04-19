@@ -28,6 +28,10 @@ export default {
         FnSide,
         FnSideProduct,
     },
+    // mounted(){
+    //     //執行store
+    //     // this.$store.dispatch('home/slide')
+    // },
 }
 </script>
 

@@ -12,7 +12,8 @@
         <div class="bottom">
             <ul>
                 <li>
-                    <router-link :to="{ name: 'product', params: { id1: 1, id2: 1 }}" data-title="商品專區"><span>PRODUCT</span></router-link>
+                    <!-- <router-link :to="{ name: 'product', params: { id1: 1, id2: 1 }}" data-title="商品專區"><span>PRODUCT</span></router-link> -->
+                    <router-link to="/product" data-title="商品專區"><span>PRODUCT</span></router-link>
                 </li>
                 <li>
                     <router-link to="/news" data-title="最新消息"><span>NEWS</span></router-link>
