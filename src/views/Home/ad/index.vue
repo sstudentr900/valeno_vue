@@ -1,6 +1,6 @@
 <template>
     <div class="ad">
-        <a href="#">
+        <!-- <a href="#">
             <img src="@/assets/kwankao1.jpg" alt="">
         </a>
         <a href="#">
@@ -8,12 +8,28 @@
         </a>
         <a href="#">
             <img src="@/assets/kwankao3.jpg" alt="">
+        </a> -->
+        <!-- <a v-for="(item,index) in ad" :href="item.href" :key="index">
+            <img :src="require(`@/assets/${item.src}`)">
+        </a> -->
+        <a v-for="(item,index) in list" :href="item.href" :key="index">
+            <img :src="require(`@/assets/${item.src}`)">
         </a>
+        <!-- <p>{{list}}</p> -->
     </div>
 </template>
 <script>
+// import { mapState } from 'vuex'
 export default {
     name:'ad',
+    props:['list'],
+    mounted(){
+        //執行store
+        // this.$store.dispatch('home/ad')
+    },
+    computed:{
+        // ...mapState('home',['ad'])
+    }
 }
 </script>
 
