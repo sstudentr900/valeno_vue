@@ -2,7 +2,6 @@
     <div class="fn">
         <FnSideProduct></FnSideProduct>
         <FnSide></FnSide>
-        <FnSeach></FnSeach>
         <div class="wrapper">
             <div class="wrapper_top">
                 <FnNav></FnNav>
@@ -13,9 +12,8 @@
     </div>
 </template>
 <script>
-import FnFooter  from './components/FnFooter'
 import FnNav  from './components/FnNav'
-import FnSeach  from './components/FnSearch'
+import FnFooter  from './components/FnFooter'
 import FnSide  from './components/FnSide'
 import FnSideProduct  from './components/FnSideProduct'
 
@@ -24,7 +22,6 @@ export default {
     components:{
         FnNav,
         FnFooter,
-        FnSeach,
         FnSide,
         FnSideProduct,
     },

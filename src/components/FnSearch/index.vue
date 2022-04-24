@@ -1,8 +1,11 @@
 <template>
-    <div id="searchObj" class="searchObj">
+    <div id="searchObj" class="searchObj" :class="{'active':enterShow}">
         <div class="box">
             <form action="product_search.html">
-                <a class="close"><span></span></a>
+                <!--<a class="close" @click="updateShowFn(!show)">-->
+                <a class="close" @click="$emit('updateShow', !enterShow)">
+                    <span></span>
+                </a>
                 <div class="inpudDiv">
                     <input type="text" placeholder="SEARCH">
                     <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
@@ -25,7 +28,13 @@
 
 <script>
 export default {
-
+    props:['enterShow'],
+    emits: ['updateShow'],
+    /*methods: {
+        updateShowFn: function(show){
+            this.$emit("updateShow", show)
+        }
+    },*/
 }
 </script>
 
@@ -38,22 +47,27 @@ export default {
     height: 100%;
     z-index: 21;
     background: rgba(0, 0, 0, 0.6);
-    display: none;
     opacity: 0;
-    /*visibility: hidden;*/
-    /*-moz-transition: opacity ease 10s;*/
-    /*-o-transition: opacity ease 10s;*/
-    /*-webkit-transition: opacity ease 10s;*/
-    /*transition: opacity ease 10s;*/
+    visibility: hidden;
+    transition: .4s ease;
+    transition-delay: .2s;
 }
 .searchObj.active{
     opacity: 1;
-    display: block;
+    visibility: visible;
+    transition: .5s ease;
 }
 .searchObj .box {
     background: #000;
     padding: 100px 50px;
-    /*display: none;*/
+    transform-origin: top;
+    transform: translateY(-100%) ;
+    transition: .5s ease;
+}
+.searchObj.active .box{
+    transform: translateY(0) ;
+    transition: .5s ease;
+    transition-delay: .2s;
 }
 .searchObj form {
     max-width: 800px;
@@ -70,15 +84,10 @@ export default {
     -ms-transform-origin: 50% 50%;
     -webkit-transform-origin: 50% 50%;
     transform-origin: 50% 50%;
-    -moz-transition: -moz-transform 0.5s ease;
-    -o-transition: -o-transform 0.5s ease;
-    -webkit-transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
+    cursor: pointer;
 }
 .searchObj .close:hover {
-    -moz-transform: scale(1.3, 1.3);
-    -ms-transform: scale(1.3, 1.3);
-    -webkit-transform: scale(1.3, 1.3);
     transform: scale(1.3, 1.3);
 }
 .searchObj .close span {
@@ -86,13 +95,7 @@ export default {
     height: 1px;
     background: #fff;
     display: block;
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-    -moz-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
-    -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
 }
 .searchObj .close span:after {
@@ -104,9 +107,6 @@ export default {
     position: absolute;
     top: 0;
     right: 0;
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -webkit-transform: rotate(-90deg);
     transform: rotate(-90deg);
 }
 .searchObj .inpudDiv {
