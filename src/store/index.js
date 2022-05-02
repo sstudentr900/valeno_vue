@@ -1,6 +1,9 @@
 import { createStore } from 'vuex'
 import home from "./home"
 import product from "./product"
+import news from "./news"
+import beauty from "./beauty"
+import store from "./store"
 export default createStore({
     state: {},
     getters: {},
@@ -8,6 +11,9 @@ export default createStore({
     actions: {},
     modules: {
         home,
-        product
+        product,
+        news,
+        beauty,
+        store
     }
 })

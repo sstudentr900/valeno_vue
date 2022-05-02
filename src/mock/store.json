@@ -1,0 +1,116 @@
+{
+    "storeTitle": "#STORE",
+    "storeList": [{
+            "id": 1,
+            "href": "#",
+            "src": "https://imgur.com/FkwbeWq.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 2,
+            "href": "#",
+            "src": "https://imgur.com/R7Be7uN.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 3,
+            "href": "#",
+            "src": "https://imgur.com/QydMm4E.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 4,
+            "href": "#",
+            "src": "https://imgur.com/7ln6foR.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 5,
+            "href": "#",
+            "src": "https://imgur.com/2mNdlfl.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 6,
+            "href": "#",
+            "src": "https://imgur.com/xByYi90.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 7,
+            "href": "#",
+            "src": "https://imgur.com/G3WzgAH.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 8,
+            "href": "#",
+            "src": "https://imgur.com/cMk4q4o.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 9,
+            "href": "#",
+            "src": "https://imgur.com/xByYi90.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 10,
+            "href": "#",
+            "src": "https://imgur.com/FkwbeWq.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 11,
+            "href": "#",
+            "src": "https://imgur.com/R7Be7uN.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 12,
+            "href": "#",
+            "src": "https://imgur.com/QydMm4E.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 13,
+            "href": "#",
+            "src": "https://imgur.com/7ln6foR.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 14,
+            "href": "#",
+            "src": "https://imgur.com/xByYi90.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 15,
+            "href": "#",
+            "src": "https://imgur.com/G3WzgAH.jpg",
+            "title": "康是美",
+            "text": ""
+        },
+        {
+            "id": 16,
+            "href": "#",
+            "src": "https://imgur.com/cMk4q4o.jpg",
+            "title": "康是美",
+            "text": ""
+        }
+    ]
+}

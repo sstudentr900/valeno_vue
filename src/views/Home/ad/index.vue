@@ -12,7 +12,7 @@
         <!-- <a v-for="(item,index) in ad" :href="item.href" :key="index">
             <img :src="require(`@/assets/${item.src}`)">
         </a> -->
-        <a v-for="(item,index) in list" :href="item.href" :key="index">
+        <a v-for="(item,index) in items" :href="item.href" :key="index">
             <img :src="require(`@/assets/${item.src}`)">
         </a>
         <!-- <p>{{list}}</p> -->
@@ -22,7 +22,7 @@
 // import { mapState } from 'vuex'
 export default {
     name:'ad',
-    props:['list'],
+    props:['items'],
     mounted(){
         //執行store
         // this.$store.dispatch('home/ad')

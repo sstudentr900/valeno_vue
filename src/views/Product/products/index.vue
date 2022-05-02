@@ -1,23 +1,23 @@
 <template>
     <div class="products">
-        <h4 class="public_title">#臉部彩妝</h4>
+        <h4 class="public_title">{{title}}</h4>
         <div class="content public_scrollTop">
-            <a href="product_view.html" class="public_item">
+            <a v-for="(list,index) in lists" :key="list.id" :href="list.href" class="public_item">
                 <div class="img">
-                    <img class="lazy" src="@/assets/p01.jpg" alt="">
+                    <img class="lazy" :src="require(`@/assets/${list.src}`)" alt="">
                 </div>
                 <div class="info">
-                    <div class="en">Mistine - Groove complete</div>
-                    <div class="tit">12色完美眼彩盤</div>
-                    <div class="sale">泰國必買</div>
+                    <div class="en">{{list.text_en}}</div>
+                    <div class="tit">{{list.text_ti}}</div>
+                    <div class="sale">{{list.text_sale}}</div>
                     <div class="price">
-                        <span class="through">NT$429</span>
+                        <span class="through">{{list.price}}</span>
                         <i>/</i>
-                        <span>NT$429</span>
+                        <span>{{list.special_price}}</span>
                     </div>
                 </div>
             </a>
-            <a href="product_view.html" class="public_item">
+            <!-- <a href="product_view.html" class="public_item">
                 <div class="img">
                     <img class="lazy" src="@/assets/p02.jpg" alt="">
                 </div>
@@ -93,25 +93,35 @@
                     <div class="sale">泰國必買</div>
                     <div class="price"><span class="through">NT$429</span><i>/</i><span>NT$429</span></div>
                 </div>
-            </a>
+            </a> -->
         </div>
         <FnPagers></FnPagers>
     </div>
 </template>
 <script>
-import FnPagers from '@/components/FnPagers'
-export default {
-    name:'products',
-    components:{
-        FnPagers,
-    },
-}
+    import FnPagers from '@/components/FnPagers'
+    export default {
+        name: 'products',
+        components: {
+            FnPagers,
+        },
+        props: {
+            'title': {
+                type: String,
+                default: ''
+            },
+            'lists': {
+                type: Array,
+                default: []
+            }
+        }
+    }
 </script>
 
 <style scoped>
-.products .content{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+    .products .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 </style>

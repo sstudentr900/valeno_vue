@@ -1,17 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home'
 import Product from '@/views/Product'
 import News from '@/views/News'
 import Beauty from '@/views/Beauty'
 import Store from '@/views/Store'
-import Contact from '@/views/Contact'
-import Member from '@/views/Member'
-import Question from '@/views/Question'
+import Contact from '@/views/contact'
+import Member from '@/views/member'
+import Question from '@/views/question'
 
 const routes = [{
         path: '/',
         name: 'home',
-        component: Home
+        component: () =>
+            import ('../views/Home/index.vue')
     },
     {
         path: '/product/:id?',
@@ -48,12 +48,6 @@ const routes = [{
         name: 'question',
         component: Question
     },
-    // {
-    //     path: '/question',
-    //     name: 'question',
-    //     component: () =>
-    //         import ('../views/Question/QuestionView.vue')
-    // },
 ]
 
 const router = createRouter({

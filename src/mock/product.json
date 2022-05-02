@@ -1,0 +1,156 @@
+{
+    "nav": [{
+            "id": 1,
+            "class_id": 0,
+            "name": "臉部彩妝",
+            "child": [{
+                    "id": 7,
+                    "class_id": 1,
+                    "name": "妝前修飾乳"
+                },
+                {
+                    "id": 8,
+                    "class_id": 1,
+                    "name": "BB/CC霜"
+                },
+                {
+                    "id": 9,
+                    "class_id": 1,
+                    "name": "氣墊式粉底"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "class_id": 0,
+            "name": "眼部彩妝",
+            "child": [{
+                    "id": 10,
+                    "class_id": 1,
+                    "name": "遮瑕霜"
+                },
+                {
+                    "id": 12,
+                    "class_id": 1,
+                    "name": "腮紅 / 修容"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "class_id": 0,
+            "name": "唇部彩妝",
+            "child": [{
+                "id": 11,
+                "class_id": 1,
+                "name": "蜜粉"
+            }]
+        },
+        {
+            "id": 4,
+            "class_id": 0,
+            "name": "美髮保養",
+            "child": [{
+                "id": 7,
+                "class_id": 1,
+                "name": "妝前修飾乳"
+            }]
+        },
+        {
+            "id": 5,
+            "class_id": 0,
+            "name": "身體乳液"
+        },
+        {
+            "id": 6,
+            "class_id": 0,
+            "name": "其他"
+        }
+    ],
+    "banner": [{
+        "src": "ban2.jpg",
+        "id": 1
+    }],
+    "productTitle": "#臉部彩妝",
+    "productList": [{
+            "id": 1,
+            "href": "product_view",
+            "src": "p01.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 2,
+            "href": "product_view",
+            "src": "p02.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 3,
+            "href": "product_view",
+            "src": "p03.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 4,
+            "href": "product_view",
+            "src": "p04.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 5,
+            "href": "product_view",
+            "src": "p05.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 6,
+            "href": "product_view",
+            "src": "p06.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 7,
+            "href": "product_view",
+            "src": "p01.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        },
+        {
+            "id": 8,
+            "href": "product_view",
+            "src": "p02.jpg",
+            "text_en": "Mistine - Groove complete",
+            "text_ti": "12色完美眼彩盤",
+            "text_sale": "泰國必買",
+            "price": "NT$529",
+            "special_price": "NT$429"
+        }
+    ]
+}

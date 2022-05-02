@@ -1,24 +1,26 @@
 <template>
     <div class="news">
-        <h2 class="public_title">#LATEST NEWS</h2>
+        <h2 class="public_title">{{title}}</h2>
         <div id="slideshow02" class="slide puplic_scrollTop">
             <ul>
-                <li>
-                    <a href="new_view.html" title="" tabindex="0">
-                        <div class="img"><img src="@/assets/n01.jpg" alt=""></div>
+                <li v-for="(item,index) in slides" :key="item.id">
+                    <a :href="item.href">
+                        <div class="img">
+                            <img :src="require(`@/assets/${item.src}`)">
+                        </div>
                         <div class="info">
                             <div class="date">
-                                <div class="num">17</div>
+                                <div class="num">{{item.text_date}}</div>
                                 <div class="right">
-                                    <div class="month">APR</div>
-                                    <div class="year">2017</div>
+                                    <div class="month">{{item.text_month}}</div>
+                                    <div class="year">{{item.text_year}}</div>
                                 </div>
                             </div>
-                            <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
+                            <div class="text">{{item.text}}</div>
                         </div>
                     </a>
                 </li>
-                <li class="active">
+                <!--<li class="active">
                     <a href="new_view.html" title="" tabindex="0">
                         <div class="img"><img src="@/assets/n02.jpg" alt=""></div>
                         <div class="info">
@@ -48,7 +50,7 @@
                         </div>
                     </a>
                 </li>
-                <!--<li>
+                <li>
                     <a href="new_view.html" title="" tabindex="0">
                         <div class="img"><img src="@/assets/n04.jpg" alt=""></div>
                         <div class="info">
@@ -148,6 +150,7 @@
 <script>
 export default {
     name:'news',
+    props:["slides","title"],
 }
 </script>
 
