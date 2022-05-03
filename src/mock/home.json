@@ -28,11 +28,10 @@
             "id": 3
         }
     ],
-    "productTitle": "#NEW ARRIVAL",
     "productLeft": [{
         "src": "in01.jpg"
     }],
-    "productRight": [{
+    "productList": [{
             "id": 1,
             "href": "product_view",
             "src": "p01.jpg",
@@ -113,7 +112,6 @@
             "special_price": "NT$429"
         }
     ],
-    "newTitle": "#LATEST NEWS",
     "newSlide": [{
             "href": "#",
             "src": "n01.jpg",

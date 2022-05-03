@@ -67,11 +67,15 @@
             "name": "其他"
         }
     ],
-    "banner": [{
-        "src": "ban2.jpg",
-        "id": 1
-    }],
-    "productTitle": "#臉部彩妝",
+    "slide": [{
+            "image": "ban1.jpg",
+            "id": 1
+        },
+        {
+            "image": "ban2.jpg",
+            "id": 2
+        }
+    ],
     "productList": [{
             "id": 1,
             "href": "product_view",

@@ -1,83 +1,61 @@
 <template>
-    <div class="nav">
-        <h4 class="public_title">#PRODUCT</h4>
-        <ul>
-            <li v-for="(item,index) in items" :key="item.id" :class="{active:item.id==nav1Id}">
-                <div @click="nav1(item.child,item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
-                <ul v-if="item.child">
-                    <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==nav2Id}">
-                        <a @click="nav2(item2.id)">{{item2.name}}</a>
+    <div class="product">
+        <div class="left">
+            <div class="nav">
+                <h4 class="public_title">#PRODUCT</h4>
+                <ul>
+                    <li v-for="item in productData.nav" :key="item.id" :class="{active:item.id==nav1Id}">
+                        <div @click="nav1(item.child,item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
+                        <ul v-if="item.child">
+                            <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==nav2Id}">
+                                <a @click="nav2(item2.id)">{{item2.name}}</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
-            </li>
-            <!-- <li class="active">
-                <div>臉部彩妝<span class="icon"></span></div>
-                <ul>
-                    <li class="active"><a href="" title="">妝前修飾乳</a></li>
-                    <li><a href="" title="">粉底/粉餅</a></li>
-                    <li><a href="" title="">BB/CC霜</a></li>
-                    <li><a href="" title="">氣墊式粉底</a></li>
-                    <li><a href="" title="">遮瑕霜</a></li>
-                    <li><a href="" title="">蜜粉</a></li>
-                    <li><a href="" title="">腮紅 / 修容</a></li>
-                </ul>
-            </li>
-            <li>
-                <div>眼部彩妝<span class="icon"></span></div>
-                <ul>
-                    <li><a href="" title="">妝前修飾乳</a></li>
-                    <li><a href="" title="">粉底/粉餅</a></li>
-                    <li><a href="" title="">BB/CC霜</a></li>
-                    <li><a href="" title="">氣墊式粉底</a></li>
-                    <li><a href="" title="">遮瑕霜</a></li>
-                    <li><a href="" title="">蜜粉</a></li>
-                    <li><a href="" title="">腮紅 / 修容</a></li>
-                </ul>
-            </li>
-            <li>
-                <div>唇部彩妝<span class="icon"></span></div>
-                <ul>
-                    <li><a href="" title="">妝前修飾乳</a></li>
-                    <li><a href="" title="">粉底/粉餅</a></li>
-                    <li><a href="" title="">BB/CC霜</a></li>
-                    <li><a href="" title="">氣墊式粉底</a></li>
-                    <li><a href="" title="">遮瑕霜</a></li>
-                    <li><a href="" title="">蜜粉</a></li>
-                    <li><a href="" title="">腮紅 / 修容</a></li>
-                </ul>
-            </li>
-            <li>
-                <div>美髮保養<span class="icon"></span></div>
-                <ul>
-                    <li><a href="" title="">妝前修飾乳</a></li>
-                    <li><a href="" title="">粉底/粉餅</a></li>
-                    <li><a href="" title="">BB/CC霜</a></li>
-                    <li><a href="" title="">氣墊式粉底</a></li>
-                    <li><a href="" title="">遮瑕霜</a></li>
-                    <li><a href="" title="">蜜粉</a></li>
-                    <li><a href="" title="">腮紅 / 修容</a></li>
-                </ul>
-            </li>
-            <li>
-                <div>身體乳液</div>
-            </li>
-            <li>
-                <div>其他</div>
-            </li> -->
-        </ul>
+            </div>
+        </div>
+        <div class="right">
+            <slide :items="productData.slide"></slide>
+            <h4 class="public_title">#臉部彩妝</h4>
+            <div class="content public_scrollTop">
+                <FnProduct v-for="productList in productData.productList" :key="productList.id" :item="productList"></FnProduct>
+                <!-- <a v-for="list in productData.productList" :key="list.id" :href="list.href" class="public_item">
+                    <div class="img">
+                        <img class="lazy" :src="require(`@/assets/${list.src}`)" alt="">
+                    </div>
+                    <div class="info">
+                        <div class="en">{{list.text_en}}</div>
+                        <div class="tit">{{list.text_ti}}</div>
+                        <div class="sale">{{list.text_sale}}</div>
+                        <div class="price">
+                            <span class="through">{{list.price}}</span>
+                            <i>/</i>
+                            <span>{{list.special_price}}</span>
+                        </div>
+                    </div>
+                </a> -->
+            </div>
+            <FnPagers></FnPagers>
+        </div>
     </div>
 </template>
 <script>
+    import FnProduct from '@/components/FnProduct'
+    import FnPagers from '@/components/FnPagers'
+    import slide from '@/components/FnSlide'
     import {
         mapState
     } from 'vuex'
     export default {
-        name: 'navs',
-        props: {
-            'items': {
-                type: Array,
-                default: []
-            }
+        name: 'product',
+        components: {
+            slide,
+            FnProduct,
+            FnPagers
+        },
+        computed: {
+            ...mapState('product', ['productData'])
         },
         data() {
             return {
@@ -113,6 +91,21 @@
 </script>
 
 <style scoped>
+    .product {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    
+    .product>.left {
+        width: 19%;
+    }
+    
+    .product>.right {
+        width: 80%;
+    }
+    
+    /*nav*/
     .nav>.public_title {
         text-align: left;
         margin-top: 0;
@@ -222,5 +215,12 @@
     
     .nav>ul>li ul li.active a {
         color: #c1894c;
+    }
+
+    /*right*/
+    .right .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 </style>

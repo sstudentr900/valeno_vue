@@ -28,11 +28,11 @@ const routes = [{
         name: 'beauty',
         component: Beauty
     },
-    {
-        path: '/store',
-        name: 'store',
-        component: Store
-    },
+    // {
+    //     path: '/store',
+    //     name: 'store',
+    //     component: Store
+    // },
     {
         path: '/contact',
         name: 'contact',
