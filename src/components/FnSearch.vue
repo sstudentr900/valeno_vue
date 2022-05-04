@@ -7,8 +7,8 @@
                     <span></span>
                 </a>
                 <div class="inpudDiv">
-                    <input type="text" placeholder="SEARCH">
-                    <button><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
+                    <input type="text" placeholder="SEARCH" v-model="keyword">
+                    <button type="button" @click="goSearch"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
                 </div>
             </form>
             <div class="tags">
@@ -30,11 +30,24 @@
 export default {
     props:['enterShow'],
     emits: ['updateShow'],
-    /*methods: {
-        updateShowFn: function(show){
-            this.$emit("updateShow", show)
+    data() {
+        return {
+            keyword: '',
         }
-    },*/
+    },
+    methods: {
+        // updateShowFn(show){
+        //     this.$emit("updateShow", show)
+        // },
+        goSearch(){
+            this.$router.push("/search/"+this.keyword+"?k="+this.keyword.toUpperCase())
+            this.$router.push({
+                name: 'search',
+                params: {keyword:this.keyword || undefined},
+                query: {big: this.keyword.toUpperCase()},
+            })
+        }
+    },
 }
 </script>
 
@@ -62,11 +75,11 @@ export default {
     padding: 100px 50px;
     transform-origin: top;
     transform: translateY(-100%) ;
-    transition: .5s ease;
+    transition: transform .5s ease;
 }
 .searchObj.active .box{
     transform: translateY(0) ;
-    transition: .5s ease;
+    transition: transform .5s ease;
     transition-delay: .2s;
 }
 .searchObj form {

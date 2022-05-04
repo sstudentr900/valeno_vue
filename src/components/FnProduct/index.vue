@@ -1,5 +1,6 @@
 <template>
-    <a :href="item.href" class="public_item">
+    <!-- <a :href="`/${item.href}`" class="public_item"> -->
+    <router-link :to="`/${item.href}`" class="public_item">
         <div class="img">
             <img class="lazy" :src="item.src" alt="">
         </div>
@@ -13,7 +14,8 @@
                 <span>{{item.special_price}}</span>
             </div>
         </div>
-    </a>
+    </router-link>
+    <!-- </a> -->
 </template>
 <script>
     export default {

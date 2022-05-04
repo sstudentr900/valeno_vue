@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Product from '@/views/Product'
 import News from '@/views/News'
 import Beauty from '@/views/Beauty'
-import Store from '@/views/Store'
+// import Store from '@/views/Store'
 import Contact from '@/views/contact'
 import Member from '@/views/member'
 import Question from '@/views/question'
@@ -18,6 +18,17 @@ const routes = [{
         name: 'product',
         component: Product
     },
+    {
+        path: '/product_view/:id?',
+        name: 'product_view',
+        component: () =>
+            import ('../views/ProductView.vue')
+    },
+    // {
+    //     path: '/search/:keyword',
+    //     name: 'news',
+    //     component: News
+    // },
     {
         path: '/news',
         name: 'news',
