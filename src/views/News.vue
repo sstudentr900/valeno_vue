@@ -1,11 +1,12 @@
 <template>
     <div class="news">
-        <h3 class="public_title">{{newsData.newsTitle}}</h3>
+        <h3 class="public_title">#NEWS</h3>
         <div class="public_flex">
             <a v-for="item in newsData.newsList" :key="item.id" :href="item.href">
                 <div class="top">
                     <div class="img">
-                        <img :src="item.src">
+                        <!-- <img :src="item.src"> -->
+                        <img :src="require(`@/assets/${item.src}`)">
                     </div>
                     <span class="data">{{item.data}}</span>
                 </div>

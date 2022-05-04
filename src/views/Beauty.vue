@@ -1,6 +1,6 @@
 <template>
     <div class="beauty">
-        <h3 class="public_title">{{beautyData.beautyTitle}}</h3>
+        <h3 class="public_title">#BEAUTY</h3>
         <div v-for="item in beautyData.beautyList" :key="item.id" class="public_flex scrollTop active">
             <div class="img">
                 <a :href="item.href">

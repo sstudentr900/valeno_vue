@@ -3,7 +3,7 @@
         <slide :items="home.slide"></slide>
         <div class="ad">
             <a v-for="(item,index) in home.ad" :href="item.href" :key="index">
-                <img :src="item.src">
+                <img :src="require(`@/assets/${item.src}`)">
             </a>
         </div>
         <div class="products">
@@ -22,7 +22,7 @@
         </div>
         <div class="news">
             <h2 class="public_title">#LATEST NEWS</h2>
-            <news :slides="home.newSlide"></news>
+            <news :slides="home.slide2"></news>
         </div>
     </div>
 </template>
@@ -31,7 +31,8 @@
     import FnProduct from '@/components/FnProduct'
     import news from './news'
     import {
-        mapState,mapGetters
+        mapState,
+        mapGetters
     } from 'vuex'
     export default {
         name: 'home',
@@ -42,30 +43,34 @@
         },
         computed: {
             ...mapState('home', ['home']),
-            ...mapGetters('home',['homeProductListRight','homeProductListBottom'])
+            ...mapGetters('home', ['homeProductListRight', 'homeProductListBottom'])
         },
-        methods: {
-        },
+        methods: {},
     }
 </script>
 <style scoped>
     /*ad*/
+    
     .ad {
         margin-top: 10px;
         display: flex;
         justify-content: space-between;
     }
-    .ad a{
+    
+    .ad a {
         width: 32.5%;
         margin-bottom: 10px
     }
-    .ad a img{
+    
+    .ad a img {
         transition: ease 0.3s;
     }
-    .ad a img:hover{
+    
+    .ad a img:hover {
         box-shadow: 3px 3px 0 #000;
     }
     /*products*/
+    
     .products .right,
     .products .bottom,
     .products .content {
@@ -79,6 +84,7 @@
     .products .left {
         width: 49%;
     }
+    
     .products .bottom {
         width: 100%;
     }

@@ -20,17 +20,17 @@ const actions = {
     }
 }
 const getters = {
-    homeProductListRight(state){
-        return state.homeProductList.filter((item, index, array)=>index < 4)
-        // return state.homeProductList.filter(function(item, index, array){
-        //     return index < 4
-        // })
+    homeProductListRight(state) {
+        return state.homeProductList.filter((item, index) => index < 4)
+            // return state.homeProductList.filter(function(item, index, array){
+            //     return index < 4
+            // })
     },
     homeProductListBottom(state) {
-        return state.homeProductList.filter((item, index, array) => index > 3)
-        // return state.homeProductList.filter(function(item, index, array) {
-        //     return index >3
-        // });
+        return state.homeProductList.filter((item, index) => index > 3)
+            // return state.homeProductList.filter(function(item, index, array) {
+            //     return index >3
+            // });
     },
 }
 export default {
