@@ -13,5 +13,5 @@ module.exports = defineConfig({
     },
 
     //domain 設定
-    publicPath: process.env.NODE_ENV === 'production' ? '/valeno_vue/dist' : '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/valeno_vue/dist/' : '/'
 })
