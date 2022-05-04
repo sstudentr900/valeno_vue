@@ -1,7 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
     transpileDependencies: true,
-    lintOnSave: false, //检查命名规范
+    lintOnSave: false, //關閉检查命名规范
+    filenameHashing: false,//關閉打包後的檔名出現雜湊值
 
     //代理跨域
     devServer: {
@@ -13,5 +14,7 @@ module.exports = defineConfig({
     },
 
     //domain 設定
-    publicPath: process.env.NODE_ENV === 'production' ? '/valeno_vue/dist/' : '/'
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/valeno_vue/dist/'
+    : '/'
 })
