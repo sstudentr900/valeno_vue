@@ -10,5 +10,10 @@ module.exports = defineConfig({
                 target: 'https://bookshelf.goodideas-studio.com',
             }
         }
-    }
+    },
+
+    //domain 設定
+    publicPath: process.env.NODE_ENV === 'production'
+    ? '/valeno_vue/dist/'
+    : '/'
 })
