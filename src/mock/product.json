@@ -68,18 +68,18 @@
         }
     ],
     "slide": [{
-            "image": "ban1.jpg",
+            "image": "https://imgur.com/SRslEKw.jpg",
             "id": 1
         },
         {
-            "image": "ban2.jpg",
+            "image": "https://imgur.com/kIR5c9e.jpg",
             "id": 2
         }
     ],
     "productList": [{
             "id": 1,
             "href": "product_view",
-            "src": "p01.jpg",
+            "src": "https://imgur.com/eJEZuLC.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -89,7 +89,7 @@
         {
             "id": 2,
             "href": "product_view",
-            "src": "p02.jpg",
+            "src": "https://imgur.com/nDjOWZU.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -99,7 +99,7 @@
         {
             "id": 3,
             "href": "product_view",
-            "src": "p03.jpg",
+            "src": "https://imgur.com/QLM7KBM.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -109,7 +109,7 @@
         {
             "id": 4,
             "href": "product_view",
-            "src": "p04.jpg",
+            "src": "https://imgur.com/1Q7xtcu.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -119,7 +119,7 @@
         {
             "id": 5,
             "href": "product_view",
-            "src": "p05.jpg",
+            "src": "https://imgur.com/ULKIm2M.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -129,7 +129,7 @@
         {
             "id": 6,
             "href": "product_view",
-            "src": "p06.jpg",
+            "src": "https://imgur.com/NHpuz3o.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -139,7 +139,7 @@
         {
             "id": 7,
             "href": "product_view",
-            "src": "p01.jpg",
+            "src": "https://imgur.com/eJEZuLC.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",
@@ -149,7 +149,7 @@
         {
             "id": 8,
             "href": "product_view",
-            "src": "p02.jpg",
+            "src": "https://imgur.com/nDjOWZU.jpg",
             "text_en": "Mistine - Groove complete",
             "text_ti": "12色完美眼彩盤",
             "text_sale": "泰國必買",

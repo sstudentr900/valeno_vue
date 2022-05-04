@@ -2,7 +2,7 @@
   <div class="swiper" ref="mySwiper">
     <div class="swiper-wrapper">
       <div v-for="(item,index) in items" :key="index" class="swiper-slide">
-          <img :src="require(`@/assets/${item.image}`)">
+          <img :src="item.image">
       </div>
     </div>
     <!-- <div class="swiper-pagination"></div> -->

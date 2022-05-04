@@ -1,7 +1,7 @@
 <template>
     <a :href="item.href" class="public_item">
         <div class="img">
-            <img class="lazy" :src="require(`@/assets/${item.src}`)" alt="">
+            <img class="lazy" :src="item.src" alt="">
         </div>
         <div class="info">
             <div class="en">{{item.text_en}}</div>

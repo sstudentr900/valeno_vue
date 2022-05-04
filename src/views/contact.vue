@@ -60,7 +60,7 @@
                     <div class="tit"><span class="must">*</span>驗證碼</div>
                     <div class="content code_box">
                         <input type="text" name="captcha" class="inputObj">
-                        <a href="" title="更換驗證碼"><img src="@/assets/code.jpg" alt=""></a>
+                        <a href="" title="更換驗證碼"><img src="https://imgur.com/IKAg6jr.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="inputDiv">

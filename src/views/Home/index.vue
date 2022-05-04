@@ -3,7 +3,7 @@
         <slide :items="home.slide"></slide>
         <div class="ad">
             <a v-for="(item,index) in home.ad" :href="item.href" :key="index">
-                <img :src="require(`@/assets/${item.src}`)">
+                <img :src="item.src">
             </a>
         </div>
         <div class="products">

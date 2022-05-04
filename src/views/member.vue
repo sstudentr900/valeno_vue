@@ -17,7 +17,7 @@
                       <div class="tit">驗證碼</div>
                       <div class="code">
                           <input type="text" name="captcha">
-                          <a href="" title="更換驗證碼"><img src="@/assets/code.jpg" alt=""></a>
+                          <a href="" title="更換驗證碼"><img src="https://imgur.com/IKAg6jr.jpg" alt=""></a>
                       </div>
                   </div>
                   <div class="public_flex">

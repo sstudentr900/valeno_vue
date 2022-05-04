@@ -4,7 +4,7 @@
             <li v-for="item in slides" :key="item.id">
                 <a :href="item.href">
                     <div class="img">
-                        <img :src="require(`@/assets/${item.src}`)">
+                        <img :src="item.src">
                     </div>
                     <div class="info">
                         <div class="date">

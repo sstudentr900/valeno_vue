@@ -7,7 +7,7 @@
                 <ul class="list">
                     <li>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p01.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/eJEZuLC.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -23,7 +23,7 @@
                     </li>
                     <li>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p02.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/nDjOWZU.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -39,7 +39,7 @@
                     </li>
                     <li>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p03.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/QLM7KBM.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p04.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/1Q7xtcu.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -82,7 +82,7 @@
                             <span><i class="fa fa-check" aria-hidden="true"></i></span>
                         </label>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p01.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/eJEZuLC.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -109,7 +109,7 @@
                             <span><i class="fa fa-check" aria-hidden="true"></i></span>
                         </label>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p02.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/nDjOWZU.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -136,7 +136,7 @@
                             <span><i class="fa fa-check" aria-hidden="true"></i></span>
                         </label>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p03.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/QLM7KBM.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
@@ -163,7 +163,7 @@
                             <span><i class="fa fa-check" aria-hidden="true"></i></span>
                         </label>
                         <div class="img">
-                            <a href="product_view.html" title=""><img src="@/assets/p04.jpg" alt=""></a>
+                            <a href="product_view.html" title=""><img src="https://imgur.com/1Q7xtcu.jpg" alt=""></a>
                         </div>
                         <div class="text">
                             <a href="product_view.html" title="">
