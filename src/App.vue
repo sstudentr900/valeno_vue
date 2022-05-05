@@ -41,7 +41,7 @@
         font-family: Helvetica, Arila, "LiHei Pro", "Microsoft JhengHei", "新細明體", serif;
         min-height: 100vh;
         padding: 60px 0;
-        background: url(https://imgur.com/I5RvJu2.jpg) repeat;
+        background: url(./assets/bg01.jpg) repeat;
     }
     
     @media (max-width: 1200px) {

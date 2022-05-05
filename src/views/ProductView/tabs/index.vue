@@ -1,19 +1,19 @@
 <template>
     <div class="tabs" v-if="item">
         <ul>
-            <li><a href="#menu1" class="active">詳細介紹</a></li>
-            <li><a href="#menu2">使用說明</a></li>
-            <li><a href="#menu3">成分說明</a></li>
+            <li @click="menu(1)" v-bind:class="{active:itemIndex==1}">詳細介紹</li>
+            <li @click="menu(2)" v-bind:class="{active:itemIndex==2}">使用說明</li>
+            <li @click="menu(3)" v-bind:class="{active:itemIndex==3}">成分說明</li>
         </ul>
         <div class="items">
-            <div class="item">
+            <div class="item" v-bind:class="{active:itemIndex==1}">
                 <!-- <img src="img/pv01.jpg" alt=""> -->
                 <img :src="item.introduce" alt="">
             </div>
-            <div class="item active">
+            <div class="item" v-bind:class="{active:itemIndex==2}">
                 {{item.illustrate}}
             </div>
-            <div class="item">
+            <div class="item" v-bind:class="{active:itemIndex==3}">
                 {{item.element}}
             </div>
         </div>
@@ -22,7 +22,18 @@
 <script>
     export default {
         name: 'tabs',
-        props: ["item"]
+        data(){
+            return{
+                'itemIndex': 1
+            }
+        },
+        props: ["item"],
+        methods:{
+            menu(value){
+                console.log(value)
+                this.itemIndex = value
+            }
+        }
     }
 </script>
 
@@ -39,7 +50,7 @@
         /* font-size: 0; */
     }
     
-    .tabs ul a {
+    .tabs ul li {
         color: #000;
         padding: 10px 20px;
         min-width: 200px;
@@ -47,9 +58,10 @@
         border-bottom: 1px solid #000;
         line-height: 1.4;
         height: 45px;
+        cursor: pointer;
     }
     
-    .tabs ul a.active {
+    .tabs ul li.active {
         color: #000;
         border: 1px solid #000;
         border-top: 2px solid #000;
@@ -57,7 +69,7 @@
         background: #fff;
     }
     
-    .tabs ul a:hover {
+    .tabs ul li:hover {
         background: #000;
         color: #fff;
     }

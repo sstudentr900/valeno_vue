@@ -1,13 +1,19 @@
 <template>
     <div class="product_view">
-        <product :item="productViewData.item"></product>
+        <div class="product">
+            <div class="public_flex">
+                <productImg :item="productViewData.item"></productImg>
+                <productText :item="productViewData.item"></productText>
+            </div>
+        </div>
         <similars :items="productViewData.linkList"></similars>
         <tabs :item="productViewData.item"></tabs>
         <recommend :items="productViewData.recommendList"></recommend>
     </div>
 </template>
 <script>
-    import product from './product'
+    import productImg from './productImg'
+    import productText from './productText'
     import similars from './similars'
     import tabs from './tabs'
     import recommend from './recommend'
@@ -20,7 +26,8 @@
             this.$store.dispatch('productView/productViewAc', this.$route.params)
         },
         components: {
-            product,
+            productImg,
+            productText,
             similars,
             tabs,
             recommend,
@@ -32,5 +39,7 @@
 </script>
 
 <style scoped>
-
+.product {
+    margin-top: 30px;
+}
 </style>
