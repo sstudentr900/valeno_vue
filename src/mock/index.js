@@ -20,7 +20,7 @@ const slide = [{
 const productList = [{
         "id": 1,
         "href": "product_view",
-        "src": "p01.jpg",
+        "src": "https://imgur.com/eJEZuLC.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "泰國必買",
@@ -28,14 +28,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p01.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 2,
         "href": "product_view",
-        "src": "p02.jpg",
+        "src": "https://imgur.com/nDjOWZU.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "Mistine周年慶全館85折",
@@ -43,14 +44,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p02.jpg", "p03.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 3,
         "href": "product_view",
-        "src": "p03.jpg",
+        "src": "https://imgur.com/QLM7KBM.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "泰國必買",
@@ -58,14 +60,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p03.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/QLM7KBM.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 4,
         "href": "product_view",
-        "src": "p04.jpg",
+        "src": "https://imgur.com/1Q7xtcu.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "Mistine周年慶全館85折",
@@ -73,14 +76,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p04.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 5,
         "href": "product_view",
-        "src": "p05.jpg",
+        "src": "https://imgur.com/ULKIm2M.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "Mistine周年慶全館85折",
@@ -88,14 +92,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p05.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 6,
         "href": "product_view",
-        "src": "p01.jpg",
+        "src": "https://imgur.com/eJEZuLC.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "泰國必買",
@@ -103,14 +108,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p06.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["p06.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 7,
         "href": "product_view",
-        "src": "p01.jpg",
+        "src": "https://imgur.com/nDjOWZU.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "Mistine周年慶全館85折",
@@ -118,14 +124,15 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p07.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["p07.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     },
     {
         "id": 8,
         "href": "product_view",
-        "src": "p02.jpg",
+        "src": "https://imgur.com/eJEZuLC.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "泰國必買",
@@ -133,9 +140,10 @@ const productList = [{
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
         "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
-        "element": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "productImgs": ["p08.jpg", "p02.jpg", "p05.jpg", "p04.jpg", "p03.jpg", "p05.jpg"],
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["p08.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
     }
 ];
 // const data = Mock.mock({
@@ -423,20 +431,16 @@ Mock.mock('/mock/beauty', () => {
 Mock.mock('/mock/store', { code: 200, data: store });
 Mock.mock('/mock/productView', (options) => {
     let body = JSON.parse(options.body)
-    console.log(body)
+        // const index = productList.findIndex(item => item.id === body.id)
+        // console.log(body)
+        // console.log(index)
+        // console.log(productList.filter(item => item.id > 2 && item.id < 7))
     return {
         code: 200,
         data: {
-            "item": productList.filter((item) => item.id == body.id),
-            "linkList": productList.filter((item, index) => index < 4),
-            "recommendList": productList.filter((item, index) => index > 3 && index < 7)
+            "item": productList.filter(item => item.id == body.id)[0],
+            "linkList": productList.filter(item => item.id < 3),
+            "recommendList": productList.filter(item => item.id > 2 && item.id < 7),
         }
     }
-    // const index = data.list.findIndex(item => item.id === body.id)
-    // data.list.splice(index, 1)
-    // return {
-    //     status: 200,
-    //     message: '删除成功',
-    //     list: data.list
-    // }
 });

@@ -22,7 +22,7 @@ const routes = [{
         path: '/product_view/:id',
         name: 'product_view',
         component: () =>
-            import ('../views/ProductView.vue')
+            import ('../views/ProductView')
     },
     // {
     //     path: '/search/:keyword',
