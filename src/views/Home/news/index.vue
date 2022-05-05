@@ -1,153 +1,78 @@
 <template>
-    <div id="slideshow02" class="slide puplic_scrollTop">
-        <ul>
-            <li v-for="item in slides" :key="item.id">
-                <a :href="item.href">
+    <div class="slide puplic_scrollTop">
+        <transition-group name="flip-list" tag="ul">
+            <li v-for="(item,index) in slideData" :key="item.ref">
+                <router-link :to="`/${item.href}/${item.id}`">
+                <!-- <a :href="item.href"> -->
                     <div class="img">
                         <img :src="require(`@/assets/${item.src}`)">
                     </div>
                     <div class="info">
                         <div class="date">
-                            <div class="num">{{item.text_date}}</div>
+                            <div class="day">{{item.day}}</div>
                             <div class="right">
-                                <div class="month">{{item.text_month}}</div>
-                                <div class="year">{{item.text_year}}</div>
+                                <div class="month">{{item.month}}</div>
+                                <div class="year">{{item.year}}</div>
                             </div>
                         </div>
                         <div class="text">{{item.text}}</div>
                     </div>
-                </a>
+                <!-- </a> -->
+                </router-link>
             </li>
-            <!--<li class="active">
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n02.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="right">
-                                <div class="month">APR</div>
-                                <div class="year">2017</div>
-                            </div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n03.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="right">
-                                <div class="month">APR</div>
-                                <div class="year">2017</div>
-                            </div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n04.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n05.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n01.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n02.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n03.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n04.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="new_view.html" title="" tabindex="0">
-                    <div class="img"><img src="@/assets/n05.jpg" alt=""></div>
-                    <div class="info">
-                        <div class="date">
-                            <div class="num">17</div>
-                            <div class="month">APR</div>
-                            <div class="year">2017</div>
-                        </div>
-                        <div class="text">開架底妝百百款 教妳怎麼聰明挑才能買對不失手！</div>
-                    </div>
-                </a>
-            </li>-->
-        </ul>
-        <div class="control previous"></div>
-        <div class="control next"></div>
+        </transition-group>
+        <div class="control prev" @click="controlFn(1)"></div>
+        <div class="control next" @click="controlFn(-1)"></div>
     </div>
 </template>
 <script>
     export default {
         name: 'news',
-        props: ["slides"],
+        props: ["items"],
+        data() {
+            return {
+                slideData: [],
+                clickWait: false,
+                timer: {},
+            }
+        },
+        mounted() {
+            let length = this.items.length
+            for (let i = 0; i < length * 3; i++) {
+                let number = i % length
+                let obj = JSON.parse(JSON.stringify(this.items[number]));
+                obj.ref = i;
+                this.slideData.push(obj)
+            }
+        },
+        methods: {
+            controlFn(slidesToShow = 1) {
+                if (this.clickWait) {
+                    return;
+                }
+                this.stopTime();
+                this.clickWait = true;
+                if (slidesToShow > 0) {
+                    const shiftItem = this.slideData.shift();
+                    this.slideData.push(shiftItem);
+                    this.setTime();
+                    return;
+                }
+                if (slidesToShow < 0) {
+                    const shiftItem = this.slideData.pop();
+                    this.slideData.unshift(shiftItem);
+                    this.setTime();
+                }
+            },
+            setTime() {
+                this.timer = setTimeout(() => {
+                    this.clickWait = false;
+                }, 500);
+            },
+            stopTime() {
+                clearInterval(this.timer);
+            },
+        }
     }
 </script>
 
@@ -155,33 +80,44 @@
     .slide {
         position: relative;
         overflow: hidden;
-        /* min-height: 270px;
-    transition: height .5s ease; */
     }
     
     .slide ul {
-        /* position: absolute; */
-        position: relative;
-        left: 0;
+        display: flex;
+        align-items: center;
+        list-style-type: none;
+        font-size: 0;
     }
     
     .slide li {
-        float: left;
-        width: 33%;
-        padding: 0 50px;
+        /* float: left;
+        width: 33%; */
+        padding: 20px 40px;
+        /* 設定每一個要輪播的項目寬度 */
+        flex: calc(100% / 3) 0 0;
+        /* 
+        為了達成上述圖片示意，因此除了往前推 2 個項目的距離外，
+        還要再多推 0.5 個輪播項目的距離，呈現露出半個輪播項目的樣式
+        */
+        /* left: calc(-100% / 3); */
+        left: -66.66%;
+        position: relative;
     }
     
-    .slide li a {
-        display: block;
-        -moz-transition: ease 0.5s;
-        -o-transition: ease 0.5s;
-        -webkit-transition: ease 0.5s;
-        transition: ease 0.5s;
+    .slide li:first-child,
+    .slide li:last-child {
+        z-index: -1;
+        opacity: 0;
     }
     
     .slide li .img {
         position: relative;
         overflow: hidden;
+        transition: ease 0.5s;
+    }
+    
+    .slide li:nth-child(4) .img {
+        transform: translateY(5px) scale(1.2);
     }
     
     .slide li .img:before {
@@ -210,6 +146,11 @@
         font-size: 0;
         display: flex;
         align-items: center;
+        transition: ease 0.5s;
+    }
+    
+    .slide li:nth-child(4) .info {
+        transform: translateY(20px);
     }
     
     .slide li .info .date {
@@ -221,7 +162,7 @@
         margin-right: 10px;
     }
     
-    .slide li .info .date .num {
+    .slide li .info .date .day {
         font-size: 36px;
     }
     
@@ -233,14 +174,6 @@
     .slide li .info .date .year {
         margin: 0;
         font-size: 12px;
-    }
-    
-    .slide li.active a {
-        margin: 0 -20px;
-    }
-    
-    .slide li.active .info .date {
-        margin-bottom: 0;
     }
     
     .slide li .info .date+.text {
@@ -255,8 +188,8 @@
         z-index: 10;
         margin-top: -20px;
         border: 0;
-        border-left: 2px solid #999;
-        border-bottom: 2px solid #999;
+        border-left: 4px solid #999;
+        border-bottom: 4px solid #999;
         -moz-transform: rotate(45deg);
         -ms-transform: rotate(45deg);
         -webkit-transform: rotate(45deg);
@@ -271,23 +204,19 @@
         opacity: 1;
     }
     
-    .slide .control.previous {
+    .slide .control.prev {
         left: 50%;
-        margin-left: -18.3%;
+        margin-left: -18%;
     }
     
     .slide .control.next {
         right: 50%;
-        margin-right: -17%;
+        margin-right: -18%;
         transform: rotate(-135deg);
     }
+    /* 動畫樣式設定 */
     
-    @media (max-width: 992px) {
-        .slide li a {
-            text-align: center;
-        }
-        .slide li .info .date {
-            display: none;
-        }
+    .flip-list-move {
+        transition: transform 0.8s;
     }
 </style>

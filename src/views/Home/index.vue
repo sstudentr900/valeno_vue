@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <slide :items="home.slide"></slide>
+        <slide v-if="home.slide" :items="home.slide"></slide>
         <div class="ad">
             <a v-for="(item,index) in home.ad" :href="item.href" :key="index">
                 <img :src="require(`@/assets/${item.src}`)">
@@ -22,7 +22,7 @@
         </div>
         <div class="news">
             <h2 class="public_title">#LATEST NEWS</h2>
-            <news :slides="home.slide2"></news>
+            <news v-if="home.newsList" :items="home.newsList"></news>
         </div>
     </div>
 </template>

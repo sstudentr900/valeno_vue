@@ -35,6 +35,12 @@ const routes = [{
         component: News
     },
     {
+        path: '/news_view/:id',
+        name: 'news_view',
+        component: () =>
+            import ('../views/newsView')
+    },
+    {
         path: '/beauty',
         name: 'beauty',
         component: Beauty

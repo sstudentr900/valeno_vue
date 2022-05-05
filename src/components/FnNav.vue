@@ -42,115 +42,148 @@
 </template>
 
 <script>
-import FnSeach  from '@/components/FnSearch'
-export default {
-    data(){
-        return{
-            fnSeachIf: false
-        }
-    },
-    components:{
-        FnSeach,
-    },
-    props:{
+    import FnSeach from '@/components/FnSearch'
+    export default {
+        data() {
+            return {
+                fnSeachIf: false
+            }
+        },
+        components: {
+            FnSeach,
+        },
+        props: {
 
-    },
-    methods: {
-        updateShowFn(event){
-            this.fnSeachIf = event
-            console.log('3',event,this.fnSeachIf)
-        }
-    },
+        },
+        methods: {
+            updateShowFn(event) {
+                this.fnSeachIf = event
+                console.log('3', event, this.fnSeachIf)
+            }
+        },
 
-}
+    }
 </script>
 
 <style scoped>
-.navObj .top { 
-    display: flex;
-    justify-content: space-between; 
-}
-.navObj .top .left img { width: 260px; }
-.navObj .top .right { text-align: right; }
-.navObj .top .right h2 { 
-    font-size: 2.625rem;
-    color: #000; 
-}
-.navObj .top .right p{
-    font-size: 14px;
-    line-height: 1.4;
-    color: #666;
-} 
-@media (max-width: 576px) {
-    .navObj .top .left img { width: 200px; }
-    .navObj .top .right { display: none; } 
-}
-.navObj .bottom {
-    display: flex;
-    padding: 12px 6px;
-    border: 1px solid #000;
-    border-left: none;
-    border-right: none;
-    margin: 15px 0;
-    justify-content: space-between;
-}
-.navObj .bottom ul { 
-    display: flex;
-    font-size: 0; 
-}
-.navObj .bottom ul li {
-    padding: 0;
-    position: relative;
-}
-.navObj .bottom ul li a { font-size: 1.125rem; color: #000;padding: 0 20px;font-weight: bold;}
-.navObj .bottom ul li a:before {
-    content: attr(data-title);
-    display: block;
-    font-size: 1.125rem;
-    opacity: 0;
-    transform: translateY(-50%) scale(0.5);
-    transition: ease 0.5s;
-
-}
-.navObj .bottom ul li a span {
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    transition: ease 0.5s;
-    color: #000;
-    font-size: 1.125rem;
-}
-.navObj .bottom ul li:hover a:before,
-.navObj .bottom ul li.active a:before {
-    opacity: 1;
-    transform: translateY(0%) scale(1);
-}
-.navObj .bottom ul li:hover a span,
-.navObj .bottom ul li.active a span {
-    transform: translate(-50%, 50%) scale(0.5);
-    opacity: 0;
-    visibility: hidden;
-}
-.navObj .bottom ul li a:hover { color: #000; }
-.navObj .bottom ul li:first-child a{ padding-left: 0; }
-.navObj .bottom .btns{
-    transition: ease 0.6s;
-    display: flex;
-}
-.navObj .bottom .btns a {
-    margin-left: 10px;
-    font-size: 0;
-    cursor: pointer;
-}
-.navObj .bottom .btns a svg{
-    fill: #7c7c7c;
-    height: 18px;
-}
-.navObj .bottom .btns a:hover svg{
-    fill: #000;
-}
-
-
+    .navObj .top {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .navObj .top .left img {
+        width: 260px;
+    }
+    
+    .navObj .top .right {
+        text-align: right;
+    }
+    
+    .navObj .top .right h2 {
+        font-size: 2.625rem;
+        color: #000;
+    }
+    
+    .navObj .top .right p {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #666;
+    }
+    
+    @media (max-width: 576px) {
+        .navObj .top .left img {
+            width: 200px;
+        }
+        .navObj .top .right {
+            display: none;
+        }
+    }
+    
+    .navObj .bottom {
+        display: flex;
+        padding: 15px 6px;
+        border: 1px solid #000;
+        border-left: none;
+        border-right: none;
+        margin: 15px 0;
+        justify-content: space-between;
+    }
+    
+    .navObj .bottom ul {
+        display: flex;
+        font-size: 0;
+    }
+    
+    .navObj .bottom ul li {
+        padding: 0;
+        position: relative;
+    }
+    
+    .navObj .bottom ul li a {
+        font-size: 1.125rem;
+        color: #000;
+        padding: 0 20px;
+        font-weight: bold;
+    }
+    
+    .navObj .bottom ul li a:before {
+        content: attr(data-title);
+        display: block;
+        font-size: 1.125rem;
+        opacity: 0;
+        transform: translateY(-50%) scale(0.5);
+        transition: ease 0.5s;
+    }
+    
+    .navObj .bottom ul li a span {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        transition: ease 0.5s;
+        color: #000;
+        font-size: 1.125rem;
+    }
+    
+    .navObj .bottom ul li:hover a:before,
+    .navObj .bottom ul li.active a:before {
+        opacity: 1;
+        transform: translateY(0%) scale(1);
+    }
+    
+    .navObj .bottom ul li:hover a span,
+    .navObj .bottom ul li.active a span {
+        transform: translate(-50%, 50%) scale(0.5);
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    .navObj .bottom ul li a:hover {
+        color: #000;
+    }
+    
+    .navObj .bottom ul li:first-child a {
+        padding-left: 0;
+    }
+    
+    .navObj .bottom .btns {
+        transition: ease 0.6s;
+        display: flex;
+    }
+    
+    .navObj .bottom .btns a {
+        margin-left: 10px;
+        font-size: 0;
+        cursor: pointer;
+    }
+    
+    .navObj .bottom .btns a svg {
+        fill: #7c7c7c;
+        height: 18px;
+    }
+    
+    .navObj .bottom .btns a:hover svg {
+        fill: #000;
+    }
 </style>
