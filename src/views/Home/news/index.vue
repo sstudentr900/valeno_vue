@@ -1,7 +1,7 @@
 <template>
     <div class="slide puplic_scrollTop">
         <transition-group name="flip-list" tag="ul">
-            <li v-for="(item,index) in slideData" :key="item.ref">
+            <li v-for="item in slideData" :key="item.ref">
                 <router-link :to="`/${item.href}/${item.id}`">
                 <!-- <a :href="item.href"> -->
                     <div class="img">
@@ -15,7 +15,8 @@
                                 <div class="year">{{item.year}}</div>
                             </div>
                         </div>
-                        <div class="text">{{item.text}}</div>
+                        <!-- <div class="text">{{ textLen(item.text) }}</div> -->
+                        <textLen :str="item.text"></textLen>
                     </div>
                 <!-- </a> -->
                 </router-link>
@@ -26,9 +27,13 @@
     </div>
 </template>
 <script>
+    import textLen from '@/components/textLen'
     export default {
         name: 'news',
         props: ["items"],
+        components:{
+            textLen
+        },
         data() {
             return {
                 slideData: [],
@@ -45,7 +50,27 @@
                 this.slideData.push(obj)
             }
         },
+        computed:{
+        },
         methods: {
+            textLen(str,len=40){
+                // let text2 = "ASVCF"
+                // let text3 = "控制"
+                // let text4 = "ASVCF控制"
+                // console.log( "ASVCF",'length',text2.length,'replace',text2.replace(/[^\x00-\xff]/g, '01').length)
+                // console.log("控制",'length',text3.length,'replace',text3.replace(/[^\x00-\xff]/g, '01').length)
+                // console.log("ASVCF控制",'length',text4.length,'replace',text4.replace(/[^\x00-\xff]/g, '01').length)
+                if(str.replace(/[^\x00-\xff]/g, '01').length <= len){
+                    return text
+                }
+                for (let i = Math.floor(len / 2); i < str.length; i++) {
+                    if (str.substr(0, i).replace(/[^\x00-\xff]/g, '01').length >= len) {
+                        // Math.floor(i / 2) * 这里是控制特殊情况的显示
+                        // 如 '一二aaa一二三四'，显示的结果就是 '一二aaa一...'
+                        return str.substr(0, Math.floor(i / 2) * 2) + '...'
+                    }
+                }
+            },
             controlFn(slidesToShow = 1) {
                 if (this.clickWait) {
                     return;
@@ -92,7 +117,7 @@
     .slide li {
         /* float: left;
         width: 33%; */
-        padding: 20px 40px;
+        padding: 20px 50px;
         /* 設定每一個要輪播的項目寬度 */
         flex: calc(100% / 3) 0 0;
         /* 

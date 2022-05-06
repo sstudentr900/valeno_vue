@@ -2,121 +2,29 @@
     <div class="news">
         <h3 class="public_title">#NEWS</h3>
         <div class="public_flex">
-            <a v-for="item in newsData.newsList" :key="item.id" :href="item.href">
+            <router-link :to="`/${item.href}/${item.id}`" v-for="item in newsData.newsList" :key="item.id">
+            <!-- <a v-for="item in newsData.newsList" :key="item.id" :href="item.href"> -->
                 <div class="top">
                     <div class="img">
                         <!-- <img :src="item.src"> -->
                         <img :src="require(`@/assets/${item.src}`)">
                     </div>
-                    <span class="data">{{item.data}}</span>
+                    <span class="data">{{item.month+item.day+', '+item.year}}</span>
                 </div>
                 <div class="bottom">
                     <h5>{{item.title}}</h5>
-                    <p>{{item.text}}</p>
+                    <textLen :str="item.text" :len="60"></textLen>
+                    <!-- <p>{{item.text}}</p> -->
                 </div>
-            </a>
-            <!-- <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n02.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n03.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n04.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n05.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n01.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n02.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n04.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a>
-            <a href="new_view.html">
-                <div class="top">
-                    <div class="img">
-                        <img src="@/assets/n03.jpg">
-                    </div>
-                    <span class="data">JUN 06, 2017</span>
-                </div>
-                <div class="bottom">
-                    <h5>開架好用美妝品總整理！女明星彩妝師化妝箱都用這些</h5>
-                    <p>對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此....</p>
-                </div>
-            </a> -->
+            <!-- </a> -->
+            </router-link>
         </div>
         <FnPagers></FnPagers>
     </div>
 </template>
 
 <script>
+    import textLen from '@/components/textLen'
     import FnPagers from '@/components/FnPagers'
     import {
         mapState
@@ -125,6 +33,7 @@
         name: 'news',
         components: {
             FnPagers,
+            textLen
         },
         computed: {
             ...mapState('news', {
@@ -148,6 +57,7 @@
         z-index: 1;
         overflow: hidden;
         transition: transform 0.3s;
+        font-size: 0;
     }
     
     .news a:hover .img {
@@ -242,7 +152,7 @@
         margin-top: 5px;
     }
     
-    .news a .bottom p {
+    .news a .bottom .text{
         display: -webkit-box !important;
         overflow: hidden;
         text-overflow: ellipsis;

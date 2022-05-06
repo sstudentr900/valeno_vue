@@ -3,11 +3,13 @@
         <h3 class="public_title">#BEAUTY</h3>
         <div v-for="item in beautyData.beautyList" :key="item.id" class="public_flex scrollTop active">
             <div class="img">
-                <a :href="item.href">
+                <router-link :to="`/${item.href}/${item.id}`">  
+                <!-- <a :href="item.href"> -->
                     <!-- <img :src="require(`@/assets/${item.src}`)" class="img-responsive"> -->
                     <!-- public -->
                     <img :src="item.src" class="img-responsive">
-                </a>
+                <!-- </a> -->
+                </router-link>  
                 <div class="date">
                     <span class="num">{{item.data_num}}</span>
                     <span class="month">{{item.data_month}}</span>
@@ -45,7 +47,11 @@
                 </div>
                 <div class="text">
                     <p>{{item.text}}</p>
-                    <a :href="item.href" title="查看全文">READ MORE</a>
+                    <router-link :to="`/${item.href}/${item.id}`" title="查看全文">  
+                        <!-- <a :href="item.href" title="查看全文"> -->
+                        READ MORE
+                        <!-- </a> -->
+                    </router-link>  
                 </div>
             </div>
         </div>

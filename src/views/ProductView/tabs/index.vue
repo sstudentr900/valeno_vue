@@ -11,10 +11,12 @@
                 <img :src="item.introduce" alt="">
             </div>
             <div class="item" v-bind:class="{active:itemIndex==2}">
-                {{item.illustrate}}
+                <div v-html="item.illustrate"></div>
+                <!-- {{item.illustrate}} -->
             </div>
             <div class="item" v-bind:class="{active:itemIndex==3}">
-                {{item.element}}
+                <div v-html="item.element"></div>
+                <!-- {{item.element}} -->
             </div>
         </div>
     </div>

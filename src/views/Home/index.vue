@@ -2,9 +2,11 @@
     <div class="home">
         <slide v-if="home.slide" :items="home.slide"></slide>
         <div class="ad">
-            <a v-for="(item,index) in home.ad" :href="item.href" :key="index">
+            <router-link :to="`/${item.href}/${item.id}`"  v-for="(item,index) in home.ad" :key="index">
+            <!-- <a v-for="(item,index) in home.ad" :href="item.href" :key="index"> -->
                 <img :src="require(`@/assets/${item.src}`)">
-            </a>
+            <!-- </a> -->
+            </router-link>
         </div>
         <div class="products">
             <h2 class="public_title">#NEW ARRIVAL</h2>
