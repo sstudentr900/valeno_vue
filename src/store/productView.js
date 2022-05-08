@@ -8,7 +8,8 @@ const mutations = {
     }
 }
 const actions = {
-    async productViewAc({ commit },params={}) {
+    async productViewAc({ commit }, params = {}) {
+        // console.log(params)
         let result = await productViewReq(params);
         if (result.data.code == 200) {
             commit('productViewMu', result.data.data)

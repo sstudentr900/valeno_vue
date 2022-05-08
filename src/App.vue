@@ -18,7 +18,7 @@
     import FnSideProduct from './components/FnSideProduct'
 
     export default {
-        // name:'',
+        name: 'fn',
         components: {
             FnNav,
             FnFooter,
@@ -29,6 +29,10 @@
             console.log('app');
             this.$store.dispatch('home/home')
             this.$store.dispatch('product/productAc')
+            this.$store.dispatch('product/productListAc', {
+                pageNo: 1, //當前頁
+                pageSize: 8, //顯示數量
+            })
             this.$store.dispatch('news/newsAc')
             this.$store.dispatch('beauty/beautyAc')
             this.$store.dispatch('store/storeAc')

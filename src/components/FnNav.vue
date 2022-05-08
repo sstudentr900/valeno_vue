@@ -56,10 +56,10 @@
 
         },
         methods: {
-            updateShowFn(event) {
-                this.fnSeachIf = event
-                console.log('3', event, this.fnSeachIf)
-            }
+            // updateShowFn(event) {
+            //     this.fnSeachIf = event
+            //     console.log('3', event, this.fnSeachIf)
+            // }
         },
 
     }

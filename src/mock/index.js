@@ -32,6 +32,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 7
     },
     {
         "id": 2,
@@ -48,6 +49,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 7
     },
     {
         "id": 3,
@@ -64,6 +66,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/QLM7KBM.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 5
     },
     {
         "id": 4,
@@ -80,6 +83,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 10
     },
     {
         "id": 5,
@@ -96,6 +100,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 10
     },
     {
         "id": 6,
@@ -112,6 +117,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["p06.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 11
     },
     {
         "id": 7,
@@ -128,6 +134,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["p07.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 7
     },
     {
         "id": 8,
@@ -144,7 +151,93 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["p08.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-    }
+        "categoryId": 5
+    },
+    {
+        "id": 9,
+        "href": "product_view",
+        "src": "https://imgur.com/eJEZuLC.jpg",
+        "en": "Mistine - Groove complete",
+        "ti": "12色完美眼彩盤",
+        "sale": "泰國必買",
+        "price": "NT$529",
+        "special_price": "NT$429",
+        "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
+        "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
+        "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 6
+    },
+    {
+        "id": 10,
+        "href": "product_view",
+        "src": "https://imgur.com/nDjOWZU.jpg",
+        "en": "Mistine - Groove complete",
+        "ti": "12色完美眼彩盤",
+        "sale": "Mistine周年慶全館85折",
+        "price": "NT$529",
+        "special_price": "NT$429",
+        "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
+        "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
+        "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 12
+    },
+    {
+        "id": 11,
+        "href": "product_view",
+        "src": "https://imgur.com/QLM7KBM.jpg",
+        "en": "Mistine - Groove complete",
+        "ti": "12色完美眼彩盤",
+        "sale": "泰國必買",
+        "price": "NT$529",
+        "special_price": "NT$429",
+        "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
+        "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
+        "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/QLM7KBM.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 8
+    },
+    {
+        "id": 12,
+        "href": "product_view",
+        "src": "https://imgur.com/1Q7xtcu.jpg",
+        "en": "Mistine - Groove complete",
+        "ti": "12色完美眼彩盤",
+        "sale": "Mistine周年慶全館85折",
+        "price": "NT$529",
+        "special_price": "NT$429",
+        "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
+        "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
+        "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 9
+    },
+    {
+        "id": 13,
+        "href": "product_view",
+        "src": "https://imgur.com/ULKIm2M.jpg",
+        "en": "Mistine - Groove complete",
+        "ti": "12色完美眼彩盤",
+        "sale": "Mistine周年慶全館85折",
+        "price": "NT$529",
+        "special_price": "NT$429",
+        "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
+        "specification": "9G / 1.3G*12色",
+        "introduce": "https://imgur.com/Rkfy1Ze.jpg",
+        "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
+        "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
+        "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "categoryId": 6
+    },
 ];
 const newsList = [{
         "href": "news_view",
@@ -237,6 +330,18 @@ const newsList = [{
         "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
     }
 ];
+const custom = {
+    "categoryId": '', //類id
+    "category1Id": '', //1級分類
+    "category2Id": '', //2級分類
+    "categoryName": '', //類別名稱
+    "keyword": '', //關鍵字
+    "order": '', //順序
+    "pageNo": '', //當前頁
+    "pageSize": '', //顯示數量
+    "props": '', //參數
+    "trademark": '', //品牌
+};
 // const data = Mock.mock({
 //     "list|20-60": [{
 //         "id": '@increment(1)',
@@ -251,7 +356,7 @@ Mock.mock('/mock/home', () => {
         code: 200,
         data: {
             "slide": slide,
-            "productList": productList,
+            "productList": productList.slice(0, 8),
             "newsList": newsList.filter(item => item.id < 4),
             "productLeft": [{
                 "src": "in01.jpg"
@@ -280,7 +385,6 @@ Mock.mock('/mock/product', () => {
         code: 200,
         data: {
             "slide": slide,
-            "productList": productList,
             "nav": [{
                     "id": 1,
                     "class_id": 0,
@@ -346,9 +450,32 @@ Mock.mock('/mock/product', () => {
                 {
                     "id": 6,
                     "class_id": 0,
-                    "name": "其他"
+                    "name": "全部"
                 }
             ],
+        }
+    }
+});
+Mock.mock('/mock/productList', (options) => {
+    //json 
+    // console.log(options.body, options.body.categoryName)
+    //json變物件
+    // console.log(JSON.parse(options.body), JSON.parse(options.body).categoryName)
+    let body = JSON.parse(options.body)
+    let title = ''
+    let productListData = productList.slice(0, body.pageSize)
+    if (body.categoryName) {
+        title = '#' + body.categoryName
+    }
+    if (body.categoryId && body.categoryName != '全部') {
+        productListData = productList.filter(item => item.categoryId == body.categoryId)
+        console.log(body)
+    }
+    return {
+        code: 200,
+        data: {
+            "title": title,
+            "productList": productListData,
         }
     }
 });
@@ -422,6 +549,7 @@ Mock.mock('/mock/beauty', () => {
 });
 Mock.mock('/mock/store', { code: 200, data: store });
 Mock.mock('/mock/productView', (options) => {
+    console.log(options)
     let body = JSON.parse(options.body)
         // const index = productList.findIndex(item => item.id === body.id)
         // console.log(body)

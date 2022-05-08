@@ -14,7 +14,7 @@ const routes = [{
             import ('../views/Home/index.vue')
     },
     {
-        path: '/product/:id?',
+        path: '/product/:keyword?',
         name: 'product',
         component: Product
     },

@@ -1,25 +1,20 @@
 <template>
-    <div class="left" v-if="item">
-        <ul class="top">
-            <li v-for="(img,index) in item.productImgs" :key="index" v-bind:class="{active:index==imgIndex}"><img :src="img" alt=""></li>
-            <!-- <li><img src="img/p02.jpg" alt=""></li>
-            <li><img src="img/p03.jpg" alt=""></li>
-            <li><img src="img/p04.jpg" alt=""></li>
-            <li><img src="img/p05.jpg" alt=""></li> -->
-        </ul>
+    <div class="slide" v-if="item">
+        <div class="top">
+            <img :src="item.productImgs[nowImageIndex]" alt="">
+        </div>
         <div class="bottom">
-            <div class="prev control"></div>
             <div class="content">
-                <ul class="flex">
-                    <li v-for="(img,index) in item.productImgs" :key="index" v-bind:class="{active:index==imgIndex}"><img :src="img" alt=""></li>
-                    <!-- <li class="active"><img src="img/p01.jpg" alt=""></li>
-                    <li><img src="img/p02.jpg" alt=""></li>
-                    <li><img src="img/p03.jpg" alt=""></li>
-                    <li><img src="img/p04.jpg" alt=""></li>
-                    <li><img src="img/p05.jpg" alt=""></li> -->
+                <ul v-bind:style="{transform:'translateX('+slideUl+'%)'}">                
+                    <li v-for="(item,index) in item.productImgs" :key="index" :class="{active:nowImageIndex==index}" @click="clickImg(index)">
+                        <img :src="item" alt="">
+                    </li>
                 </ul>
             </div>
-            <div class="next control"></div>
+            <div class="ctrl">
+                <div class="prev" @click="slideCtrl(1)"></div>
+                <div class="next" @click="slideCtrl(-1)"></div>
+            </div>
         </div>
     </div>
 </template>
@@ -27,64 +22,119 @@
     export default {
         name: 'productImg',
         props: ["item"],
-        data(){
-            return{
-                imgIndex: 0
+        data() {
+            return {
+                slideUl: 0,
+                nowImageIndex: 0,
+                imglength: 6
+            }
+        },
+        mounted() {
+            // this.imglength = this.item.length
+        },
+        methods: {
+            slideCtrl(slidesToShow = 1) {
+                console.log(this.item)
+                    // console.log(slidesToShow, this.nowImageIndex, this.nowImageIndex >= 1, this.imglength - this.nowImageIndex > 4)
+                if (slidesToShow > 0 && this.nowImageIndex >= 1) {
+                    console.log(12)
+                    this.nowImageIndex--;
+                    this.slideUl = this.nowImageIndex * -1 * 25
+                    console.log('pre', this.nowImageIndex, this.imglength)
+                    return;
+                }
+                if (slidesToShow < 0 && this.imglength - this.nowImageIndex > 4) {
+                    this.nowImageIndex++;
+                    this.slideUl = this.nowImageIndex * -1 * 25
+                    console.log('nex', this.nowImageIndex, this.imglength)
+                }
+            },
+            clickImg(index) {
+                this.nowImageIndex = index
+                    // if (this.imglength - index >= 4) {
+                    //     this.slideUl = this.nowImageIndex * -1 * 25
+                    // }
             }
         },
     }
 </script>
 
 <style scoped>
-    .left {
-        flex: 1 1 30%;
+    .slide {
+        flex: 0 0 300px;
     }
-    .top{
-        border: 1px solid #ddd;
-    }
-    .top li{
-        display: none;
-    }
-    .top li.active{
-        display: block;
-    }
-    .bottom{
-        display: flex;
-        position: relative;
-        margin: 20px 40px;
-        border: 1px solid #ddd;
-    }
-    .bottom .content{
-        width: 100%;
-        overflow: hidden;
-    }
-    .bottom ul{
+    
+    .slide .top {
         font-size: 0;
+        /* border: 1px solid #eee; */
     }
-    .bottom ul li{
-        width: 25%;
+    
+    .slide .bottom {
+        /* width: 100%; */
+        position: relative;
     }
-    .bottom .control{
+    
+    .slide .ctrl>div {
+        background: #ebeaea;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 20px;
+        padding: 3px 0;
+        background-clip: content-box;
+    }
+    
+    .slide .ctrl>div.next {
+        right: 0;
+    }
+    
+    .slide .ctrl>div:after {
+        content: '';
         cursor: pointer;
         position: absolute;
         top: 50%;
-        left: 0;
-        margin-top: -8px;
-        margin-left: -30px;
-        width: 16px;
-        height: 16px;
+        left: 7px;
+        width: 8px;
+        height: 8px;
         border: 0;
-        border-left: 2px solid #222;
-        border-bottom: 2px solid #222;
-        transform: rotate(45deg);
-        opacity: .4;
-        transition: opacity .5s ease;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: translateY(-50%) rotate(45deg);
     }
-    .bottom .control.next{
+    
+    .slide .ctrl>div.next:after {
         left: auto;
-        right: 0;
-        margin-left: auto;
-        margin-right: -30px;
-        transform: rotate(-135deg);
+        right: 7px;
+        transform: translateY(-50%) rotate(-135deg);
+    }
+    
+    .slide .content {
+        margin: 5px 20px 0;
+        overflow: hidden;
+    }
+    
+    .slide ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        font-size: 0;
+        position: relative;
+    }
+    
+    .slide ul li {
+        flex: calc(100% / 4) 0 0;
+        height: 100%;
+        box-sizing: border-box;
+        cursor: pointer;
+        padding: 3px
+    }
+    
+    .slide ul li img {
+        border: 1px solid #eee;
+    }
+    /* .slide ul li.active img, */
+    
+    .slide ul li:hover img {
+        border: 1px solid #222;
     }
 </style>

@@ -4,11 +4,11 @@
             <div class="nav">
                 <h4 class="public_title">#PRODUCT</h4>
                 <ul>
-                    <li v-for="item in productData.nav" :key="item.id" :class="{active:item.id==nav1Id}">
-                        <div @click="nav1(item.child,item.id)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
+                    <li v-for="item in productData.nav" :key="item.id" :class="{active:item.id==customParams.category1Id}">
+                        <div @click="nav1(item.child,item.id,item.name)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
                         <ul v-if="item.child">
-                            <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==nav2Id}">
-                                <a @click="nav2(item2.id)">{{item2.name}}</a>
+                            <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==customParams.category2Id}">
+                                <a @click="nav2(item2.id,item2.name)">{{item2.name}}</a>
                             </li>
                         </ul>
                     </li>
@@ -17,26 +17,28 @@
         </div>
         <div class="right">
             <slide :items="productData.slide"></slide>
-            <h4 class="public_title">#臉部彩妝</h4>
-            <div class="content public_scrollTop">
-                <FnProduct v-for="productList in productData.productList" :key="productList.id" :item="productList"></FnProduct>
-                <!-- <a v-for="list in productData.productList" :key="list.id" :href="list.href" class="public_item">
-                    <div class="img">
-                        <img class="lazy" :src="require(`@/assets/${list.src}`)" alt="">
-                    </div>
-                    <div class="info">
-                        <div class="en">{{list.text_en}}</div>
-                        <div class="tit">{{list.text_ti}}</div>
-                        <div class="sale">{{list.text_sale}}</div>
-                        <div class="price">
-                            <span class="through">{{list.price}}</span>
-                            <i>/</i>
-                            <span>{{list.special_price}}</span>
+            <div>
+                <h4 class="public_title">{{productListData.title}}</h4>
+                <div class="public_items public_scrollTop" >
+                    <FnProduct v-for="productList in productListData.productList" :key="productList.id" :item="productList"></FnProduct>
+                    <!-- <a v-for="list in productData.productList" :key="list.id" :href="list.href" class="public_item">
+                        <div class="img">
+                            <img class="lazy" :src="require(`@/assets/${list.src}`)" alt="">
                         </div>
-                    </div>
-                </a> -->
+                        <div class="info">
+                            <div class="en">{{list.text_en}}</div>
+                            <div class="tit">{{list.text_ti}}</div>
+                            <div class="sale">{{list.text_sale}}</div>
+                            <div class="price">
+                                <span class="through">{{list.price}}</span>
+                                <i>/</i>
+                                <span>{{list.special_price}}</span>
+                            </div>
+                        </div>
+                    </a> -->
+                </div>
+                <FnPagers></FnPagers>
             </div>
-            <FnPagers></FnPagers>
         </div>
     </div>
 </template>
@@ -55,36 +57,63 @@
             FnPagers
         },
         computed: {
-            ...mapState('product', ['productData'])
+            ...mapState('product', ['productData', 'productListData'])
         },
         data() {
             return {
-                nav1Id: this.$route.params ? this.$route.params.id : 0,
-                nav2Id: this.$route.params ? this.$route.params.id : 0,
+                keyword: '',
+                customParams: {
+                    categoryId: '', //類id
+                    category1Id: '', //1級分類
+                    category2Id: '', //2級分類
+                    categoryName: '', //類別名稱
+                    keyword: '', //關鍵字
+                    order: '', //順序
+                    pageNo: 1, //當前頁
+                    pageSize: 8, //顯示數量
+                    // props: [], //參數
+                    // trademark: '', //品牌
+                }
             }
         },
+        beforeMount() {
+            // return {
+            //     customParams.category1Id: this.$route.query ? this.$route.query.customParams.category1Id : 0,
+            //     customParams.category2Id: this.$route.query ? this.$route.query.customParams.category2Id : 0,
+            // }
+        },
         methods: {
-            nav1(child, id) {
-                if (this.nav1Id == id) {
-                    this.nav1Id = 0
-                } else {
-                    this.nav1Id = id
+            nav1(child, id, name) {
+                if (this.customParams.category1Id != id) {
+                    this.customParams.category1Id = id
                 }
                 if (!child) {
-                    this.nav2(id)
+                    this.nav2(id, name)
                 }
-                // console.log('107',id)
             },
-            nav2(id) {
-                this.nav2Id = id
+            nav2(id, name) {
+                // console.log(id, name, this.customParams.category1Id)
+                this.customParams.category2Id = id
                     // console.log('110',id1,id2)
                 this.$router.push({
                     name: 'product',
-                    params: {
-                        id: id
+                    // params: {
+                    //     id: id
+                    // },
+                    query: {
+                        categoryId: id, //類id
+                        categoryName: name, //類別名稱
                     }
                 })
             },
+        },
+        watch: {
+            //監聽路由改變執行product
+            $route(newValue, oldValue) {
+                Object.assign(this.customParams, this.$route.query, this.$route.params)
+                    // console.log(this.customParams)
+                this.$store.dispatch('product/productListAc', this.customParams)
+            }
         }
 
     }
@@ -104,8 +133,8 @@
     .product>.right {
         width: 80%;
     }
-    
     /*nav*/
+    
     .nav>.public_title {
         text-align: left;
         margin-top: 0;
@@ -216,11 +245,11 @@
     .nav>ul>li ul li.active a {
         color: #c1894c;
     }
-
     /*right*/
+    /*     
     .right .content {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-    }
+    } */
 </style>

@@ -67,15 +67,16 @@
 
 <style scoped>
     .right {
-        flex: 1 1 70%;
+        flex: 1 1;
+        padding-left: 30px
     }
     
     .right .title {
         margin: 0;
-        font-size: 1.5em;
+        font-size: 32px;
         font-weight: bold;
         padding: 10px 0;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
         text-align: left;
     }
     
@@ -128,9 +129,11 @@
         cursor: pointer;
         width: 90px;
     }
-    .right .qty-wrap span{
+    
+    .right .qty-wrap span {
         font-size: 22px;
     }
+    
     .right .qty-wrap input {
         background: #fff;
         border: 1px solid #ddd;

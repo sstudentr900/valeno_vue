@@ -14,10 +14,10 @@
                 <div class="left">
                     <img class="lazy" v-for="item in home.productLeft" :key="item.id" :src="require(`@/assets/${item.src}`)" alt="">
                 </div>
-                <div class="right">
+                <div class="right public_items">
                     <FnProduct v-for="productList in homeProductListRight" :key="productList.id" :item="productList"></FnProduct>
                 </div>
-                <div class="bottom">
+                <div class="bottom public_items">
                     <FnProduct v-for="productList in homeProductListBottom" :key="productList.id" :item="productList"></FnProduct>
                 </div>
             </div>
@@ -72,22 +72,24 @@
         box-shadow: 3px 3px 0 #000;
     }
     /*products*/
+    /* .products .right,
+    .products .bottom, */
     
-    .products .right,
-    .products .bottom,
     .products .content {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
     
-    .products .right .public_item,
     .products .right,
     .products .left {
         width: 49%;
     }
     
-    .products .bottom {
-        width: 100%;
+    .products .right .public_item {
+        width: 50%;
     }
+    /* .products .bottom {
+        width: 100%;
+    } */
 </style>
