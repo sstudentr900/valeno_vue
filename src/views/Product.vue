@@ -17,7 +17,7 @@
         </div>
         <div class="right">
             <slide :items="productData.slide"></slide>
-            <div>
+            <div v-if="productListData">
                 <h4 class="public_title">{{productListData.title}}</h4>
                 <div class="public_items public_scrollTop" >
                     <FnProduct v-for="productList in productListData.productList" :key="productList.id" :item="productList"></FnProduct>
@@ -37,14 +37,14 @@
                         </div>
                     </a> -->
                 </div>
-                <FnPagers></FnPagers>
+                <FnPagers :pageNo="productListData.pageNo" :pageSize="productListData.pageSize" :total='productListData.total' :continues='5' @pageNo="getPageNo"></FnPagers>
             </div>
         </div>
     </div>
 </template>
 <script>
     import FnProduct from '@/components/FnProduct'
-    import FnPagers from '@/components/FnPagers'
+    // import FnPagers from '@/components/FnPagers'
     import slide from '@/components/FnSlide'
     import {
         mapState
@@ -54,9 +54,10 @@
         components: {
             slide,
             FnProduct,
-            FnPagers
+            // FnPagers
         },
         computed: {
+            // ...mapState('product', ['productData'])
             ...mapState('product', ['productData', 'productListData'])
         },
         data() {
@@ -70,17 +71,17 @@
                     keyword: '', //關鍵字
                     order: '', //順序
                     pageNo: 1, //當前頁
-                    pageSize: 8, //顯示數量
+                    pageSize: 3, //顯示數量
                     // props: [], //參數
                     // trademark: '', //品牌
                 }
             }
         },
         beforeMount() {
-            // return {
-            //     customParams.category1Id: this.$route.query ? this.$route.query.customParams.category1Id : 0,
-            //     customParams.category2Id: this.$route.query ? this.$route.query.customParams.category2Id : 0,
-            // }
+            this.getData()
+        },
+        mounted(){
+
         },
         methods: {
             nav1(child, id, name) {
@@ -106,13 +107,25 @@
                     }
                 })
             },
+            getData(){
+                Object.assign(this.customParams, this.$route.query, this.$route.params)
+                this.$store.dispatch('product/productListAc', this.customParams)
+                this.customParams.keyword = undefined
+                this.customParams.category1Id = undefined
+                this.customParams.category2Id = undefined
+                this.customParams.categoryId = undefined
+                this.customParams.categoryName = undefined
+            },
+            getPageNo(pageNo){
+                // console.log(pageNo)
+                this.customParams.pageNo = pageNo
+                this.getData()
+            }
         },
         watch: {
             //監聽路由改變執行product
             $route(newValue, oldValue) {
-                Object.assign(this.customParams, this.$route.query, this.$route.params)
-                    // console.log(this.customParams)
-                this.$store.dispatch('product/productListAc', this.customParams)
+                this.getData()
             }
         }
 

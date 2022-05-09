@@ -22,7 +22,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/eJEZuLC.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "妝前修飾乳",
         "sale": "泰國必買",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -39,7 +39,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/nDjOWZU.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "妝前修飾乳",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -73,7 +73,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/1Q7xtcu.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "遮瑕霜",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -90,7 +90,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/ULKIm2M.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "遮瑕霜",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -107,7 +107,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/eJEZuLC.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "蜜粉",
         "sale": "泰國必買",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -116,7 +116,7 @@ const productList = [{
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
-        "productImgs": ["p06.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "productImgs": ["https://imgur.com/1Q7xtcu.jpg.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
         "categoryId": 11
     },
     {
@@ -124,7 +124,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/nDjOWZU.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "妝前修飾乳",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -175,7 +175,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/nDjOWZU.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "腮紅",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -192,7 +192,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/QLM7KBM.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "眼影盤",
         "sale": "泰國必買",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -209,7 +209,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/1Q7xtcu.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "氣墊式粉底",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -226,7 +226,7 @@ const productList = [{
         "href": "product_view",
         "src": "https://imgur.com/ULKIm2M.jpg",
         "en": "Mistine - Groove complete",
-        "ti": "12色完美眼彩盤",
+        "ti": "美髮保養",
         "sale": "Mistine周年慶全館85折",
         "price": "NT$529",
         "special_price": "NT$429",
@@ -236,7 +236,7 @@ const productList = [{
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 6
+        "categoryId": 13
     },
 ];
 const newsList = [{
@@ -397,7 +397,7 @@ Mock.mock('/mock/product', () => {
                         {
                             "id": 8,
                             "class_id": 1,
-                            "name": "BB/CC霜"
+                            "name": "眼影盤"
                         },
                         {
                             "id": 9,
@@ -418,7 +418,7 @@ Mock.mock('/mock/product', () => {
                         {
                             "id": 12,
                             "class_id": 1,
-                            "name": "腮紅 / 修容"
+                            "name": "腮紅"
                         }
                     ]
                 },
@@ -437,15 +437,15 @@ Mock.mock('/mock/product', () => {
                     "class_id": 0,
                     "name": "美髮保養",
                     "child": [{
-                        "id": 7,
+                        "id": 13,
                         "class_id": 1,
-                        "name": "妝前修飾乳"
+                        "name": "美髮保養"
                     }]
                 },
                 {
                     "id": 5,
                     "class_id": 0,
-                    "name": "身體乳液"
+                    "name": "眼線筆"
                 },
                 {
                     "id": 6,
@@ -461,21 +461,47 @@ Mock.mock('/mock/productList', (options) => {
     // console.log(options.body, options.body.categoryName)
     //json變物件
     // console.log(JSON.parse(options.body), JSON.parse(options.body).categoryName)
+    
     let body = JSON.parse(options.body)
+    // console.log('pageNo',body.pageNo,'pageSize',body.pageSize,'length', productList.length)
     let title = ''
-    let productListData = productList.slice(0, body.pageSize)
+    // let productListData = productList.slice(body.pageNo, body.pageSize)
+    let productListData = productList.filter(item=>{
+        let end = body.pageNo*body.pageSize;
+        let start = end-body.pageSize+1;
+        // console.log(item.id,end,start,item.id>=start,item.id<=end)
+        return item.id>=start && item.id<=end
+    })
+    console.log(productListData)
     if (body.categoryName) {
         title = '#' + body.categoryName
     }
     if (body.categoryId && body.categoryName != '全部') {
         productListData = productList.filter(item => item.categoryId == body.categoryId)
-        console.log(body)
+        // console.log(body)
+    }
+    if(body.keyword){
+        title = '#' + body.keyword
+        let list = productList.filter(item => {
+            // console.log(item.ti.indexOf(body.keyword),item.id,item.ti,body.keyword)
+            return item.ti.indexOf(body.keyword)>=0
+        })
+        if(list.length){
+            productListData =  list
+        }else{
+            productListData = ''
+        }
     }
     return {
         code: 200,
         data: {
             "title": title,
             "productList": productListData,
+            "pageNo": body.pageNo,
+            // "pageNo": 9,
+            "pageSize": body.pageSize,
+            "total": productList.length,
+            // "total": 80,
         }
     }
 });

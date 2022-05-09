@@ -13,14 +13,14 @@
             </form>
             <div class="tags">
                 <p class="title">看看其他人都找了甚麼</p>
-                <a href="product.html" title="">眼影盤</a>
-                <a href="product.html" title="">腮紅</a>
-                <a href="product.html" title="">Mistine</a>
-                <a href="product.html" title="">眼線筆</a>
-                <a href="product.html" title="">MALISSA KISS</a>
-                <a href="product.html" title="">Goldberry</a>
-                <a href="product.html" title="">口紅</a>
-                <a href="product.html" title="">美髮保養</a>
+                <a @click="goSrc(8,'眼影盤')">眼影盤</a>
+                <a @click="goSrc(12,'腮紅')">腮紅</a>
+                <a @click="goSrc(10,'遮瑕霜')">遮瑕霜</a>
+                <a @click="goSrc(5,'眼線筆')">眼線筆</a>
+                <a @click="goSrc(7,'妝前修飾乳')">妝前修飾乳</a>
+                <a @click="goSrc(9,'氣墊式粉底')">氣墊式粉底</a>
+                <a @click="goSrc(11,'蜜粉')">蜜粉</a>
+                <a @click="goSrc(13,'美髮保養')">美髮保養</a>
             </div>
         </div>
     </div>
@@ -56,24 +56,28 @@
             // this.getData();
         },
         methods: {
-            // updateShowFn(show){
-            //     this.$emit("updateShow", show)
-            // },
-            // getData() {
-
-            // },
             goSearch() {
-                console.log(this.keyword)
-                this.$router.push("/product/" + this.keyword + "?k=" + this.keyword.toUpperCase())
+                // console.log(this.keyword)
+                // this.eventBus.emit("click-send-msg", this.message);
+                // this.$router.push("/product/" + this.keyword + "?k=" + this.keyword.toUpperCase())
                 this.$router.push({
                     name: 'product',
                     params: {
                         keyword: this.keyword || undefined
                     },
+                })
+                this.keyword=''
+                this.$emit('updateShow', !this.enterShow)
+            },
+            goSrc(id,name) {
+                this.$router.push({
+                    name: 'product',
                     query: {
-                        big: this.keyword.toUpperCase()
+                        categoryId: id,
+                        categoryName: name
                     },
                 })
+                this.$emit('updateShow', !this.enterShow)
             }
         },
     }
@@ -212,6 +216,7 @@
     }
     
     .searchObj .tags a {
+        cursor: pointer;
         color: #fff;
         border: 1px solid #222;
         display: inline-block;
