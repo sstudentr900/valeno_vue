@@ -3,11 +3,11 @@
         <div class="left">
             <div class="nav">
                 <h4 class="public_title">#PRODUCT</h4>
-                <ul>
-                    <li v-for="item in productData.nav" :key="item.id" :class="{active:item.id==customParams.category1Id}">
+                <ul v-if="productData">
+                    <li v-for="item in productData.nav" :key="item.id" :class="{active:item.id==category1Id}">
                         <div @click="nav1(item.child,item.id,item.name)">{{item.name}}<span v-if="item.child" class="icon"></span></div>
                         <ul v-if="item.child">
-                            <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==customParams.category2Id}">
+                            <li v-for="(item2) in item.child" :key="item2.id" :class="{active:item2.id==category2Id}">
                                 <a @click="nav2(item2.id,item2.name)">{{item2.name}}</a>
                             </li>
                         </ul>
@@ -16,28 +16,24 @@
             </div>
         </div>
         <div class="right">
-            <slide :items="productData.slide"></slide>
+            <slide v-if="productData" :items="productData.slide"></slide>
             <div v-if="productListData">
-                <h4 class="public_title">{{productListData.title}}</h4>
+                <h4 class="public_title">
+                    <span v-if="productListData.productList && !productListData.productList.length">查找找不到...</span>
+                    {{productListData.title}}
+                </h4>
                 <div class="public_items public_scrollTop" >
                     <FnProduct v-for="productList in productListData.productList" :key="productList.id" :item="productList"></FnProduct>
-                    <!-- <a v-for="list in productData.productList" :key="list.id" :href="list.href" class="public_item">
-                        <div class="img">
-                            <img class="lazy" :src="require(`@/assets/${list.src}`)" alt="">
-                        </div>
-                        <div class="info">
-                            <div class="en">{{list.text_en}}</div>
-                            <div class="tit">{{list.text_ti}}</div>
-                            <div class="sale">{{list.text_sale}}</div>
-                            <div class="price">
-                                <span class="through">{{list.price}}</span>
-                                <i>/</i>
-                                <span>{{list.special_price}}</span>
-                            </div>
-                        </div>
-                    </a> -->
                 </div>
-                <FnPagers :pageNo="productListData.pageNo" :pageSize="productListData.pageSize" :total='productListData.total' :continues='5' @pageNo="getPageNo"></FnPagers>
+                <!-- <FnPagers :pageNo="productListData.pageNo" :pageSize="productListData.pageSize" :total='productListData.total' :continues='5' @pageNo="getPageNo"></FnPagers> -->
+                <FnPagers 
+                v-if="productListData.total > customParams.pageSize"
+                :pageNo="customParams.pageNo" 
+                :pageSize="customParams.pageSize" 
+                :continues='customParams.continues' 
+                :total='productListData.total'
+                @pageNo="getPageNo">
+                </FnPagers>
             </div>
         </div>
     </div>
@@ -62,16 +58,17 @@
         },
         data() {
             return {
-                keyword: '',
+                // keyword: '',
+                category1Id: '', //1級分類
+                category2Id: '', //2級分類
                 customParams: {
-                    categoryId: '', //類id
-                    category1Id: '', //1級分類
-                    category2Id: '', //2級分類
-                    categoryName: '', //類別名稱
+                    continues: 5, //頁碼顯示
                     keyword: '', //關鍵字
-                    order: '', //順序
                     pageNo: 1, //當前頁
-                    pageSize: 3, //顯示數量
+                    pageSize: 8, //顯示數量
+                    categoryId: '', //類id
+                    categoryName: '', //類別名稱
+                    // order: '', //順序
                     // props: [], //參數
                     // trademark: '', //品牌
                 }
@@ -81,21 +78,28 @@
             this.getData()
         },
         mounted(){
-
+            // this.category1Id = undefined
+            // this.category2Id = undefined
         },
         methods: {
+            // noDataFn(){
+            //     console.log(this.productListData.productList.length)
+            //     if(this.productListData.productList.length==0){
+            //         return true
+            //     }else{
+            //         return false
+            //     }
+            // },
             nav1(child, id, name) {
-                if (this.customParams.category1Id != id) {
-                    this.customParams.category1Id = id
+                if (this.category1Id != id) {
+                    this.category1Id = id
                 }
                 if (!child) {
                     this.nav2(id, name)
                 }
             },
             nav2(id, name) {
-                // console.log(id, name, this.customParams.category1Id)
-                this.customParams.category2Id = id
-                    // console.log('110',id1,id2)
+                this.category2Id = id
                 this.$router.push({
                     name: 'product',
                     // params: {
@@ -104,27 +108,44 @@
                     query: {
                         categoryId: id, //類id
                         categoryName: name, //類別名稱
+                        pageNo: 1, //當前頁
                     }
                 })
             },
             getData(){
+                // console.log(this.customParams, this.$route.query, this.$route.params)
                 Object.assign(this.customParams, this.$route.query, this.$route.params)
                 this.$store.dispatch('product/productListAc', this.customParams)
                 this.customParams.keyword = undefined
-                this.customParams.category1Id = undefined
-                this.customParams.category2Id = undefined
                 this.customParams.categoryId = undefined
                 this.customParams.categoryName = undefined
+                // this.category1Id = undefined
+                // this.category2Id = undefined
+                // this.customParams.pageNo = 1
             },
             getPageNo(pageNo){
-                // console.log(pageNo)
-                this.customParams.pageNo = pageNo
-                this.getData()
+                // this.category1Id = ''
+                // this.category2Id = ''
+                // console.log('category1Id',this.category1Id, this.category2Id)
+                this.$router.push({
+                    name: 'product',
+                    query: {
+                        categoryId: this.$route.query.categoryId, //類id
+                        categoryName: this.$route.query.categoryName, //類id
+                        pageNo: pageNo, //類id
+                    }
+                })
             }
         },
         watch: {
             //監聽路由改變執行product
             $route(newValue, oldValue) {
+                // console.log('watch',newValue, oldValue)
+                //路由是搜尋或/product則關閉選單
+                if(newValue.params.keyword || newValue.fullPath=='/product'){
+                    this.category1Id = undefined
+                    this.category2Id = undefined
+                }
                 this.getData()
             }
         }

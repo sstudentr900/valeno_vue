@@ -243,7 +243,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n01.jpg",
         "id": 1,
-        "day": "17",
+        "day": "01",
         "month": "APR",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -253,7 +253,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n02.jpg",
         "id": 2,
-        "day": "06",
+        "day": "02",
         "month": "JUN",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -263,7 +263,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n03.jpg",
         "id": 3,
-        "day": "17",
+        "day": "03",
         "month": "APR",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -273,7 +273,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n04.jpg",
         "id": 4,
-        "day": "06",
+        "day": "04",
         "month": "JUN",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -283,7 +283,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n01.jpg",
         "id": 5,
-        "day": "17",
+        "day": "05",
         "month": "APR",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -303,7 +303,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n03.jpg",
         "id": 7,
-        "day": "17",
+        "day": "07",
         "month": "APR",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -313,7 +313,7 @@ const newsList = [{
         "href": "news_view",
         "src": "n04.jpg",
         "id": 8,
-        "day": "06",
+        "day": "08",
         "month": "JUN",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
@@ -323,13 +323,283 @@ const newsList = [{
         "href": "news_view",
         "src": "n01.jpg",
         "id": 9,
+        "day": "09",
+        "month": "APR",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
+    },
+    {
+        "href": "news_view",
+        "src": "n02.jpg",
+        "id": 10,
+        "day": "10",
+        "month": "JUN",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此...."
+    },
+    {
+        "href": "news_view",
+        "src": "n03.jpg",
+        "id": 11,
+        "day": "11",
+        "month": "APR",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
+    },
+    {
+        "href": "news_view",
+        "src": "n04.jpg",
+        "id": 12,
+        "day": "12",
+        "month": "JUN",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此...."
+    },
+    {
+        "href": "news_view",
+        "src": "n01.jpg",
+        "id": 13,
+        "day": "13",
+        "month": "APR",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
+    },
+    {
+        "href": "news_view",
+        "src": "n04.jpg",
+        "id": 14,
+        "day": "14",
+        "month": "JUN",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此...."
+    },
+    {
+        "href": "news_view",
+        "src": "n01.jpg",
+        "id": 15,
+        "day": "15",
+        "month": "APR",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
+    },
+    {
+        "href": "news_view",
+        "src": "n02.jpg",
+        "id": 16,
+        "day": "16",
+        "month": "JUN",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此...."
+    },
+    {
+        "href": "news_view",
+        "src": "n03.jpg",
+        "id": 17,
         "day": "17",
+        "month": "APR",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
+    },
+    {
+        "href": "news_view",
+        "src": "n04.jpg",
+        "id": 18,
+        "day": "18",
+        "month": "JUN",
+        "year": "2017",
+        "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
+        "text": "對於熱愛時尚、美妝的女孩來說，因為喜歡嘗鮮、什麼都想試試看，使用彩妝品怎麼可能會有忠臣度可言！因此...."
+    },
+    {
+        "href": "news_view",
+        "src": "n01.jpg",
+        "id": 19,
+        "day": "19",
         "month": "APR",
         "year": "2017",
         "title": "開架好用美妝品總整理！女明星彩妝師化妝箱都用這些",
         "text": "開架底妝百百款 教妳怎麼聰明挑才能買對不失手！"
     }
 ];
+const beautyList = [{
+        "id": 1,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "01",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "hrefFb": "#",
+        "hrefLine": "#",
+        "hrefIg": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 2,
+        "href": "news_view",
+        "src": "img/ti02.jpg",
+        "data_num": "02",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 3,
+        "href": "news_view",
+        "src": "img/ti03.jpg",
+        "data_num": "03",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 4,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "04",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 5,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "05",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "hrefFb": "#",
+        "hrefLine": "#",
+        "hrefIg": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 6,
+        "href": "news_view",
+        "src": "img/ti02.jpg",
+        "data_num": "06",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 7,
+        "href": "news_view",
+        "src": "img/ti03.jpg",
+        "data_num": "07",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 8,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "08",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 9,
+        "href": "news_view",
+        "src": "img/ti03.jpg",
+        "data_num": "09",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 10,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "10",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 11,
+        "href": "news_view",
+        "src": "img/ti01.jpg",
+        "data_num": "11",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "hrefFb": "#",
+        "hrefLine": "#",
+        "hrefIg": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 12,
+        "href": "news_view",
+        "src": "img/ti02.jpg",
+        "data_num": "12",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+    {
+        "id": 13,
+        "href": "news_view",
+        "src": "img/ti03.jpg",
+        "data_num": "13",
+        "data_month": "APR",
+        "data_year": "2017",
+        "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
+        "fb_href": "#",
+        "link_href": "#",
+        "ig_href": "#",
+        "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
+    },
+]
 const custom = {
     "categoryId": '', //類id
     "category1Id": '', //1級分類
@@ -458,118 +728,122 @@ Mock.mock('/mock/product', () => {
 });
 Mock.mock('/mock/productList', (options) => {
     //json 
-    // console.log(options.body, options.body.categoryName)
+    // console.log(options.body)
     //json變物件
     // console.log(JSON.parse(options.body), JSON.parse(options.body).categoryName)
     
     let body = JSON.parse(options.body)
-    // console.log('pageNo',body.pageNo,'pageSize',body.pageSize,'length', productList.length)
+    // console.log('body',body)
+    let categoryName=  body.categoryName
+    let categoryId=  body.categoryId
+    let pageNo=  body.pageNo
+    let pageSize = body.pageSize
+    let keyword = body.keyword
     let title = ''
-    // let productListData = productList.slice(body.pageNo, body.pageSize)
-    let productListData = productList.filter(item=>{
-        let end = body.pageNo*body.pageSize;
-        let start = end-body.pageSize+1;
-        // console.log(item.id,end,start,item.id>=start,item.id<=end)
-        return item.id>=start && item.id<=end
+    let total = productList.length
+    let productListData= productList.filter((item,index)=>{
+        let end = pageNo*pageSize;
+        let start = end-pageSize+1;
+        let number = index+1
+        // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+        return number>=start && number<=end
     })
-    console.log(productListData)
-    if (body.categoryName) {
-        title = '#' + body.categoryName
+    if (categoryName) {
+        title = '#' + categoryName
     }
-    if (body.categoryId && body.categoryName != '全部') {
-        productListData = productList.filter(item => item.categoryId == body.categoryId)
-        // console.log(body)
-    }
-    if(body.keyword){
-        title = '#' + body.keyword
-        let list = productList.filter(item => {
-            // console.log(item.ti.indexOf(body.keyword),item.id,item.ti,body.keyword)
-            return item.ti.indexOf(body.keyword)>=0
+    if(categoryName == '全部'){
+        // console.log('全部')
+        total = productList.length
+        productListData= productList.filter((item,index)=>{
+            let end = pageNo*pageSize;
+            let start = end-pageSize+1;
+            let number = index+1
+            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+            return number>=start && number<=end
         })
-        if(list.length){
-            productListData =  list
-        }else{
-            productListData = ''
-        }
     }
+    if (categoryId && categoryName != '全部') {
+        // console.log('類別',categoryId)
+        productListData = productList.filter(item => item.categoryId == categoryId)
+        total = productListData.length
+        productListData = productListData.filter((item,index)=>{
+            let end = pageNo*pageSize;
+            let start = end-pageSize+1;
+            let number = index+1
+            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+            return number>=start && number<=end
+        })
+    }
+    if(keyword){
+        // console.log('查詢',keyword)
+        title = '#' + keyword
+        productListData = productList.filter(item => {
+            // console.log(item.ti.indexOf(keyword),item.id,item.ti,keyword)
+            return item.ti.indexOf(keyword)>=0
+        })
+        total = productListData.length
+        productListData = productListData.filter((item,index)=>{
+            let end = pageNo*pageSize;
+            let start = end-pageSize+1;
+            let number = index+1
+            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+            return number>=start && number<=end
+        })
+        // if(list.length){
+        //     productListData =  list
+        // }else{
+        //     productListData = ''
+        // }
+    }
+    // console.log(pageNo,pageSize,productListData.length)
     return {
         code: 200,
         data: {
             "title": title,
             "productList": productListData,
-            "pageNo": body.pageNo,
-            // "pageNo": 9,
-            "pageSize": body.pageSize,
-            "total": productList.length,
-            // "total": 80,
+            "total": total,
         }
     }
 });
-Mock.mock('/mock/news', () => {
+Mock.mock('/mock/news', (options) => {
+    // console.log(options.body)
+    let body = JSON.parse(options.body)
+    // console.log('body',body)
+    let pageNo=  body.pageNo
+    let pageSize = body.pageSize
+    let total = newsList.length
+    let newsListData= newsList.filter((item,index)=>{
+        let end = pageNo*pageSize;
+        let start = end-pageSize+1;
+        let number = index+1
+        return number>=start && number<=end
+    })
     return {
         code: 200,
         data: {
-            "newsList": newsList
+            "newsList": newsListData,
+            "total": total,
         }
     }
 });
-Mock.mock('/mock/beauty', () => {
+Mock.mock('/mock/beauty', (options) => {
+    // console.log(options.body)
+    let body = JSON.parse(options.body)
+    // console.log('body',body)
+    let pageNo=  body.pageNo
+    let pageSize = body.pageSize
+    let total = beautyList.length
+    let beautyListData= beautyList.filter((item,index)=>{
+        let end = pageNo*pageSize;
+        let start = end-pageSize+1;
+        let number = index+1
+        return number>=start && number<=end
+    })
     return {
         code: 200,
         data: {
-            "beautyList": [{
-                    "id": 1,
-                    "href": "news_view",
-                    "src": "img/ti01.jpg",
-                    "data_num": "17",
-                    "data_month": "APR",
-                    "data_year": "2017",
-                    "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
-                    "hrefFb": "#",
-                    "hrefLine": "#",
-                    "hrefIg": "#",
-                    "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
-                },
-                {
-                    "id": 2,
-                    "href": "news_view",
-                    "src": "img/ti02.jpg",
-                    "data_num": "17",
-                    "data_month": "APR",
-                    "data_year": "2017",
-                    "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
-                    "fb_href": "#",
-                    "link_href": "#",
-                    "ig_href": "#",
-                    "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
-                },
-                {
-                    "id": 3,
-                    "href": "news_view",
-                    "src": "img/ti03.jpg",
-                    "data_num": "17",
-                    "data_month": "APR",
-                    "data_year": "2017",
-                    "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
-                    "fb_href": "#",
-                    "link_href": "#",
-                    "ig_href": "#",
-                    "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
-                },
-                {
-                    "id": 4,
-                    "href": "news_view",
-                    "src": "img/ti01.jpg",
-                    "data_num": "17",
-                    "data_month": "APR",
-                    "data_year": "2017",
-                    "title": "【美妝】來自泰國的超濃黑眼線─Mistine Maxi Black",
-                    "fb_href": "#",
-                    "link_href": "#",
-                    "ig_href": "#",
-                    "text": "來自泰國知名彩妝品牌Mistine，是每次使用必被詢問的眉筆！大家喜歡的原因是它的亞麻色調，加上它一組有眉筆、眉粉與染眉膏三個套件，先使用眉筆畫眉，接著以眉粉暈染創造自然眉型，再用染眉膏調整眉色。</br>這隻眼線液的防水持妝效果也是我目前用過最好的， 成功打拜我心中的NO1 Kiss Me，所以幫大家做了防水測試！ 防水效果達到了平常是眼線蠟筆才有的等級， 沖水不掉之外，連用手擦拭都不會掉！ 直接把水珠吸乾可以發現，眼線沒有受到半分的影響喔。"
-                }
-            ]
+            "beautyList": beautyListData,
+            "total": total,
         }
     }
 });

@@ -69,7 +69,20 @@ const routes = [{
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes,
+    //滾動行為
+    scrollBehavior(to,from,savePosition){
+        if (to.hash) {
+            const el = window.location.href.split("#")[1];
+            if (el.length) {
+                document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+            }
+        } else if (savePosition) {
+            return savePosition;
+        } else {
+            document.getElementById("app").scrollIntoView({ behavior: "smooth" });
+        }
+    }
 })
 
 export default router

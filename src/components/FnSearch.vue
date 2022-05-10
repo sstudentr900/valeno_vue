@@ -1,7 +1,8 @@
 <template>
     <div id="searchObj" class="searchObj" :class="{'active':enterShow}">
         <div class="box">
-            <form action="product_search.html">
+            <!-- <form action="product_search.html"> -->
+            <div class="from">
                 <!--<a class="close" @click="updateShowFn(!show)">-->
                 <a class="close" @click="$emit('updateShow', !enterShow)">
                     <span></span>
@@ -10,7 +11,8 @@
                     <input type="text" placeholder="SEARCH" v-model="keyword">
                     <button type="button" @click="goSearch"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M23.809 21.646l-6.205-6.205c1.167-1.605 1.857-3.579 1.857-5.711 0-5.365-4.365-9.73-9.731-9.73-5.365 0-9.73 4.365-9.73 9.73 0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698l6.238 6.238 2.354-2.354zm-20.955-11.916c0-3.792 3.085-6.877 6.877-6.877s6.877 3.085 6.877 6.877-3.085 6.877-6.877 6.877c-3.793 0-6.877-3.085-6.877-6.877z"/></svg></button>
                 </div>
-            </form>
+            </div>
+            <!-- </form> -->
             <div class="tags">
                 <p class="title">看看其他人都找了甚麼</p>
                 <a @click="goSrc(8,'眼影盤')">眼影盤</a>
@@ -118,7 +120,7 @@
         transition-delay: .2s;
     }
     
-    .searchObj form {
+    .searchObj .from {
         max-width: 800px;
         margin: auto;
     }

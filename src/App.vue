@@ -33,8 +33,8 @@
             //     pageNo: 1, //當前頁
             //     pageSize: 3, //顯示數量
             // })
-            this.$store.dispatch('news/newsAc')
-            this.$store.dispatch('beauty/beautyAc')
+            // this.$store.dispatch('news/newsAc')
+            // this.$store.dispatch('beauty/beautyAc')
             this.$store.dispatch('store/storeAc')
         },
     }

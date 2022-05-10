@@ -8,8 +8,8 @@ const mutations = {
     }
 }
 const actions = {
-    async newsAc({ commit }) {
-        let result = await newsReq();
+    async newsAc({ commit },params={}) {
+        let result = await newsReq(params);
         if (result.data.code == 200) {
             commit('newsMu', result.data.data)
         }

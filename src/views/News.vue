@@ -19,7 +19,15 @@
             <!-- </a> -->
             </router-link>
         </div>
-        <FnPagers></FnPagers>
+        <!-- <FnPagers></FnPagers> -->
+        <!-- v-if="newsData.total > customParams.pageSize" -->
+        <FnPagers 
+        :pageNo="customParams.pageNo" 
+        :pageSize="customParams.pageSize" 
+        :continues='customParams.continues' 
+        :total='newsData.total'
+        @pageNo="getPageNo">
+        </FnPagers>
     </div>
 </template>
 
@@ -39,6 +47,38 @@
             ...mapState('news', {
                 newsData: state => state.newsData
             })
+        },
+        data() {
+            return {
+                customParams: {
+                    continues: 5, //頁碼顯示
+                    pageNo: 1, //當前頁
+                    pageSize: 9, //顯示數量
+                }
+            }
+        },
+        beforeMount() {
+            this.getData()
+        },
+        methods:{
+            getData(){
+                Object.assign(this.customParams, this.$route.query, this.$route.params)
+                this.$store.dispatch('news/newsAc', this.customParams)
+            },
+            getPageNo(pageNo){
+                this.$router.push({
+                    name: 'news',
+                    query: {
+                        pageNo: pageNo, //類id
+                    }
+                })
+            }
+        },
+        watch: {
+            //監聽路由改變執行product
+            $route(newValue, oldValue) {
+                this.getData()
+            }
         }
     }
 </script>

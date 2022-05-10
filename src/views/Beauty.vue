@@ -196,7 +196,15 @@
                 </div>
             </div>
         </div> -->
-        <FnPagers></FnPagers>
+        <!-- <FnPagers></FnPagers> -->
+        <FnPagers 
+            v-if="beautyData.total > customParams.pageSize"
+            :pageNo="customParams.pageNo" 
+            :pageSize="customParams.pageSize" 
+            :continues='customParams.continues' 
+            :total='beautyData.total'
+            @pageNo="getPageNo">
+        </FnPagers>
     </div>
 </template>
 
@@ -207,9 +215,41 @@
         components: {
             FnPagers,
         },
+        data() {
+            return {
+                customParams: {
+                    continues: 5, //頁碼顯示
+                    pageNo: 1, //當前頁
+                    pageSize: 4, //顯示數量
+                }
+            }
+        },
+        beforeMount() {
+            this.getData()
+        },
         computed: {
             beautyData() {
                 return this.$store.state.beauty.beautyData
+            },
+        },
+        methods: {
+            getData(){
+                Object.assign(this.customParams, this.$route.query, this.$route.params)
+                this.$store.dispatch('beauty/beautyAc', this.customParams)
+            },
+            getPageNo(pageNo){
+                this.$router.push({
+                    name: 'beauty',
+                    query: {
+                        pageNo: pageNo, //類id
+                    }
+                })
+            }
+        },
+        watch: {
+            //監聽路由改變執行product
+            $route(newValue, oldValue) {
+                this.getData()
             }
         }
     }

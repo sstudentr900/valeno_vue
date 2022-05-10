@@ -8,8 +8,8 @@ const mutations = {
     }
 }
 const actions = {
-    async beautyAc({ commit }) {
-        let result = await beautyReq();
+    async beautyAc({ commit },params={}) {
+        let result = await beautyReq(params);
         if (result.data.code == 200) {
             commit('beautyMu', result.data.data)
         }

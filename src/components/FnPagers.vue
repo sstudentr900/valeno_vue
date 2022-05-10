@@ -1,25 +1,30 @@
 <template>
     <div class="pagers">
         <!-- <h1>{{num}}---pageNo:{{pageNo}}--pageSize:{{pageSize}}--continues:{{continues}}--{{total}}</h1> -->
-        <a class="prev" :disabled="pageNo==1" @click="$emit('pageNo',pageNo-1)">
+        <button class="prev" :disabled="pageNo==1" @click="$emit('pageNo',pageNo*1-1)">
+        <!-- <button class="prev" :disabled="pageNo==1" @click="pageNoFn(pageNo*1-1)"> -->
             <!-- <svg viewBox="0 0 24 24"><path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/></svg> -->
             上一頁
-        </a>
-        <a v-if="num.start > 1" @click="$emit('pageNo',1)">1</a>
-        <a v-if="num.start > 2">...</a>
+        </button>
+        <button v-if="num.start > 1" @click="$emit('pageNo',1)">1</button>
+        <!-- <button v-if="num.start > 1" @click="pageNoFn(1)">1</button> -->
+        <button v-if="num.start > 2">...</button>
         <!-- <a class="active">1</a>
         <a>2</a>
         <a>3</a>
         <a>4</a>
         <a>5</a> -->
-        <a v-for="(page,index) in num.midden" :key='index' @click="$emit('pageNo',page)">{{page}}</a>
-        <a v-if="num.end < totalPage -1">...</a>
-        <a v-if="num.end < totalPage" @click="$emit('pageNo',totalPage)">{{totalPage}}</a>
-        <a class="next" :disabled="pageNo==totalPage" @click="$emit('pageNo',pageNo+1)">
+        <button v-for="(page,index) in num.midden" :key='index' :class="{active:pageNo==page}" @click="$emit('pageNo',page)">{{page}}</button>
+        <!-- <button v-for="(page,index) in num.midden" :key='index' :class="{active:pageNo==page}" @click="pageNoFn(page)">{{page}}</button> -->
+        <button v-if="num.end < totalPage -1">...</button>
+        <button v-if="num.end < totalPage" @click="$emit('pageNo',totalPage)">{{totalPage}}</button>
+        <!-- <button v-if="num.end < totalPage" @click="pageNoFn(totalPage)">{{totalPage}}</button> -->
+        <button class="next" :disabled="pageNo==totalPage" @click="$emit('pageNo',pageNo*1+1)">
+        <!-- <button class="next" :disabled="pageNo==totalPage" @click="pageNoFn(pageNo*1+1)"> -->
             下一頁
             <!-- <svg viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg> -->
-        </a>
-        <a class="totle">共{{total}}筆</a>
+        </button>
+        <div class="totle">共{{total}}筆</div>
     </div>
 </template>
 
@@ -38,12 +43,14 @@ export default {
             let start=0,
             midden=[],
             end=0;
+            // console.log(continues,totalPage)
             if(continues>totalPage){
                 start=1;
                 end = totalPage;
+                // console.log('totalPage',start,end)
             }else{
                 start= pageNo - parseInt(continues/2);
-                end = pageNo + parseInt(continues/2);
+                end = pageNo*1 + parseInt(continues/2);
                 if(start<1){
                     start = 1;
                     end = continues;
@@ -53,12 +60,25 @@ export default {
                     start = totalPage - continues + 1;
                 }
             }
-            for(let i = start; i<end;i++){
+            for(let i = start; i<end+1;i++){
                 midden.push(i)
             }
+            // console.log(start,end,midden)
             return {start,end,midden};
         }
-    }
+    },
+    // methods:{
+    //     pageNoFn(number){
+    //         this.$router.push({
+    //             name: 'product',
+    //             query: {
+    //                 categoryId: number, //類id
+    //                 categoryName: number, //類id
+    //                 pageNo: number, //類id
+    //             }
+    //         })
+    //     }
+    // }
 }
 </script>
 
@@ -69,7 +89,7 @@ export default {
     display: flex;
     justify-content: center;
 }
-.pagers a {
+.pagers button{
     font-size: 0.95rem;
     width: 30px;
     height: 30px;
@@ -81,17 +101,25 @@ export default {
     border: 1px solid #ddd;
     padding: 5px;
     cursor: pointer;
+    background: #fff;
 }
-.pagers a.active, .pagers a:hover{
+.pagers button:disabled:hover,
+.pagers button:disabled {
+    background: #eee;
+    color: #bbb;
+    cursor: text;
+}
+.pagers button.active,
+.pagers button:hover{
     color: #fff;
     background: #222;
 }
-.pagers a svg{
+.pagers button svg{
     width: 12px;
     fill: #888;
     margin-top: 1px;
 }
-.pagers a:hover svg{
+.pagers button:hover svg{
     fill: #fff;
 }
 .pagers .next,
