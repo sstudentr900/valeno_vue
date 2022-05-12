@@ -1,6 +1,6 @@
 <template>
     <div class="productText" v-if="item">
-        {{item}}
+        <!-- {{item}} -->
         <h2 class="title">{{item.en}}</h2>
         <ul>
             <li>
