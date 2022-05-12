@@ -1,7 +1,7 @@
 <template>
     <div class="productText" v-if="item">
         <!-- {{item}} -->
-        <h2 class="title">{{item.en}}</h2>
+        <h2 class="title">{{item.ti}}</h2>
         <ul>
             <li>
                 <div class="t">商品描述</div>
@@ -66,39 +66,42 @@
     export default {
         name: 'productText',
         props: ["item"],
-        data(){
-            return{
-                skuNum:1
+        data() {
+            return {
+                skuNum: 1
             }
         },
-        methods:{
-            changeSkuNum(event){
+        methods: {
+            changeSkuNum(event) {
                 //console.log(event)
-                let value = event.target.value*1;
+                let value = event.target.value * 1;
                 // console.log(value)
                 //不是數字或小於0變1
-                if(isNaN(value)||value<0){
+                if (isNaN(value) || value < 0) {
                     this.skuNum = 1
-                }else{
+                } else {
                     //不能有小數
                     this.skuNum = parseInt(value)
-                }   
+                }
             },
             // addShopcar(){
             //     //請求
             //     // console.log(this.$route.params.id)
             //     this.$store.dispatch('productView/addOrUpdateShopCart',{skuId:this.$route.params.id,skuNum:this.skuNum})
             // },
-            async addShopcar(){
+            async addShopcar() {
                 //請求
-                try{
-                    await this.$store.dispatch('productView/addOrUpdateShopCart',{skuId:this.$route.params.id,skuNum:this.skuNum})
-                    //本地儲存
-                    //seccionStorage.setItem('SKUINFO',JSON.stringify(this.item))
-                    //JSON.parse(seccionStorage.getItem('SKUINFO'))
-                    //路由跳轉
-                    // this.$router.push({name:'addCartSuccess',query:{skuId:this.$route.params.id,skuNum:this.skuNum}})               
-                }catch(error){
+                try {
+                    await this.$store.dispatch('productView/addOrUpdateShopCart', {
+                            skuId: this.$route.params.id,
+                            skuNum: this.skuNum
+                        })
+                        //本地儲存
+                        //seccionStorage.setItem('SKUINFO',JSON.stringify(this.item))
+                        //JSON.parse(seccionStorage.getItem('SKUINFO'))
+                        //路由跳轉
+                        // this.$router.push({name:'addCartSuccess',query:{skuId:this.$route.params.id,skuNum:this.skuNum}})               
+                } catch (error) {
                     alert(error.message)
                 }
             },

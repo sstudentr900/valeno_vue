@@ -9,7 +9,7 @@
                         <img :src="item.src" alt="">
                     </div>
                     <div class="column">
-                        <p class="en">{{item.en}}</p>
+                        <!-- <p class="en">{{item.en}}</p> -->
                         <p class="tit">{{item.ti}}</p>
                         <p class="sale">{{item.sale}}</p>
                     </div>

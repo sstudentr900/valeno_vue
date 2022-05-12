@@ -6,7 +6,7 @@
             <!-- <img class="lazy" :src="require(`@/assets/${item.src}`)"> -->
         </div>
         <div class="info">
-            <div class="en">{{item.en}}</div>
+            <!-- <div class="en">{{item.en}}</div> -->
             <div class="tit">{{item.ti}}</div>
             <div class="sale">{{item.sale}}</div>
             <div class="price">

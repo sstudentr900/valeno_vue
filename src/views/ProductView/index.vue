@@ -29,7 +29,8 @@
     export default {
         name: 'productView',
         mounted() {
-            this.$store.dispatch('productView/productViewAc', this.$route.params)
+            // this.$store.dispatch('productView/productViewAc', this.$route.params)
+            this.getData()
         },
         components: {
             imgSlide,
@@ -42,17 +43,31 @@
         },
         computed: {
             // ...mapState('productView', ['productViewData']),
-            ...mapGetters('productView', ['itemData','linkListData','recommendListData'])
+            ...mapGetters('productView', ['itemData', 'linkListData', 'recommendListData'])
         },
+        methods: {
+            getData() {
+                this.$store.dispatch('productView/productViewAc', this.$route.params)
+            },
+        },
+        watch: {
+            //監聽路由改變執行product
+            $route(newValue, oldValue) {
+                console.log('route')
+                this.getData()
+            }
+        }
+
     }
 </script>
 
 <style scoped>
-.product {
-    margin-top: 30px;
-}
-.slideDiv {
-    flex: 0 0 300px;
-    width: 300px;
-}
+    .product {
+        margin-top: 30px;
+    }
+    
+    .slideDiv {
+        flex: 0 0 300px;
+        width: 300px;
+    }
 </style>
