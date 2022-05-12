@@ -5,6 +5,7 @@ export const reqHome = () => requestMock.get('/home');
 export const productReq = () => requestMock.get('/product');
 export const productListReq = (params) => requestMock({ url: '/productList', data: params });
 export const productViewReq = (params) => requestMock({ url: '/productView', data: params });
+export const addOrUpdateShopCartReq = (params) => requestMock({ url: '/addToCart', data: params});
 export const newsReq = (params) => requestMock({ url: '/news', data: params });
 // export const newsReq = () => requestMock.get('/news');
 export const newsViewReq = () => requestMock.get('/newsView');

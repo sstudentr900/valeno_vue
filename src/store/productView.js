@@ -1,10 +1,14 @@
-import { productViewReq } from '@/api';
+import { productViewReq,addOrUpdateShopCartReq } from '@/api';
 const state = {
     productViewData: {},
+    addOrUpdateShopCartData: {},
 }
 const mutations = {
     productViewMu(state, list) {
         state.productViewData = list
+    },
+    addOrUpdateShopCartMu(state, list){
+        state.addOrUpdateShopCartData = list
     }
 }
 const actions = {
@@ -14,10 +18,31 @@ const actions = {
         if (result.data.code == 200) {
             commit('productViewMu', result.data.data)
         }
+    },
+    async addOrUpdateShopCart({ commit },params = {}) {
+        // console.log(params)
+        let result = await addOrUpdateShopCartReq(params);
+        console.log(result.data)
+        if (result.data.code == 200) {
+            // commit('addOrUpdateShopCartMu', result.data.data)
+            return 'ok';
+        }else{
+            return Promise.reject(new Error('faile'));     
+        }
     }
+    
+
 }
 const getters = {
-
+    itemData(state){
+        return state.productViewData.item||{}
+    },
+    linkListData(state){
+        return state.productViewData.linkList||[]
+    },
+    recommendListData(state){
+        return state.productViewData.recommendList||[]
+    },
 }
 export default {
     namespaced: true,

@@ -4,137 +4,122 @@
             <img :src="item.productImgs[nowImageIndex]" alt="">
         </div>
         <div class="bottom">
-            <div class="content">
-                <ul v-bind:style="{transform:'translateX('+slideUl+'%)'}">                
-                    <li v-for="(item,index) in item.productImgs" :key="index" :class="{active:nowImageIndex==index}" @click="clickImg(index)">
+            <div class="swiper" ref="cur">
+                <div class="swiper-wrapper">
+                    <div v-for="(item,index) in item.productImgs" :key="index" class="swiper-slide" :class="{active:nowImageIndex==index}" @click="changeImageIndex(index)">
                         <img :src="item" alt="">
-                    </li>
-                </ul>
-            </div>
-            <div class="ctrl">
-                <div class="prev" @click="slideCtrl(1)"></div>
-                <div class="next" @click="slideCtrl(-1)"></div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import Swiper, {
+        Navigation
+    } from 'swiper';
     export default {
         name: 'productImg',
         props: ["item"],
         data() {
             return {
-                slideUl: 0,
                 nowImageIndex: 0,
-                imglength: 6
             }
-        },
-        mounted() {
-            // this.imglength = this.item.length
         },
         methods: {
-            slideCtrl(slidesToShow = 1) {
-                console.log(this.item)
-                    // console.log(slidesToShow, this.nowImageIndex, this.nowImageIndex >= 1, this.imglength - this.nowImageIndex > 4)
-                if (slidesToShow > 0 && this.nowImageIndex >= 1) {
-                    console.log(12)
-                    this.nowImageIndex--;
-                    this.slideUl = this.nowImageIndex * -1 * 25
-                    console.log('pre', this.nowImageIndex, this.imglength)
-                    return;
-                }
-                if (slidesToShow < 0 && this.imglength - this.nowImageIndex > 4) {
-                    this.nowImageIndex++;
-                    this.slideUl = this.nowImageIndex * -1 * 25
-                    console.log('nex', this.nowImageIndex, this.imglength)
-                }
-            },
-            clickImg(index) {
+            changeImageIndex(index) {
                 this.nowImageIndex = index
-                    // if (this.imglength - index >= 4) {
-                    //     this.slideUl = this.nowImageIndex * -1 * 25
-                    // }
-            }
+            },
         },
+        watch:{
+            //
+            item(newValue,oldValue){
+                this.$nextTick(()=>{
+                    // new Swiper("swiper-container", {
+                    new Swiper(
+                        // ".mySwiper", 同下
+                        this.$refs.cur, {
+                            modules: [Navigation],
+                            // If we need pagination
+                            // pagination: {
+                            //     el: '.swiper-pagination',
+                            //     clickable: true //pagination click
+                            // },
+
+                            // Navigation arrows
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            slidesPerView: 4, //顯示幾個
+                            slidesPerGroup: 1, //每次移動
+                            // autoplay: {
+                            //     delay: 1000,
+                            // },
+                            // loop: true
+                        }
+                    )
+                })
+            }
+            
+        }
     }
 </script>
 
 <style scoped>
     .slide {
         flex: 0 0 300px;
+        width: 300px;
     }
     
-    .slide .top {
-        font-size: 0;
-        /* border: 1px solid #eee; */
-    }
-    
+    .slide .top
     .slide .bottom {
-        /* width: 100%; */
         position: relative;
+        font-size: 0;
     }
-    
-    .slide .ctrl>div {
+    .slide .top {
+        border: 1px solid #eee;
+        border-bottom: none;
+    }
+    .slide .swiper{
+        padding: 0 20px;
+        font-size: 0;
+    }
+    .slide .swiper-button-next,
+    .slide .swiper-button-prev{
         background: #ebeaea;
         height: 100%;
-        position: absolute;
+        margin-top: 0;
         top: 0;
         width: 20px;
-        padding: 3px 0;
-        background-clip: content-box;
-    }
-    
-    .slide .ctrl>div.next {
-        right: 0;
-    }
-    
-    .slide .ctrl>div:after {
-        content: '';
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        left: 7px;
-        width: 8px;
-        height: 8px;
-        border: 0;
-        border-left: 2px solid #fff;
-        border-bottom: 2px solid #fff;
-        transform: translateY(-50%) rotate(45deg);
-    }
-    
-    .slide .ctrl>div.next:after {
-        left: auto;
-        right: 7px;
-        transform: translateY(-50%) rotate(-135deg);
-    }
-    
-    .slide .content {
-        margin: 5px 20px 0;
-        overflow: hidden;
-    }
-    
-    .slide ul {
-        display: flex;
-        list-style-type: none;
-        padding: 0;
-        font-size: 0;
-        position: relative;
-    }
-    
-    .slide ul li {
-        flex: calc(100% / 4) 0 0;
-        height: 100%;
-        box-sizing: border-box;
-        cursor: pointer;
-        padding: 3px
-    }
-    
-    .slide ul li img {
+        color: #959595;
         border: 1px solid #eee;
     }
-    /* .slide ul li.active img, */
-    
-    .slide ul li:hover img {
-        border: 1px solid #222;
+    .slide .swiper-button-next.swiper-button-disabled,
+    .slide .swiper-button-prev.swiper-button-disabled{
+        opacity: 1;
+        background: #f5f5f5;
+        color: #eee;
+    }
+    .slide .swiper-button-next {
+        right: 0;
+    }
+    .slide .swiper-button-prev{
+        left: 0;
+    }
+    .slide .swiper-button-next:after,
+    .slide .swiper-button-prev:after{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .slide .swiper .swiper-slide{
+        border: 1px solid #eee;
+        cursor: pointer;
+    }
+    .slide .swiper .swiper-slide.active,
+    .slide .swiper .swiper-slide:hover{
+        border: 1px solid #bbb;
     }
 </style>

@@ -1,14 +1,14 @@
 <template>
-  <div class="swiper" ref="mySwiper">
-    <div class="swiper-wrapper">
-      <div v-for="(item,index) in items" :key="index" class="swiper-slide">
-          <img :src="require(`@/assets/${item.src}`)">
-      </div>
+    <div class="swiper" ref="mySwiper">
+        <div class="swiper-wrapper">
+            <div v-for="(item,index) in items" :key="index" class="swiper-slide">
+                <img :src="require(`@/assets/${item.src}`)">
+            </div>
+        </div>
+        <!-- <div class="swiper-pagination"></div> -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
     </div>
-    <!-- <div class="swiper-pagination"></div> -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
 </template>
 <script>
     import Swiper, {
