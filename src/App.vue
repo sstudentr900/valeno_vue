@@ -29,12 +29,12 @@
             console.log('app');
             this.$store.dispatch('home/home')
             this.$store.dispatch('product/productAc')
-            // this.$store.dispatch('product/productListAc', {
-            //     pageNo: 1, //當前頁
-            //     pageSize: 3, //顯示數量
-            // })
-            // this.$store.dispatch('news/newsAc')
-            // this.$store.dispatch('beauty/beautyAc')
+                // this.$store.dispatch('product/productListAc', {
+                //     pageNo: 1, //當前頁
+                //     pageSize: 3, //顯示數量
+                // })
+                // this.$store.dispatch('news/newsAc')
+                // this.$store.dispatch('beauty/beautyAc')
             this.$store.dispatch('store/storeAc')
         },
     }
@@ -50,7 +50,7 @@
     
     @media (max-width: 1200px) {
         .fn {
-            padding: 30px;
+            padding: 20px;
         }
     }
     
@@ -64,23 +64,21 @@
         box-shadow: 2px 10px 20px #4d4d4d;
         padding: 0;
         /*width: 1140px;*/
-        width: 85%;
-        max-width: 1600px;
-        max-width: 100%;
+        width: 100%;
+        max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
         background-color: #fff;
     }
-    
-    @media (max-width: 1200px) {
+    /* @media (max-width: 1200px) {
         .fn>.wrapper {
             width: 100%;
         }
-    }
+    } */
     
     .fn>.wrapper>.wrapper_top {
         background-color: #fff;
-        padding: 60px;
+        padding: 50px 60px;
     }
     
     @media (max-width: 1200px) {
