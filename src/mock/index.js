@@ -31,7 +31,7 @@ const productList = [{
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
-        "productImgs": ["https://imgur.com/eJEZuLC.jpg","https://imgur.com/nDjOWZU.jpg","https://imgur.com/ULKIm2M.jpg","https://imgur.com/1Q7xtcu.jpg","https://imgur.com/QLM7KBM.jpg","https://imgur.com/ULKIm2M.jpg"],
+        "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
         "categoryId": 7
     },
     {
@@ -133,7 +133,7 @@ const productList = [{
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
-        "productImgs": ["p07.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
         "categoryId": 7
     },
     {
@@ -150,7 +150,7 @@ const productList = [{
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
-        "productImgs": ["p08.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
+        "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
         "categoryId": 5
     },
     {
@@ -731,69 +731,69 @@ Mock.mock('/mock/productList', (options) => {
     // console.log(options.body)
     //json變物件
     // console.log(JSON.parse(options.body), JSON.parse(options.body).categoryName)
-    
+
     let body = JSON.parse(options.body)
-    // console.log('body',body)
-    let categoryName=  body.categoryName
-    let categoryId=  body.categoryId
-    let pageNo=  body.pageNo
+        // console.log('body',body)
+    let categoryName = body.categoryName
+    let categoryId = body.categoryId
+    let pageNo = body.pageNo
     let pageSize = body.pageSize
     let keyword = body.keyword
     let title = ''
     let total = productList.length
-    let productListData= productList.filter((item,index)=>{
-        let end = pageNo*pageSize;
-        let start = end-pageSize+1;
-        let number = index+1
-        // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
-        return number>=start && number<=end
+    let productListData = productList.filter((item, index) => {
+        let end = pageNo * pageSize;
+        let start = end - pageSize + 1;
+        let number = index + 1
+            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+        return number >= start && number <= end
     })
     if (categoryName) {
         title = '#' + categoryName
     }
-    if(categoryName == '全部'){
+    if (categoryName == '全部') {
         // console.log('全部')
         total = productList.length
-        productListData= productList.filter((item,index)=>{
-            let end = pageNo*pageSize;
-            let start = end-pageSize+1;
-            let number = index+1
-            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
-            return number>=start && number<=end
+        productListData = productList.filter((item, index) => {
+            let end = pageNo * pageSize;
+            let start = end - pageSize + 1;
+            let number = index + 1
+                // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+            return number >= start && number <= end
         })
     }
     if (categoryId && categoryName != '全部') {
         // console.log('類別',categoryId)
         productListData = productList.filter(item => item.categoryId == categoryId)
         total = productListData.length
-        productListData = productListData.filter((item,index)=>{
-            let end = pageNo*pageSize;
-            let start = end-pageSize+1;
-            let number = index+1
-            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
-            return number>=start && number<=end
+        productListData = productListData.filter((item, index) => {
+            let end = pageNo * pageSize;
+            let start = end - pageSize + 1;
+            let number = index + 1
+                // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+            return number >= start && number <= end
         })
     }
-    if(keyword){
+    if (keyword) {
         // console.log('查詢',keyword)
         title = '#' + keyword
         productListData = productList.filter(item => {
             // console.log(item.ti.indexOf(keyword),item.id,item.ti,keyword)
-            return item.ti.indexOf(keyword)>=0
+            return item.ti.indexOf(keyword) >= 0
         })
         total = productListData.length
-        productListData = productListData.filter((item,index)=>{
-            let end = pageNo*pageSize;
-            let start = end-pageSize+1;
-            let number = index+1
-            // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
-            return number>=start && number<=end
-        })
-        // if(list.length){
-        //     productListData =  list
-        // }else{
-        //     productListData = ''
-        // }
+        productListData = productListData.filter((item, index) => {
+                let end = pageNo * pageSize;
+                let start = end - pageSize + 1;
+                let number = index + 1
+                    // console.log('number',number,'start',start,'end',end,number>=start,number<=end)
+                return number >= start && number <= end
+            })
+            // if(list.length){
+            //     productListData =  list
+            // }else{
+            //     productListData = ''
+            // }
     }
     // console.log(pageNo,pageSize,productListData.length)
     return {
@@ -808,15 +808,15 @@ Mock.mock('/mock/productList', (options) => {
 Mock.mock('/mock/news', (options) => {
     // console.log(options.body)
     let body = JSON.parse(options.body)
-    // console.log('body',body)
-    let pageNo=  body.pageNo
+        // console.log('body',body)
+    let pageNo = body.pageNo
     let pageSize = body.pageSize
     let total = newsList.length
-    let newsListData= newsList.filter((item,index)=>{
-        let end = pageNo*pageSize;
-        let start = end-pageSize+1;
-        let number = index+1
-        return number>=start && number<=end
+    let newsListData = newsList.filter((item, index) => {
+        let end = pageNo * pageSize;
+        let start = end - pageSize + 1;
+        let number = index + 1
+        return number >= start && number <= end
     })
     return {
         code: 200,
@@ -829,15 +829,15 @@ Mock.mock('/mock/news', (options) => {
 Mock.mock('/mock/beauty', (options) => {
     // console.log(options.body)
     let body = JSON.parse(options.body)
-    // console.log('body',body)
-    let pageNo=  body.pageNo
+        // console.log('body',body)
+    let pageNo = body.pageNo
     let pageSize = body.pageSize
     let total = beautyList.length
-    let beautyListData= beautyList.filter((item,index)=>{
-        let end = pageNo*pageSize;
-        let start = end-pageSize+1;
-        let number = index+1
-        return number>=start && number<=end
+    let beautyListData = beautyList.filter((item, index) => {
+        let end = pageNo * pageSize;
+        let start = end - pageSize + 1;
+        let number = index + 1
+        return number >= start && number <= end
     })
     return {
         code: 200,
