@@ -115,30 +115,40 @@
             color: black;
             background: white;
         }
-        .public_title{
+        
+        .public_title {
             color: #000;
             font-weight: bold;
             text-align: center;
         }
-        h2.public_title{
+        
+        h2.public_title {
             font-size: 60px;
             margin: 60px 0 40px;
         }
-        h3.public_title{
+        
+        h3.public_title {
             font-size: 42px;
-            margin: 40px 0 ;
+            margin: 40px 0;
         }
-        h4.public_title{
+        
+        h4.public_title {
             font-size: 28px;
-            margin: 40px 0 ;
+            margin: 40px 0;
         }
-        img{
+        
+        img {
             width: 100%;
             height: auto;
         }
+        
         .public_flex {
             display: flex;
             flex-wrap: wrap;
+        }
+        
+        .flex {
+            display: flex;
         }
         /* .public_scrollTop{
             opacity: 0;
@@ -150,51 +160,70 @@
             transform: translateY(0);
         } */
         /*public_item*/
-        .public_item{
+        
+        .public_items {
+            margin-left: -10px;
+            margin-top: -10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .public_item {
             margin-bottom: 20px;
             transition: ease 0.3s;
-            width: 24%;
+            width: 25%;
+            /* flex: 1 0 25%; */
+            padding: 0 10px;
         }
-        .public_item:hover{
+        
+        .public_item:hover {
             background: #f9f9f9;
         }
-        .public_item img{
+        
+        .public_item img {
             position: relative;
             overflow: hidden;
             transition: transform 0.3s ease;
         }
-        .public_item:hover img{
+        
+        .public_item:hover img {
             transform: scale(0.8, 0.8);
         }
+        
         .public_item .info {
             font-size: 1rem;
             text-align: center;
-            padding: 15px;
+            padding: 15px 0;
             position: relative;
             top: 0;
             transition: top 0.3s ease;
         }
-        .public_item:hover .info{
+        
+        .public_item:hover .info {
             top: -10px;
         }
-        .public_item .info .en{
+        
+        .public_item .info .en {
             font-size: 1.05rem;
             font-weight: bold;
             color: #000;
             line-height: 1.42857143;
         }
-        .public_item .info .tit{
+        
+        .public_item .info .tit {
             margin: 5px 0;
             font-size: 1.02rem;
             color: #000;
         }
-        .public_item .info .sale{
+        
+        .public_item .info .sale {
             margin: 10px 0;
             color: #c1894c;
             display: block;
             font-size: 16px;
         }
-        .public_item .info .price{
+        
+        .public_item .info .price {
             color: #555;
             font-family: "Oswald-Light";
             font-size: 16px;
@@ -202,19 +231,23 @@
             align-items: center;
             justify-content: center;
         }
-        .public_item .info .price span{
+        
+        .public_item .info .price span {
             display: inline-block;
             vertical-align: text-top;
         }
-        .public_item .info .price i{
+        
+        .public_item .info .price i {
             padding: 0 10px;
             opacity: 0.5;
             display: inline-block;
         }
-        .public_item .info .price .through{
+        
+        .public_item .info .price .through {
             text-decoration: line-through;
         }
         /*public_buttons*/
+        
         .public_buttons {
             text-align: right;
             margin-top: 20px;
@@ -277,23 +310,28 @@
             width: 50%;
         }
         /*public_form*/
-        .public_form{
+        
+        .public_form {
             padding: 10px 0;
         }
-        .public_form>.public_flex{
+        
+        .public_form>.public_flex {
             padding: 10px 0;
             flex-wrap: nowrap;
         }
-        .public_form .tit{
+        
+        .public_form .tit {
             font-size: 1rem;
         }
-        .public_form .tit{
+        
+        .public_form .tit {
             flex: 0 0 90px;
             color: #666;
             display: flex;
             align-items: center;
         }
-        .public_form input[type="text"]{
+        
+        .public_form input[type="text"] {
             border: 1px solid #ccc;
             background: #fff;
             border-radius: 2px;
@@ -302,17 +340,21 @@
             height: 35px;
             font-size: 1rem;
         }
-        .public_form .code{
+        
+        .public_form .code {
             display: flex;
         }
-        .public_form .code input{
+        
+        .public_form .code input {
             width: 50%;
         }
-        .public_form .code a{
+        
+        .public_form .code a {
             flex: 0 0 110px;
             margin-left: 10px;
         }
-        .public_form .forget{
+        
+        .public_form .forget {
             display: flex;
             font-family: "Oswald-Light";
             font-weight: bold;
@@ -320,32 +362,39 @@
             font-size: 14px;
             align-items: center;
         }
-        .public_form .forget .check{
+        
+        .public_form .forget .check {
             display: flex;
             align-items: center;
             border-right: 1px solid #c3c3c3;
             margin-right: 10px;
             padding-right: 10px;
         }
-        .public_form .forget .check input{
+        
+        .public_form .forget .check input {
             margin: 0;
             margin-right: 5px;
         }
-        .public_form .forget a{
+        
+        .public_form .forget a {
             color: inherit;
         }
+        
         .public_form .forget a:hover {
             color: #c1894c;
         }
-        .public_form .buttons{
+        
+        .public_form .buttons {
             display: flex;
             justify-content: space-between;
             width: 100%;
         }
-        .public_form .buttons .public_btn{
+        
+        .public_form .buttons .public_btn {
             width: 49%;
         }
-        .public_btn{
+        
+        .public_btn {
             padding: 15px 5px;
             display: block;
             font-size: 14px;
@@ -366,19 +415,22 @@
             transition: linear 0.3s;
             width: 100%;
         }
-        .public_btn:hover{
+        
+        .public_btn:hover {
             background-color: #fff;
             color: #000;
             border: 1px solid #000;
         }
-        .public_btn.fb{
+        
+        .public_btn.fb {
             background: #39579b;
             border-color: #39579b;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .public_btn.fb svg{
+        
+        .public_btn.fb svg {
             width: 16px;
             height: auto;
             margin-right: 5px;
@@ -386,19 +438,23 @@
             margin-top: -1px;
             transition: linear 0.3s;
         }
-        .public_btn.fb:hover{
+        
+        .public_btn.fb:hover {
             color: #39579b;
             background: #fff;
         }
-        .public_btn.fb:hover svg{
+        
+        .public_btn.fb:hover svg {
             fill: #39579b;
         }
-        .public_btn.white{
+        
+        .public_btn.white {
             background: #fff;
             border-color: #222;
             color: #222;
         }
-        .public_btn.white:hover{
+        
+        .public_btn.white:hover {
             background: #222;
             color: #fff;
         }</style><script defer="defer" src="/valeno_vue/dist/js/chunk-vendors.js"></script><script defer="defer" src="/valeno_vue/dist/js/app.js"></script><link href="/valeno_vue/dist/css/app.css" rel="stylesheet"></head><body><div id="app"></div></body></html>
