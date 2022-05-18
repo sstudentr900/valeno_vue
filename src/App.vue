@@ -1,6 +1,5 @@
 <template>
     <div class="fn">
-        <!-- <FnSideProduct></FnSideProduct> -->
         <FnSide></FnSide>
         <div class="wrapper">
             <div class="wrapper_top">
@@ -15,7 +14,6 @@
     import FnNav from './components/FnNav'
     import FnFooter from './components/FnFooter'
     import FnSide from './components/FnSide'
-    // import FnSideProduct from './components/FnSideProduct'
 
     export default {
         name: 'fn',
@@ -63,18 +61,12 @@
     .fn>.wrapper {
         box-shadow: 2px 10px 20px #4d4d4d;
         padding: 0;
-        /*width: 1140px;*/
         width: 100%;
         max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
         background-color: #fff;
     }
-    /* @media (max-width: 1200px) {
-        .fn>.wrapper {
-            width: 100%;
-        }
-    } */
     
     .fn>.wrapper>.wrapper_top {
         background-color: #fff;

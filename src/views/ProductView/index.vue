@@ -31,6 +31,7 @@
         mounted() {
             // this.$store.dispatch('productView/productViewAc', this.$route.params)
             this.getData()
+            this.addshopInfo()
         },
         components: {
             imgSlide,
@@ -49,12 +50,23 @@
             getData() {
                 this.$store.dispatch('productView/productViewAc', this.$route.params)
             },
+            addshopInfo() {
+                let items = [this.$route.params.id]
+                if (sessionStorage.getItem('skuInfo')) {
+                    items = JSON.parse(sessionStorage.getItem('skuInfo')).concat(items).filter((el, index, arr) => {
+                        return arr.indexOf(el) === index && index >= 6;
+                    })
+                }
+                sessionStorage.setItem('skuInfo', JSON.stringify(items))
+                console.log(JSON.parse(sessionStorage.getItem('skuInfo')))
+            }
         },
         watch: {
             //監聽路由改變執行product
             $route(newValue, oldValue) {
                 console.log('route')
                 this.getData()
+                this.addshopInfo()
             }
         }
 

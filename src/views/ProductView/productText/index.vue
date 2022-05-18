@@ -68,7 +68,7 @@
         props: ["item"],
         data() {
             return {
-                skuNum: 1
+                skuNum: 1,
             }
         },
         methods: {
@@ -98,19 +98,41 @@
                 // }
                 // console.log('addShopcar')
 
-                //本地儲存
-                // let items= [{...this.item}]//移除proxy
-                // if(sessionStorage.getItem('shopCarInfo')){
-                //     items = JSON.parse(sessionStorage.getItem('shopCarInfo')).concat(items)
-                // }
-                // sessionStorage.setItem('shopCarInfo',JSON.stringify(items))
-                // console.log(JSON.parse(sessionStorage.getItem('SKUINFO')))
 
-                //store
-                this.$store.dispatch('productView/addOrUpdateShopCart', {
+                //本地儲存
+                let items = [{
                     skuId: this.$route.params.id,
                     skuNum: this.skuNum
-                })
+                }]
+                if (sessionStorage.getItem('skuList')) {
+                    let updataCount = true;
+                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
+                        //相同ID更新數量
+                        if (items[0]['skuId'] == el['skuId']) {
+                            updataCount = false;
+                            return {
+                                skuId: el['skuId'],
+                                skuNum: el['skuNum'] + items[0]['skuNum']
+                            };
+                        } else {
+                            return el;
+                        }
+                    })
+                    if (updataCount) {
+                        items = skuListArry.concat(items)
+                    } else {
+                        items = skuListArry
+                    }
+                }
+                sessionStorage.setItem('skuList', JSON.stringify(items))
+                console.log(JSON.parse(sessionStorage.getItem('skuList')))
+
+
+                //store
+                // this.$store.dispatch('productView/addOrUpdateShopCart', {
+                //     skuId: this.$route.params.id,
+                //     skuNum: this.skuNum
+                // })
             },
         }
     }

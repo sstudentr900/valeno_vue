@@ -2,7 +2,7 @@
     <div class="ProductList" :class="{'active':enterShow}">
         <div class="box" :class="{'active':enterShow}">
             <a class="close" @click="$emit('output',!enterShow)"><span></span></a>
-            <div class="main">
+            <div class="main" v-if="enterName=='skuInfo'">
                 <div class="title">最近瀏覽商品</div>
                 <ul class="list">
                     <li>
@@ -71,7 +71,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="main">
+            <div class="main" v-if="enterName=='skuList'">
                 <div class="title">購物清單</div>
                 <ul class="list">
                     <li>
@@ -200,264 +200,299 @@
 </template>
 
 <script>
-export default {
-    name:'ProductList',
-    props:['enterShow'],
-    // data(){
-    //     return 
-    // }
+    export default {
+        name: 'ProductList',
+        props: ['enterShow', 'enterName'],
+        mounted() {
+            console.log(this.enterName)
+        },
 
-}
+    }
 </script>
 
 <style scoped>
-.ProductList{
-    position: fixed;
-    z-index: 10000;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: .4s ease;
-    transition-delay: .6s
-}
-.ProductList.active{
-    opacity: 1;
-    visibility: visible;
-    transition: .4s ease;
-}
-.ProductList .box {
-    position: fixed;
-    right: -700px;
-    background: #fff;
-    height: 100vh;
-    overflow-y: auto;
-    width: 700px;
-    transition: .6s;
-}
-.ProductList .box.active {
-    transition-delay: .4s;
-    right: 0;
-}
-.ProductList .close {
-    display: block;
-    width: 25px;
-    height: 25px;
-    position: absolute;
-    left: 50px;
-    top: 50px;
-    cursor: pointer;
-}
-.ProductList .close span {
-    width: 100%;
-    height: 2px;
-    margin: 15px 0;
-    display: block;
-    background: #666;
-}
-.ProductList .close span:before {
-    transform: rotate(45deg);
-}
-.ProductList .close span:after {
-    transform: rotate(-45deg);
-    margin-top: -1px;
-    margin-right: -1px;
-}
-.ProductList .close span:before,
-.ProductList .close span:after {
-    content: "";
-    width: 13px;
-    height: 2px;
-    background: #666;
-    display: block;
-    position: absolute;
-    right: 0;
-    transform-origin: 100% 100%;
-}
-.main {
-    padding: 50px;
-}
-.main .title {
-    border-bottom: 1px solid #e5e5e5;
-    text-align: center;
-    padding: 30px;
-    padding-top: 0;
-    font-size: 1.65rem;
-    color: #333;
-    font-weight: 100;
-}
-.main .list li {
-    position: relative;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 20px;
-    overflow: hidden;
-    transition: background 0.5s ease;
-    display:flex;
-    /*justify-content: space-between;*/
-}
-.main .list li:hover{
-    background: #f9f9f9;
-}
-.main .list li:hover .text .tit,
-.main .list li:hover .text .en{
-    text-decoration: underline;
-}
-.main .cart-list .img {
-    padding-left: 10px;
-}
-.main .img {
-    width: 90px;
-    font-size: 1rem;
-}
-.main .img img{
-    width: 100%;
-    height: auto;
-}
-.main .text {
-    width: 215px;
-    padding: 0 10px
-}
-.main .text .en {
-    color: #333;
-    font-weight: bold;
-    font-size: 0.95rem;
-    margin: 0;
-    line-height: 1.4;
-}
-.main .text .tit {
-    color: #333;
-    font-size: 14px;
-    line-height: 1.4;
-}
-.main .text .sale {
-    color: #c1894c;
-    font-size: 0.95rem;
-    margin-top: 5px;
-    line-height: 1.4;
-}
-.main .text .color_red {
-    color: #eb6877;
-    font-size: 0.9rem;
-}
-.main .text .match{
-    background: #c1894c;
-    display: inline-block;
-    color: #fff;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    margin-top: 5px;
-}
-.main .price {
-    display: flex;
-    align-items: center;
-    height: 30px;
-    color: #555;
-    font-size: 1rem;
-    text-align: center;
-    padding: 0 10px
-}
-.main .price i{
-    opacity: 0.5;
-    display: inline-block;
-    padding: 0 10px
-}
-.main .price span{
-    display: inline-block;
-    font-family: "Oswald-Light";
-    width: 70px
-}
-.main .check {
-    position: absolute;
-    left: 2px;
-    top: 50%;
-    margin-top: -8px;
-}
-.main .total {
-    text-align: right;
-    padding: 20px;
-    color: #333;
-}
-.main .total p {
-    margin: 0;
-    display: inline-block;
-}
-.main .total .num {
-    font-weight: bold;
-    font-size: 1.5rem;
-    font-size: 24px;
-    font-family: "Oswald-Light";
-    padding-left: 15px;
-    color: #333;
-}
-
-.main .quantity {
-    padding: 0 10px;
-    height: 30px;
-    width: 110px;
-    display: flex;
-    vertical-align: middle;
-    position: relative;
-    background: #fff;
-    background-clip: content-box;
-}
-.main .quantity a {
-    color: #000;
-    width: 30px;
-    font-size: 0;
-    cursor: pointer;
-}
-.main .quantity input {
-    border: none;
-    text-align: center;
-    width: 50px;
-    font-size: 0.85rem;
-    overflow: hidden;
-}
-
-.main .quantity a span {
-    width: 10px;
-    height: 1px;
-    background: #333;
-    display: block;
-    margin: 15px auto;
-    position: relative;
-}
-.main .quantity a.qty-plus span:after {
-    content: "";
-    width: 9px;
-    height: 1px;
-    background: #333;
-    display: block;
-    position: absolute;
-    top: -4px;
-    left: 50%;
-    transform: rotate(90deg);
-    transform-origin: 0% 0%;
-}
-.main .delete{
-    cursor: pointer;
-    left: 25px;
-    position: relative;
-}
-.main .delete span {
-    width: 28px;
-    height: 1px;
-    display: block;
-    background: #000;
-    font-size: 0;
-    transform: rotate(45deg);
-    transform-origin: 0 0;
-    margin-top: 5px;
-}
-.main .delete span:after {
-    content: "";
-    width: 100%;
-    height: 1px;
-    display: block;
-    background: #000;
-    transform: rotate(-90deg);
-}
+    .ProductList {
+        position: fixed;
+        z-index: 10000;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: .4s ease;
+        transition-delay: .6s
+    }
+    
+    .ProductList.active {
+        opacity: 1;
+        visibility: visible;
+        transition: .4s ease;
+    }
+    
+    .ProductList .box {
+        position: fixed;
+        right: -700px;
+        background: #fff;
+        height: 100vh;
+        overflow-y: auto;
+        width: 700px;
+        transition: .6s;
+    }
+    
+    .ProductList .box.active {
+        transition-delay: .4s;
+        right: 0;
+    }
+    
+    .ProductList .close {
+        display: block;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        cursor: pointer;
+    }
+    
+    .ProductList .close span {
+        width: 100%;
+        height: 2px;
+        margin: 15px 0;
+        display: block;
+        background: #666;
+    }
+    
+    .ProductList .close span:before {
+        transform: rotate(45deg);
+    }
+    
+    .ProductList .close span:after {
+        transform: rotate(-45deg);
+        margin-top: -1px;
+        margin-right: -1px;
+    }
+    
+    .ProductList .close span:before,
+    .ProductList .close span:after {
+        content: "";
+        width: 13px;
+        height: 2px;
+        background: #666;
+        display: block;
+        position: absolute;
+        right: 0;
+        transform-origin: 100% 100%;
+    }
+    
+    .main {
+        padding: 50px;
+    }
+    
+    .main .title {
+        border-bottom: 1px solid #e5e5e5;
+        text-align: center;
+        padding: 30px;
+        padding-top: 0;
+        font-size: 1.65rem;
+        color: #333;
+        font-weight: 100;
+    }
+    
+    .main .list li {
+        position: relative;
+        border-bottom: 1px solid #e5e5e5;
+        padding: 20px;
+        overflow: hidden;
+        transition: background 0.5s ease;
+        display: flex;
+        /*justify-content: space-between;*/
+    }
+    
+    .main .list li:hover {
+        background: #f9f9f9;
+    }
+    
+    .main .list li:hover .text .tit,
+    .main .list li:hover .text .en {
+        text-decoration: underline;
+    }
+    
+    .main .cart-list .img {
+        padding-left: 10px;
+    }
+    
+    .main .img {
+        width: 90px;
+        font-size: 1rem;
+    }
+    
+    .main .img img {
+        width: 100%;
+        height: auto;
+    }
+    
+    .main .text {
+        width: 215px;
+        padding: 0 10px
+    }
+    
+    .main .text .en {
+        color: #333;
+        font-weight: bold;
+        font-size: 0.95rem;
+        margin: 0;
+        line-height: 1.4;
+    }
+    
+    .main .text .tit {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .main .text .sale {
+        color: #c1894c;
+        font-size: 0.95rem;
+        margin-top: 5px;
+        line-height: 1.4;
+    }
+    
+    .main .text .color_red {
+        color: #eb6877;
+        font-size: 0.9rem;
+    }
+    
+    .main .text .match {
+        background: #c1894c;
+        display: inline-block;
+        color: #fff;
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        margin-top: 5px;
+    }
+    
+    .main .price {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        color: #555;
+        font-size: 1rem;
+        text-align: center;
+        padding: 0 10px
+    }
+    
+    .main .price i {
+        opacity: 0.5;
+        display: inline-block;
+        padding: 0 10px
+    }
+    
+    .main .price span {
+        display: inline-block;
+        font-family: "Oswald-Light";
+        width: 70px
+    }
+    
+    .main .check {
+        position: absolute;
+        left: 2px;
+        top: 50%;
+        margin-top: -8px;
+    }
+    
+    .main .total {
+        text-align: right;
+        padding: 20px;
+        color: #333;
+    }
+    
+    .main .total p {
+        margin: 0;
+        display: inline-block;
+    }
+    
+    .main .total .num {
+        font-weight: bold;
+        font-size: 1.5rem;
+        font-size: 24px;
+        font-family: "Oswald-Light";
+        padding-left: 15px;
+        color: #333;
+    }
+    
+    .main .quantity {
+        padding: 0 10px;
+        height: 30px;
+        width: 110px;
+        display: flex;
+        vertical-align: middle;
+        position: relative;
+        background: #fff;
+        background-clip: content-box;
+    }
+    
+    .main .quantity a {
+        color: #000;
+        width: 30px;
+        font-size: 0;
+        cursor: pointer;
+    }
+    
+    .main .quantity input {
+        border: none;
+        text-align: center;
+        width: 50px;
+        font-size: 0.85rem;
+        overflow: hidden;
+    }
+    
+    .main .quantity a span {
+        width: 10px;
+        height: 1px;
+        background: #333;
+        display: block;
+        margin: 15px auto;
+        position: relative;
+    }
+    
+    .main .quantity a.qty-plus span:after {
+        content: "";
+        width: 9px;
+        height: 1px;
+        background: #333;
+        display: block;
+        position: absolute;
+        top: -4px;
+        left: 50%;
+        transform: rotate(90deg);
+        transform-origin: 0% 0%;
+    }
+    
+    .main .delete {
+        cursor: pointer;
+        left: 25px;
+        position: relative;
+    }
+    
+    .main .delete span {
+        width: 28px;
+        height: 1px;
+        display: block;
+        background: #000;
+        font-size: 0;
+        transform: rotate(45deg);
+        transform-origin: 0 0;
+        margin-top: 5px;
+    }
+    
+    .main .delete span:after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        display: block;
+        background: #000;
+        transform: rotate(-90deg);
+    }
 </style>
