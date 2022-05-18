@@ -1,6 +1,6 @@
 <template>
     <div class="fn">
-        <FnSideProduct></FnSideProduct>
+        <!-- <FnSideProduct></FnSideProduct> -->
         <FnSide></FnSide>
         <div class="wrapper">
             <div class="wrapper_top">
@@ -15,7 +15,7 @@
     import FnNav from './components/FnNav'
     import FnFooter from './components/FnFooter'
     import FnSide from './components/FnSide'
-    import FnSideProduct from './components/FnSideProduct'
+    // import FnSideProduct from './components/FnSideProduct'
 
     export default {
         name: 'fn',
@@ -23,7 +23,7 @@
             FnNav,
             FnFooter,
             FnSide,
-            FnSideProduct,
+            // FnSideProduct,
         },
         mounted() {
             console.log('app');

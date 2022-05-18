@@ -1,5 +1,5 @@
 <template>
-    <div id="searchObj" class="searchObj" :class="{'active':enterShow}">
+    <div class="searchObj" :class="{'active':enterShow}">
         <div class="box">
             <!-- <form action="product_search.html"> -->
             <div class="from">

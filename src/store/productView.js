@@ -1,14 +1,14 @@
-import { productViewReq,addOrUpdateShopCartReq } from '@/api';
+import { productViewReq } from '@/api';
 const state = {
     productViewData: {},
-    addOrUpdateShopCartData: {},
+    addOrUpdateShopCartData: [],
 }
 const mutations = {
     productViewMu(state, list) {
         state.productViewData = list
     },
     addOrUpdateShopCartMu(state, list){
-        state.addOrUpdateShopCartData = list
+        state.addOrUpdateShopCartData.push(list)
     }
 }
 const actions = {
@@ -21,14 +21,15 @@ const actions = {
     },
     async addOrUpdateShopCart({ commit },params = {}) {
         // console.log(params)
-        let result = await addOrUpdateShopCartReq(params);
-        console.log(result.data)
-        if (result.data.code == 200) {
-            // commit('addOrUpdateShopCartMu', result.data.data)
-            return 'ok';
-        }else{
-            return Promise.reject(new Error('faile'));     
-        }
+        // let result = await addOrUpdateShopCartReq(params);
+        // console.log(result.data)
+        // if (result.data.code == 200) {
+        //     // commit('addOrUpdateShopCartMu', result.data.data)
+        //     return 'ok';
+        // }else{
+        //     return Promise.reject(new Error('faile'));     
+        // }
+        commit('addOrUpdateShopCartMu',params)
     }
     
 

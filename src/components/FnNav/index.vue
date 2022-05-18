@@ -42,7 +42,7 @@
 </template>
 
 <script>
-    import FnSeach from '@/components/FnSearch'
+    import FnSeach from './search'
     export default {
         data() {
             return {

@@ -84,26 +84,33 @@
                     this.skuNum = parseInt(value)
                 }
             },
-            // addShopcar(){
-            //     //請求
-            //     // console.log(this.$route.params.id)
-            //     this.$store.dispatch('productView/addOrUpdateShopCart',{skuId:this.$route.params.id,skuNum:this.skuNum})
-            // },
-            async addShopcar() {
+            addShopcar() {
                 //請求
-                try {
-                    await this.$store.dispatch('productView/addOrUpdateShopCart', {
-                            skuId: this.$route.params.id,
-                            skuNum: this.skuNum
-                        })
-                        //本地儲存
-                        //seccionStorage.setItem('SKUINFO',JSON.stringify(this.item))
-                        //JSON.parse(seccionStorage.getItem('SKUINFO'))
-                        //路由跳轉
-                        // this.$router.push({name:'addCartSuccess',query:{skuId:this.$route.params.id,skuNum:this.skuNum}})               
-                } catch (error) {
-                    alert(error.message)
-                }
+                // try {
+                //     await this.$store.dispatch('productView/addOrUpdateShopCart', {
+                //             skuId: this.$route.params.id,
+                //             skuNum: this.skuNum
+                //         })
+                //         //路由跳轉
+                //         // this.$router.push({name:'addCartSuccess',query:{skuId:this.$route.params.id,skuNum:this.skuNum}})               
+                // } catch (error) {
+                //     alert(error.message)
+                // }
+                // console.log('addShopcar')
+
+                //本地儲存
+                // let items= [{...this.item}]//移除proxy
+                // if(sessionStorage.getItem('shopCarInfo')){
+                //     items = JSON.parse(sessionStorage.getItem('shopCarInfo')).concat(items)
+                // }
+                // sessionStorage.setItem('shopCarInfo',JSON.stringify(items))
+                // console.log(JSON.parse(sessionStorage.getItem('SKUINFO')))
+
+                //store
+                this.$store.dispatch('productView/addOrUpdateShopCart', {
+                    skuId: this.$route.params.id,
+                    skuNum: this.skuNum
+                })
             },
         }
     }
@@ -253,6 +260,7 @@
         line-height: 48px;
         transition: ease 0.3s;
         width: 65%;
+        cursor: pointer;
     }
     
     .productText .add-cart .icon {

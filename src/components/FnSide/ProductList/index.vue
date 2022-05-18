@@ -1,8 +1,8 @@
 <template>
-    <div id="productListObj" class="sideProductObj">
-        <div id="sideArea" class="box active">
-            <a class="close"><span></span></a>
-            <div id="recent_list" class="main">
+    <div class="ProductList" :class="{'active':enterShow}">
+        <div class="box" :class="{'active':enterShow}">
+            <a class="close" @click="$emit('output',!enterShow)"><span></span></a>
+            <div class="main">
                 <div class="title">最近瀏覽商品</div>
                 <ul class="list">
                     <li>
@@ -71,10 +71,8 @@
                     </li>
                 </ul>
             </div>
-            <!-- 購物清單 -->
-            <div id="cart_list" class="main cart-list"  style="display: block;">
+            <div class="main">
                 <div class="title">購物清單</div>
-                <!-- <div class="table-no-data"><i class="fa fa-info-circle" aria-hidden="true"></i>目前查無符合資訊</div> -->
                 <ul class="list">
                     <li>
                         <label class="check">
@@ -194,18 +192,26 @@
                     <a href="flow_cart.html" class="btns" title="我要結帳"><span>我要結帳</span></a>
                 </div>
             </div>
+            <div class="main">
+                <div class="table-no-data"><i class="fa fa-info-circle" aria-hidden="true"></i>目前查無符合資訊</div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    name:'ProductList',
+    props:['enterShow'],
+    // data(){
+    //     return 
+    // }
 
 }
 </script>
 
 <style scoped>
-.sideProductObj{
+.ProductList{
     position: fixed;
     z-index: 10000;
     right: 0;
@@ -213,24 +219,30 @@ export default {
     top: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease;
+    transition-delay: .6s
+}
+.ProductList.active{
     opacity: 1;
-    display: none;
+    visibility: visible;
+    transition: .4s ease;
 }
-.sideProductObj.active{
-    display: block;
-}
-.sideProductObj .box {
+.ProductList .box {
     position: fixed;
-    right: -100%;
+    right: -700px;
     background: #fff;
     height: 100vh;
     overflow-y: auto;
     width: 700px;
+    transition: .6s;
 }
-.sideProductObj .box.active {
+.ProductList .box.active {
+    transition-delay: .4s;
     right: 0;
 }
-.sideProductObj .close {
+.ProductList .close {
     display: block;
     width: 25px;
     height: 25px;
@@ -239,23 +251,23 @@ export default {
     top: 50px;
     cursor: pointer;
 }
-.sideProductObj .close span {
+.ProductList .close span {
     width: 100%;
     height: 2px;
     margin: 15px 0;
     display: block;
     background: #666;
 }
-.sideProductObj .close span:before {
+.ProductList .close span:before {
     transform: rotate(45deg);
 }
-.sideProductObj .close span:after {
+.ProductList .close span:after {
     transform: rotate(-45deg);
     margin-top: -1px;
     margin-right: -1px;
 }
-.sideProductObj .close span:before,
-.sideProductObj .close span:after {
+.ProductList .close span:before,
+.ProductList .close span:after {
     content: "";
     width: 13px;
     height: 2px;
@@ -265,11 +277,10 @@ export default {
     right: 0;
     transform-origin: 100% 100%;
 }
-.sideProductObj .main {
+.main {
     padding: 50px;
-    display: none;
 }
-.sideProductObj .title {
+.main .title {
     border-bottom: 1px solid #e5e5e5;
     text-align: center;
     padding: 30px;
@@ -278,7 +289,7 @@ export default {
     color: #333;
     font-weight: 100;
 }
-.sideProductObj .list li {
+.main .list li {
     position: relative;
     border-bottom: 1px solid #e5e5e5;
     padding: 20px;
@@ -287,51 +298,51 @@ export default {
     display:flex;
     /*justify-content: space-between;*/
 }
-.sideProductObj .list li:hover{
+.main .list li:hover{
     background: #f9f9f9;
 }
-.sideProductObj .list li:hover .text .tit,
-.sideProductObj .list li:hover .text .en{
+.main .list li:hover .text .tit,
+.main .list li:hover .text .en{
     text-decoration: underline;
 }
-.sideProductObj .cart-list .img {
+.main .cart-list .img {
     padding-left: 10px;
 }
-.sideProductObj .img {
+.main .img {
     width: 90px;
     font-size: 1rem;
 }
-.sideProductObj .img img{
+.main .img img{
     width: 100%;
     height: auto;
 }
-.sideProductObj .text {
+.main .text {
     width: 215px;
     padding: 0 10px
 }
-.sideProductObj .text .en {
+.main .text .en {
     color: #333;
     font-weight: bold;
     font-size: 0.95rem;
     margin: 0;
     line-height: 1.4;
 }
-.sideProductObj .text .tit {
+.main .text .tit {
     color: #333;
     font-size: 14px;
     line-height: 1.4;
 }
-.sideProductObj .text .sale {
+.main .text .sale {
     color: #c1894c;
     font-size: 0.95rem;
     margin-top: 5px;
     line-height: 1.4;
 }
-.sideProductObj .text .color_red {
+.main .text .color_red {
     color: #eb6877;
     font-size: 0.9rem;
 }
-.sideProductObj .text .match{
+.main .text .match{
     background: #c1894c;
     display: inline-block;
     color: #fff;
@@ -339,7 +350,7 @@ export default {
     padding: 3px 10px;
     margin-top: 5px;
 }
-.sideProductObj .price {
+.main .price {
     display: flex;
     align-items: center;
     height: 30px;
@@ -348,32 +359,32 @@ export default {
     text-align: center;
     padding: 0 10px
 }
-.sideProductObj .price i{
+.main .price i{
     opacity: 0.5;
     display: inline-block;
     padding: 0 10px
 }
-.sideProductObj .price span{
+.main .price span{
     display: inline-block;
     font-family: "Oswald-Light";
     width: 70px
 }
-.sideProductObj .check {
+.main .check {
     position: absolute;
     left: 2px;
     top: 50%;
     margin-top: -8px;
 }
-.sideProductObj .total {
+.main .total {
     text-align: right;
     padding: 20px;
     color: #333;
 }
-.sideProductObj .total p {
+.main .total p {
     margin: 0;
     display: inline-block;
 }
-.sideProductObj .total .num {
+.main .total .num {
     font-weight: bold;
     font-size: 1.5rem;
     font-size: 24px;
@@ -382,7 +393,7 @@ export default {
     color: #333;
 }
 
-.sideProductObj .quantity {
+.main .quantity {
     padding: 0 10px;
     height: 30px;
     width: 110px;
@@ -392,13 +403,13 @@ export default {
     background: #fff;
     background-clip: content-box;
 }
-.sideProductObj .quantity a {
+.main .quantity a {
     color: #000;
     width: 30px;
     font-size: 0;
     cursor: pointer;
 }
-.sideProductObj .quantity input {
+.main .quantity input {
     border: none;
     text-align: center;
     width: 50px;
@@ -406,7 +417,7 @@ export default {
     overflow: hidden;
 }
 
-.sideProductObj .quantity a span {
+.main .quantity a span {
     width: 10px;
     height: 1px;
     background: #333;
@@ -414,7 +425,7 @@ export default {
     margin: 15px auto;
     position: relative;
 }
-.sideProductObj .quantity a.qty-plus span:after {
+.main .quantity a.qty-plus span:after {
     content: "";
     width: 9px;
     height: 1px;
@@ -426,12 +437,12 @@ export default {
     transform: rotate(90deg);
     transform-origin: 0% 0%;
 }
-.sideProductObj .delete{
+.main .delete{
     cursor: pointer;
     left: 25px;
     position: relative;
 }
-.sideProductObj .delete span {
+.main .delete span {
     width: 28px;
     height: 1px;
     display: block;
@@ -441,7 +452,7 @@ export default {
     transform-origin: 0 0;
     margin-top: 5px;
 }
-.sideProductObj .delete span:after {
+.main .delete span:after {
     content: "";
     width: 100%;
     height: 1px;

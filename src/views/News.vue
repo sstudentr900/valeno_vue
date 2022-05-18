@@ -2,7 +2,7 @@
     <div class="news">
         <h3 class="public_title">#NEWS</h3>
         <div class="public_flex">
-            <router-link :to="`/${item.href}/${item.id}`" v-for="item in newsData.newsList" :key="item.id">
+            <router-link :to="`/${item.href}/${item.id}`" v-for="item in getNewsList" :key="item.id">
             <!-- <a v-for="item in newsData.newsList" :key="item.id" :href="item.href"> -->
                 <div class="top">
                     <div class="img">
@@ -25,7 +25,7 @@
         :pageNo="customParams.pageNo" 
         :pageSize="customParams.pageSize" 
         :continues='customParams.continues' 
-        :total='newsData.total'
+        :total='getNewsTotle'
         @pageNo="getPageNo">
         </FnPagers>
     </div>
@@ -46,7 +46,13 @@
         computed: {
             ...mapState('news', {
                 newsData: state => state.newsData
-            })
+            }),
+            getNewsList(){
+                return this.newsData.newsList||[]
+            },
+            getNewsTotle(){
+                return this.newsData.total||[]
+            }
         },
         data() {
             return {
