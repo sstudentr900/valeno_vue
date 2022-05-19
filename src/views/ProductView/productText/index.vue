@@ -1,6 +1,5 @@
 <template>
     <div class="productText" v-if="item">
-        <!-- {{item}} -->
         <h2 class="title">{{item.ti}}</h2>
         <ul>
             <li>
@@ -15,10 +14,10 @@
                 <div class="public_flex">
                     <div class="t">數量</div>
                     <div class="c">
-                        <div class="qty-wrap">
-                            <div title="增加數量" class="qty-minus link" @click="skuNum>1?skuNum--:skuNum=1"><span>-</span></div>
-                            <input id="quantity" type="text" name="email"  data-min="1" data-max="15" v-model="skuNum" @change="changeSkuNum">
-                            <div title="減少數量" class="qty-plus link" @click="skuNum++"><span>+</span></div>
+                        <div class="public_qty">
+                            <div title="減少數量" class="qty-minus link" @click="skuNum>1?skuNum--:skuNum=1"><span>-</span></div>
+                            <input type="text" data-min="1" v-model="skuNum" @change="changeSkuNum">
+                            <div title="增加數量" class="qty-plus link" @click="skuNum++"><span>+</span></div>
                         </div>
                     </div>
                 </div>
@@ -51,11 +50,11 @@
                     </div>
                 </div>
                 <div class="public_flex">
-                    <a @click="addShopcar" class="add-cart">加入購物車
+                    <div @click="addShopcar" class="addCartButton">加入購物車
                         <span class="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.419c-2.826-5.695-11.999-4.064-11.999 3.27 0 7.27 9.903 10.938 11.999 15.311 2.096-4.373 12-8.041 12-15.311 0-7.327-9.17-8.972-12-3.27z"/></svg>
                         </span>
-                    </a>
+                    </div>
                     <!-- <p class="outOfStock">缺貨中</p> -->
                 </div>
             </li>
@@ -100,24 +99,16 @@
 
 
                 //本地儲存
-                let items = [{
-                    skuId: this.$route.params.id,
-                    skuNum: this.skuNum
-                }]
-                if (sessionStorage.getItem('skuList')) {
+                let items = [{...this.item,skuNum:this.skuNum}];
+                if(sessionStorage.getItem('skuList')){
                     let updataCount = true;
-                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
-                        //相同ID更新數量
-                        if (items[0]['skuId'] == el['skuId']) {
+                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((element,index,array) => {
+                        if (items[0]['id'] == element['id']) {
                             updataCount = false;
-                            return {
-                                skuId: el['skuId'],
-                                skuNum: el['skuNum'] + items[0]['skuNum']
-                            };
-                        } else {
-                            return el;
+                            element['skuNum'] += items[0]['skuNum']
                         }
-                    })
+                        return element
+                    });
                     if (updataCount) {
                         items = skuListArry.concat(items)
                     } else {
@@ -125,7 +116,35 @@
                     }
                 }
                 sessionStorage.setItem('skuList', JSON.stringify(items))
-                console.log(JSON.parse(sessionStorage.getItem('skuList')))
+
+                this.$emit('promptIfValue',true)
+                //本地儲存
+                // let items = [{
+                //     skuId: this.$route.params.id,
+                //     skuNum: this.skuNum
+                // }]
+                // if (sessionStorage.getItem('skuList')) {
+                //     let updataCount = true;
+                //     let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
+                //         //相同ID更新數量
+                //         if (items[0]['skuId'] == el['skuId']) {
+                //             updataCount = false;
+                //             return {
+                //                 skuId: el['skuId'],
+                //                 skuNum: el['skuNum'] + items[0]['skuNum']
+                //             };
+                //         } else {
+                //             return el;
+                //         }
+                //     })
+                //     if (updataCount) {
+                //         items = skuListArry.concat(items)
+                //     } else {
+                //         items = skuListArry
+                //     }
+                // }
+                // sessionStorage.setItem('skuList', JSON.stringify(items))
+                // console.log(JSON.parse(sessionStorage.getItem('skuList')))
 
 
                 //store
@@ -181,43 +200,7 @@
         align-items: center;
     }
     
-    .productText .qty-wrap {
-        height: 35px;
-        width: 130px;
-        display: flex;
-        align-items: center;
-    }
     
-    .productText .qty-wrap .link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        color: #000;
-        width: 50%;
-        position: relative;
-        border-top: 0;
-        border-bottom: 0;
-        border: 1px solid #ddd;
-        cursor: pointer;
-        width: 90px;
-        user-select: none;
-    }
-    
-    .productText .qty-wrap span {
-        font-size: 22px;
-    }
-    
-    .productText .qty-wrap input {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-left: none;
-        border-right: none;
-        text-align: center;
-        height: 100%;
-        width: 100%;
-        font-size: 0.85rem;
-    }
     
     .productText .color-choose a.selected {
         border: 2px solid #555;
@@ -269,7 +252,7 @@
         text-decoration: line-through;
     }
     
-    .productText .add-cart {
+    .productText .addCartButton {
         margin: 10px;
         background: #222;
         border: 1px solid #222;
@@ -283,9 +266,10 @@
         transition: ease 0.3s;
         width: 65%;
         cursor: pointer;
+        user-select: none;
     }
     
-    .productText .add-cart .icon {
+    .productText .addCartButton .icon {
         background: #fff;
         color: #222;
         float: right;
@@ -293,19 +277,19 @@
         line-height: 0;
     }
     
-    .productText .add-cart .icon svg {
+    .productText .addCartButton .icon svg {
         width: 16px;
         height: auto;
     }
     
-    .productText .add-cart:hover {
+    /* .productText .addCartButton:hover {
         background: #c1894c;
         box-shadow: 0 0 0 2px #c1894c inset;
         border-color: #c1894c;
         transform: scale(1.05, 1.05);
     }
     
-    .productText .add-cart:hover .icon svg {
+    .productText .addCartButton:hover .icon svg {
         fill: #c1894c;
         animation: pump 0.8s 0.3s ease infinite;
     }
@@ -320,5 +304,5 @@
         100% {
             transform: scale(0.9, 0.9);
         }
-    }
+    } */
 </style>

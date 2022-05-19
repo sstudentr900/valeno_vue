@@ -21,7 +21,6 @@
             FnNav,
             FnFooter,
             FnSide,
-            // FnSideProduct,
         },
         mounted() {
             console.log('app');
