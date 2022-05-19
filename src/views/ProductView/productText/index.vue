@@ -15,9 +15,12 @@
                     <div class="t">數量</div>
                     <div class="c">
                         <div class="public_qty">
-                            <div title="減少數量" class="qty-minus link" @click="skuNum>1?skuNum--:skuNum=1"><span>-</span></div>
-                            <input type="text" data-min="1" v-model="skuNum" @change="changeSkuNum">
-                            <div title="增加數量" class="qty-plus link" @click="skuNum++"><span>+</span></div>
+                            <!-- <div title="減少數量" class="qty-minus link" @click="skuNum>1?skuNum--:skuNum=1"><span>-</span></div>
+                            <input type="text" data-min="1" v-model="skuNum" @change="skuChange">
+                            <div title="增加數量" class="qty-plus link" @click="skuNum++"><span>+</span></div> -->
+                            <div title="減少數量" class="qty-minus link" @click="skuReduce"><span>-</span></div>
+                            <input type="text" data-min="1" v-model="skuNum" @change="skuChange">
+                            <div title="增加數量" class="qty-plus link" @click="skuAdd"><span>+</span></div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +74,17 @@
             }
         },
         methods: {
-            changeSkuNum(event) {
+            skuAdd(index) {
+                this.skuNum += 1;
+            },
+            skuReduce(index) {
+                if (this.skuNum > 1) {
+                    this.skuNum -= 1;
+                } else {
+                    this.skuNum = 1;
+                }
+            },
+            skuChange(event) {
                 //console.log(event)
                 let value = event.target.value * 1;
                 // console.log(value)
@@ -99,10 +112,12 @@
 
 
                 //本地儲存
-                let items = [{...this.item,skuNum:this.skuNum}];
-                if(sessionStorage.getItem('skuList')){
+                let items = [{...this.item,
+                    skuNum: this.skuNum
+                }];
+                if (sessionStorage.getItem('skuList')) {
                     let updataCount = true;
-                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((element,index,array) => {
+                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((element, index, array) => {
                         if (items[0]['id'] == element['id']) {
                             updataCount = false;
                             element['skuNum'] += items[0]['skuNum']
@@ -117,34 +132,34 @@
                 }
                 sessionStorage.setItem('skuList', JSON.stringify(items))
 
-                this.$emit('promptIfValue',true)
-                //本地儲存
-                // let items = [{
-                //     skuId: this.$route.params.id,
-                //     skuNum: this.skuNum
-                // }]
-                // if (sessionStorage.getItem('skuList')) {
-                //     let updataCount = true;
-                //     let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
-                //         //相同ID更新數量
-                //         if (items[0]['skuId'] == el['skuId']) {
-                //             updataCount = false;
-                //             return {
-                //                 skuId: el['skuId'],
-                //                 skuNum: el['skuNum'] + items[0]['skuNum']
-                //             };
-                //         } else {
-                //             return el;
-                //         }
-                //     })
-                //     if (updataCount) {
-                //         items = skuListArry.concat(items)
-                //     } else {
-                //         items = skuListArry
-                //     }
-                // }
-                // sessionStorage.setItem('skuList', JSON.stringify(items))
-                // console.log(JSON.parse(sessionStorage.getItem('skuList')))
+                this.$emit('promptIfValue', true)
+                    //本地儲存
+                    // let items = [{
+                    //     skuId: this.$route.params.id,
+                    //     skuNum: this.skuNum
+                    // }]
+                    // if (sessionStorage.getItem('skuList')) {
+                    //     let updataCount = true;
+                    //     let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
+                    //         //相同ID更新數量
+                    //         if (items[0]['skuId'] == el['skuId']) {
+                    //             updataCount = false;
+                    //             return {
+                    //                 skuId: el['skuId'],
+                    //                 skuNum: el['skuNum'] + items[0]['skuNum']
+                    //             };
+                    //         } else {
+                    //             return el;
+                    //         }
+                    //     })
+                    //     if (updataCount) {
+                    //         items = skuListArry.concat(items)
+                    //     } else {
+                    //         items = skuListArry
+                    //     }
+                    // }
+                    // sessionStorage.setItem('skuList', JSON.stringify(items))
+                    // console.log(JSON.parse(sessionStorage.getItem('skuList')))
 
 
                 //store
@@ -199,8 +214,6 @@
         flex: 0 50%;
         align-items: center;
     }
-    
-    
     
     .productText .color-choose a.selected {
         border: 2px solid #555;
@@ -281,7 +294,6 @@
         width: 16px;
         height: auto;
     }
-    
     /* .productText .addCartButton:hover {
         background: #c1894c;
         box-shadow: 0 0 0 2px #c1894c inset;

@@ -4,7 +4,7 @@
             <a class="close" @click="$emit('output',!enterShow)"><span></span></a>
             <div class="main" v-if="enterName=='skuInfo'">
                 <div class="title">最近瀏覽商品</div>
-                <div class="content" v-if="productListData">
+                <div class="content" v-if="productListData.length>0">
                     <ul class="list">
                         <li v-for="(item,index) in productListData" :key="item.id">
                             <div class="left" @click="routerLink(item.id)">
@@ -21,57 +21,9 @@
                             </div>
                             <div class="delete" @click="skuDelet(index)"><span></span></div>
                         </li>
-                        <!-- <li>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/nDjOWZU.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Maya air Crusion </p>
-                                    <p class="tit">水感粉底霜</p>
-                                </a>
-                                <p class="sale">泰國必買</p>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span><i>|</i><span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/QLM7KBM.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Groove complete</p>
-                                    <p class="tit">12色完美眼彩盤</p>
-                                </a>
-                                <p class="sale">泰國必買</p>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span><i>|</i><span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                        <li>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/1Q7xtcu.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Maya air Crusion </p>
-                                    <p class="tit">水感粉底霜</p>
-                                </a>
-                                <p class="sale">泰國必買</p>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span><i>|</i><span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li> -->
                     </ul>
                 </div>
-                <div class="noData" v-if="!productListData"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有覽商品</div>
+                <div class="noData" v-else><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有覽商品</div>
             </div>
             <div class="main" v-if="enterName=='skuList'">
                 <div class="title">購物清單</div>
@@ -86,16 +38,16 @@
                                     <p class="tit">{{item.ti}}</p>
                                     <p class="sale">{{item.sale}}</p>
                                 </div>
-                                <div class="public_qty">
+                                <!-- <div class="public_qty">
                                     <div title="減少數量" class="qty-minus link" @click="skuReduce(index)"><span>-</span></div>
                                     <input type="text" data-min="1" :value="item.skuNum" @change="skuChange(index,$event.target.value)">
                                     <div title="增加數量" class="qty-plus link" @click="skuAdd(index)"><span>+</span></div>
-                                </div>
-                                <!-- <div class="quantity">
-                                    <a title="增加數量" class="qty-minus"><span></span></a>
-                                    <input type="text" name="" :value="item.skuNum" data-min="1">
-                                    <a title="減少數量" class="qty-plus"><span></span></a>
                                 </div> -->
+                                <div class="public_qty">
+                                    <div title="減少數量" class="qty-minus link" @click="skuCount('minus',index,1)"><span>-</span></div>
+                                    <input type="text" :value="item.skuNum" @change="skuCount('change',index,$event.target.value)">
+                                    <div title="增加數量" class="qty-plus link" @click="skuCount('add',index,1)"><span>+</span></div>
+                                </div>
                                 <div class="price">
                                     <!-- <span class="through">{{item.price}}</span><i>|</i> -->
                                     <span>{{item.special_price}}</span>
@@ -104,126 +56,16 @@
                             <div class="delete" @click="skuDelet(index)"><span></span></div>
                         </li>
                     </ul>   
-                    <!-- <ul class="list">
-                        <li>
-                            <label class="check">
-                                <input type="checkbox">
-                                <span><i class="fa fa-check" aria-hidden="true"></i></span>
-                            </label>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/eJEZuLC.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Groove complete</p>
-                                    <p class="tit">12色完美眼彩盤</p>
-                                </a>
-                                <p class="color_red">no2珊瑚橘</p>
-                                <p class="match">符合活動</p>
-                                <a href="product_discount_list.html" class="sale">Mistine周年慶全館85折</a>
-                            </div>
-                            <div class="quantity">
-                                <a title="增加數量" class="qty-minus"><span></span></a>
-                                <input type="text" name="" value="1" data-min="1" data-max="15">
-                                <a title="減少數量" class="qty-plus"><span></span></a>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                        <li>
-                            <label class="check">
-                                <input type="checkbox">
-                                <span><i class="fa fa-check" aria-hidden="true"></i></span>
-                            </label>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/nDjOWZU.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Maya air Crusion </p>
-                                    <p class="tit">水感粉底霜</p>
-                                </a>
-                                <p class="color_red">no2珊瑚橘</p>
-                                <p class="match">符合活動</p>
-                                <a href="product_discount_list.html" class="sale">Mistine周年慶全館85折</a>
-                            </div>
-                            <div class="quantity">
-                                <a title="增加數量" class="qty-minus"><span></span></a>
-                                <input type="text" name="" value="1" data-min="1" data-max="15">
-                                <a title="減少數量" class="qty-plus"><span></span></a>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                        <li>
-                            <label class="check">
-                                <input type="checkbox">
-                                <span><i class="fa fa-check" aria-hidden="true"></i></span>
-                            </label>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/QLM7KBM.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Groove complete</p>
-                                    <p class="tit">12色完美眼彩盤</p>
-                                </a>
-                                <p class="color_red">no2珊瑚橘</p>
-                                <p class="match">符合活動</p>
-                                <a href="product_discount_list.html" class="sale">Mistine周年慶全館85折</a>
-                            </div>
-                            <div class="quantity">
-                                <a title="增加數量" class="qty-minus"><span></span></a>
-                                <input type="text" name="" value="1" data-min="1" data-max="15">
-                                <a title="減少數量" class="qty-plus"><span></span></a>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                        <li>
-                            <label class="check">
-                                <input type="checkbox">
-                                <span><i class="fa fa-check" aria-hidden="true"></i></span>
-                            </label>
-                            <div class="img">
-                                <a href="product_view.html" title=""><img src="https://imgur.com/1Q7xtcu.jpg" alt=""></a>
-                            </div>
-                            <div class="text">
-                                <a href="product_view.html" title="">
-                                    <p class="en">Mistine - Maya air Crusion </p>
-                                    <p class="tit">水感粉底霜</p>
-                                </a>
-                                <div class="color_red">no2珊瑚橘</div>
-                                <p class="match">符合活動</p>
-                                <a href="product_discount_list.html" class="sale">Mistine周年慶全館85折</a>
-                            </div>
-                            <div class="quantity">
-                                <a title="增加數量" class="qty-minus"><span></span></a>
-                                <input type="text" name="" value="1" data-min="1" data-max="15">
-                                <a title="減少數量" class="qty-plus"><span></span></a>
-                            </div>
-                            <div class="price">
-                                <span>NT$429</span>
-                            </div>
-                            <div class="delete"><span></span></div>
-                        </li>
-                    </ul> -->
                     <div class="total">
                         <p>訂單總金額</p>
-                        <p class="num">NT${{skutotal()}}</p>
+                        <p class="num">NT${{skuTotal()}}</p>
                     </div>
                     <div class="public_buttons">
-                        <a @click="skuInfoAdd" class="btns white-btn" title="加入追蹤清單"><span>加入追蹤清單</span></a>
+                        <a @click="skuCopyInfo" class="btns white-btn" title="加入追蹤清單"><span>加入追蹤清單</span></a>
                         <a href="flow_cart.html" class="btns" title="我要結帳"><span>我要結帳</span></a>
                     </div>
                 </div>
-                <div class="noData" v-if="!productListData"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有購物資訊</div>
+                <div class="noData" v-else><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有購物資訊</div>
             </div>
         </div>
     </div>
@@ -237,80 +79,95 @@
         mounted() {
             this.getData()
         },
-        components:{
+        components: {
             FnProduct
         },
-        data(){
+        data() {
             return {
                 productListData: []
             }
         },
-        methods:{
-            getData(){
+        methods: {
+            getData() {
                 this.productListData = JSON.parse(sessionStorage.getItem(this.enterName));
             },
-            routerLink(id){
+            routerLink(id) {
                 // console.log(this.$emit)
                 this.$router.push(`/product_view/${id}`);
-                this.$emit('output',!this.enterShow);
+                this.$emit('output', !this.enterShow);
             },
-            skuAdd(index){
+            skuAdd(index) {
                 this.productListData[index]['skuNum'] += 1;
                 this.skuSave()
             },
-            skuReduce(index){
-                if(this.productListData[index]['skuNum']>1){
+            skuReduce(index) {
+                if (this.productListData[index]['skuNum'] > 1) {
                     this.productListData[index]['skuNum'] -= 1;
-                }else{
+                } else {
                     this.productListData[index]['skuNum'] = 1;
                 }
                 this.skuSave()
             },
-            skuChange(index,value){
+            skuChange(index, value) {
                 value = value * 1;
-                if(isNaN(value) || value < 0){
+                if (isNaN(value) || value < 0) {
                     value = 1;
-                }else{
+                } else {
                     value = parseInt(value);
                 }
                 this.productListData[index]['skuNum'] = value;
                 this.skuSave()
-                // console.log(value)
-                // console.log(this.productListData[index]['skuNum'])
-                // console.log(this.$refs.groupId.value)
             },
-            skuDelet(index){
+            skuCount(type, index, value) {
+                let skuNum = this.productListData[index]['skuNum'];
+                console.log(type, index, value, skuNum)
+                switch (type) {
+                    case "add":
+                        skuNum += value;
+                        break;
+                    case "minus":
+                        skuNum = skuNum > 1 ? skuNum - value : 1;
+                        break;
+                    case "change":
+                        skuNum = (isNaN(value) || value < 1) ? 1 : parseInt(value)
+                        console.log(skuNum)
+                }
+                this.productListData[index]['skuNum'] = skuNum
+                this.skuSave()
+            },
+            skuDelet(index) {
                 // console.log('skuDelet')
                 // this.productListData = this.productListData.filter((el,index)=>{
                 //     return el['id']!==id;
+                //     return el['id']!==id;
                 // })
-                this.productListData.splice(index,1);
+                this.productListData.splice(index, 1);
                 this.skuSave();
             },
-            skuSave(name=this.enterName,data=this.productListData){
+            skuSave(name = this.enterName, data = this.productListData) {
                 sessionStorage.setItem(name, JSON.stringify(data))
             },
-            skutotal(){
+            skuTotal() {
                 let totalValue = 0
-                this.productListData.forEach((el)=>{
-                    totalValue += el['skuNum']*el['special_price'].split('$')[1]
+                this.productListData.forEach((el) => {
+                    totalValue += el['skuNum'] * el['special_price'].split('$')[1]
                 })
                 return totalValue;
             },
-            skuInfoAdd(){
+            skuCopyInfo() {
                 let skuInfo = JSON.parse(sessionStorage.getItem('skuInfo')) || []
-                this.productListData.forEach((el)=>{
-                    skuInfo = skuInfo.filter(infoEl=>{
+                this.productListData.forEach((el) => {
+                    skuInfo = skuInfo.filter(infoEl => {
                         return el['id'] != infoEl['id']
                     })
                 })
                 skuInfo = skuInfo.concat(JSON.parse(JSON.stringify(this.productListData)))
-                this.skuSave('skuInfo',skuInfo)
-                // sessionStorage.setItem('skuInfo',JSON.stringify(skuInfo))
+                this.skuSave('skuInfo', skuInfo)
+                    // sessionStorage.setItem('skuInfo',JSON.stringify(skuInfo))
             },
         },
-        watch:{
-            enterName(newValue,oldValue){
+        watch: {
+            enterName(newValue, oldValue) {
                 this.getData()
             }
         }
@@ -408,7 +265,7 @@
         font-weight: 100;
     }
     
-    .main .list>li{
+    .main .list>li {
         position: relative;
         border-bottom: 1px solid #e5e5e5;
         padding: 20px;
@@ -429,12 +286,11 @@
     .main .list>li:hover .text .en {
         text-decoration: underline;
     }
-
-    .main .list .left{
+    
+    .main .list .left {
         display: flex;
         align-items: center;
     }
-    
     /* .main .cart-list .img {
         padding-left: 10px;
     } */
@@ -453,7 +309,6 @@
         width: 210px;
         padding: 0 20px
     }
-    
     /* .main .text .en {
         color: #333;
         font-weight: bold;
@@ -511,7 +366,8 @@
         font-family: "Oswald-Light";
         width: 70px
     }
-    .main .price span.through{   
+    
+    .main .price span.through {
         text-decoration: line-through;
     }
     
@@ -541,7 +397,8 @@
         padding-left: 15px;
         color: #333;
     }
-    .main .public_qty{
+    
+    .main .public_qty {
         padding: 0 20px;
     }
     /* .main .quantity {
@@ -619,19 +476,22 @@
         background: inherit;
         transform: rotate(-90deg);
     }
-    .main .noData{
+    
+    .main .noData {
         height: 120px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 18px;
     }
-    .main .noData svg{
+    
+    .main .noData svg {
         width: 24px;
         height: 24px;
         margin-right: 10px;
     }
-    .main .public_buttons a{
+    
+    .main .public_buttons a {
         cursor: pointer;
     }
 </style>
