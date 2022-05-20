@@ -4,9 +4,9 @@
             <a class="close" @click="productOutput"><span></span></a>
             <div class="main" v-show="enterName=='skuInfo'">
                 <div class="title">最近瀏覽商品</div>
-                <div class="content" v-if="getShopCarInfoIf">
+                <div class="content" v-if="productListDataIf">
                     <ul class="list">
-                        <li v-for="(item,index) in getShopCarInfo" :key="item.id">
+                        <li v-for="(item,index) in productListData" :key="item.id">
                             <div class="left" @click="goProduct(item.id)">
                                 <div class="img">
                                     <img :src="item.src"  alt="">
@@ -34,9 +34,9 @@
             </div>
             <div class="main" v-show="enterName=='skuList'">
                 <div class="title">購物清單</div>
-                <div class="content" v-if="getShopCarListIf">
+                <div class="content" v-if="productListDataIf">
                     <ul class="list">
-                        <li v-for="(item,index) in getShopCarList" :key="item.id">
+                        <li v-for="(item,index) in productListData" :key="item.id">
                             <div class="left">
                                 <div class="img">
                                     <img :src="item.src"  alt="">
@@ -86,10 +86,6 @@
 </template>
 
 <script>
-    import {
-        mapState,
-        mapGetters
-    } from 'vuex'
     import FnProduct from '@/components/FnProduct'
     export default {
         name: 'ProductList',
@@ -107,35 +103,48 @@
             }
         },
         computed:{
-            ...mapState('shopCar',['shopCarList','shopCarInfo']),
-            getShopCarInfo(){
-                return this.shopCarInfo||[];
-            },
-            getShopCarInfoIf(){
-                return this.getShopCarInfo.length>0||false;
-            },
-            getShopCarList(){
-                return this.shopCarList||[];
-            },
-            getShopCarListIf(){
-                return this.getShopCarList.length>0||false;
+            productListDataIf(){
+                // console.log(this.productListData,this.productListData.length)
+                return this.productListData?this.productListData.length>0:false;
             },
             skuTotal() {
-                let sum = 0
+                let totalValue = 0
                 // console.log('skuTotal',this.enterName , this.productListData)
-                this.getData.forEach((el) => {
-                    sum += el['skuNum'] * el['special_price'].split('$')[1]
+                this.productListData.forEach((el) => {
+                    totalValue += el['skuNum'] * el['special_price'].split('$')[1]
                 })
-                return sum;
+                return totalValue;
             },
         },
         methods: {
-            // getData() {
-            //     this.productListData = JSON.parse(sessionStorage.getItem(this.enterName)) || [];
-            //     // console.log('getData',this.enterName,this.productListData)
-            // },
+            getData() {
+                this.productListData = JSON.parse(sessionStorage.getItem(this.enterName)) || [];
+                // console.log('getData',this.enterName,this.productListData)
+            },
             productOutput(){
                 this.$emit('productOutput', !this.enterShow);
+            },
+            skuAdd(index) {
+                this.productListData[index]['skuNum'] += 1;
+                this.skuSave()
+            },
+            skuReduce(index) {
+                if (this.productListData[index]['skuNum'] > 1) {
+                    this.productListData[index]['skuNum'] -= 1;
+                } else {
+                    this.productListData[index]['skuNum'] = 1;
+                }
+                this.skuSave()
+            },
+            skuChange(index, value) {
+                value = value * 1;
+                if (isNaN(value) || value < 0) {
+                    value = 1;
+                } else {
+                    value = parseInt(value);
+                }
+                this.productListData[index]['skuNum'] = value;
+                this.skuSave()
             },
             skuCount(type, index, value) {
                 let skuNum = this.productListData[index]['skuNum'];
@@ -159,11 +168,8 @@
                 //     return el['id']!==id;
                 //     return el['id']!==id;
                 // })
-
-                // this.productListData.splice(index, 1);
-                // this.skuSave();
-
-                this.$store.dispatch('shopCar/shopCarDelet',index)
+                this.productListData.splice(index, 1);
+                this.skuSave();
             },
             skuSave(name = this.enterName, data = this.productListData) {
                 sessionStorage.setItem(name, JSON.stringify(data))
@@ -193,20 +199,20 @@
             }
         },
         watch: {
-            // enterShow:{
-            //     handler:function(newValue, oldValue){
-            //         console.log('enterShow')
-            //         this.getData()
-            //     },
-            //     // immediate: true
-            // },
-            // enterName:{
-            //     handler:function(newValue, oldValue){
-            //         console.log('enterName')
-            //         this.getData()
-            //     },
-            //     immediate: true
-            // }
+            enterShow:{
+                handler:function(newValue, oldValue){
+                    console.log('enterShow')
+                    this.getData()
+                },
+                // immediate: true
+            },
+            enterName:{
+                handler:function(newValue, oldValue){
+                    console.log('enterName')
+                    this.getData()
+                },
+                immediate: true
+            }
         }
 
     }

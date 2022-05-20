@@ -35,7 +35,6 @@
         },
         methods: {
             handler(event){
-                console.log(123)
                 let mask = this.$refs.mask;
                 let big = this.$refs.bigImg;
                 let left = event.offsetX-mask.offsetWidth/2;

@@ -106,7 +106,7 @@
         watch: {
             //監聽路由改變執行product
             $route(newValue, oldValue) {
-                console.log('route')
+                // console.log('route')
                 this.getData()
             },
             itemData(newValue, oldValue){

@@ -97,7 +97,15 @@
                 }
             },
             addShopcar() {
-                //請求
+                //vuex+sessionStorage
+                let items = [{...this.item,
+                    skuNum: this.skuNum
+                }];
+                // this.$store.commit('shopCar/skuListAdd', items);
+                this.$store.dispatch('shopCar/shopCarAdd', items);
+                this.$emit('promptIfValue', true);
+            },
+            addShopcarXX() {
                 // try {
                 //     await this.$store.dispatch('productView/addOrUpdateShopCart', {
                 //             skuId: this.$route.params.id,
@@ -111,62 +119,26 @@
                 // console.log('addShopcar')
 
 
-                //本地儲存
+                //本地儲存sessionStorage
                 let items = [{...this.item,
                     skuNum: this.skuNum
                 }];
                 if (sessionStorage.getItem('skuList')) {
-                    let updataCount = true;
-                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((element, index, array) => {
-                        if (items[0]['id'] == element['id']) {
-                            updataCount = false;
-                            element['skuNum'] += items[0]['skuNum']
+                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el)=>{
+                        if(el['id']==items[0]['id']){
+                            el['skuNum'] += items[0]['skuNum'];
+                            items = false
                         }
-                        return element
-                    });
-                    if (updataCount) {
-                        items = skuListArry.concat(items)
-                    } else {
-                        items = skuListArry
+                        return el
+                    })
+                    if(items){
+                        items = skuListArry.concat(items);
+                    }else{
+                        items = skuListArry;
                     }
                 }
-                sessionStorage.setItem('skuList', JSON.stringify(items))
-
-                this.$emit('promptIfValue', true)
-                    //本地儲存
-                    // let items = [{
-                    //     skuId: this.$route.params.id,
-                    //     skuNum: this.skuNum
-                    // }]
-                    // if (sessionStorage.getItem('skuList')) {
-                    //     let updataCount = true;
-                    //     let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el, index) => {
-                    //         //相同ID更新數量
-                    //         if (items[0]['skuId'] == el['skuId']) {
-                    //             updataCount = false;
-                    //             return {
-                    //                 skuId: el['skuId'],
-                    //                 skuNum: el['skuNum'] + items[0]['skuNum']
-                    //             };
-                    //         } else {
-                    //             return el;
-                    //         }
-                    //     })
-                    //     if (updataCount) {
-                    //         items = skuListArry.concat(items)
-                    //     } else {
-                    //         items = skuListArry
-                    //     }
-                    // }
-                    // sessionStorage.setItem('skuList', JSON.stringify(items))
-                    // console.log(JSON.parse(sessionStorage.getItem('skuList')))
-
-
-                //store
-                // this.$store.dispatch('productView/addOrUpdateShopCart', {
-                //     skuId: this.$route.params.id,
-                //     skuNum: this.skuNum
-                // })
+                sessionStorage.setItem('skuList', JSON.stringify(items));
+                this.$emit('promptIfValue', true);
             },
         }
     }

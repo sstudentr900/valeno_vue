@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import home from "./home"
 import product from "./product"
 import productView from "./productView"
+import shopCar from "./shopCar"
 import news from "./news"
 import beauty from "./beauty"
 import store from "./store"
@@ -14,6 +15,7 @@ export default createStore({
         home,
         product,
         productView,
+        shopCar,
         news,
         beauty,
         store
