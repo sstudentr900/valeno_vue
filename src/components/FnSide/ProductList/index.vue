@@ -69,12 +69,12 @@
                     </ul>  
                     <div class="deletDiv">
                         <div class="checkInput">
-                            <input type="checkbox" id="checkboxAllSku" @click="listCheckAll({checked:$event.target.checked})">
+                            <input type="checkbox" id="checkboxAllSku" @click="listCheckAll({checked:$event.target.checked})" :checked="checkAllIf">
                             <label for="checkboxAllSku">全選</label>
                         </div>
                         <div class="checkLabel">
                             <label @click="listCheckDelet">刪除選中商品</label>
-                            <label @click="infoCopy">追蹤選中商品</label>
+                            <label @click="listCheckInfo">追蹤選中商品</label>
                         </div>
                     </div>
                     <div class="total">
@@ -90,9 +90,9 @@
                     <div class="noData">
                         <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有購物資訊
                     </div>
-                    <div class="public_buttons">
+                    <!-- <div class="public_buttons">
                         <a @click="infoCopy" class="btns" title="回到追蹤清單"><span>回到追蹤清單</span></a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -111,7 +111,9 @@
         props: ['enterShow', 'enterName'],
         components: {},
         data() {
-            return {}
+            return {
+                checkAllIf: false
+            }
         },
         computed: {
             ...mapState('shopCar', ['shopCarList', 'shopCarInfo']),
@@ -167,6 +169,11 @@
                 //     console.log(error)
                 // }
             }, 20),
+            listCheckInfo() {
+                console.log('listCheckInfo')
+                this.checkAllIf = false;
+                this.infoCopy();
+            },
             // skuDelet(index, name) {
             //     try {
             //         this.$store.dispatch('shopCar/skuDelet', {
