@@ -22,61 +22,65 @@
             // 銷毁監聽
             this.eventBus.off("getIndex");
         },
-        mounted(){
+        mounted() {
             this.eventBus.on('getIndex', (msg) => {
                 this.nowImageIndex = msg
-                // console.log(msg)
+                    // console.log(msg)
             });
         },
-        computed:{
+        computed: {
             // imgObj(){
             //     return this.item || {}
             // }
         },
         methods: {
-            handler(event){
+            handler(event) {
                 let mask = this.$refs.mask;
                 let big = this.$refs.bigImg;
-                let left = event.offsetX-mask.offsetWidth/2;
-                let top = event.offsetY-mask.offsetHeight/2;
+                let left = event.offsetX - mask.offsetWidth / 2;
+                let top = event.offsetY - mask.offsetHeight / 2;
                 //範圍約束
-                if(left<=0)left = 0;
-                if(left>=mask.offsetWidth)left = mask.offsetWidth;
-                if(top<=0)top =0;
-                if(top>=mask.offsetHeight)top = mask.offsetWidth;
+                if (left <= 0) left = 0;
+                if (left >= mask.offsetWidth) left = mask.offsetWidth;
+                if (top <= 0) top = 0;
+                if (top >= mask.offsetHeight) top = mask.offsetWidth;
                 //屬性修改
-                mask.style.left = left+'px';
-                mask.style.top = top+'px';
-                big.style.left=-2*left+'px'
-                big.style.top=-2*top+'px'
+                mask.style.left = left + 'px';
+                mask.style.top = top + 'px';
+                big.style.left = -2 * left + 'px'
+                big.style.top = -2 * top + 'px'
             }
         }
     }
 </script>
 
 <style scoped>
-    .preview{
+    .preview {
         position: relative;
         font-size: 0;
     }
-    .preview .mainImg{
+    
+    .preview .mainImg {
         border: 1px solid #eee;
         border-bottom: 1px solid transparent;
     }
+    
     .preview .big,
     .preview .mask,
-    .preview .event{
+    .preview .event {
         width: 100%;
         height: 100%;
         position: absolute;
         top: 0;
         left: 0;
     }
-    .preview .event{
+    
+    .preview .event {
         /* background: #555; */
         z-index: 9;
     }
-    .preview .mask{
+    
+    .preview .mask {
         width: 50%;
         height: 50%;
         z-index: 4;
@@ -84,10 +88,12 @@
         opacity: .4;
         display: none;
     }
-    .preview:hover .mask{
+    
+    .preview:hover .mask {
         display: block;
     }
-    .preview .big{
+    
+    .preview .big {
         border: 1px solid #c3c3c3;
         /* position: absolute; */
         /* top: 0; */
@@ -95,8 +101,10 @@
         overflow: hidden;
         display: none;
         background: #fff;
+        z-index: 2;
     }
-    .preview .big img{
+    
+    .preview .big img {
         width: 200%;
         max-width: 200%;
         height: 200%;
@@ -104,7 +112,8 @@
         left: 0;
         top: 0;
     }
-    .preview:hover .big{
+    
+    .preview:hover .big {
         display: block;
     }
 </style>

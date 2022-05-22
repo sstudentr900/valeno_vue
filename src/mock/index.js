@@ -27,12 +27,13 @@ const productList = [{
         "price": "NT$429",
         "special_price": "NT$329",
         "describe": "持久無瑕型微霧光粉凝露，新添加光感賦活強化&光采智能複合物，長達24H無瑕般持妝，同時享珠寶級保養成分呵護。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 7
+        "categoryId": 7,
+        "isChecked": 0
     },
     {
         "id": 2,
@@ -44,12 +45,13 @@ const productList = [{
         "price": "NT$629",
         "special_price": "NT$529",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 7
+        "categoryId": 7,
+        "isChecked": 0
     },
     {
         "id": 3,
@@ -61,12 +63,13 @@ const productList = [{
         "price": "NT$829",
         "special_price": "NT$799",
         "describe": "日間保養使用「肌膚之鑰精萃光采防護精華霜」，為肌膚同時做好補水與防曬，以提高肌膚自動修復智慧。使用後的光滑感以及增強後續粉底對於肌膚表面的附著力。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/QLM7KBM.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 5
+        "categoryId": 5,
+        "isChecked": 0
     },
     {
         "id": 4,
@@ -78,12 +81,13 @@ const productList = [{
         "price": "NT$799",
         "special_price": "NT$699",
         "describe": "日間保養使用「肌膚之鑰精萃光采防護精華乳」，為肌膚同時做好補水與防曬，以提升肌膚智能。使用後的光滑感以及增強後續粉底對於肌膚表面的附著力。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$629', special_price: 'NT$529' }, { id: 2, name: '內容物125ml', price: 'NT$729', special_price: 'NT$629' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 10
+        "categoryId": 10,
+        "isChecked": 0
     },
     {
         "id": 5,
@@ -95,12 +99,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "經滋養的肌膚智能，可立即且全面地幫肌膚補水，同時積極去除老廢角質、促進肌膚新生，呈現乾淨無暇飽水狀態；瞬間拋光後的肌膚，精緻清新的觸感宛若新生。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 10
+        "categoryId": 10,
+        "isChecked": 0
     },
     {
         "id": 6,
@@ -112,12 +117,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "經滋養的肌膚智能，可立即且密集地幫肌膚補水，同時積極預防肌膚出現粗糙與乾燥。重整後的肌膚紋理，看起來更光滑細緻，重現活力光采。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 11
+        "categoryId": 11,
+        "isChecked": 0
     },
     {
         "id": 7,
@@ -129,12 +135,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "使用夜間保養精華乳來進行過夜長效保濕並提升肌膚智能，幫助肌膚由內而外進行淨白、拉提緊緻、打造緊緻彈性，以及防止紫外線和水分流失對肌膚造成的日常傷害。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 7
+        "categoryId": 7,
+        "isChecked": 0
     },
     {
         "id": 8,
@@ -146,12 +153,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "不斷革新並追求粉底粉末的細緻,演繹如同光暈纏繞般的光澤感。 打造能持續呈現「美麗光輝」妝感的新形態粉餅。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 5
+        "categoryId": 5,
+        "isChecked": 0
     },
     {
         "id": 9,
@@ -163,12 +171,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/eJEZuLC.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 6
+        "categoryId": 6,
+        "isChecked": 0
     },
     {
         "id": 10,
@@ -180,12 +189,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/nDjOWZU.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 12
+        "categoryId": 12,
+        "isChecked": 0
     },
     {
         "id": 11,
@@ -197,12 +207,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/QLM7KBM.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 8
+        "categoryId": 8,
+        "isChecked": 0
     },
     {
         "id": 12,
@@ -214,12 +225,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$429', special_price: 'NT$329' }, { id: 2, name: '內容物125ml', price: 'NT$529', special_price: 'NT$429' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 9
+        "categoryId": 9,
+        "isChecked": 0
     },
     {
         "id": 13,
@@ -231,12 +243,13 @@ const productList = [{
         "price": "NT$529",
         "special_price": "NT$429",
         "describe": "GROOVE眼影盤集結最常用的12色，一次讓你擁有霧面、亮粉與微光三種眼影質感，都給你超顯色、持久、防水、抗汗的迷人眼妝。",
-        "specification": "9G / 1.3G*12色",
+        "specification": { specIndex: 0, list: [{ id: 1, name: '內容物50ml', price: 'NT$529', special_price: 'NT$429' }, { id: 2, name: '內容物125ml', price: 'NT$629', special_price: 'NT$529' }] },
         "introduce": "https://imgur.com/Rkfy1Ze.jpg",
         "illustrate": "用途:使眼部色彩豐富<br>使用方式：依照喜好選擇顏色並依序塗抹在眼皮上",
         "element": "容量：9g<br>成分: 如包裝所標示<br>保存期限：3年<br>產地：泰國<br> 高市衛廣字第10505018號",
         "productImgs": ["https://imgur.com/ULKIm2M.jpg", "https://imgur.com/nDjOWZU.jpg", "https://imgur.com/ULKIm2M.jpg", "https://imgur.com/1Q7xtcu.jpg", "https://imgur.com/QLM7KBM.jpg", "https://imgur.com/ULKIm2M.jpg"],
-        "categoryId": 13
+        "categoryId": 13,
+        "isChecked": 0
     },
 ];
 const newsList = [{

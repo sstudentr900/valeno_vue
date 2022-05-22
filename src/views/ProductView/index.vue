@@ -30,12 +30,13 @@
     import recommend from './recommend'
     import {
         mapGetters,
-        mapState
+        mapState,
+        mapMutations
     } from 'vuex'
     export default {
         name: 'productView',
-        data(){
-            return{
+        data() {
+            return {
                 promptIf: false,
                 timeId: null
             }
@@ -61,45 +62,57 @@
             getData() {
                 this.$store.dispatch('productView/productViewAc', this.$route.params)
             },
-            shopInfoAdd() {
-                //1.
-                // let items = [this.$route.params.id]
-                // if (sessionStorage.getItem('skuInfo')) {
-                //     items = JSON.parse(sessionStorage.getItem('skuInfo')).concat(items).filter((el, index, arr) => {
-                //         return arr.indexOf(el) === index && index >= 6;
-                //     })
-                // }
-                // sessionStorage.setItem('skuInfo', JSON.stringify(items))
-                // console.log(JSON.parse(sessionStorage.getItem('skuInfo')))
+            ...mapMutations('shopCar', {
+                infoAdd: 'infoAddMu'
+            }),
+            // infoAdd() {
+            //     try {
+            //         this.$store.dispatch('shopCar/infoAdd', {...this.itemData
+            //         })
+            //     } catch (error) {
+            //         console.log(error.message)
+            //     }
+            // },
+            // shopInfoAddX() {
+            //     //1.
+            //     // let items = [this.$route.params.id]
+            //     // if (sessionStorage.getItem('skuInfo')) {
+            //     //     items = JSON.parse(sessionStorage.getItem('skuInfo')).concat(items).filter((el, index, arr) => {
+            //     //         return arr.indexOf(el) === index && index >= 6;
+            //     //     })
+            //     // }
+            //     // sessionStorage.setItem('skuInfo', JSON.stringify(items))
+            //     // console.log(JSON.parse(sessionStorage.getItem('skuInfo')))
 
-                //2.
-                // console.log(this.itemData)
-                let items = [{...this.itemData}];
-                if(sessionStorage.getItem('skuInfo')){
-                    let updataCount = true;
-                    let skuInfoArry = JSON.parse(sessionStorage.getItem('skuInfo')).map((element,index,array) => {
-                        if (items[0]['id'] == element['id']) {
-                            updataCount = false;
-                        }
-                        return element
-                    });
-                    if (updataCount) {
-                        items = skuInfoArry.concat(items)
-                        if(items.length>6){
-                            items.shift()
-                        }
-                    } else {
-                        items = skuInfoArry
-                    }
-                }
-                sessionStorage.setItem('skuInfo', JSON.stringify(items))
-            },
-            promptUpdata(value){
+            //     //2.
+            //     // console.log(this.itemData)
+            //     let items = [{...this.itemData
+            //     }];
+            //     if (sessionStorage.getItem('skuInfo')) {
+            //         let updataCount = true;
+            //         let skuInfoArry = JSON.parse(sessionStorage.getItem('skuInfo')).map((element, index, array) => {
+            //             if (items[0]['id'] == element['id']) {
+            //                 updataCount = false;
+            //             }
+            //             return element
+            //         });
+            //         if (updataCount) {
+            //             items = skuInfoArry.concat(items)
+            //             if (items.length > 6) {
+            //                 items.shift()
+            //             }
+            //         } else {
+            //             items = skuInfoArry
+            //         }
+            //     }
+            //     sessionStorage.setItem('skuInfo', JSON.stringify(items))
+            // },
+            promptUpdata(value) {
                 // console.log(value)
                 this.promptIf = value;
                 // clearTimeout(this.timeId);
-                this.timeId = setTimeout(()=>{
-                    this.promptIf = ! this.promptIf
+                this.timeId = setTimeout(() => {
+                    this.promptIf = !this.promptIf
                 }, 600)
             }
         },
@@ -109,8 +122,9 @@
                 // console.log('route')
                 this.getData()
             },
-            itemData(newValue, oldValue){
-                this.shopInfoAdd()
+            itemData(newValue, oldValue) {
+                this.infoAdd({...this.itemData
+                })
             }
         }
 
@@ -126,8 +140,8 @@
         flex: 0 0 300px;
         width: 300px;
     }
-
-    .public_prompt{
+    
+    .public_prompt {
         position: fixed;
         width: 100%;
         height: 100%;
@@ -139,23 +153,27 @@
         display: none;
         user-select: none;
     }
-    .public_prompt.active{
+    
+    .public_prompt.active {
         display: flex;
     }
-    .public_prompt .box{
+    
+    .public_prompt .box {
         width: 300px;
         padding: 40px;
-        background: rgba(0,0,0,.8);
+        background: rgba(0, 0, 0, .8);
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    .public_prompt .box svg{
+    
+    .public_prompt .box svg {
         width: 60px;
         height: auto;
         fill: #97cf34;
     }
-    .public_prompt .box p{
+    
+    .public_prompt .box p {
         font-size: 16px;
         margin-top: 25px;
         color: #fff;

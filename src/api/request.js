@@ -1,9 +1,10 @@
 import axios from "axios";
 // 進度條
 // import nprogress from "nprogress";
+// console.log(nprogress);
 // 進度條樣式
 // import "nprogress/nprogress.css";
-// console.log(nprogress)
+
 // const domain = "https://bookshelf.goodideas-studio.com";
 
 //axios配置

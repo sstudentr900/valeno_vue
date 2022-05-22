@@ -1,8 +1,8 @@
 import axios from "axios";
 // 進度條
-// import nprogress from "nprogress";
+import nprogress from "nprogress";
 // 進度條樣式
-// import "nprogress/nprogress.css";
+import "nprogress/nprogress.css";
 // console.log(nprogress)
 // const domain = "https://bookshelf.goodideas-studio.com";
 
@@ -21,7 +21,7 @@ const requests = axios.create({
 requests.interceptors.request.use(
     function(config) {
         //進度條開始動
-        // nprogress.start();
+        nprogress.start();
         //config 配置對象有headers請求頭
         return config;
     },
@@ -33,7 +33,7 @@ requests.interceptors.request.use(
 requests.interceptors.response.use(
     function(response) {
         //進度條結束
-        // nprogress.done();
+        nprogress.done();
         // 任何 HTTP status code 為 2xx 開頭時觸發此函式
         return response;
     },

@@ -9,7 +9,12 @@
             <li>
                 <div class="public_flex">
                     <div class="t">規格</div>
-                    <div class="c">{{item.specification}}</div>
+                    <!-- <div class="c">{{item.specification}}</div> -->
+                    <div class="c">
+                        <div class="specs" v-if="item.specification">
+                            <div v-for="(spec,index) in item.specification.list" :key='index' :class="{active:index==specIndex}" @click="specIndexChange(index)">{{spec.name}}</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="public_flex">
                     <div class="t">數量</div>
@@ -44,11 +49,11 @@
             <li>
                 <div class="public_flex">
                     <div class="t">促銷價</div>
-                    <div class="c price">
-                        <span class="p-after">{{item.special_price}}</span>
-                        <p class="before">
+                    <div class="c price" v-if="item.specification">
+                        <span class="p-after">{{price}}</span>
+                        <p class="before" v-if="item.specification">
                             原價
-                            <span class="p-before">{{item.price}}</span>
+                            <span class="p-before">{{special_price}}</span>
                         </p>
                     </div>
                 </div>
@@ -65,15 +70,35 @@
     </div>
 </template>
 <script>
+    import {
+        mapState,
+        mapGetters,
+        mapMutations
+    } from 'vuex'
     export default {
         name: 'productText',
         props: ["item"],
         data() {
             return {
                 skuNum: 1,
+                specIndex: 0,
+            }
+        },
+        computed: {
+            // specList() {
+            //     return this.item.specification.list || []
+            // },
+            price() {
+                return this.item.specification.list[this.specIndex].price || ''
+            },
+            special_price() {
+                return this.item.specification.list[this.specIndex].special_price || ''
             }
         },
         methods: {
+            specIndexChange(index) {
+                this.specIndex = index;
+            },
             skuAdd(index) {
                 this.skuNum += 1;
             },
@@ -96,14 +121,22 @@
                     this.skuNum = parseInt(value)
                 }
             },
+            ...mapMutations('shopCar', {
+                listAdd: 'listAddMu'
+            }),
             addShopcar() {
+                // try {
                 //vuex+sessionStorage
-                let items = [{...this.item,
-                    skuNum: this.skuNum
-                }];
-                // this.$store.commit('shopCar/skuListAdd', items);
-                this.$store.dispatch('shopCar/shopCarAdd', items);
+                let items = {...this.item,
+                    skuNum: this.skuNum,
+                };
+                items['specification']['specIndex'] = this.specIndex;
+                // this.$store.dispatch('shopCar/listAdd', items);
+                this.listAdd(items);
                 this.$emit('promptIfValue', true);
+                // } catch (error) {
+                //     console.log(error.message)
+                // }
             },
             addShopcarXX() {
                 // try {
@@ -124,16 +157,16 @@
                     skuNum: this.skuNum
                 }];
                 if (sessionStorage.getItem('skuList')) {
-                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el)=>{
-                        if(el['id']==items[0]['id']){
+                    let skuListArry = JSON.parse(sessionStorage.getItem('skuList')).map((el) => {
+                        if (el['id'] == items[0]['id']) {
                             el['skuNum'] += items[0]['skuNum'];
                             items = false
                         }
                         return el
                     })
-                    if(items){
+                    if (items) {
                         items = skuListArry.concat(items);
-                    }else{
+                    } else {
                         items = skuListArry;
                     }
                 }
@@ -180,6 +213,49 @@
         color: #666;
         flex: 1;
         line-height: 1.4;
+    }
+    
+    .productText li .specs {
+        display: flex;
+    }
+    
+    .productText li .specs>div {
+        height: 28px;
+        padding: 6px 12px 3px;
+        border: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .productText li .specs>div.active {
+        border: 1px solid #222;
+        color: #222;
+    }
+    
+    .productText li .specs>div.active:after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 12 12' viewBox='0 0 12 12' x='0' y='0' fill='white'%3E%3Cpath d='m5.2 10.9c-.2 0-.5-.1-.7-.2l-4.2-3.7c-.4-.4-.5-1-.1-1.4s1-.5 1.4-.1l3.4 3 5.1-7c .3-.4 1-.5 1.4-.2s.5 1 .2 1.4l-5.7 7.9c-.2.2-.4.4-.7.4 0-.1 0-.1-.1-.1z'%3E%3C/path%3E%3C/svg%3E");
+        position: absolute;
+        bottom: 8px;
+        right: 0;
+        width: 8px;
+        height: 8px;
+    }
+    
+    .productText li .specs>div.active:before {
+        content: '';
+        border: 14px solid transparent;
+        border-bottom: 14px solid #222;
+        position: absolute;
+        bottom: 0;
+        right: -14px;
+    }
+    
+    .productText li .specs>div+div {
+        margin-left: 10px
     }
     
     .productText li .public_flex {

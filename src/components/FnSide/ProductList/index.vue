@@ -4,22 +4,25 @@
             <a class="close" @click="productOutput"><span></span></a>
             <div class="main" v-show="enterName=='skuInfo'">
                 <div class="title">最近瀏覽商品</div>
-                <div class="content" v-if="getShopCarInfoIf">
+                <div class="content" v-if="shopCarInfo.length>0">
                     <ul class="list">
-                        <li v-for="(item,index) in getShopCarInfo" :key="item.id">
-                            <div class="left" @click="goProduct(item.id)">
-                                <div class="img">
+                        <li v-for="(item,index) in shopCarInfo" :key="item.id">
+                            <!-- <div class="left" @click="goProduct(item.id)"> -->
+                                <div class="img" @click="goProduct(item.id)">
                                     <img :src="item.src"  alt="">
                                 </div>
-                                <div class="text">
+                                <div class="text" @click="goProduct(item.id)">
                                     <p class="tit">{{item.ti}}</p>
                                     <p class="sale">{{item.sale}}</p>
                                 </div>
                                 <div class="price">
                                     <span class="through">{{item.price}}</span><i>|</i><span>{{item.special_price}}</span>
                                 </div>
-                            </div>
-                            <div class="delete" @click="skuDelet(index)"><span></span></div>
+                                <div class="control">
+                                    <div @click="skuDelet({index:index,name:'shopCarInfo'})">刪除商品</div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="delete" @click="skuDelet(index,'shopCarInfo')"><span></span></div> -->
                         </li>
                     </ul>
                 </div>
@@ -34,10 +37,13 @@
             </div>
             <div class="main" v-show="enterName=='skuList'">
                 <div class="title">購物清單</div>
-                <div class="content" v-if="getShopCarListIf">
+                <div class="content" v-if="shopCarList.length>0">
                     <ul class="list">
-                        <li v-for="(item,index) in getShopCarList" :key="item.id">
-                            <div class="left">
+                        <li v-for="(item,index) in shopCarList" :key="item.id">
+                            <!-- <div class="left"> -->
+                                <div class="check">
+                                    <input type="checkbox" :checked="item.isChecked==1" @click="listCheck({index:index,checked:$event.target.checked})">
+                                </div>
                                 <div class="img">
                                     <img :src="item.src"  alt="">
                                 </div>
@@ -45,30 +51,38 @@
                                     <p class="tit">{{item.ti}}</p>
                                     <p class="sale">{{item.sale}}</p>
                                 </div>
-                                <!-- <div class="public_qty">
-                                    <div title="減少數量" class="qty-minus link" @click="skuReduce(index)"><span>-</span></div>
-                                    <input type="text" data-min="1" :value="item.skuNum" @change="skuChange(index,$event.target.value)">
-                                    <div title="增加數量" class="qty-plus link" @click="skuAdd(index)"><span>+</span></div>
-                                </div> -->
                                 <div class="public_qty">
-                                    <div title="減少數量" class="qty-minus link" @click="skuCount('minus',index,1)"><span>-</span></div>
-                                    <input type="text" :value="item.skuNum" @change="skuCount('change',index,$event.target.value)">
-                                    <div title="增加數量" class="qty-plus link" @click="skuCount('add',index,1)"><span>+</span></div>
+                                    <div title="減少數量" class="qty-minus link" @click="listUpdatNum('minus',-1,item)"><span>-</span></div>
+                                    <input type="text" :value="item.skuNum" @change="listUpdatNum('change',$event.target.value*1,item)">
+                                    <div title="增加數量" class="qty-plus link" @click="listUpdatNum('add',1,item)"><span>+</span></div>
                                 </div>
-                                <div class="price">
-                                    <!-- <span class="through">{{item.price}}</span><i>|</i> -->
-                                    <span>{{item.special_price}}</span>
+                                <div class="price" v-if="item.specification.list[item.specification.specIndex].special_price">
+                                    <span>{{item.specification.list[item.specification.specIndex].special_price}}</span>
                                 </div>
-                            </div>
-                            <div class="delete" @click="skuDelet(index)"><span></span></div>
+                                <div class="control">
+                                    <div @click="skuDelet({index:index,name:'shopCarList'})">刪除商品</div>
+                                    <div @click="infoAdd({...item})">加入追蹤</div>
+                                </div>
+                            <!-- </div>
+                            <div class="delete" @click="skuDelet(index,'shopCarList')"><span></span></div> -->
                         </li>
-                    </ul>   
+                    </ul>  
+                    <div class="deletDiv">
+                        <div class="checkInput">
+                            <input type="checkbox" id="checkboxAllSku" @click="listCheckAll({checked:$event.target.checked})">
+                            <label for="checkboxAllSku">全選</label>
+                        </div>
+                        <div class="checkLabel">
+                            <label @click="listCheckDelet">刪除選中商品</label>
+                            <label @click="infoCopy">追蹤選中商品</label>
+                        </div>
+                    </div>
                     <div class="total">
                         <p>訂單總金額</p>
                         <p class="num">NT${{skuTotal}}</p>
                     </div>
                     <div class="public_buttons">
-                        <a @click="skuCopyInfo" class="btns white-btn" title="加入追蹤清單"><span>加入追蹤清單</span></a>
+                        <!-- <a @click="infoCopy" class="btns white-btn" title="加入追蹤清單"><span>加入追蹤清單</span></a> -->
                         <a href="flow_cart.html" class="btns" title="我要結帳"><span>我要結帳</span></a>
                     </div>
                 </div>
@@ -77,7 +91,7 @@
                         <svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.002 21.534c5.518 0 9.998-4.48 9.998-9.998s-4.48-9.997-9.998-9.997c-5.517 0-9.997 4.479-9.997 9.997s4.48 9.998 9.997 9.998zm0-8c-.414 0-.75-.336-.75-.75v-5.5c0-.414.336-.75.75-.75s.75.336.75.75v5.5c0 .414-.336.75-.75.75zm-.002 3c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z" fill-rule="nonzero"/></svg>目前沒有購物資訊
                     </div>
                     <div class="public_buttons">
-                        <a @click="skuCopyInfo" class="btns" title="回到追蹤清單"><span>回到追蹤清單</span></a>
+                        <a @click="infoCopy" class="btns" title="回到追蹤清單"><span>回到追蹤清單</span></a>
                     </div>
                 </div>
             </div>
@@ -88,127 +102,105 @@
 <script>
     import {
         mapState,
-        mapGetters
+        mapGetters,
+        mapMutations
     } from 'vuex'
-    import FnProduct from '@/components/FnProduct'
+    import throttle from 'lodash/throttle'
     export default {
         name: 'ProductList',
         props: ['enterShow', 'enterName'],
-        // mounted () {
-        //     // console.log('ProductList_mounted')
-        //     this.getData();
-        // },
-        components: {
-            FnProduct
-        },
+        components: {},
         data() {
-            return {
-                productListData: [],
-            }
+            return {}
         },
-        computed:{
-            ...mapState('shopCar',['shopCarList','shopCarInfo']),
-            getShopCarInfo(){
-                return this.shopCarInfo||[];
-            },
-            getShopCarInfoIf(){
-                return this.getShopCarInfo.length>0||false;
-            },
-            getShopCarList(){
-                return this.shopCarList||[];
-            },
-            getShopCarListIf(){
-                return this.getShopCarList.length>0||false;
-            },
+        computed: {
+            ...mapState('shopCar', ['shopCarList', 'shopCarInfo']),
             skuTotal() {
                 let sum = 0
-                // console.log('skuTotal',this.enterName , this.productListData)
-                this.getData.forEach((el) => {
-                    sum += el['skuNum'] * el['special_price'].split('$')[1]
+                this.shopCarList.forEach((el) => {
+                    // console.log(el['skuNum'])
+                    sum += el['skuNum'] * el['specification'].list[el['specification']['specIndex']]['special_price'].split('$')[1]
                 })
                 return sum;
             },
         },
         methods: {
-            // getData() {
-            //     this.productListData = JSON.parse(sessionStorage.getItem(this.enterName)) || [];
-            //     // console.log('getData',this.enterName,this.productListData)
-            // },
-            productOutput(){
+            productOutput() {
                 this.$emit('productOutput', !this.enterShow);
             },
-            skuCount(type, index, value) {
-                let skuNum = this.productListData[index]['skuNum'];
-                // console.log(type, index, value, skuNum)
+            // listCheck(index) {
+            //     this.$store.dispatch('shopCar/listCheck', index)
+            // },
+            ...mapMutations('shopCar', {
+                listCheck: 'listCheckMu',
+                listCheckAll: 'listCheckAllMu',
+                listCheckDelet: 'listCheckDeletMu',
+                infoCopy: 'infoCopyMu',
+                infoAdd: 'infoAddMu',
+                skuDelet: 'skuDeletMu',
+                listUpdataNum: 'listUpdataNumMu',
+            }),
+            listUpdatNum: throttle(function(type, disNum, cart) {
+                //throttle 節流
                 switch (type) {
                     case "add":
-                        skuNum += value;
+                        disNum = disNum;
                         break;
                     case "minus":
-                        skuNum = skuNum > 1 ? skuNum - value : 1;
+                        disNum = cart['skuNum'] > 1 ? -1 : 0;
                         break;
                     case "change":
-                        skuNum = (isNaN(value) || value < 1) ? 1 : parseInt(value)
+                        disNum = (isNaN(disNum) || disNum < 1) ? 0 : parseInt(disNum) - cart['skuNum']
                 }
-                this.productListData[index]['skuNum'] = skuNum
-                this.skuSave()
-            },
-            skuDelet(index) {
-                // console.log('skuDelet')
-                // this.productListData = this.productListData.filter((el,index)=>{
-                //     return el['id']!==id;
-                //     return el['id']!==id;
-                // })
-
-                // this.productListData.splice(index, 1);
-                // this.skuSave();
-
-                this.$store.dispatch('shopCar/shopCarDelet',index)
-            },
-            skuSave(name = this.enterName, data = this.productListData) {
-                sessionStorage.setItem(name, JSON.stringify(data))
-                this.getData()
-            },
-            skuCopyInfo() {
-                let skuInfo = JSON.parse(sessionStorage.getItem('skuInfo')) || [];
-                this.productListData.forEach((el) => {
-                    skuInfo = skuInfo.filter(infoEl => {
-                        return el['id'] != infoEl['id'];
-                    })
-                })
-                skuInfo = skuInfo.concat(JSON.parse(JSON.stringify(this.productListData)));
-                this.skuSave('skuInfo', skuInfo);
-                // sessionStorage.setItem('skuInfo',JSON.stringify(skuInfo))
-                
-                //skuCopyInfo
-                this.$emit('outputInfo')
-            },
+                // try {
+                // await this.$store.dispatch('shopCar/listUpdataNum', {
+                //     id: cart['id'],
+                //     specIndex: cart['specification']['specIndex'],
+                //     num: disNum
+                // });
+                this.listUpdataNum({
+                    id: cart['id'],
+                    specIndex: cart['specification']['specIndex'],
+                    num: disNum
+                });
+                // } catch (error) {
+                //     console.log(error)
+                // }
+            }, 20),
+            // skuDelet(index, name) {
+            //     try {
+            //         this.$store.dispatch('shopCar/skuDelet', {
+            //             index: index,
+            //             name: name
+            //         })
+            //     } catch (error) {
+            //         console.log(error.message)
+            //     }
+            // },
+            // infoAdd(item) {
+            //     try {
+            //         this.$store.dispatch('shopCar/infoAdd', {...item
+            //         })
+            //     } catch (error) {
+            //         console.log(error.message)
+            //     }
+            // },
+            // infoCopy() {
+            //     try {
+            //         this.$store.dispatch("shopCar/infoCopy")
+            //         this.$emit('outputInfo')
+            //     } catch (error) {
+            //         console.log(error.message)
+            //     }
+            // },
             goProduct(id) {
-                // console.log(this.$emit)
                 this.$router.push(`/product_view/${id}`);
                 this.productOutput();
             },
-            goSkuList(){
+            goSkuList() {
                 this.$emit('outputList')
             }
-        },
-        watch: {
-            // enterShow:{
-            //     handler:function(newValue, oldValue){
-            //         console.log('enterShow')
-            //         this.getData()
-            //     },
-            //     // immediate: true
-            // },
-            // enterName:{
-            //     handler:function(newValue, oldValue){
-            //         console.log('enterName')
-            //         this.getData()
-            //     },
-            //     immediate: true
-            // }
         }
-
     }
 </script>
 
@@ -245,7 +237,7 @@
         transform: translateX(100%);
     }
     
-    .ProductList.active .box{
+    .ProductList.active .box {
         transition-delay: .4s;
         transform: translateX(0);
     }
@@ -326,13 +318,9 @@
         text-decoration: underline;
     }
     
-    .main .list .left {
-        display: flex;
-        align-items: center;
+    .main .check input {
+        margin: 0;
     }
-    /* .main .cart-list .img {
-        padding-left: 10px;
-    } */
     
     .main .img {
         width: 90px;
@@ -345,8 +333,8 @@
     }
     
     .main .text {
-        width: 210px;
-        padding: 0 20px
+        width: 150px;
+        /* padding: 0 10px */
     }
     /* .main .text .en {
         color: #333;
@@ -383,6 +371,11 @@
         margin-top: 5px;
     }
     
+    .main .public_qty {
+        width: 100px;
+        /* padding: 0 10px; */
+    }
+    
     .main .price {
         display: flex;
         align-items: center;
@@ -390,8 +383,10 @@
         color: #555;
         font-size: 1rem;
         text-align: center;
-        padding: 0 10px;
-        max-width: 150px;
+        margin-left: 10px;
+        /* padding: 0 10px; */
+        /* max-width: 150px; */
+        /* width: 60px; */
     }
     
     .main .price i {
@@ -403,25 +398,77 @@
     .main .price span {
         display: inline-block;
         font-family: "Oswald-Light";
-        width: 70px
+        /* width: 70px */
     }
     
     .main .price span.through {
         text-decoration: line-through;
     }
     
-    .main .check {
-        position: absolute;
-        left: 2px;
-        top: 50%;
-        margin-top: -8px;
+    .main .control {
+        margin-left: 15px;
+        font-size: 14px;
+        user-select: none;
+    }
+    
+    .main .control>div+div {
+        margin-top: 8px;
     }
     
     .main .total {
+        padding: 20px 20px 0;
+        color: #333;
         text-align: right;
-        padding: 20px;
+        /* position: relative; */
+    }
+    
+    .main .deletDiv {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        /* position: absolute;
+        top: 8px; */
+    }
+    
+    .main .deletDiv .checkInput {
+        display: flex;
+        align-items: center;
+    }
+    
+    .main .deletDiv .checkInput label {
+        margin-left: 2px;
+        user-select: none;
+    }
+    
+    .main .deletDiv .checkInput input {
+        margin: 0;
+        border: 1px solid #ddd;
+    }
+    
+    .main .deletDiv .checkLabel {
+        margin-left: 30px;
+    }
+    
+    .main .deletDiv label+label {
+        margin-left: 12px;
+    }
+    
+    .main .deletDiv label {
+        cursor: pointer;
+        font-size: 13px;
+        color: #a5a5a5;
+        user-select: none;
+    }
+    
+    .main .deletDiv .checkLabel label {}
+    
+    .main .deletDiv .checkLabel label:hover {
         color: #333;
     }
+    /* .main .total {
+        text-align: right;
+    }
+     */
     
     .main .total p {
         margin: 0;
@@ -435,10 +482,6 @@
         font-family: "Oswald-Light";
         padding-left: 15px;
         color: #333;
-    }
-    
-    .main .public_qty {
-        padding: 0 20px;
     }
     /* .main .quantity {
         padding: 0 10px;

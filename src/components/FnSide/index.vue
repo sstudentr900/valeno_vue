@@ -26,20 +26,20 @@
                 // productListData: []
             }
         },
-        computed:{
+        computed: {
             // ...mapState('productView',['skuList'])
         },
         methods: {
-            updataShow(value){
+            updataShow(value) {
                 this.showIf = value;
                 // this.showName = '';
             },
-            updataInfo(){
+            updataInfo() {
                 // console.log('updataInfo',this.showIf)
                 this.showIf = false;
                 this.clickProductInfo();
             },
-            updataList(){
+            updataList() {
                 // console.log('updataList',this.showIf)
                 this.showIf = false;
                 this.clickProductList();
@@ -48,12 +48,6 @@
                 this.showIf = !this.showIf;
                 this.showName = 'skuInfo';
                 // this.productListData = JSON.parse(sessionStorage.getItem('skuInfo'))
-            },
-            clickProductListX() {
-                this.showIf = !this.showIf;
-                this.showName = 'skuList';
-                // this.productListData = JSON.parse(sessionStorage.getItem('skuList'))
-                // console.log(JSON.parse(sessionStorage.getItem('skuList')))
             },
             clickProductList() {
                 this.showIf = !this.showIf;
