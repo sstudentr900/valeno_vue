@@ -4,7 +4,7 @@ import News from '@/views/News'
 import Beauty from '@/views/Beauty'
 // import Store from '@/views/Store'
 import Contact from '@/views/contact'
-import Member from '@/views/member'
+import Member from '@/views/Member'
 import Question from '@/views/question'
 
 const routes = [{
@@ -59,6 +59,12 @@ const routes = [{
         path: '/member',
         name: 'member',
         component: Member
+    },
+    {
+        path: '/member_register',
+        name: 'member_register',
+        component: () =>
+            import ('../views/MemberRegister')
     },
     {
         path: '/question',

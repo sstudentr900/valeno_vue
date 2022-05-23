@@ -16,10 +16,11 @@
                                     <p class="sale">{{item.sale}}</p>
                                 </div>
                                 <div class="price">
-                                    <span class="through">{{item.price}}</span><i>|</i><span>{{item.special_price}}</span>
+                                    <span class="through">{{item.specification.list[0].price}}</span><i>|</i><span>{{item.specification.list[0].special_price}}</span>
                                 </div>
                                 <div class="control">
-                                    <div @click="skuDelet({index:index,name:'shopCarInfo'})">刪除商品</div>
+                                    <!-- <div @click="skuDelet({index:index,name:'shopCarInfo'})">刪除商品</div> -->
+                                    <div @click="skuDelet({index:index,name:'shopCarInfo'})" class="delete"><span></span></div>
                                 </div>
                             <!-- </div> -->
                             <!-- <div class="delete" @click="skuDelet(index,'shopCarInfo')"><span></span></div> -->
@@ -59,21 +60,21 @@
                                 <div class="price" v-if="item.specification.list[item.specification.specIndex].special_price">
                                     <span>{{item.specification.list[item.specification.specIndex].special_price}}</span>
                                 </div>
-                                <div class="control">
+                                <!-- <div class="control">
                                     <div @click="skuDelet({index:index,name:'shopCarList'})">刪除商品</div>
                                     <div @click="infoAdd({...item})">加入追蹤</div>
-                                </div>
+                                </div> -->
                             <!-- </div>
                             <div class="delete" @click="skuDelet(index,'shopCarList')"><span></span></div> -->
                         </li>
                     </ul>  
                     <div class="deletDiv">
                         <div class="checkInput">
-                            <input type="checkbox" id="checkboxAllSku" @click="listCheckAll({checked:$event.target.checked})" :checked="checkAllIf">
+                            <input type="checkbox" id="checkboxAllSku" @click="listCheckAll({checked:$event.target.checked})" v-model="checkAllIf">
                             <label for="checkboxAllSku">全選</label>
                         </div>
                         <div class="checkLabel">
-                            <label @click="listCheckDelet">刪除選中商品</label>
+                            <label @click="listCheckAllDelet">刪除選中商品</label>
                             <label @click="listCheckInfo">追蹤選中商品</label>
                         </div>
                     </div>
@@ -128,6 +129,8 @@
         },
         methods: {
             productOutput() {
+                this.checkAllIf = false;
+                this.listCheckAll({checked:this.checkAllIf})
                 this.$emit('productOutput', !this.enterShow);
             },
             // listCheck(index) {
@@ -170,9 +173,14 @@
                 // }
             }, 20),
             listCheckInfo() {
-                console.log('listCheckInfo')
-                this.checkAllIf = false;
+                // console.log('listCheckInfo')
                 this.infoCopy();
+                this.checkAllIf = false;
+                this.listCheckAll({checked:this.checkAllIf})
+            },
+            listCheckAllDelet(){
+                this.checkAllIf = false;
+                this.listCheckDelet()
             },
             // skuDelet(index, name) {
             //     try {

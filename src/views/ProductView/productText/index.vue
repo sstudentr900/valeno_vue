@@ -50,10 +50,10 @@
                 <div class="public_flex">
                     <div class="t">促銷價</div>
                     <div class="c price" v-if="item.specification">
-                        <span class="p-after">{{price}}</span>
+                        <span class="p-after">{{special_price}}</span>
                         <p class="before" v-if="item.specification">
                             原價
-                            <span class="p-before">{{special_price}}</span>
+                            <span class="p-before">{{price}}</span>
                         </p>
                     </div>
                 </div>

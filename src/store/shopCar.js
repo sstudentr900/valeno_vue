@@ -4,17 +4,21 @@ const state = {
     shopCarInfo: JSON.parse(sessionStorage.getItem('shopCarInfo')) || [],
 }
 const mutations = {
+    setSession(state,list){
+        sessionStorage.setItem(list.name, JSON.stringify(list.data));
+        state[list.name] = list.data;
+    },
     skuDeletMu(state, { index, name }) {
-        let shopCarArry = JSON.parse(sessionStorage.getItem(name));
+        let shopCarArry = state[name];
         shopCarArry.splice(index, 1);
-        sessionStorage.setItem(name, JSON.stringify(shopCarArry));
-        state[name] = shopCarArry;
+        this.commit("shopCar/setSession",{name:name,data:shopCarArry});
     },
     listAddMu(state, list) {
         let dataName = 'shopCarList';
         let shopCarArry = [list];
         if (sessionStorage.getItem(dataName)) {
-            shopCarArry = JSON.parse(sessionStorage.getItem(dataName));
+            // shopCarArry = JSON.parse(sessionStorage.getItem(dataName));
+            shopCarArry = state[dataName];
             shopCarArry.forEach(el => {
                 // console.log(el['id'], list['id'], el['specification']['specIndex'], list)
                 if (el['id'] == list['id'] && el['specification']['specIndex'] == list['specification']['specIndex']) {
@@ -24,51 +28,72 @@ const mutations = {
             })
             shopCarArry = shopCarArry.concat(list);
         }
-        sessionStorage.setItem(dataName, JSON.stringify(shopCarArry));
-        state[dataName] = shopCarArry;
+        // sessionStorage.setItem(dataName, JSON.stringify(shopCarArry));
+        // state[dataName] = shopCarArry;
+        this.commit("shopCar/setSession",{name:dataName,data:shopCarArry});
     },
     listUpdataNumMu(state, list) {
-        let shopCarArry = JSON.parse(sessionStorage.getItem('shopCarList'));
+        let dataName = 'shopCarList';
+        // let shopCarArry = JSON.parse(sessionStorage.getItem(dataName));
+        let shopCarArry = state[dataName];
         shopCarArry.forEach(el => {
             if (el['id'] == list['id'] && el['specification']['specIndex'] == list['specIndex']) {
                 el['skuNum'] += list['num']
             }
         })
-        sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
-        state.shopCarList = shopCarArry;
+        // sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
+        // state.shopCarList = shopCarArry;
+        this.commit("shopCar/setSession",{name:dataName,data:shopCarArry});
     },
     listCheckMu(state, list) {
-        let shopCarArry = JSON.parse(sessionStorage.getItem('shopCarList'));
+        let dataName = 'shopCarList';
+        // let shopCarArry = JSON.parse(sessionStorage.getItem(dataName));
+        let shopCarArry = state[dataName];
         shopCarArry[list.index]['isChecked'] = list.checked ? 1 : 0;
-        sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
-        state.shopCarList = shopCarArry;
+        // sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
+        // state.shopCarList = shopCarArry;
+        this.commit("shopCar/setSession",{name:dataName,data:shopCarArry});
     },
     listCheckAllMu(state, list) {
-        let shopCarArry = JSON.parse(sessionStorage.getItem('shopCarList'));
+        let dataName = 'shopCarList';
+        // let shopCarArry = JSON.parse(sessionStorage.getItem(dataName));
+        let shopCarArry = state[dataName];
         shopCarArry.map(el => el['isChecked'] = list.checked ? 1 : 0);
-        sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
-        state.shopCarList = shopCarArry;
+        // sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
+        // state.shopCarList = shopCarArry;
+        this.commit("shopCar/setSession",{name:dataName,data:shopCarArry});
     },
     listCheckDeletMu(state) {
-        let shopCarArry = JSON.parse(sessionStorage.getItem('shopCarList'));
+        let dataName = 'shopCarList';
+        let shopCarArry = state[dataName];
+        // let shopCarArry = JSON.parse(sessionStorage.getItem('shopCarList'));
         shopCarArry = shopCarArry.filter(el => el['isChecked'] === 0)
-        sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
-        state.shopCarList = shopCarArry;
+        // sessionStorage.setItem('shopCarList', JSON.stringify(shopCarArry));
+        // state.shopCarList = shopCarArry;
+        this.commit("shopCar/setSession",{name:dataName,data:shopCarArry});
     },
     infoCopyMu(state) {
-        let listArry = JSON.parse(sessionStorage.getItem('shopCarList')) || [];
-        let infoArry = JSON.parse(sessionStorage.getItem('shopCarInfo')) || [];
+        let dataNameList = 'shopCarList';
+        let dataNameInfo = 'shopCarInfo';
+        // let listArry = JSON.parse(sessionStorage.getItem('shopCarList')) || [];
+        // let infoArry = JSON.parse(sessionStorage.getItem('shopCarInfo')) || [];
+        let listArry = state[dataNameList];
+        let infoArry = state[dataNameInfo];
         listArry.forEach((listEl, index) => {
+            //判斷list選取
             if (listEl['isChecked'] === 1) {
+                //判斷info有無重複
                 infoArry = infoArry.filter(el => listEl['id'] != el['id']);
+                infoArry = infoArry.concat(listEl);
+                // sessionStorage.setItem('shopCarInfo', JSON.stringify(infoArry));
+                // state.shopCarInfo = infoArry;
+                this.commit("shopCar/setSession",{name:dataNameInfo,data:infoArry});
                 listArry[index]['isChecked'] = 0;
             }
         })
-        infoArry = infoArry.concat(listArry)
-        sessionStorage.setItem('shopCarInfo', JSON.stringify(infoArry));
-        sessionStorage.setItem('shopCarList', JSON.stringify(listArry));
-        state.shopCarInfo = infoArry;
-        state.shopCarList = listArry;
+        this.commit("shopCar/setSession",{name:dataNameList,data:listArry});
+        // sessionStorage.setItem('shopCarList', JSON.stringify(listArry));
+        // state.shopCarList = listArry;
     },
     // infoCopyMu(state) {
     //     let istArry = JSON.parse(sessionStorage.getItem('shopCarList')) || [];
@@ -81,12 +106,18 @@ const mutations = {
     //     state.shopCarInfo = infoArry;
     // },
     infoAddMu(state, list) {
-        let infoArry = JSON.parse(sessionStorage.getItem('shopCarInfo')) || [];
+        let dataName = 'shopCarInfo';
+        let infoArry = state[dataName];
+        // let infoArry = JSON.parse(sessionStorage.getItem('shopCarInfo')) || [];
+        //記錄到5個
+        if(infoArry.length>5)return;
+        //查找info沒有該ID
         if (!infoArry.some(el => el['id'] == list['id'])) {
-            infoArry = infoArry.concat(list)
+            infoArry = infoArry.concat(list);
         }
-        sessionStorage.setItem('shopCarInfo', JSON.stringify(infoArry));
-        state.shopCarInfo = infoArry;
+        // sessionStorage.setItem('shopCarInfo', JSON.stringify(infoArry));
+        // state.shopCarInfo = infoArry;
+        this.commit("shopCar/setSession",{name:dataName,data:infoArry});
     }
 }
 const actions = {
