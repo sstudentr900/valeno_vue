@@ -887,12 +887,22 @@ Mock.mock('/mock/userCode', (options) => {
         codeNumber: 9865
     }
 });
-Mock.mock('/mock/registerSubmit', (options) => {
+Mock.mock('/mock/register', (options) => {
     // let body = JSON.parse(options.body)
     //save
     // user.push(body)
     // console.log(user)
     return {
         code: 200,
+    }
+});
+Mock.mock('/mock/login', (options) => {
+    // let body = JSON.parse(options.body)
+    //save
+    // user.push(body)
+    // console.log(user)
+    return {
+        code: 200,
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
     }
 });
