@@ -633,6 +633,7 @@ const custom = {
 //         "add_time": "@date(yyyy-MM-dd hh:mm:ss)"
 //     }]
 // });
+
 //使用mockjs模拟数据 第一個請求網址 第二個請求數據
 Mock.mock('/mock/home', () => {
     return {
@@ -877,9 +878,20 @@ Mock.mock('/mock/productView', (options) => {
         }
     }
 });
-Mock.mock('/mock/addToCart', (options) => {
+Mock.mock('/mock/userCode', (options) => {
     // console.log(options)
     // let body = JSON.parse(options.body)
+    // console.log(body)
+    return {
+        code: 200,
+        codeNumber: 9865
+    }
+});
+Mock.mock('/mock/registerSubmit', (options) => {
+    // let body = JSON.parse(options.body)
+    //save
+    // user.push(body)
+    // console.log(user)
     return {
         code: 200,
     }

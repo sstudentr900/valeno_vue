@@ -4,7 +4,7 @@ import News from '@/views/News'
 import Beauty from '@/views/Beauty'
 // import Store from '@/views/Store'
 import Contact from '@/views/contact'
-import Member from '@/views/Member'
+import Login from '@/views/Login'
 import Question from '@/views/question'
 
 const routes = [{
@@ -56,15 +56,15 @@ const routes = [{
         component: Contact
     },
     {
-        path: '/member',
-        name: 'member',
-        component: Member
+        path: '/login',
+        name: 'login',
+        component: Login
     },
     {
-        path: '/member_register',
-        name: 'member_register',
+        path: '/register',
+        name: 'register',
         component: () =>
-            import ('../views/MemberRegister')
+            import ('../views/Register')
     },
     {
         path: '/question',

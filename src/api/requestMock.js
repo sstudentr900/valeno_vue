@@ -5,7 +5,8 @@ import nprogress from "nprogress";
 import "nprogress/nprogress.css";
 // console.log(nprogress)
 // const domain = "https://bookshelf.goodideas-studio.com";
-
+//
+import store from '@/store';
 //axios配置
 const requests = axios.create({
     //請求路徑
@@ -20,6 +21,10 @@ const requests = axios.create({
 //請求之前 攔截器可以檢測
 requests.interceptors.request.use(
     function(config) {
+        // console.log(store.state)
+        //自訂UUID
+        config.headers.userIempId = 236666
+
         //進度條開始動
         nprogress.start();
         //config 配置對象有headers請求頭

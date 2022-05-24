@@ -6,6 +6,7 @@ import shopCar from "./shopCar"
 import news from "./news"
 import beauty from "./beauty"
 import store from "./store"
+import user from "./user"
 export default createStore({
     state: {},
     getters: {},
@@ -18,6 +19,7 @@ export default createStore({
         shopCar,
         news,
         beauty,
-        store
+        store,
+        user
     }
 })
