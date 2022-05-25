@@ -897,12 +897,16 @@ Mock.mock('/mock/register', (options) => {
     }
 });
 Mock.mock('/mock/login', (options) => {
-    // let body = JSON.parse(options.body)
+    let body = JSON.parse(options.body)
     //save
     // user.push(body)
-    // console.log(user)
+    console.log(body)
     return {
         code: 200,
-        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+        data: {
+            userId: 1,
+            name: body.account,
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+        }
     }
 });

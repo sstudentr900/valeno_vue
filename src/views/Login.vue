@@ -6,11 +6,11 @@
             <div class="public_form">
                 <div class="form-row">
                     <div class="tit">帳號<span class="must">*</span></div>
-                    <input type="text" name="account" v-model="account">
+                    <input type="text" name="account" v-model="account" placeholder="請輸入帳號">
                 </div>
                 <div class="form-row">
                     <div class="tit">密碼<span class="must">*</span></div>
-                    <input type="password" name="password" v-model="password">
+                    <input type="password" name="password" v-model="password" placeholder="請輸入密碼">
                 </div>
                 <!-- <div class="form-row">
                     <div class="tit">驗證碼</div>
@@ -77,11 +77,9 @@
                     account: account,
                     password: password
                 });
-                console.log('submit');
+                this.$router.push('/member');
+                // console.log('submit');
             },
-            // changCaptcha() {
-            //     console.log('captcha')
-            // }
         }
     }
 </script>

@@ -1,18 +1,27 @@
 import { userCode, register, login } from '@/api';
 const state = {
     codeNumber: '',
-    userData: [],
-    token: '',
+    registData: [],
+    userInfo: {},
+    token: localStorage.getItem('token'),
 }
 const mutations = {
     getCodeMu(state, list) {
         state.codeNumber = list
     },
     registerMu(state, list) {
-        state.userData.push(list)
+        state.registData.push(list)
     },
     loginMu(state, list) {
-        state.token = list
+        state.userInfo = list;
+        state.token = list.token;
+        localStorage.setItem('token',list.token)
+    },
+    //signOut
+    signOutMu(state){
+        state.userInfo = {};
+        state.token = '';
+        localStorage.removeItem('token');
     }
 }
 const actions = {
@@ -39,7 +48,8 @@ const actions = {
     async login({ commit }, params = {}) {
         let result = await login(params);
         if (result.data.code == 200) {
-            commit('loginMu', result.data.token);
+            //存到store
+            commit('loginMu', result.data.data);
             return 'ok'
         } else {
             return Promise.reject(new Error('faile'))

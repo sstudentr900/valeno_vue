@@ -14,25 +14,25 @@
                     <div class="form-row">
                         <div class="tit">帳號<span class="must">*</span></div>
                         <div class="content">
-                            <input name="account" type="text" v-model="account">
+                            <input name="account" type="text" v-model="account" placeholder="請輸入帳號">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">密碼<span class="must">*</span></div>
                         <div class="content">
-                            <input name="password" type="password" v-model="password">
+                            <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">確認密碼<span class="must">*</span></div>
                         <div class="content">
-                            <input name="password1" type="password" v-model="password1">
+                            <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">姓名<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="name" v-model="name">
+                            <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
                         </div>
                     </div>
                 </div>
@@ -68,19 +68,19 @@
                     <div class="form-row">
                         <div class="tit">地址<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="address" v-model="address">
+                            <input type="text" name="address" v-model="address" placeholder="請輸入地址">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">手機<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="phone" v-model="phone">
+                            <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">驗證碼<span class="must">*</span></div>
                         <div class="content code_box">
-                            <input type="text" name="verificationCode" v-model="verificationCode">
+                            <input type="text" name="verificationCode" v-model="verificationCode"  placeholder="請輸入驗證碼">
                             <button v-if="!getCodeIf" @click="getCode">獲取驗證碼</button>
                             <button v-if="getCodeIf" disabled="disabled">從新發送({{time}})秒</button>
                         </div>

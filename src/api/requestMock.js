@@ -23,8 +23,14 @@ requests.interceptors.request.use(
     function(config) {
         // console.log(store.state)
         //自訂UUID
-        config.headers.userIempId = 236666
+        config.headers.userIempId = 236666;
 
+        //攜帶token
+        if(store.state.user.token){
+            config.headers.token = store.state.user.token;
+        }
+
+        config.headers.test = 1534555; 
         //進度條開始動
         nprogress.start();
         //config 配置對象有headers請求頭
