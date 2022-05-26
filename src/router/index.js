@@ -70,7 +70,33 @@ const routes = [{
         path: '/member',
         name: 'member',
         component: () =>
-            import ('../views/Member')
+            import ('../views/Member'),
+        children: [{
+                path: 'info',
+                component: () =>
+                    import ('@/views/Member/info'),
+            },
+            {
+                path: 'changePassword',
+                component: () =>
+                    import ('@/views/Member/changePassword'),
+            },
+            // {
+            //     path: 'orderList',
+            //     component: () =>
+            //         import ('@/views/Member/orderList'),
+            // },
+            {
+                path: 'coupon',
+                component: () =>
+                    import ('@/views/Member/coupon'),
+            },
+            {
+                //沒有指定二級自動轉向
+                path: '/member',
+                redirect: '/member/info' //跳轉
+            },
+        ]
     },
     {
         path: '/question',
@@ -83,7 +109,7 @@ const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes,
     //滾動行為
-    scrollBehavior(to,from,savePosition){
+    scrollBehavior(to, from, savePosition) {
         if (to.hash) {
             const el = window.location.href.split("#")[1];
             if (el.length) {
@@ -98,17 +124,17 @@ const router = createRouter({
 })
 
 //路由之前判斷
-router.beforeEach((to,from,next)=>{
+router.beforeEach((to, from, next) => {
     //to:獲取要跳轉到那個路由訊息
     //from:獲取從拿來的路由訊息
     //next(path):放行
     let token = store.state.user.token;
     let name = store.state.user.userInfo.name;
-    if(token){
+    if (token) {
         //以登入就不能再登入和註冊會跳轉到member
-        if(to.path=='/login'||to.path=='/register'){
-            next('/member')
-        }else{
+        if (to.path == '/login' || to.path == '/register') {
+            next('/member/info')
+        } else {
             next();
             //判斷登入名
             // if(name){
@@ -117,7 +143,7 @@ router.beforeEach((to,from,next)=>{
             //     抓不到名稱登出跳到登入頁
             // }
         }
-    }else{
+    } else {
         //未登入
         next();
     }
