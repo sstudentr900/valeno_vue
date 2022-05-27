@@ -14,14 +14,18 @@
             <div class="tbody">
                 <div class="tr">
                     <div class='td'>滿額 2,000即可抵用</div>
-                    <div class='td'>ABC2010022</div>
+                    <div class='td'>
+                        <div class="public_text_pink">ABC2010154</div>
+                    </div>
                     <div class='td'>$500</div>
                     <div class='td'>2017/06/30</div>
                     <div class='td'>已使用</div>
                 </div>
                 <div class="tr">
                     <div class='td'>滿額 800即可抵用</div>
-                    <div class='td'>ABC2010154</div>
+                    <div class='td '>
+                        <div class="public_text_pink">ABC2010154</div>
+                    </div>
                     <div class='td'>$200</div>
                     <div class='td'>2017/08/30</div>
                     <div class='td'>未使用</div>
@@ -45,18 +49,7 @@
     }
 </script>
 <style scoped>
-    .public_table .thead {
-        background: #222;
-        color: #fff;
-    }
-    
-    .public_table .tr {
-        display: flex;
-    }
-    
-    .public_table .td {
-        flex: 1 1;
-        padding: 15px 10px;
-        text-align: center;
+    .tr .td:nth-child(1){
+        flex: 2 2;
     }
 </style>

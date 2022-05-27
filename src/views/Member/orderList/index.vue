@@ -1,53 +1,79 @@
 <template>
     <div class="memberInfo">
         <h3 class="title">#修改會員資料</h3>
-        <div class="public_form">
-            <div class="form-row">
-                <div class="tit"><span class="must"></span>會員帳號</div>
-                <div class="content public_text_grey">grnet@grnet.com.tw</div>
-            </div>
-            <div class="form-row">
-                <div class="tit"><span class="must"></span>姓&emsp;&emsp;名</div>
-                <div class="content public_text_grey">吳大為 先生</div>
-            </div>
-            <div class="form-row">
-                <div class="tit">生&emsp;&emsp;日</div>
-                <div class="content public_text_grey">
-                    2017年1月1日
+        <div class="public_table">
+            <div class="thead">
+                <div class="tr">
+                    <div class='td'>訂單日期</div>
+                    <div class='td'>訂單編號</div>
+                    <div class='td'>訂單總額</div>
+                    <div class='td'>付款狀態</div>
+                    <div class='td'>出貨狀態</div>
+                    <div class='td'>客服</div>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="tit">手機號碼<span class="must">*</span></div>
-                <div class="content"><input type="text" name="mobile" value="0912345678" class="input-box"></div>
-            </div>
-            <div class="form-row">
-                <div class="tit">聯絡地址<span class="must">*</span></div>
-                <div class="content">
-                    <div class="public_col-3">
-                        <div>
-                            <input name="zipcode" type="text" class="input-box" placeholder="郵遞區號">
-                        </div>
-                        <div>
-                            <select name="city_id" class="input-box">
-                                <option>請選擇縣市</option>
-                            </select>
-                        </div>
-                        <div>
-                            <select name="dist_id" class="input-box">
-                                <option>請選擇區域</option>
-                            </select>
-                        </div>
+            <div class="tbody">
+                <div class="tr">
+                    <div class='td'>2017/06/30</div>
+                    <div class='td'>
+                        <div class="orderBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 10h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm8.172 14l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>9412346678</div>
                     </div>
-                    <input type="text" name="address" class="input-box">
+                    <div class='td'>$500</div>
+                    <div class='td'>未付款</div>
+                    <div class='td'>未出貨</div>
+                    <div class='td'>
+                        <div class="public_btn2"><svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24"><path d="M 10 2 L 9 3 L 3 3 L 3 5 L 21 5 L 21 3 L 15 3 L 14 2 L 10 2 z M 4.3652344 7 L 5.8925781 20.263672 C 6.0245781 21.253672 6.877 22 7.875 22 L 16.123047 22 C 17.121047 22 17.974422 21.254859 18.107422 20.255859 L 19.634766 7 L 4.3652344 7 z"/></svg>取消訂單</div>
+                    </div>
                 </div>
-            </div>
-            <div class="info">
-                <div class="half">
-                    <label class="check"><input type="checkbox"><span><i class="fa fa-check" aria-hidden="true"></i></span>&nbsp;我要收到IMAKEGO好康活動電子報</label>
+                <div class="tr">
+                    <div class='td'>2017/06/30</div>
+                    <div class='td'>
+                        <div class="orderBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 10h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm8.172 14l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>9412346678</div>
+                    </div>
+                    <div class='td'>$500</div>
+                    <div class='td'>已付款</div>
+                    <div class='td'>已出貨</div>
+                    <div class='td'>
+                        <div class="public_btn2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,11a1,1,0,0,0-1,1,8.05,8.05,0,1,1-2.22-5.5h-2.4a1,1,0,0,0,0,2h4.53a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4.77A10,10,0,1,0,22,12,1,1,0,0,0,21,11Z"/></svg>我要退貨</div>
+                    </div>
                 </div>
-                <div class="half">
-                    <div class="public_buttons">
-                        <button class="btns" title="儲存修改">儲存修改</button>
+                <div class="tr">
+                    <div class='td'>2017/06/30</div>
+                    <div class='td'>
+                        <div class="orderBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 10h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm8.172 14l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>9412346678</div>
+                    </div>
+                    <div class='td'>$500</div>
+                    <div class='td'>已付款</div>
+                    <div class='td'>已出貨</div>
+                    <div class='td'>
+                        發票號碼
+                        <span class="public_text_pink">(74748874)</span>
+                    </div>
+                </div>
+                <div class="tr">
+                    <div class='td'>2017/06/30</div>
+                    <div class='td'>
+                        <div class="orderBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 10h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm8.172 14l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>9412346678</div>
+                    </div>
+                    <div class='td'>$500</div>
+                    <div class='td'>已付款</div>
+                    <div class='td'>已出貨</div>
+                    <div class='td'>
+                        退貨處理中，退貨編號
+                        <span class="public_text_pink">(74748874)</span>
+                    </div>
+                </div>
+                <div class="tr">
+                    <div class='td'>2017/06/30</div>
+                    <div class='td'>
+                        <div class="orderBtn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13 10h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2zm8.172 14l-7.387-7.387c-1.388.874-3.024 1.387-4.785 1.387-4.971 0-9-4.029-9-9s4.029-9 9-9 9 4.029 9 9c0 1.761-.514 3.398-1.387 4.785l7.387 7.387-2.828 2.828zm-12.172-8c3.859 0 7-3.14 7-7s-3.141-7-7-7-7 3.14-7 7 3.141 7 7 7z"/></svg>9412346678</div>
+                    </div>
+                    <div class='td'>$500</div>
+                    <div class='td'>已付款</div>
+                    <div class='td'>已出貨</div>
+                    <div class='td'>
+                        退貨完成，退貨編號
+                        <span class="public_text_pink">(74748874)</span>
                     </div>
                 </div>
             </div>
@@ -77,69 +103,57 @@
     }
 </script>
 <style scoped>
-    /* .memberInfo {
-        flex: 1 1;
+    .orderBtn{
+        color: #c1894c;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: linear 0.3s;
+    }
+    .orderBtn svg{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        transition: linear 0.3s;
+        fill: #c1894c;
+    }
+    /* .orderBtn svg{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        transition: linear 0.3s;
     } */
-    
-    .memberInfo .title {
-        border-bottom: 1px solid #eee;
-        padding-bottom: 20px;
-        /* margin-top: 10px; */
-        margin-bottom: 20px;
-        position: relative;
+    .public_btn2{
+        border: 1px solid #000;
+        padding: 10px;
         color: #000;
-        font-weight: bold;
-        font-size: 22px;
+        font-size: 0.85rem;
+        max-width: 150px;
+        margin: auto;
+        text-align: center;
+        transition: ease 0.3s;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: linear 0.3s;
     }
-    
-    .memberInfo .title:after {
-        content: "";
-        width: 150px;
-        height: 2px;
+    .public_btn2 svg{
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        transition: linear 0.3s;
+    }
+    .public_btn2:hover{
         background: #000;
-        display: block;
-        position: absolute;
-        bottom: -1px;
+        color: #fff;
     }
-    
-    .memberInfo .public_form {
-        padding: 30px 0;
-        /* max-width: 640px; */
+    .public_btn2:hover svg{
+        fill: #fff;
     }
-    
-    .memberInfo .info {
-        margin-top: 50px;
-        border-top: 1px solid #eee;
-        padding-top: 20px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .memberInfo .half {
-        flex-basis: 46%;
-    }
-    
-    .memberInfo .check {
-        margin-top: 20px;
-        margin-bottom: 0;
-    }
-    
-    .public_col-3 {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-    }
-    
-    .public_col-3>div {
-        width: 32%;
-    }
-    
-    .public_text_grey {
-        color: #666;
-    }
-    
-    .public_text_pink {
-        color: #eb6877;
+    .tr .td:nth-child(2),
+    .tr .td:last-child{
+        flex: 2 2;
     }
 </style>

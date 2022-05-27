@@ -84,7 +84,8 @@
                     </div>
                     <div class="public_buttons">
                         <!-- <a @click="infoCopy" class="btns white-btn" title="加入追蹤清單"><span>加入追蹤清單</span></a> -->
-                        <a href="flow_cart.html" class="btns" title="我要結帳"><span>我要結帳</span></a>
+                        <!-- <a href="flow_cart.html" class="btns" title="我要結帳"><span>我要結帳</span></a> -->
+                        <router-link to='/cart' class="btns" title="我要結帳">我要結帳</router-link>
                     </div>
                 </div>
                 <div class="content" v-else>

@@ -107,7 +107,7 @@
     
     .member .memberContent {
         flex: 1 1;
-        min-height: 540px;
+        min-height: 480px;
     }
     
     .memberContent .title {
@@ -151,8 +151,31 @@
     .memberContent .send .half {
         flex-basis: 46%;
     }
+    .public_table .thead {
+        background: #222;
+        color: #fff;
+    }
     
-    .memberContent .public_text_grey {
+    .public_table .tr {
+        display: flex;
+        align-items: center;
+    }
+    
+    .public_table .td {
+        flex: 1 1;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    .public_table .tbody .tr{
+        border-bottom: 1px solid #ddd;
+    }
+    .public_table .tbody .td{
         color: #666;
+    }
+    .public_text_grey {
+        color: #666!important;
+    }
+    .public_text_pink {
+        color: #eb6877!important;
     }
 </style>

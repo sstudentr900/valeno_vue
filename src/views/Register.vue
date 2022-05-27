@@ -210,7 +210,7 @@
                 //驗證
 
                 //送出
-                this.$store.dispatch('user/registerSubmit', {
+                this.$store.dispatch('user/register', {
                         account: account,
                         password: password,
                         name: name,
@@ -243,7 +243,7 @@
     }
     
     .register {
-        min-height: 580px;
+        min-height: 480px;
     }
     
     .register .topTitle {

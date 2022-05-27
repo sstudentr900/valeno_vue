@@ -33,9 +33,9 @@
                         <span></span>
                         &nbsp;記住密碼
                     </label>
-                    <div class="buttons">
+                    <div class="public_buttons">
                         <!-- <a class="public_btn fb" title="facebook 快速登入"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="24px" height="24px"><path d="M 21.800781 0 L 2.199219 0 C 1 0 0 1 0 2.199219 L 0 21.800781 C 0 23 1 24 2.199219 24 L 12 24 L 12 14 L 9 14 L 9 11 L 12 11 L 12 8 C 12 5.5 13 4 16 4 L 19 4 L 19 7 L 17.699219 7 C 16.800781 7 16 7.800781 16 8.699219 L 16 11 L 20 11 L 19.5 14 L 16 14 L 16 24 L 21.800781 24 C 23 24 24 23 24 21.800781 L 24 2.199219 C 24 1 23 0 21.800781 0 Z"/></svg>快速登入</a> -->
-                        <button  class="public_btn" title="登入" @click="submit">登入</button>
+                        <button  class="btns" title="登入" @click="submit">登入</button>
                     </div>
                 </div>
             </div>
@@ -43,14 +43,21 @@
         <div class="right">
             <div class="title_main">REGISTER</div>
             <p class="title_sub">您還未成為會員嗎? <br> 加入會員後可享有更快捷的購物，可隨時查看訂單狀態和訂購紀錄，以及更多的會員專屬服務。</p>
-            <router-link to="/register" class="public_btn" title="立即加入網站會員">立即加入會員</router-link>
+            <div class="public_buttons">
+                <!-- <button  class="btns" title="前往結帳" @click="submit">前往結帳</button> -->
+                <router-link to="/register" class="btns" title="立即加入網站會員">立即加入會員</router-link>
+            </div>
             <!-- <a href="member_register.html" class="public_btn white" title="立即加入網站會員">立即加入會員</a> -->
             <div class="shopping">
                 <p class="title_sub">
                     將喜愛的商品放入購物車完成訂購步驟， 最後留下個人資料，系統將自動為您升級為會員。
                     <br> 立即享受，如此輕鬆的快速線上購物
                 </p>
-                <a href="flow_cart.html" class="public_btn white" title="前往結帳">前往結帳</a>
+                <div class="public_buttons">
+                    <!-- <button  class="btns" title="前往結帳" @click="submit">前往結帳</button> -->
+                    <!-- <a href="flow_cart.html" class="btns" title="前往結帳">前往結帳</a> -->
+                    <router-link to="/cart" class="btns" title="前往結帳">前往結帳</router-link>
+                </div>
             </div>
         </div>
     </div>
@@ -121,6 +128,10 @@
         margin-right: 10px;
         margin-top: -2px;
     }
+    .right .public_buttons .btns{
+        width: 100%;
+        padding: 15px;
+    }
     
     .login .title_sub {
         padding: 10px 0;
@@ -185,7 +196,7 @@
     } */
     
     .public_form .forget a {
-        color: inherit;
+        color: #666;
     }
     
     .public_form .forget a:hover {
@@ -201,9 +212,7 @@
         justify-content: space-between;
     }
     
-    .public_form .buttons {
-        display: flex;
-        justify-content: space-between;
+    .public_form .public_buttons .btns {
         width: 120px;
     }
     /* .public_form .buttons .public_btn {

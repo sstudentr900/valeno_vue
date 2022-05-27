@@ -81,11 +81,11 @@ const routes = [{
                 component: () =>
                     import ('@/views/Member/changePassword'),
             },
-            // {
-            //     path: 'orderList',
-            //     component: () =>
-            //         import ('@/views/Member/orderList'),
-            // },
+            {
+                path: 'orderList',
+                component: () =>
+                    import ('@/views/Member/orderList'),
+            },
             {
                 path: 'coupon',
                 component: () =>
@@ -97,6 +97,12 @@ const routes = [{
                 redirect: '/member/info' //跳轉
             },
         ]
+    },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: () =>
+            import ('@/views/cart'),
     },
     {
         path: '/question',
