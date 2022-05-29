@@ -191,15 +191,16 @@
         .public_col-3>div {
             width: 32%;
         }
-        /* .public_col-2 {
+        
+        .public_col-2 {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            /* margin-bottom: 15px; */
         }
         
         .public_col-2>div {
             width: 48%;
-        } */
+        }
         /*public_item*/
         
         .public_items {
@@ -287,6 +288,13 @@
         .public_item .info .price .through {
             text-decoration: line-through;
         }
+        /*public_box*/
+        
+        .public_box {
+            border: 1px solid #ccc;
+            padding: 30px 40px;
+            margin-top: 40px;
+        }
         /*public_form*/
         
         .public_form .form-row {
@@ -309,6 +317,7 @@
             font-size: 1rem;
             width: 100%;
             color: #666;
+            box-sizing: border-box;
         }
         
         .public_form .tit {
@@ -328,7 +337,7 @@
             background: none;
             font-size: 1.3rem;
             margin-bottom: 20px;
-            padding: 5px 8px 8px 8px;
+            /* padding: 5px 8px 8px 8px; */
             width: 100%;
             color: #666;
             display: flex;
@@ -352,8 +361,8 @@
             align-items: center;
         }
         
-        .public_form .check:first-child {
-            margin-bottom: 10px;
+        .public_form .check+.check {
+            margin-top: 10px;
         }
         
         .public_form .check a {
@@ -375,6 +384,7 @@
             width: 16px;
             height: 16px;
             position: relative;
+            margin-right: 5px;
         }
         
         .public_form .check input+span:after {
@@ -503,6 +513,7 @@
             display: flex;
             justify-content: center;
             margin-top: 40px;
+            margin-bottom: 20px;
         }
         
         .public_buttons2 .btns2 {

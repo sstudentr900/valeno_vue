@@ -111,6 +111,12 @@ const routes = [{
             import ('@/views/CartFill'),
     },
     {
+        path: '/cartFinish',
+        name: 'cartFinish',
+        component: () =>
+            import ('@/views/CartFinish'),
+    },
+    {
         path: '/question',
         name: 'question',
         component: Question

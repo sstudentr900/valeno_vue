@@ -179,6 +179,10 @@
         color: #555;
     }
     
+    .shoppingList .list>div:nth-child(2) {
+        flex: 2 2;
+    }
+    
     .shoppingList .listHead .list {
         border-bottom: 1px solid #ccc;
         padding: 10px 0;
