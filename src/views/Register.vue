@@ -362,45 +362,4 @@
         border: none;
         padding-top: 0;
     }
-    
-    .public_form .radio {
-        margin: 0;
-        margin-right: 5px;
-        color: #333;
-        background: #f5f5f5;
-        padding: 8px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .public_form .radio input[type=radio] {
-        display: none;
-    }
-    
-    .public_form .radio input+span {
-        display: inline-block;
-        vertical-align: middle;
-        border: 1px solid #ccc;
-        background: #fff;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        margin-right: 2px;
-        padding: 3px;
-        transition: ease 0.3s;
-    }
-    
-    .public_form .radio input+span i {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        border-radius: 50%;
-        transform: scale(0);
-    }
-    
-    .public_form .radio input:checked+span i {
-        transform: scale(1);
-        transition: ease 0.3s;
-    }
 </style>

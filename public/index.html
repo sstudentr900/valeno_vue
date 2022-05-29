@@ -127,6 +127,7 @@
             color: black;
             background: white;
             overflow-x: hidden;
+            user-select: none;
         }
         
         .public_title {
@@ -163,6 +164,14 @@
         .flex {
             display: flex;
         }
+        
+        .public_text_grey {
+            color: #666!important;
+        }
+        
+        .public_text_pink {
+            color: #eb6877!important;
+        }
         /* .public_scrollTop{
             opacity: 0;
             transform: translateY(100px);
@@ -171,6 +180,25 @@
         .public_scrollTop.active{
             opacity: 1;
             transform: translateY(0);
+        } */
+        
+        .public_col-3 {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .public_col-3>div {
+            width: 32%;
+        }
+        /* .public_col-2 {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .public_col-2>div {
+            width: 48%;
         } */
         /*public_item*/
         
@@ -295,6 +323,25 @@
             color: red;
             font-size: 12px;
         }
+        
+        .public_form .form-tit {
+            background: none;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            padding: 5px 8px 8px 8px;
+            width: 100%;
+            color: #666;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .public_form .form-tit svg {
+            margin-right: 5px;
+            width: 24px;
+            height: 24px;
+            fill: #666;
+        }
         /*check*/
         
         .public_form .check {
@@ -343,6 +390,49 @@
         
         .public_form .check input:checked+span:after {
             transform: scale(1);
+        }
+        /*radio*/
+        
+        .public_form .radio {
+            margin: 0;
+            margin-right: 10px;
+            color: #666;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .public_form .radio input[type=radio] {
+            display: none;
+        }
+        
+        .public_form .radio input+span {
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            background: #fff;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 2px;
+            padding: 3px;
+            transition: ease 0.3s;
+        }
+        
+        .public_form .radio input+span i {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 50%;
+            transform: scale(0);
+        }
+        
+        .public_form .radio input:checked+span i {
+            transform: scale(1);
+            transition: ease 0.3s;
         }
         /*public_buttons*/
         
@@ -409,7 +499,13 @@
             width: 50%;
         }
         
-        .public_btn {
+        .public_buttons2 {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .public_buttons2 .btns2 {
             padding: 15px 5px;
             display: block;
             font-size: 14px;
@@ -428,16 +524,18 @@
             text-decoration: none;
             border: 1px solid #000;
             transition: linear 0.3s;
-            width: 100%;
+            min-width: 200px;
         }
         
-        .public_btn:hover {
+        .public_buttons2 .btns2+.btns2 {
+            margin-left: 10px;
+        }
+        /* .public_buttons2 .btns2:hover {
             background-color: #fff;
             color: #000;
             border: 1px solid #000;
-        }
-        
-        .public_btn.fb {
+        } */
+        /* .public_btn.fb {
             background: #39579b;
             border-color: #39579b;
             display: flex;
@@ -461,16 +559,16 @@
         
         .public_btn.fb:hover svg {
             fill: #39579b;
-        }
+        } */
         
-        .public_btn.white {
+        .public_buttons2 .btns2.white-btn {
             background: #fff;
             border-color: #222;
             color: #222;
         }
         
-        .public_btn.white:hover {
-            background: #222;
+        .public_buttons2 .btns2.white-btn:hover {
+            background: #000;
             color: #fff;
         }
         /*public_qty*/

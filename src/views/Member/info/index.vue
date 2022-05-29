@@ -69,14 +69,4 @@
         margin-top: 20px;
         margin-bottom: 0;
     }
-    
-    .public_col-3 {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-    }
-    
-    .public_col-3>div {
-        width: 32%;
-    }
 </style>

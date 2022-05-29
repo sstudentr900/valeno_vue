@@ -102,7 +102,13 @@ const routes = [{
         path: '/cart',
         name: 'cart',
         component: () =>
-            import ('@/views/cart'),
+            import ('@/views/Cart'),
+    },
+    {
+        path: '/cartFill',
+        name: 'cartFill',
+        component: () =>
+            import ('@/views/CartFill'),
     },
     {
         path: '/question',

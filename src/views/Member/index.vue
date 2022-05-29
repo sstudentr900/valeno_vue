@@ -151,6 +151,7 @@
     .memberContent .send .half {
         flex-basis: 46%;
     }
+    
     .public_table .thead {
         background: #222;
         color: #fff;
@@ -166,16 +167,12 @@
         padding: 15px 10px;
         text-align: center;
     }
-    .public_table .tbody .tr{
+    
+    .public_table .tbody .tr {
         border-bottom: 1px solid #ddd;
     }
-    .public_table .tbody .td{
+    
+    .public_table .tbody .td {
         color: #666;
-    }
-    .public_text_grey {
-        color: #666!important;
-    }
-    .public_text_pink {
-        color: #eb6877!important;
     }
 </style>
