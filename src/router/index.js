@@ -103,18 +103,40 @@ const routes = [{
         name: 'cart',
         component: () =>
             import ('@/views/Cart'),
+
     },
     {
         path: '/cartFill',
         name: 'cartFill',
         component: () =>
             import ('@/views/CartFill'),
+            beforeEnter(to,from,next){
+                //必須由cart頁進來
+                // console.log(to.path)
+                // console.log(from.path)
+                if(from.path == '/cart'){
+                    next();
+                }else{
+                    //停留在當頁
+                    next(from.path);
+                    
+                }
+            }
     },
     {
         path: '/cartFinish',
         name: 'cartFinish',
         component: () =>
             import ('@/views/CartFinish'),
+            beforeEnter(to,from,next){
+                if(from.path == '/cartFill'){
+                    next();
+                }else{
+                    //停留在當頁
+                    next(from.path);
+                    
+                }
+            }
     },
     {
         path: '/question',
@@ -148,8 +170,9 @@ router.beforeEach((to, from, next) => {
     //next(path):放行
     let token = store.state.user.token;
     let name = store.state.user.userInfo.name;
+
     if (token) {
-        //以登入就不能再登入和註冊會跳轉到member
+        //有登入就不能再登入和註冊會跳轉到member
         if (to.path == '/login' || to.path == '/register') {
             next('/member/info')
         } else {
@@ -163,6 +186,10 @@ router.beforeEach((to, from, next) => {
         }
     } else {
         //未登入
+        let toPath = to.path;
+        if(toPath.indexOf('/member')!=-1){
+            next('/');
+        }
         next();
     }
 })

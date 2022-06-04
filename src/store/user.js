@@ -29,7 +29,7 @@ const actions = {
         let result = await userCode(params);
         if (result.data.code == 200) {
             commit('getCodeMu', result.data.codeNumber)
-            return 'ok';
+            return Promise.resolve('ok');
         } else {
             return Promise.reject(new Error('faile'))
         }
@@ -39,7 +39,7 @@ const actions = {
         let result = await register(params);
         if (result.data.code == 200) {
             commit('registerMu', params);
-            return 'ok';
+            return Promise.resolve('ok');
         } else {
             return Promise.reject(new Error('faile'));
         }
@@ -50,7 +50,7 @@ const actions = {
         if (result.data.code == 200) {
             //存到store
             commit('loginMu', result.data.data);
-            return 'ok'
+            return Promise.resolve('ok');
         } else {
             return Promise.reject(new Error('faile'))
         }

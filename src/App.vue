@@ -14,7 +14,6 @@
     import FnNav from './components/FnNav'
     import FnFooter from './components/FnFooter'
     import FnSide from './components/FnSide'
-
     export default {
         name: 'fn',
         components: {

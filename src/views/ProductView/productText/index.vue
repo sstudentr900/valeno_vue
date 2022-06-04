@@ -125,18 +125,19 @@
                 listAdd: 'listAddMu'
             }),
             addShopcar() {
-                // try {
-                //vuex+sessionStorage
                 let items = {...this.item,
                     skuNum: this.skuNum,
                 };
                 items['specification']['specIndex'] = this.specIndex;
-                // this.$store.dispatch('shopCar/listAdd', items);
                 this.listAdd(items);
-                this.$emit('promptIfValue', true);
-                // } catch (error) {
-                //     console.log(error.message)
-                // }
+                //notification
+                this.$notify({
+                    title: '訊息通知',
+                    message: '商品已加入購物車',
+                    type: 'success',
+                })
+                // this.$emit('promptIfValue', true);
+            
             },
             addShopcarXX() {
                 // try {

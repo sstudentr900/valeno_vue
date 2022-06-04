@@ -142,6 +142,7 @@
                 moon: '',
                 day: '',
                 phone: '',
+                address: '',
                 receiveActivity: false,
                 verificationCode: '',
                 checked: false,

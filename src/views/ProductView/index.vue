@@ -1,18 +1,19 @@
 <template>
     <div class="product_view">
-        <div class="public_prompt" :class="{active:promptIf}">
+        <!-- <div class="public_prompt" :class="{active:promptIf}">
             <div class="box">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1 17l-5-5.299 1.399-1.43 3.574 3.736 6.572-7.007 1.455 1.403-8 8.597z"/></svg>
                 <p>商品已加入購物車</p>
             </div>
-        </div>
+        </div> -->
         <div class="product">
             <div class="public_flex">
                 <div class="slideDiv">
                     <imgZoom :item="itemData.productImgs"></imgZoom>
                     <imgSlide :item="itemData.productImgs"></imgSlide>
                 </div>
-                <productText :item="itemData" @promptIfValue="promptUpdata"></productText>
+                <!-- <productText :item="itemData" @promptIfValue="promptUpdata"></productText> -->
+                <productText :item="itemData"></productText>
             </div>
         </div>
         <similars :items="linkListData"></similars>
@@ -107,14 +108,12 @@
             //     }
             //     sessionStorage.setItem('skuInfo', JSON.stringify(items))
             // },
-            promptUpdata(value) {
-                // console.log(value)
-                this.promptIf = value;
-                // clearTimeout(this.timeId);
-                this.timeId = setTimeout(() => {
-                    this.promptIf = !this.promptIf
-                }, 600)
-            }
+            // promptUpdata(value) {
+            //     this.promptIf = value;
+            //     this.timeId = setTimeout(() => {
+            //         this.promptIf = !this.promptIf
+            //     }, 600)
+            // }
         },
         watch: {
             //監聽路由改變執行product
