@@ -71,6 +71,7 @@ const routes = [{
         name: 'member',
         component: () =>
             import ('../views/Member'),
+        redirect: '/member/info', //沒有指定二級自動轉向/info
         children: [{
                 path: 'info',
                 component: () =>
@@ -91,11 +92,11 @@ const routes = [{
                 component: () =>
                     import ('@/views/Member/coupon'),
             },
-            {
-                //沒有指定二級自動轉向
-                path: '/member',
-                redirect: '/member/info' //跳轉
-            },
+            // {
+            //     //沒有指定二級自動轉向
+            //     path: '/member',
+            //     redirect: '/member/info' //跳轉
+            // },
         ]
     },
     {
@@ -110,33 +111,32 @@ const routes = [{
         name: 'cartFill',
         component: () =>
             import ('@/views/CartFill'),
-            beforeEnter(to,from,next){
-                //必須由cart頁進來
-                // console.log(to.path)
-                // console.log(from.path)
-                if(from.path == '/cart'){
-                    next();
-                }else{
-                    //停留在當頁
-                    next(from.path);
-                    
-                }
+        beforeEnter(to, from, next) {
+            //必須由cart頁進來
+            // console.log(to.path)
+            // console.log(from.path)
+            if (from.path == '/cart') {
+                next();
+            } else {
+                next(from.path);
             }
+        }
     },
     {
         path: '/cartFinish',
         name: 'cartFinish',
         component: () =>
             import ('@/views/CartFinish'),
-            beforeEnter(to,from,next){
-                if(from.path == '/cartFill'){
-                    next();
-                }else{
-                    //停留在當頁
-                    next(from.path);
-                    
-                }
+        beforeEnter(to, from, next) {
+            //必須由cartFill頁進來
+            if (from.path == '/cartFill') {
+                next();
+            } else {
+                //停留在當頁
+                next(from.path);
+
             }
+        }
     },
     {
         path: '/question',
@@ -150,16 +150,17 @@ const router = createRouter({
     routes,
     //滾動行為
     scrollBehavior(to, from, savePosition) {
-        if (to.hash) {
-            const el = window.location.href.split("#")[1];
-            if (el.length) {
-                document.getElementById(el).scrollIntoView({ behavior: "smooth" });
-            }
-        } else if (savePosition) {
-            return savePosition;
-        } else {
-            document.getElementById("app").scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById("app").scrollIntoView({ behavior: "smooth" });
+        // if (to.hash) {
+        //     const el = window.location.href.split("#")[1];
+        //     if (el.length) {
+        //         document.getElementById(el).scrollIntoView({ behavior: "smooth" });
+        //     }
+        // } else if (savePosition) {
+        //     return savePosition;
+        // } else {
+        //     document.getElementById("app").scrollIntoView({ behavior: "smooth" });
+        // }
     }
 })
 
@@ -172,6 +173,7 @@ router.beforeEach((to, from, next) => {
     let name = store.state.user.userInfo.name;
 
     if (token) {
+        // console.log('有登入')
         //有登入就不能再登入和註冊會跳轉到member
         if (to.path == '/login' || to.path == '/register') {
             next('/member/info')
@@ -185,9 +187,10 @@ router.beforeEach((to, from, next) => {
             // }
         }
     } else {
-        //未登入
+        // console.log('未登入')
+        //未登入不能進入member
         let toPath = to.path;
-        if(toPath.indexOf('/member')!=-1){
+        if (toPath.indexOf('/member') != -1) {
             next('/');
         }
         next();

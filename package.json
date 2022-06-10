@@ -15,7 +15,9 @@
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
     "swiper": "^8.1.4",
+    "vee-validate": "^4.5.11",
     "vue": "^3.2.13",
+    "vue-lazyload": "^3.0.0-rc.2",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

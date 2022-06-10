@@ -43,15 +43,18 @@
             FnPagers,
             textLen
         },
+        beforeMount() {
+            this.getData()
+        },
         computed: {
             ...mapState('news', {
                 newsData: state => state.newsData
             }),
-            getNewsList(){
-                return this.newsData.newsList||[]
+            getNewsList() {
+                return this.newsData.newsList || []
             },
-            getNewsTotle(){
-                return this.newsData.total||[]
+            getNewsTotle() {
+                return this.newsData.total || []
             }
         },
         data() {
@@ -63,15 +66,12 @@
                 }
             }
         },
-        beforeMount() {
-            this.getData()
-        },
-        methods:{
-            getData(){
-                Object.assign(this.customParams, this.$route.query, this.$route.params)
-                this.$store.dispatch('news/newsAc', this.customParams)
+        methods: {
+            getData() {
+                Object.assign(this.customParams, this.$route.query, this.$route.params);
+                this.$store.dispatch('news/newsAc', this.customParams);
             },
-            getPageNo(pageNo){
+            getPageNo(pageNo) {
                 this.$router.push({
                     name: 'news',
                     query: {
@@ -198,7 +198,7 @@
         margin-top: 5px;
     }
     
-    .news a .bottom .text{
+    .news a .bottom .text {
         display: -webkit-box !important;
         overflow: hidden;
         text-overflow: ellipsis;

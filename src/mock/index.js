@@ -819,12 +819,30 @@ Mock.mock('/mock/productList', (options) => {
         }
     }
 });
-Mock.mock('/mock/news', (options) => {
-    // console.log(options.body)
+/*Mock.mock('/mock/news', (options) => {
     let body = JSON.parse(options.body)
-        // console.log('body',body)
     let pageNo = body.pageNo
     let pageSize = body.pageSize
+    let total = newsList.length
+    let newsListData = newsList.filter((item, index) => {
+        let end = pageNo * pageSize;
+        let start = end - pageSize + 1;
+        let number = index + 1
+        return number >= start && number <= end
+    })
+    return {
+        code: 200,
+        data: {
+            "newsList": newsListData,
+            "total": total,
+        }
+    }
+});*/
+Mock.mock(/^\/mock\/news/, (options) => {
+    //console.log(options.url.split('/'));
+    let array = options.url.split('/');
+    let pageSize = array.pop();
+    let pageNo = array.pop();
     let total = newsList.length
     let newsListData = newsList.filter((item, index) => {
         let end = pageNo * pageSize;
@@ -898,8 +916,8 @@ Mock.mock('/mock/register', (options) => {
 });
 Mock.mock('/mock/login', (options) => {
     let body = JSON.parse(options.body)
-    //save
-    // user.push(body)
+        //save
+        // user.push(body)
     console.log(body)
     return {
         code: 200,
