@@ -114,6 +114,8 @@
             line-height: 1;
             color: black;
             background: white;
+            overflow-x: hidden;
+            user-select: none;
         }
         
         .public_title {
@@ -150,6 +152,14 @@
         .flex {
             display: flex;
         }
+        
+        .public_text_grey {
+            color: #666!important;
+        }
+        
+        .public_text_pink {
+            color: #eb6877!important;
+        }
         /* .public_scrollTop{
             opacity: 0;
             transform: translateY(100px);
@@ -159,11 +169,31 @@
             opacity: 1;
             transform: translateY(0);
         } */
+        
+        .public_col-3 {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .public_col-3>div {
+            width: 32%;
+        }
+        
+        .public_col-2 {
+            display: flex;
+            justify-content: space-between;
+            /* margin-bottom: 15px; */
+        }
+        
+        .public_col-2>div {
+            width: 48%;
+        }
         /*public_item*/
         
         .public_items {
             margin-left: -10px;
-            margin-top: -10px;
+            margin-right: -10px;
             display: flex;
             flex-wrap: wrap;
         }
@@ -246,6 +276,162 @@
         .public_item .info .price .through {
             text-decoration: line-through;
         }
+        /*public_box*/
+        
+        .public_box {
+            border: 1px solid #ccc;
+            padding: 30px 40px;
+            margin-top: 40px;
+        }
+        /*public_form*/
+        
+        .public_form .form-row {
+            display: flex;
+            align-items: baseline;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        
+        .public_form .input-box,
+        .public_form select,
+        .public_form input[type="password"],
+        .public_form input[type="text"] {
+            border: 1px solid #ccc;
+            background: #fff;
+            border-radius: 2px;
+            padding: 5px 10px;
+            flex: 1;
+            height: 35px;
+            font-size: 1rem;
+            width: 100%;
+            color: #666;
+            box-sizing: border-box;
+        }
+        
+        .public_form .tit {
+            width: 120px;
+            color: #000;
+            font-weight: 800;
+            padding-right: 20px;
+            font-size: 16px;
+        }
+        
+        .public_form .tit span {
+            color: red;
+            font-size: 12px;
+        }
+        
+        .public_form .form-tit {
+            background: none;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            /* padding: 5px 8px 8px 8px; */
+            width: 100%;
+            color: #666;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .public_form .form-tit svg {
+            margin-right: 5px;
+            width: 24px;
+            height: 24px;
+            fill: #666;
+        }
+        /*check*/
+        
+        .public_form .check {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #666;
+            display: flex;
+            align-items: center;
+        }
+        
+        .public_form .check+.check {
+            margin-top: 10px;
+        }
+        
+        .public_form .check a {
+            color: #000;
+            text-decoration: underline;
+            font-size: 14px;
+            display: inline-block;
+        }
+        
+        .public_form .check input {
+            display: none;
+        }
+        
+        .public_form .check input+span {
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            background: #fff;
+            width: 16px;
+            height: 16px;
+            position: relative;
+            margin-right: 5px;
+        }
+        
+        .public_form .check input+span:after {
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' viewBox='0 0 469.184 469.185' style='enable-background:new 0 0 469.184 469.185;' xml:space='preserve'%3E%3Cpath d='M462.5,96.193l-21.726-21.726c-8.951-8.95-23.562-8.95-32.59,0L180.368,302.361l-119.34-119.34 c-8.95-8.951-23.562-8.951-32.589,0L6.712,204.747c-8.95,8.951-8.95,23.562,0,32.589L163.997,394.62 c4.514,4.514,10.327,6.809,16.218,6.809s11.781-2.295,16.219-6.809L462.27,128.783C471.45,119.68,471.45,105.145,462.5,96.193z'/%3E%3C/svg%3E");
+            transform: scale(0);
+            transition: ease 0.3s;
+            width: 12px;
+            height: 12px;
+            position: absolute;
+            top: -1px;
+            left: 1px;
+        }
+        
+        .public_form .check input:checked+span:after {
+            transform: scale(1);
+        }
+        /*radio*/
+        
+        .public_form .radio {
+            margin: 0;
+            margin-right: 10px;
+            color: #666;
+            background: #f5f5f5;
+            padding: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        
+        .public_form .radio input[type=radio] {
+            display: none;
+        }
+        
+        .public_form .radio input+span {
+            display: inline-block;
+            vertical-align: middle;
+            border: 1px solid #ccc;
+            background: #fff;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 2px;
+            padding: 3px;
+            transition: ease 0.3s;
+        }
+        
+        .public_form .radio input+span i {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 50%;
+            transform: scale(0);
+        }
+        
+        .public_form .radio input:checked+span i {
+            transform: scale(1);
+            transition: ease 0.3s;
+        }
         /*public_buttons*/
         
         .public_buttons {
@@ -270,6 +456,7 @@
             align-items: center;
             justify-content: center;
             width: 200px;
+            cursor: pointer;
         }
         
         .public_buttons .btns.white-btn {
@@ -309,92 +496,15 @@
         .public_buttons .btns:hover:after {
             width: 50%;
         }
-        /*public_form*/
         
-        .public_form {
-            padding: 10px 0;
-        }
-        
-        .public_form>.public_flex {
-            padding: 10px 0;
-            flex-wrap: nowrap;
-        }
-        
-        .public_form .tit {
-            font-size: 1rem;
-        }
-        
-        .public_form .tit {
-            flex: 0 0 90px;
-            color: #666;
+        .public_buttons2 {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
         
-        .public_form input[type="text"] {
-            border: 1px solid #ccc;
-            background: #fff;
-            border-radius: 2px;
-            padding: 5px 10px;
-            flex: 1;
-            height: 35px;
-            font-size: 1rem;
-        }
-        
-        .public_form .code {
-            display: flex;
-        }
-        
-        .public_form .code input {
-            width: 50%;
-        }
-        
-        .public_form .code a {
-            flex: 0 0 110px;
-            margin-left: 10px;
-        }
-        
-        .public_form .forget {
-            display: flex;
-            font-family: "Oswald-Light";
-            font-weight: bold;
-            color: #000;
-            font-size: 14px;
-            align-items: center;
-        }
-        
-        .public_form .forget .check {
-            display: flex;
-            align-items: center;
-            border-right: 1px solid #c3c3c3;
-            margin-right: 10px;
-            padding-right: 10px;
-        }
-        
-        .public_form .forget .check input {
-            margin: 0;
-            margin-right: 5px;
-        }
-        
-        .public_form .forget a {
-            color: inherit;
-        }
-        
-        .public_form .forget a:hover {
-            color: #c1894c;
-        }
-        
-        .public_form .buttons {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-        
-        .public_form .buttons .public_btn {
-            width: 49%;
-        }
-        
-        .public_btn {
+        .public_buttons2 .btns2 {
             padding: 15px 5px;
             display: block;
             font-size: 14px;
@@ -413,16 +523,18 @@
             text-decoration: none;
             border: 1px solid #000;
             transition: linear 0.3s;
-            width: 100%;
+            min-width: 200px;
         }
         
-        .public_btn:hover {
+        .public_buttons2 .btns2+.btns2 {
+            margin-left: 10px;
+        }
+        /* .public_buttons2 .btns2:hover {
             background-color: #fff;
             color: #000;
             border: 1px solid #000;
-        }
-        
-        .public_btn.fb {
+        } */
+        /* .public_btn.fb {
             background: #39579b;
             border-color: #39579b;
             display: flex;
@@ -446,18 +558,58 @@
         
         .public_btn.fb:hover svg {
             fill: #39579b;
-        }
+        } */
         
-        .public_btn.white {
+        .public_buttons2 .btns2.white-btn {
             background: #fff;
             border-color: #222;
             color: #222;
         }
         
-        .public_btn.white:hover {
-            background: #222;
+        .public_buttons2 .btns2.white-btn:hover {
+            background: #000;
             color: #fff;
-        }</style><script defer="defer" src="/valeno_vue/dist/js/chunk-vendors.js"></script><script defer="defer" src="/valeno_vue/dist/js/app.js"></script><link href="/valeno_vue/dist/css/app.css" rel="stylesheet"></head><body><script>(function() {
+        }
+        /*public_qty*/
+        
+        .public_qty {
+            height: 35px;
+            width: 130px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .public_qty .link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #000;
+            width: 50%;
+            position: relative;
+            border-top: 0;
+            border-bottom: 0;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            width: 90px;
+            user-select: none;
+            background: #fff;
+        }
+        
+        .public_qty span {
+            font-size: 22px;
+        }
+        
+        .public_qty input {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            font-size: 0.85rem;
+        }</style><script defer="defer" src="/valeno_vue/dist/js/chunk-vendors.js"></script><script defer="defer" src="/valeno_vue/dist/js/app.js"></script><link href="/valeno_vue/dist/css/chunk-vendors.css" rel="stylesheet"><link href="/valeno_vue/dist/css/app.css" rel="stylesheet"></head><body><script>(function() {
             let redirect = sessionStorage.redirect;
             delete sessionStorage.redirect;
             if (redirect && redirect !== location.href) {
