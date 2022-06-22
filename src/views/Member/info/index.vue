@@ -10,14 +10,14 @@
                 <div class="tit"><span class="must"></span>姓&emsp;&emsp;名</div>
                 <div class="content public_text_grey">吳大為 先生</div>
             </div>
-            <div class="form-row">
+            <!-- <div class="form-row">
                 <div class="tit">生&emsp;&emsp;日</div>
                 <div class="content public_text_grey">
                     2017年1月1日
                 </div>
-            </div>
+            </div> -->
             <div class="form-row">
-                <div class="tit">手機號碼<span class="must">*</span></div>
+                <div class="tit">連絡電話<span class="must">*</span></div>
                 <div class="content"><input type="text" name="mobile" value="0912345678" class="input-box"></div>
             </div>
             <div class="form-row">

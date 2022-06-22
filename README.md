@@ -41,3 +41,6 @@ swiper
 
 ## 圖片懶加載
 vueLazyload
+
+
+## F5 error

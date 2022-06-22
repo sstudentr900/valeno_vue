@@ -13,13 +13,13 @@
                     <div class="half">
                         <!-- <div class="form-tit">會員帳號</div> -->
                         <div class="form-row">
-                            <div class="tit">帳號<span class="must">*</span></div>
+                            <div class="tit">會員帳號<span class="must">*</span></div>
                             <div class="content">
                                 <input name="account" type="text" v-model="account" placeholder="請輸入帳號">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="tit">密碼<span class="must">*</span></div>
+                            <div class="tit">會員密碼<span class="must">*</span></div>
                             <div class="content">
                                 <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
                             </div>
@@ -30,20 +30,25 @@
                                 <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
                             </div>
                         </div>
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="tit">姓名<span class="must">*</span></div>
                             <div class="content">
                                 <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="half">
                         <!-- <div class="form-tit">會員基本資料</div> -->
                         <div class="form-row">
-                            <div class="tit">性別<span class="must">*</span></div>
+                            <div class="tit">會員姓名<span class="must">*</span></div>
                             <div class="content">
-                                <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"><span><i></i></span>&nbsp;先生</label>
-                                <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"><span><i></i></span>&nbsp;小姐</label>
+                                <div class="public_col-2">
+                                    <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
+                                    <div class="radios">
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"><span><i></i></span>&nbsp;小姐</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -67,25 +72,36 @@
                             </div>
                         </div> -->
                         <div class="form-row">
-                            <div class="tit">地址<span class="must">*</span></div>
-                            <div class="content">
-                                <input type="text" name="address" v-model="address" placeholder="請輸入地址">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="tit">手機<span class="must">*</span></div>
+                            <div class="tit">連絡電話<span class="must">*</span></div>
                             <div class="content">
                                 <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="tit">連絡地址<span class="must">*</span></div>
+                            <div class="content">
+                                <div class="public_col-3">
+                                    <div>
+                                        <input name="zipcode" type="text" class="input-box" placeholder="郵遞區號">
+                                    </div>
+                                    <div>
+                                        <select name="city_id" class="input-box"><option>請選擇縣市</option></select>
+                                    </div>
+                                    <div>
+                                        <select name="dist_id" class="input-box"><option>請選擇區域</option></select>
+                                    </div>
+                                </div>
+                                <input type="text" name="address" v-model="address" placeholder="請輸入地址">
+                            </div>
+                        </div>
+                        <!-- <div class="form-row">
                             <div class="tit">驗證碼<span class="must">*</span></div>
                             <div class="content code_box">
                                 <input type="text" name="verificationCode" v-model="verificationCode"  placeholder="請輸入驗證碼">
                                 <button v-if="!getCodeIf" @click="getCode">獲取驗證碼</button>
                                 <button v-if="getCodeIf" disabled="disabled">從新發送({{time}})秒</button>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="public_form">
@@ -327,11 +343,12 @@
     }
     
     .public_form .content {
-        width: 100%;
+        flex: 1 1;
+        /* width: 100%; */
         /* padding: 7px 0; */
-        display: flex;
-        align-items: center;
-        position: relative;
+        /* display: flex; */
+        /* align-items: center; */
+        /* position: relative; */
     }
     /* .public_form .input-box {
             border: 1px solid #ccc;

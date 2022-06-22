@@ -321,11 +321,13 @@
         }
         
         .public_form .tit {
-            width: 120px;
+            width: 90px;
+            flex: 0 0 90px;
             color: #000;
             font-weight: 800;
-            padding-right: 20px;
+            /* padding-right: 20px; */
             font-size: 16px;
+            display: flex;
         }
         
         .public_form .tit span {
@@ -443,6 +445,11 @@
         .public_form .radio input:checked+span i {
             transform: scale(1);
             transition: ease 0.3s;
+        }
+        
+        .public_form .radios .radio {
+            margin-right: 0;
+            margin-left: 10px;
         }
         /*public_buttons*/
         

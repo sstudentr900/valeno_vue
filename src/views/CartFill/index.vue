@@ -10,32 +10,42 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14a1 1 0 0 1-2 0v-5a1 1 0 0 1 2 0zm-1-7a1 1 0 1 1 1-1 1 1 0 0 1-1 1z"/></svg>購買人資訊
                         </div>
                         <div class="form-row">
-                            <div class="tit">姓名</div>
+                            <!-- <div class="tit">購買姓名</div>
                             <div class="content">
                                 <input name="buyer_name" type="text">
+                            </div> -->
+                            <div class="tit">購買姓名<span class="must">*</span></div>
+                            <div class="content">
+                                <div class="public_col-2">
+                                    <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
+                                    <div class="radios">
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"><span><i></i></span>&nbsp;小姐</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="tit">性別</div>
                             <div class="content">
                                 <label class="radio"><input type="radio" v-model="sex" value="m"><span><i></i></span>&nbsp;先生</label>
                                 <label class="radio"><input type="radio" v-model="sex" value="w"><span><i></i></span>&nbsp;小姐</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-row">
-                            <div class="tit">聯絡電話</div>
+                            <div class="tit">聯絡電話<span class="must">*</span></div>
                             <div class="content">
                                 <input name="buyer_tel" type="text">
                             </div>
                         </div>
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="tit">手機號碼</div>
                             <div class="content">
                                 <input name="buyer_mobile" type="text">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-row">
-                            <div class="tit">聯絡地址</div>
+                            <div class="tit">聯絡地址<span class="must">*</span></div>
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
@@ -69,32 +79,42 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="tit">姓名</div>
+                            <!-- <div class="tit">購買姓名</div>
                             <div class="content">
                                 <input type="text" name="receiver_name">
+                            </div> -->
+                            <div class="tit">購買姓名<span class="must">*</span></div>
+                            <div class="content">
+                                <div class="public_col-2">
+                                    <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
+                                    <div class="radios">
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"><span><i></i></span>&nbsp;小姐</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="tit">性別</div>
                             <div class="content">
                                 <label class="radio"><input type="radio" v-model="sex2" value="m"><span><i></i></span>&nbsp;先生</label>
                                 <label class="radio"><input type="radio" v-model="sex2" value="w"><span><i></i></span>&nbsp;小姐</label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-row">
-                            <div class="tit">聯絡電話</div>
+                            <div class="tit">聯絡電話<span class="must">*</span></div>
                             <div class="content">
                                 <input type="text" name="receiver_tel">
                             </div>
                         </div>
-                        <div class="form-row">
+                        <!-- <div class="form-row">
                             <div class="tit">手機號碼</div>
                             <div class="content">
                                 <input type="text" name="receiver_mobile">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-row">
-                            <div class="tit">聯絡地址</div>
+                            <div class="tit">聯絡地址<span class="must">*</span></div>
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
@@ -145,7 +165,7 @@
                     </div>
                     <div>
                         <div class="form-row">
-                            <div class="tit">備註</div>
+                            <div class="tit">其他備註</div>
                             <div class="content">
                                 <textarea name="invc_id"></textarea>
                             </div>
