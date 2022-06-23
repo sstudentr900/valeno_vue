@@ -122,7 +122,9 @@
                 // console.log(this.password)
                 var isText = /^[a-zA-Z0-9]+$/;
                 var inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
-                if (!isText.test(this.password)) {
+                if (!this.password) {
+                    this.passErrMsg = '請輸入會員密碼';
+                } else if (!isText.test(this.password)) {
                     this.passErrMsg = '請勿包含特殊字元';
                 } else if (this.password.length < 6) {
                     this.passErrMsg = '請勿少於6個字';
@@ -149,7 +151,9 @@
                 // }
                 // var isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
                 var isMail = /\S+@\S+\.\S+/;
-                if (!isMail.test(this.account)) {
+                if (!this.account) {
+                    this.accountErrMsg = '請輸入會員帳號';
+                } else if (!isMail.test(this.account)) {
                     this.accountErrMsg = '格式錯誤';
                 } else {
                     this.accountErrMsg = '';

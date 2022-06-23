@@ -13,27 +13,21 @@
                     <div class="half">
                         <!-- <div class="form-tit">會員帳號</div> -->
                         <div class="form-row">
-                            <div class="tit">設定帳號<span class="must">*</span></div>
+                            <div class="tit">會員帳號<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="account" type="text" placeholder="請輸入帳號" :rules="validateEmail"/>
-                                <ErrorMessage class="error" name="account" />
-                                <!-- <input name="account" type="text" v-model="account" placeholder="請輸入帳號"> -->
+                                <input name="account" type="text" v-model="account" placeholder="請輸入帳號">
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="tit">設定密碼<span class="must">*</span></div>
+                            <div class="tit">會員密碼<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="password" type="password" placeholder="請輸入密碼" :rules="validatePassword"/>
-                                <ErrorMessage class="error" name="password" />
-                                <!-- <input name="password" type="password" v-model="password" placeholder="請輸入密碼"> -->
+                                <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="tit">確認密碼<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="password1" type="password" placeholder="請輸入確認密碼" :rules="validatePassword1"/>
-                                <ErrorMessage class="error" name="password1" />
-                                <!-- <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼"> -->
+                                <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -46,17 +40,15 @@
                     <div class="half">
                         <!-- <div class="form-tit">會員基本資料</div> -->
                         <div class="form-row">
-                            <div class="tit">註冊姓名<span class="must">*</span></div>
+                            <div class="tit">會員姓名<span class="must">*</span></div>
                             <div class="content">
                                 <div class="public_col-2">
-                                    <Field type="text" name="name" placeholder="請輸入姓名" :rules="validateName"/>
-                                    <!-- <input type="text" name="name" v-model="name" placeholder="請輸入姓名"> -->
+                                    <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
                                     <div class="radios">
-                                        <label class="radio"><Field type="radio" value="m" name="sex" v-model="sex"/><span><i></i></span>&nbsp;先生</label>
-                                        <label class="radio"><Field type="radio" value="w" name="sex" v-model="sex"/><span><i></i></span>&nbsp;小姐</label>
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"><span><i></i></span>&nbsp;小姐</label>
                                     </div>
                                 </div>
-                                <ErrorMessage class="error" name="name" />
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -82,9 +74,7 @@
                         <div class="form-row">
                             <div class="tit">連絡電話<span class="must">*</span></div>
                             <div class="content">
-                                <Field type="text" name="phone" placeholder="請輸入手機" :rules="validatePhone"/>
-                                <ErrorMessage class="error" name="phone"/>
-                                <!-- <input type="text" name="phone" v-model="phone" placeholder="請輸入手機"> -->
+                                <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
                             </div>
                         </div>
                         <div class="form-row">
@@ -92,18 +82,16 @@
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
-                                        <Field name="postalCode" type="text" placeholder="郵遞區號" :rules="validatePostalCode" />
-                                        <ErrorMessage class="error" name="postalCode"/>
+                                        <input name="zipcode" type="text" class="input-box" placeholder="郵遞區號">
                                     </div>
                                     <div>
-                                        <select name="city_id"><option>請選擇縣市</option></select>
+                                        <select name="city_id" class="input-box"><option>請選擇縣市</option></select>
                                     </div>
                                     <div>
-                                        <select name="dist_id"><option>請選擇區域</option></select>
+                                        <select name="dist_id" class="input-box"><option>請選擇區域</option></select>
                                     </div>
                                 </div>
-                                <Field type="text" name="address" placeholder="請輸入地址" :rules="validateAddress"/>
-                                <ErrorMessage class="error" name="address"/>
+                                <input type="text" name="address" v-model="address" placeholder="請輸入地址">
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -174,10 +162,10 @@
                 time: 0,
                 registerIf: false,
                 getCodeIf: false,
-                // account: '',
+                account: '',
                 password: '',
-                // password1: '',
-                // name: '',
+                password1: '',
+                name: '',
                 sex: 'm',
                 year: '',
                 moon: '',
@@ -275,77 +263,17 @@
                     })
             },
             validateEmail(value) {
-                // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-                const regex = /\S+@\S+\.\S+/;
+                // if the field is empty
                 if (!value) {
-                    return '請輸入會員帳號';
-                } else if (!regex.test(value)) {
-                    return '格式錯誤';
-                } else {
-                    return true;
+                    return 'This field is required';
                 }
-            },
-            validatePassword(value) {
-                const isText = /^[a-zA-Z0-9]+$/;
-                const inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
-                if (!value) {
-                    return '請輸入會員密碼';
-                } else if (!isText.test(value)) {
-                    return '請勿包含特殊字元';
-                } else if (value.length < 6) {
-                    return '請勿少於6個字';
-                } else if (value.length > 15) {
-                    return '請勿超過15個字';
-                } else if (!inclde.test(value)) {
-                    return '至少包括一個大小寫字母或數字';
-                } else {
-                    this.password = value;
-                    return true;
+                // if the field is not a valid email
+                const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+                if (!regex.test(value)) {
+                    return 'This field must be a valid email';
                 }
-            },
-            validatePassword1(value) {
-                if (!value) {
-                    return '請輸入會員密碼';
-                } else if (value != this.password) {
-                    return '密碼不一樣'
-                } else {
-                    return true;
-                }
-            },
-            validateName(value) {
-                if (!value) {
-                    return '請輸入會員姓名';
-                } else if (value.length < 2) {
-                    return '請勿少於2個字';
-                } else if (value.length > 15) {
-                    return '請勿超過15個字';
-                } else {
-                    return true;
-                }
-            },
-            validatePhone(value) {
-                const regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
-                if (!value) {
-                    return '請輸入連絡電話';
-                } else if (!regex.test(value)) {
-                    return '格式錯誤';
-                } else {
-                    return true;
-                }
-            },
-            validateAddress(value) {
-                if (!value) {
-                    return '請輸入聯絡地址';
-                } else {
-                    return true;
-                }
-            },
-            validatePostalCode(value) {
-                if (!value) {
-                    return '請輸入郵遞區號';
-                } else {
-                    return true;
-                }
+                // All is good
+                return true;
             },
             onSubmit(values) {
                 console.log(values, null, 2);
@@ -420,15 +348,7 @@
         /* padding: 7px 0; */
         /* display: flex; */
         /* align-items: center; */
-        position: relative;
-    }
-    
-    .public_form .content .error {
-        color: red;
-        font-size: 12px;
-        position: absolute;
-        bottom: -15px;
-        left: 0;
+        /* position: relative; */
     }
     /* .public_form .input-box {
             border: 1px solid #ccc;
