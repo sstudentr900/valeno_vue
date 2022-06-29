@@ -1,31 +1,5 @@
-# valeno_vue
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
 ## 使用工具
-vue3,vue cli,vue Router,Vuex
+vue3,vue/cli4,vue Router,Vuex
 
 ## 路由
 vue Router
