@@ -5,12 +5,22 @@
             <p class="title_sub">如您已經加入過會員，帳號即為您註冊的E-mail。</p>
             <div class="public_form">
                 <div class="form-row">
-                    <div class="tit">帳號<span class="must">*</span></div>
-                    <input type="text" name="account" v-model="account" placeholder="請輸入帳號">
+                    <div class="tit">會員帳號<span class="must">*</span></div>
+                    <div class="input">
+                        <input type="text" name="account" v-model="account" placeholder="請輸入帳號" :class="{ 'is-invalid': accountErrMsg?true:false }" @blur="accountFn">
+                        <div class="invalid-feedback">
+                            {{ accountErrMsg }}
+                        </div>
+                    </div>
                 </div>
                 <div class="form-row">
-                    <div class="tit">密碼<span class="must">*</span></div>
-                    <input type="password" name="password" v-model="password" placeholder="請輸入密碼">
+                    <div class="tit">會員密碼<span class="must">*</span></div>
+                    <div class="input">
+                    <input type="password" name="password" v-model="password" placeholder="請輸入密碼" :class="{'is-invalid': passErrMsg?true:false}" @blur="passwordFn">
+                        <div class="invalid-feedback">
+                            {{ passErrMsg }}
+                        </div>
+                    </div>
                 </div>
                 <!-- <div class="form-row">
                     <div class="tit">驗證碼</div>
@@ -64,20 +74,20 @@
 </template>
 
 <script>
-    import { ElNotification } from 'element-plus';
     export default {
         name: 'login',
-        // components: { ElButton },
         data() {
             return {
                 account: '',
+                accountErrMsg: '',
                 password: '',
-                // captcha: '',
+                passErrMsg: '',
                 remember: true
             }
         },
         methods: {
             login() {
+                if (this.validate()) return;
                 const {
                     account,
                     password
@@ -85,17 +95,16 @@
                 this.$store.dispatch('user/login', {
                     account: account,
                     password: password
-                }).then(()=>{
+                }).then(() => {
                     this.$router.push('/member');
                 })
-                // console.log('submit');
             },
-            cart(){
+            cart() {
                 // console.log('cart');
                 // console.log(this.$store.state.shopCar.shopCarList.length)
-                if(this.$store.state.shopCar.shopCarList.length){
+                if (this.$store.state.shopCar.shopCarList.length) {
                     this.$router.push('/cart')
-                }else{
+                } else {
                     // ElNotification({
                     //     title: '訊息通知',
                     //     message: '目前沒有商品可以結帳',
@@ -108,8 +117,59 @@
                         type: 'info',
                     })
                 }
+            },
+            passwordFn() {
+                // console.log(this.password)
+                var isText = /^[a-zA-Z0-9]+$/;
+                var inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+                if (!this.password) {
+                    this.passErrMsg = '請輸入會員密碼';
+                } else if (!isText.test(this.password)) {
+                    this.passErrMsg = '請勿包含特殊字元';
+                } else if (this.password.length < 6) {
+                    this.passErrMsg = '請勿少於6個字';
+                } else if (this.password.length > 15) {
+                    this.passErrMsg = '請勿超過15個字';
+                } else if (!inclde.test(this.password)) {
+                    this.passErrMsg = '至少包括一個大小寫字母或數字';
+                } else {
+                    this.passErrMsg = '';
+                }
+            },
+            accountFn() {
+                // var isText = /^[a-zA-Z0-9]+$/;
+                // if (!isText.test(this.account)) {
+                //     this.accountError = true;
+                //     this.userErrMsg = '請勿包含特殊字元';
+                // }
+                // else if (this.account.length > 10) {
+                //     this.accountError = true;
+                //     this.userErrMsg = '請勿超過10個字';
+                // }
+                // else {
+                //     this.accountError = false;
+                // }
+                // var isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                var isMail = /\S+@\S+\.\S+/;
+                if (!this.account) {
+                    this.accountErrMsg = '請輸入會員帳號';
+                } else if (!isMail.test(this.account)) {
+                    this.accountErrMsg = '格式錯誤';
+                } else {
+                    this.accountErrMsg = '';
+                }
+                // console.log(this.account)
+            },
+            validate() {
+                this.passwordFn();
+                this.accountFn();
+                if (this.passErrMsg || this.accountErrMsg) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
-        }
+        },
     }
 </script>
 <style scoped>
@@ -150,7 +210,8 @@
         margin-right: 10px;
         margin-top: -2px;
     }
-    .right .public_buttons .btns{
+    
+    .right .public_buttons .btns {
         width: 100%;
         padding: 15px;
     }
@@ -175,11 +236,25 @@
     }
     
     .public_form .tit {
-        font-size: 16px;
-        flex: 0 0 90px;
+        /* font-size: 16px;
+        flex: 0 0 90px; */
         color: #666;
-        display: flex;
-        align-items: center;
+        /* display: flex;
+        align-items: center; */
+    }
+    
+    .public_form .input {
+        flex: 1 1;
+    }
+    
+    .public_form .input .is-invalid {
+        border: 1px solid red;
+    }
+    
+    .public_form .input .invalid-feedback {
+        color: red;
+        padding-top: 4px;
+        font-size: 12px;
     }
     
     .public_form .code {

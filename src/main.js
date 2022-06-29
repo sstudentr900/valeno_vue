@@ -13,11 +13,11 @@ import mitt from "mitt"; //引入全局跨元件通訊
 import ElementPlus from 'element-plus' //引入ElementPlus
 import 'element-plus/dist/index.css';
 import vueLazyload from 'vue-lazyload'; //圖片加載
-import VeeValidate from "vee-validate"; //驗證
+// import VeeValidate from "vee-validate"; //驗證
 // newsReq();
 const app = createApp(App);
 app.config.globalProperties.eventBus = mitt(); //引入全局跨元件通訊
 app.config.globalProperties.$api = api; //引入自訂API
 app.component('FnPagers', FnPagers); //引入自訂頁碼
-app.use(store).use(router).use(ElementPlus).use(vueLazyload).use(VeeValidate).mount('#app');
+app.use(store).use(router).use(ElementPlus).use(vueLazyload).mount('#app');
 // createApp(App).use(store).use(router).mount('#app')
