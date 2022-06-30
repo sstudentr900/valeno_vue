@@ -18,6 +18,7 @@ export const contactOkReq = () => requestMock.get('/contactOk');
 export const register = (params) => requestMock({ url: '/register', data: params, method: 'post' });
 export const login = (params) => requestMock({ url: '/login', data: params, method: 'post' });
 export const userCode = (params) => requestMock({ url: '/userCode', data: params, method: 'post' });
+export const registerDistricts = () => requestMock({ url: '/registerDistricts', method: 'get' });
 // export const memberRegisterOkReq = () => requestMock.get('/memberRegisterOk');
 // export const memberModifyReq = () => requestMock.get('/memberModify');
 // export const memberPasswordReq = () => requestMock.get('/memberPassword');

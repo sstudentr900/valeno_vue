@@ -92,14 +92,20 @@
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
-                                        <Field name="postalCode" type="text" placeholder="郵遞區號" :rules="validatePostalCode" />
+                                        <select name="city" v-model="cityIdx">
+                                            <option v-for="(dis,index) in districts" :key="index" :value="index">{{dis.name}}</option>
+                                        </select>
+                                        <ErrorMessage class="error" name="city"/>
+                                    </div>
+                                    <div>
+                                        <select name="dist" v-model="areaIdx">
+                                            <option v-for="(dis,index) in areas" :key="index" :value="index">{{dis.name}}</option>
+                                        </select>
+                                        <ErrorMessage class="error" name="dist"/>
+                                    </div>
+                                    <div>
+                                        <Field name="postalCode" type="text" placeholder="郵遞區號" :rules="validatePostalCode" v-model="zip"/>
                                         <ErrorMessage class="error" name="postalCode"/>
-                                    </div>
-                                    <div>
-                                        <select name="city_id"><option>請選擇縣市</option></select>
-                                    </div>
-                                    <div>
-                                        <select name="dist_id"><option>請選擇區域</option></select>
                                     </div>
                                 </div>
                                 <Field type="text" name="address" placeholder="請輸入地址" :rules="validateAddress"/>
@@ -169,6 +175,10 @@
             Form,
             ErrorMessage,
         },
+        mounted() {
+            this.$store.dispatch('register/districtsAc')
+                // ...mapActions(['register/districtsAc'])
+        },
         data() {
             return {
                 time: 0,
@@ -187,10 +197,18 @@
                 receiveActivity: false,
                 verificationCode: '',
                 checked: false,
+                cityIdx: 0,
+                areaIdx: 0
             }
         },
         computed: {
-            // ...mapState('memberRegister',['codeNumber'])
+            ...mapState('register', ['districts']),
+            areas() {
+                return this.districts ? this.districts[this.cityIdx].districts : [];
+            },
+            zip() {
+                return this.areas[this.areaIdx].zip;
+            },
         },
         methods: {
             countdown(second = 5) {
