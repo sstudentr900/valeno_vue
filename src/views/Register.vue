@@ -8,28 +8,35 @@
             </p>
         </div>
         <div class="cart_box">
-            <Form @submit="onSubmit">
+            <Form @submit.prevent="onSubmit">
                 <div class="public_form">
                     <div class="half">
                         <div class="form-row">
                             <div class="tit">設定帳號<span class="must">*</span></div>
                             <div class="content">
-                                <input name="account" type="text" v-model="account" placeholder="請輸入帳號">
-                                <div class="error" v-if="msg.account">{{msg.account}}</div>
+                                <!-- <input name="account" type="text" v-model="account" placeholder="請輸入帳號"> -->
+                                <input name="account" type="text" v-model="from[0].value" placeholder="請輸入帳號" @change='formIsValid'>
+                                <!-- <div class="error" v-if="msg.account">{{msg.account}}</div> -->
+                                <!-- <div class="error" v-if="msg.account">{{msg.account}}</div> -->
+                                <div class="error" v-if="from[0].msg">{{from[0].msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="tit">設定密碼<span class="must">*</span></div>
                             <div class="content">
-                                <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
-                                <div class="error" v-if="msg.password">{{msg.password}}</div>
+                                <!-- <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
+                                <div class="error" v-if="msg.password">{{msg.password}}</div> -->
+                                <input name="password" type="password" v-model="from[1].value" placeholder="請輸入密碼" @change='formIsValid'>
+                                <div class="error" v-if="from[1].msg">{{from[1].msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="tit">確認密碼<span class="must">*</span></div>
                             <div class="content">
-                                <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
-                                <div class="error" v-if="msg.password1">{{msg.password1}}</div>
+                                <!-- <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
+                                <div class="error" v-if="msg.password1">{{msg.password1}}</div> -->
+                                <input name="password1" type="password" v-model="from[2].value" placeholder="請輸入確認密碼" @change='formIsValid'>
+                                <div class="error" v-if="from[2].msg">{{from[2].msg}}</div>
                             </div>
                         </div>
                     </div>
@@ -38,13 +45,19 @@
                             <div class="tit">註冊姓名<span class="must">*</span></div>
                             <div class="content">
                                 <div class="public_col-2">
-                                    <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
+                                    <!-- <input type="text" name="name" v-model="name" placeholder="請輸入姓名"> -->
+                                    <input name="text" type="name" v-model="from[3].value" placeholder="請輸入姓名">
                                     <div class="radios">
-                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"/><span><i></i></span>&nbsp;先生</label>
-                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"/><span><i></i></span>&nbsp;小姐</label>
+                                        <!-- <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"/><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"/><span><i></i></span>&nbsp;小姐</label> -->
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="from[4].value"/><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="from[4].value"/><span><i></i></span>&nbsp;小姐</label>
                                     </div>
                                 </div>
-                                <div class="error" v-if="msg.sex">{{msg.sex}}</div>
+                                <!-- <div class="error" v-if="msg.sex">{{msg.sex}}</div>
+                                <div class="error" v-if="msg.name">{{msg.name}}</div> -->
+                                <div class="error" v-if="from[3].msg">{{from[3].msg}}</div>
+                                <div class="error" v-if="from[4].msg">{{from[4].msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -70,8 +83,10 @@
                         <div class="form-row">
                             <div class="tit">連絡電話<span class="must">*</span></div>
                             <div class="content">
-                                <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
-                                <div class="error" v-if="msg.phone">{{msg.phone}}</div>
+                                <!-- <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
+                                <div class="error" v-if="msg.phone">{{msg.phone}}</div> -->
+                                <input type="text" name="phone" v-model="from[5].value" placeholder="請輸入手機">
+                                <div class="error" v-if="from[5].msg">{{from[5].msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -91,12 +106,16 @@
                                         <div class="error" v-if="msg.areaIdx">{{msg.areaIdx}}</div>
                                     </div>
                                     <div>
-                                        <input type="text" name="zip" placeholder="郵遞區號" v-model="zip">
-                                        <div class="error" v-if="msg.zip">{{msg.zip}}</div>
+                                        <!-- <input type="text" name="zip" placeholder="郵遞區號" v-model="zip">
+                                        <div class="error" v-if="msg.zip">{{msg.zip}}</div> -->
+                                        <input type="text" name="zip" placeholder="郵遞區號" v-model="from[6].value">
+                                        <div class="error" v-if="from[6].msg">{{from[6].msg}}</div>
                                     </div>
                                 </div>
-                                <input type="text" name="address" placeholder="請輸入地址" v-model="address">
-                                <div class="error" v-if="msg.address">{{msg.address}}</div>
+                                <!-- <input type="text" name="address" placeholder="請輸入地址" v-model="address">
+                                <div class="error" v-if="msg.address">{{msg.address}}</div> -->
+                                <input type="text" name="address" placeholder="請輸入地址" v-model="from[7].value">
+                                <div class="error" v-if="from[7].msg">{{from[7].msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -127,6 +146,7 @@
                         <div class="public_buttons">
                             <!-- <button class="btns" title="確認送出" @click='submit'>確認送出</button> -->
                             <button class="btns" title="確認送出">確認送出</button>
+                            <!-- <input class="btns" type="submit" :disabled="!disabled.every(i => i === false)" /> -->
                         </div>
                     </div>
                 </div>
@@ -173,6 +193,47 @@
                 receiveActivity: false,
                 checked: false,
                 msg: [],
+                from: [{
+                    key: 'account',
+                    value: '',
+                    msg: '',
+                    valid: 'validateEmail'
+                }, {
+                    key: 'password',
+                    value: '',
+                    msg: '',
+                    valid: 'validatePassword'
+                }, {
+                    key: 'password1',
+                    value: '',
+                    msg: '',
+                    valid: 'validatePassword1'
+                }, {
+                    key: 'name',
+                    value: '',
+                    msg: '',
+                    valid: 'validateName'
+                }, {
+                    key: 'sex',
+                    value: 'm',
+                    msg: '',
+                    valid: ''
+                }, {
+                    key: 'phone',
+                    value: '',
+                    msg: '',
+                    valid: 'validatePhone'
+                }, {
+                    key: 'zip',
+                    value: '',
+                    msg: '',
+                    valid: 'validateZip'
+                }, {
+                    key: 'address',
+                    value: '',
+                    msg: '',
+                    valid: 'validateAddress'
+                }]
             }
         },
         computed: {
@@ -181,10 +242,12 @@
                 if (Object.keys(this.districts).length === 0) {
                     return [];
                 } else {
-                    this.zip = this.districts[this.cityIdx].districts[this.areaIdx].zip;
+                    this.from[6].value = this.districts[this.cityIdx].districts[this.areaIdx].zip;
+                    // this.zip = this.districts[this.cityIdx].districts[this.areaIdx].zip;
                     return this.districts[this.cityIdx].districts;
                 }
             },
+
         },
         methods: {
             countdown(second = 5) {
@@ -267,79 +330,195 @@
             validateEmail(value) {
                 // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
                 const regex = /\S+@\S+\.\S+/;
+                let msg = '';
+                // let result = false;
+                // let value = this.account;
                 if (!value) {
-                    this.msg['account'] = '請輸入會員帳號';
+                    // this.msg['account'] = '請輸入會員帳號';
+                    msg = '請輸入會員帳號';
                 } else if (!regex.test(value)) {
-                    this.msg['account'] = '格式錯誤';
-                } else {
-                    this.msg['account'] = '';
+                    // this.msg['account'] = '格式錯誤';
+                    msg = '格式錯誤';
                 }
+                // else {
+                //     this.msg['account'] = '';
+                //     result = true;
+                // }
+                // return result;
+                return msg;
             },
             validatePassword(value) {
                 const isText = /^[a-zA-Z0-9]+$/;
                 const inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+                // let result = false;
+                let msg = '';
                 if (!value) {
-                    this.msg['password'] = '請輸入會員密碼';
+                    // this.msg['password'] = '請輸入會員密碼';
+                    msg = '請輸入會員密碼';
                 } else if (!isText.test(value)) {
-                    this.msg['password'] = '請勿包含特殊字元';
+                    // this.msg['password'] = '請勿包含特殊字元';
+                    msg = '請勿包含特殊字元';
                 } else if (value.length < 6) {
-                    this.msg['password'] = '請勿少於6個字';
+                    // this.msg['password'] = '請勿少於6個字';
+                    msg = '請勿少於6個字';
                 } else if (value.length > 15) {
-                    this.msg['password'] = '請勿超過15個字';
+                    // this.msg['password'] = '請勿超過15個字';
+                    msg = '請勿超過15個字';
                 } else if (!inclde.test(value)) {
-                    this.msg['password'] = '至少包括一個大小寫字母或數字';
-                } else {
-                    this.msg['password'] = '';
+                    // this.msg['password'] = '至少包括一個大小寫字母或數字';
+                    msg = '至少包括一個大小寫字母或數字';
                 }
+                return msg;
+                // else {
+                //     this.msg['password'] = '';
+                //     result = true;
+                // }
+                // return result;
             },
             validatePassword1(value) {
+                // let result = false;
+                let msg = '';
                 if (!value) {
-                    this.msg['password1'] = '請輸入會員密碼';
+                    // this.msg['password1'] = '請輸入會員密碼';
+                    msg = '請輸入會員密碼';
                 } else if (value != this.password) {
-                    this.msg['password1'] = '密碼不一樣'
-                } else {
-                    this.msg['password1'] = ''
+                    // this.msg['password1'] = '密碼不一樣'
+                    msg = '密碼不一樣'
                 }
+                return msg;
+                // else {
+                //     this.msg['password1'] = ''
+                //     result = true;
+                // }
+                // return result;
             },
             validateName(value) {
+                // let result = false;
+
+                let msg = '';
                 if (!value) {
-                    return '請輸入會員姓名';
+                    // this.msg['name'] = '請輸入會員姓名';
+                    msg = '請輸入會員姓名';
                 } else if (value.length < 2) {
-                    return '請勿少於2個字';
+                    // this.msg['name'] = '請勿少於2個字';
+                    msg = '請勿少於2個字';
                 } else if (value.length > 15) {
-                    return '請勿超過15個字';
-                } else {
-                    return true;
+                    // this.msg['name'] = '請勿超過15個字';
+                    msg = '請勿超過15個字';
                 }
+                return msg;
+                // else {
+                //     this.msg['name'] = '';
+                //     result = true;
+                // }
+                // return result;
             },
             validatePhone(value) {
+                // let result = false;
                 const regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+                let msg = '';
                 if (!value) {
-                    return '請輸入連絡電話';
+                    // this.msg['phone'] = '請輸入連絡電話';
+                    msg = '請輸入連絡電話';
                 } else if (!regex.test(value)) {
-                    return '格式錯誤';
-                } else {
-                    return true;
+                    // this.msg['phone'] = '格式錯誤';
+                    msg = '格式錯誤';
                 }
+                return msg;
+                // else {
+                //     this.msg['phone'] = '';
+                //     result = true;
+                // }
+                // return result;
             },
             validateAddress(value) {
+                // let result = false;
+                let msg = '';
                 if (!value) {
-                    return '請輸入聯絡地址';
-                } else {
-                    return true;
+                    // this.msg['address'] = '請輸入聯絡地址';
+                    msg = '請輸入聯絡地址';
                 }
+                // else {
+                //     this.msg['address'] = '';
+                //     result = true;
+                // }
+                // return result;
+                return msg;
             },
-            validatePostalCode(value) {
+            validateZip(value) {
+                let msg = '';
+                // let result = false;
                 if (!value) {
-                    return '請輸入郵遞區號';
-                } else {
-                    return true;
+                    // this.msg['zip'] = '請輸入郵遞區號';
+                    msg = '請輸入郵遞區號';
                 }
+                // else {
+                //     this.msg['zip'] = '';
+                //     result = true;
+                // }
+                // return result;
+                return msg;
+            },
+            formIsValid() {
+                // this.validateEmail(this.account);
+                // this.validatePassword(this.password);
+                // this.validatePassword1(this.password1);
+                // this.validateName(this.name);
+                // this.validatePhone(this.phone);
+                // this.validateAddress(this.address);
+                // this.validatePostalCode(this.zip);
+                // console.log(this.msg)
+
+                // let data = {
+                //     'account'
+                // }
+                this.from.forEach(element => {
+                    if (element.valid) {
+                        element.msg = this[element.valid](element.value)
+                    }
+                });
             },
             onSubmit(values) {
+                this.formIsValid();
+                // if (this.formIsValid()) {
+                //     console.log('true')
+                // } else {
+                //     console.log('false')
+                // }
+                console.log('onSubmit', this.from)
                 console.log(values, null, 2);
             },
-        }
+        },
+        watch: {
+            // from: {
+            //     handler(after, before) {
+            //         console.log(after, before);
+            //         if (after != before) {
+            //             this.formIsValid();
+            //         }
+            //     },
+            //     deep: true,
+            //     immediate: false
+            // }
+            // account(value) {
+            //     this.validateEmail(value);
+            // },
+            // password(value) {
+            //     this.validatePassword(value);
+            // },
+            // password1(value) {
+            //     this.validatePassword1(value);
+            // },
+            // name(value) {
+            //     this.validateName(value);
+            // },
+            // phone(value) {
+            //     this.validatePhone(value);
+            // },
+            // address(value) {
+            //     this.validateAddress(value);
+            // }
+        },
     }
 </script>
 <style scoped>
