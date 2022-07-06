@@ -130,17 +130,23 @@
                 </div>
                 <div class="public_form">
                     <div class="half">
-                        <label class="check">
-                            <input type="checkbox" v-model="receiveActivity">
-                            <span></span>
-                            &nbsp;我要收到IMAKEGO好康活動電子報
-                        </label>
-                        <label class="check">
-                            <input type="checkbox" v-model="checked">
-                            <span></span>
-                            &nbsp;我已詳細閱讀
-                            <a href="#terms" class="terms">會員條款</a>
-                        </label>
+                        <div class="content checkDiv">
+                            <label class="check">
+                                <input type="checkbox" v-model="from.receiveActivity.value">
+                                <span></span>
+                                &nbsp;我要收到IMAKEGO好康活動電子報
+                            </label>
+                            <div class="error" v-if="from.receiveActivity.msg">{{from.receiveActivity.msg}}</div>
+                        </div>
+                        <div class="content checkDiv">
+                            <label class="check">
+                                <input type="checkbox" v-model="from.checked.value">
+                                <span></span>
+                                &nbsp;我已詳細閱讀
+                                <a href="#" class="terms">會員條款</a>
+                            </label>
+                            <div class="error" v-if="from.checked.msg">{{from.checked.msg}}</div>
+                        </div>
                     </div>
                     <div class="half">
                         <div class="public_buttons">
@@ -190,10 +196,20 @@
                 // cityIdx: 0,
                 // areaIdx: 0,
                 // zip: '',
-                receiveActivity: false,
-                checked: false,
+                // receiveActivity: false,
+                // checked: false,
                 // msg: [],
                 from: {
+                    receiveActivity: {
+                        value: false,
+                        msg: '',
+                        valid: false
+                    },
+                    checked: {
+                        value: false,
+                        msg: '',
+                        valid: true
+                    },
                     account: {
                         value: '',
                         msg: '',
@@ -469,12 +485,24 @@
                 // return result;
                 return msg;
             },
+            validate_checked(value) {
+                let msg = '';
+                // let result = false;
+                if (!value) {
+                    // this.msg['zip'] = '請輸入郵遞區號';
+                    msg = '請勾選條款';
+                }
+                // else {
+                //     this.msg['zip'] = '';
+                //     result = true;
+                // }
+                // return result;
+                return msg;
+            },
             formIsValid(value) {
                 this.from[value].msg = this['validate_' + value](this.from[value].value)
             },
             formIsAllValid() {
-                // data = data.find(([key, keyValue]) => key == value)
-                // console.log(this.from[value])
                 let data = Object.entries(this.from);
                 data.forEach(([key, keyValue]) => {
                     if (keyValue.valid) {
@@ -483,17 +511,14 @@
                 });
                 return data.find(([key, keyValue]) => {
                     if (keyValue.valid && keyValue.msg != '') {
-                        return 1
+                        return 1; //有錯
                     } else {
-                        return 0
+                        return 0; //沒錯
                     }
                 });
-                // return data.find(x => x.msg != '') ? 0 : 1
             },
             onSubmit(values) {
-                if (!this.formIsAllValid()) {
-                    console.log('true')
-                }
+                if (this.formIsAllValid()) return; //有錯
                 // console.log('onSubmit', this.from)
                 // console.log(values, null, 2);
             },
@@ -635,5 +660,9 @@
         text-align: right;
         border: none;
         padding-top: 0;
+    }
+    
+    .public_form .checkDiv+.checkDiv {
+        padding-top: 5px;
     }
 </style>
