@@ -15,10 +15,10 @@
                             <div class="tit">設定帳號<span class="must">*</span></div>
                             <div class="content">
                                 <!-- <input name="account" type="text" v-model="account" placeholder="請輸入帳號"> -->
-                                <input name="account" type="text" v-model="from[0].value" placeholder="請輸入帳號" @change='formIsValid'>
+                                <input name="account" type="text" v-model="from.account.value" placeholder="請輸入帳號" @change='formIsValid("account")'>
                                 <!-- <div class="error" v-if="msg.account">{{msg.account}}</div> -->
                                 <!-- <div class="error" v-if="msg.account">{{msg.account}}</div> -->
-                                <div class="error" v-if="from[0].msg">{{from[0].msg}}</div>
+                                <div class="error" v-if="from.account.msg">{{from.account.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -26,8 +26,8 @@
                             <div class="content">
                                 <!-- <input name="password" type="password" v-model="password" placeholder="請輸入密碼">
                                 <div class="error" v-if="msg.password">{{msg.password}}</div> -->
-                                <input name="password" type="password" v-model="from[1].value" placeholder="請輸入密碼" @change='formIsValid'>
-                                <div class="error" v-if="from[1].msg">{{from[1].msg}}</div>
+                                <input name="password" type="password" v-model="from.password.value" placeholder="請輸入密碼" @change='formIsValid("password")'>
+                                <div class="error" v-if="from.password.msg">{{from.password.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -35,8 +35,8 @@
                             <div class="content">
                                 <!-- <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼">
                                 <div class="error" v-if="msg.password1">{{msg.password1}}</div> -->
-                                <input name="password1" type="password" v-model="from[2].value" placeholder="請輸入確認密碼" @change='formIsValid'>
-                                <div class="error" v-if="from[2].msg">{{from[2].msg}}</div>
+                                <input name="password1" type="password" v-model="from.password1.value" placeholder="請輸入確認密碼" @change='formIsValid("password1")'>
+                                <div class="error" v-if="from.password1.msg">{{from.password1.msg}}</div>
                             </div>
                         </div>
                     </div>
@@ -46,18 +46,18 @@
                             <div class="content">
                                 <div class="public_col-2">
                                     <!-- <input type="text" name="name" v-model="name" placeholder="請輸入姓名"> -->
-                                    <input name="text" type="name" v-model="from[3].value" placeholder="請輸入姓名">
+                                    <input name="name" type="text" v-model="from.name.value" placeholder="請輸入姓名" @change='formIsValid("name")'>
                                     <div class="radios">
                                         <!-- <label class="radio"><input type="radio" value="m" name="sex" v-model="sex"/><span><i></i></span>&nbsp;先生</label>
                                         <label class="radio"><input type="radio" value="w" name="sex" v-model="sex"/><span><i></i></span>&nbsp;小姐</label> -->
-                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="from[4].value"/><span><i></i></span>&nbsp;先生</label>
-                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="from[4].value"/><span><i></i></span>&nbsp;小姐</label>
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="from.sex.value"/><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="from.sex.value"/><span><i></i></span>&nbsp;小姐</label>
                                     </div>
                                 </div>
                                 <!-- <div class="error" v-if="msg.sex">{{msg.sex}}</div>
                                 <div class="error" v-if="msg.name">{{msg.name}}</div> -->
-                                <div class="error" v-if="from[3].msg">{{from[3].msg}}</div>
-                                <div class="error" v-if="from[4].msg">{{from[4].msg}}</div>
+                                <div class="error" v-if="from.name.msg">{{from.name.msg}}</div>
+                                <div class="error" v-if="from.sex.msg">{{from.sex.msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -85,8 +85,8 @@
                             <div class="content">
                                 <!-- <input type="text" name="phone" v-model="phone" placeholder="請輸入手機">
                                 <div class="error" v-if="msg.phone">{{msg.phone}}</div> -->
-                                <input type="text" name="phone" v-model="from[5].value" placeholder="請輸入手機">
-                                <div class="error" v-if="from[5].msg">{{from[5].msg}}</div>
+                                <input type="text" name="phone" v-model="from.phone.value" placeholder="請輸入手機" @change='formIsValid("phone")'>
+                                <div class="error" v-if="from.phone.msg">{{from.phone.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -94,28 +94,28 @@
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
-                                        <select name="city" v-model="cityIdx">
+                                        <select name="city" v-model="from.city.value">
                                             <option v-for="(dis,index) in districts" :key="index" :value="index">{{dis.name}}</option>
                                         </select>
-                                        <div class="error" v-if="msg.cityIdx">{{msg.cityIdx}}</div>
+                                        <div class="error" v-if="from.city.msg">{{from.city.msg}}</div>
                                     </div>
                                     <div>
-                                        <select name="dist" v-model="areaIdx">
+                                        <select name="dist" v-model="from.area.value">
                                             <option v-for="(dis,index) in areas" :key="index" :value="index">{{dis.name}}</option>
                                         </select>
-                                        <div class="error" v-if="msg.areaIdx">{{msg.areaIdx}}</div>
+                                        <div class="error" v-if="from.area.msg">{{from.area.msg}}</div>
                                     </div>
                                     <div>
                                         <!-- <input type="text" name="zip" placeholder="郵遞區號" v-model="zip">
                                         <div class="error" v-if="msg.zip">{{msg.zip}}</div> -->
-                                        <input type="text" name="zip" placeholder="郵遞區號" v-model="from[6].value">
-                                        <div class="error" v-if="from[6].msg">{{from[6].msg}}</div>
+                                        <input type="text" name="zip" placeholder="郵遞區號" v-model="from.zip.value" @change='formIsValid("zip")'>
+                                        <div class="error" v-if="from.zip.msg">{{from.zip.msg}}</div>
                                     </div>
                                 </div>
                                 <!-- <input type="text" name="address" placeholder="請輸入地址" v-model="address">
                                 <div class="error" v-if="msg.address">{{msg.address}}</div> -->
-                                <input type="text" name="address" placeholder="請輸入地址" v-model="from[7].value">
-                                <div class="error" v-if="from[7].msg">{{from[7].msg}}</div>
+                                <input type="text" name="address" placeholder="請輸入地址" v-model="from.address.value" @change='formIsValid("address")'>
+                                <div class="error" v-if="from.address.msg">{{from.address.msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -180,60 +180,71 @@
                 time: 0,
                 registerIf: false,
                 // getCodeIf: false,
-                account: '',
-                password: '',
-                password1: '',
-                name: '',
-                sex: 'm',
-                phone: '',
-                address: '',
-                cityIdx: 0,
-                areaIdx: 0,
-                zip: '',
+                // account: '',
+                // password: '',
+                // password1: '',
+                // name: '',
+                // sex: 'm',
+                // phone: '',
+                // address: '',
+                // cityIdx: 0,
+                // areaIdx: 0,
+                // zip: '',
                 receiveActivity: false,
                 checked: false,
-                msg: [],
-                from: [{
-                    key: 'account',
-                    value: '',
-                    msg: '',
-                    valid: 'validateEmail'
-                }, {
-                    key: 'password',
-                    value: '',
-                    msg: '',
-                    valid: 'validatePassword'
-                }, {
-                    key: 'password1',
-                    value: '',
-                    msg: '',
-                    valid: 'validatePassword1'
-                }, {
-                    key: 'name',
-                    value: '',
-                    msg: '',
-                    valid: 'validateName'
-                }, {
-                    key: 'sex',
-                    value: 'm',
-                    msg: '',
-                    valid: ''
-                }, {
-                    key: 'phone',
-                    value: '',
-                    msg: '',
-                    valid: 'validatePhone'
-                }, {
-                    key: 'zip',
-                    value: '',
-                    msg: '',
-                    valid: 'validateZip'
-                }, {
-                    key: 'address',
-                    value: '',
-                    msg: '',
-                    valid: 'validateAddress'
-                }]
+                // msg: [],
+                from: {
+                    account: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    city: {
+                        value: 0,
+                        msg: '',
+                        valid: false
+                    },
+                    area: {
+                        value: 0,
+                        msg: '',
+                        valid: false
+                    },
+                    password: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    password1: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    name: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    sex: {
+                        value: 'm',
+                        msg: '',
+                        valid: false
+                    },
+                    phone: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    zip: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    address: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    }
+                }
             }
         },
         computed: {
@@ -242,9 +253,8 @@
                 if (Object.keys(this.districts).length === 0) {
                     return [];
                 } else {
-                    this.from[6].value = this.districts[this.cityIdx].districts[this.areaIdx].zip;
-                    // this.zip = this.districts[this.cityIdx].districts[this.areaIdx].zip;
-                    return this.districts[this.cityIdx].districts;
+                    this.from.zip.value = this.districts[this.from.city.value].districts[this.from.area.value].zip;
+                    return this.districts[this.from.city.value].districts;
                 }
             },
 
@@ -327,7 +337,7 @@
                         this.$router.push('/login');
                     })
             },
-            validateEmail(value) {
+            validate_account(value) {
                 // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
                 const regex = /\S+@\S+\.\S+/;
                 let msg = '';
@@ -347,7 +357,7 @@
                 // return result;
                 return msg;
             },
-            validatePassword(value) {
+            validate_password(value) {
                 const isText = /^[a-zA-Z0-9]+$/;
                 const inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
                 // let result = false;
@@ -375,13 +385,13 @@
                 // }
                 // return result;
             },
-            validatePassword1(value) {
+            validate_password1(value) {
                 // let result = false;
                 let msg = '';
                 if (!value) {
                     // this.msg['password1'] = '請輸入會員密碼';
                     msg = '請輸入會員密碼';
-                } else if (value != this.password) {
+                } else if (value != this.from.password.value) {
                     // this.msg['password1'] = '密碼不一樣'
                     msg = '密碼不一樣'
                 }
@@ -392,7 +402,7 @@
                 // }
                 // return result;
             },
-            validateName(value) {
+            validate_name(value) {
                 // let result = false;
 
                 let msg = '';
@@ -413,7 +423,7 @@
                 // }
                 // return result;
             },
-            validatePhone(value) {
+            validate_phone(value) {
                 // let result = false;
                 const regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
                 let msg = '';
@@ -431,7 +441,7 @@
                 // }
                 // return result;
             },
-            validateAddress(value) {
+            validate_address(value) {
                 // let result = false;
                 let msg = '';
                 if (!value) {
@@ -445,7 +455,7 @@
                 // return result;
                 return msg;
             },
-            validateZip(value) {
+            validate_zip(value) {
                 let msg = '';
                 // let result = false;
                 if (!value) {
@@ -459,66 +469,35 @@
                 // return result;
                 return msg;
             },
-            formIsValid() {
-                // this.validateEmail(this.account);
-                // this.validatePassword(this.password);
-                // this.validatePassword1(this.password1);
-                // this.validateName(this.name);
-                // this.validatePhone(this.phone);
-                // this.validateAddress(this.address);
-                // this.validatePostalCode(this.zip);
-                // console.log(this.msg)
-
-                // let data = {
-                //     'account'
-                // }
-                this.from.forEach(element => {
-                    if (element.valid) {
-                        element.msg = this[element.valid](element.value)
+            formIsValid(value) {
+                this.from[value].msg = this['validate_' + value](this.from[value].value)
+            },
+            formIsAllValid() {
+                // data = data.find(([key, keyValue]) => key == value)
+                // console.log(this.from[value])
+                let data = Object.entries(this.from);
+                data.forEach(([key, keyValue]) => {
+                    if (keyValue.valid) {
+                        keyValue.msg = this['validate_' + key](keyValue.value)
                     }
                 });
+                return data.find(([key, keyValue]) => {
+                    if (keyValue.valid && keyValue.msg != '') {
+                        return 1
+                    } else {
+                        return 0
+                    }
+                });
+                // return data.find(x => x.msg != '') ? 0 : 1
             },
             onSubmit(values) {
-                this.formIsValid();
-                // if (this.formIsValid()) {
-                //     console.log('true')
-                // } else {
-                //     console.log('false')
-                // }
-                console.log('onSubmit', this.from)
-                console.log(values, null, 2);
+                if (!this.formIsAllValid()) {
+                    console.log('true')
+                }
+                // console.log('onSubmit', this.from)
+                // console.log(values, null, 2);
             },
-        },
-        watch: {
-            // from: {
-            //     handler(after, before) {
-            //         console.log(after, before);
-            //         if (after != before) {
-            //             this.formIsValid();
-            //         }
-            //     },
-            //     deep: true,
-            //     immediate: false
-            // }
-            // account(value) {
-            //     this.validateEmail(value);
-            // },
-            // password(value) {
-            //     this.validatePassword(value);
-            // },
-            // password1(value) {
-            //     this.validatePassword1(value);
-            // },
-            // name(value) {
-            //     this.validateName(value);
-            // },
-            // phone(value) {
-            //     this.validatePhone(value);
-            // },
-            // address(value) {
-            //     this.validateAddress(value);
-            // }
-        },
+        }
     }
 </script>
 <style scoped>
