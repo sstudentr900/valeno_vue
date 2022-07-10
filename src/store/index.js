@@ -8,6 +8,7 @@ import beauty from "./beauty"
 import store from "./store"
 import user from "./user"
 import register from "./register"
+import contact from "./contact"
 export default createStore({
     state: {},
     getters: {},
@@ -22,6 +23,7 @@ export default createStore({
         beauty,
         store,
         user,
-        register
+        register,
+        contact
     }
 })

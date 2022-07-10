@@ -18,28 +18,28 @@
                     <div class="form-row">
                         <div class="tit">主&emsp;&emsp; 旨<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='formIsValidfn(form.subject)'>
+                            <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='formIsValid("subject")'>
                             <div class="error" v-if="form.subject.msg">{{form.subject.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">姓&emsp;&emsp; 名<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='formIsValidFn(form.name)'>
+                            <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='formIsValid("name")'>
                             <div class="error" if="form.subject.msg">{{form.name.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">連絡電話<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='formIsValidFn(form.tel)'>
+                            <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='formIsValid("tel")'>
                             <div class="error" if="form.tel.msg">{{form.tel.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">聯絡信箱<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='formIsValidFn(form.email)'>
+                            <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='formIsValid("email")'>
                             <div class="error" if="form.email.msg">{{form.email.msg}}</div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                                     <div class="error" v-if='form.distId.msg'>{{form.distId.msg}}</div>
                                 </div>
                                 <div class="box">
-                                    <input type="text" name="address" class="inputObj" v-model='form.address.value' @change='formIsValidFn(form.address)'>
+                                    <input type="text" name="address" class="inputObj" v-model='form.address.value' @change='formIsValid("address")'>
                                     <div class="error" v-if="form.address.msg">{{form.address.msg}}</div>
                                 </div>
                             </div>
@@ -104,16 +104,8 @@
 </template>
 
 <script>
-    import {
-        formIsValid,
-        formIsAllValid
-    } from '@/customFn/validate'
     export default {
         name: 'contact',
-        // components: {
-        //     formIsValid,
-        //     formIsAllValid,
-        // },
         data() {
             return {
                 time: 0,
@@ -252,11 +244,43 @@
                     requestAnimationFrame(animation);
                 })
             },
-            formIsValidFn(value) {
-                formIsValid(value)
+            validate_email(key) {
+                // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+                const regex = /\S+@\S+\.\S+/;
+                return regex.test(this.form[key].value);
             },
-            onSubmit() {
-                if (formIsAllValid(this.form)) return; //formIsError
+            validate_required(key) {
+                return this.form[key].value;
+            },
+            validate_phone(key) {
+                // const regex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+                const regex = /\d{8,15}/;
+                return regex.test(this.form[key].value);
+            },
+            validate_max(key) {
+                return this.form[key].value.length < this.form[key].valid.max.number;
+            },
+            validate_min(key) {
+                return this.form[key].value.length > this.form[key].valid.min.number;
+            },
+            formIsValid(key) {
+                let valid = this.form[key].valid;
+                if (!valid) return; //'' 排除驗證
+                Object.entries(valid).some(([validKey, validValue]) => {
+                    this.form[key].msg = '';
+                    //驗證有錯誤
+                    if (!this['validate_' + validKey](key)) {
+                        this.form[key].msg = this.form[key].valid[validKey].msg;
+                        return true;
+                    };
+                })
+            },
+            formIsAllValid() {
+                Object.entries(this.form).forEach(([key, keyValue]) => this.formIsValid(key));
+                return Object.entries(this.form).find(([key, keyValue]) => keyValue.msg != '')
+            },
+            onSubmit(values) {
+                if (this.formIsAllValid()) return; //formIsError
                 //送出
                 // console.log('send');
                 this.$store.dispatch('contact/send', this.form)
