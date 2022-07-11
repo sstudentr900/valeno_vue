@@ -22,9 +22,11 @@ const validate = {
 export function formIsValid(obj) {
     let valid = obj.valid;
     if (!valid) return; //'' 排除驗證
+    // console.log(valid);
     Object.entries(valid).some(([Key, value]) => {
         obj.msg = '';
         //驗證有錯誤
+        // console.log(Key, obj, validate[Key](obj));
         if (!validate[Key](obj)) {
             obj.msg = obj.valid[Key].msg;
             return true;

@@ -161,13 +161,13 @@
     }
     
     .navObj .bottom ul li:hover a:before,
-    .navObj .bottom ul li.active a:before {
+    .navObj .bottom ul li a.router-link-active:before {
         opacity: 1;
         transform: translateY(0%) scale(1);
     }
     
     .navObj .bottom ul li:hover a span,
-    .navObj .bottom ul li.active a span {
+    .navObj .bottom ul li a.router-link-active span {
         transform: translate(-50%, 50%) scale(0.5);
         opacity: 0;
         visibility: hidden;

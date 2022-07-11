@@ -18,74 +18,80 @@
                     <div class="form-row">
                         <div class="tit">主&emsp;&emsp; 旨<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='formIsValidfn(form.subject)'>
-                            <div class="error" v-if="form.subject.msg">{{form.subject.msg}}</div>
+                            <Input v-model:form='form.subject' type='text' class='inputObj'></Input>
+                            <!-- <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='onChange(form.subject)'>
+                            <div class="error" v-if="form.subject.msg">{{form.subject.msg}}</div> -->
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">姓&emsp;&emsp; 名<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='formIsValidFn(form.name)'>
-                            <div class="error" if="form.subject.msg">{{form.name.msg}}</div>
+                            <Input v-model:form='form.name' type='text' class='inputObj'></Input>
+                            <!-- <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='onChange(form.name)'>
+                            <div class="error" if="form.subject.msg">{{form.name.msg}}</div> -->
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">連絡電話<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='formIsValidFn(form.tel)'>
-                            <div class="error" if="form.tel.msg">{{form.tel.msg}}</div>
+                            <Input v-model:form='form.tel' type='text' class='inputObj'></Input>
+                            <!-- <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='onChange(form.tel)'>
+                            <div class="error" if="form.tel.msg">{{form.tel.msg}}</div> -->
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">聯絡信箱<span class="must">*</span></div>
                         <div class="content">
-                            <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='formIsValidFn(form.email)'>
-                            <div class="error" if="form.email.msg">{{form.email.msg}}</div>
+                            <Input v-model:form='form.email' type='text' class='inputObj'></Input>
+                            <!-- <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='onChange(form.email)'>
+                            <div class="error" if="form.email.msg">{{form.email.msg}}</div> -->
                         </div>
                     </div>
-                    <div class="form-row">
+                    <!-- <div class="form-row">
                         <div class="tit">聯絡地址<span class="must"></span></div>
                         <div class="content">
                             <div class="add_box">
                                 <div class="selectBox">
-                                    <select name="city" class="inputObj" v-model='form.cityId.value'>
+                                    <select name="city" class="inputObj" v-model='form.cityId.id'>
                                         <option v-for="(item,index) in cityFn" :key='index' :value='index'>{{item.name}}</option>
                                     </select>
                                     <div class="error" v-if='form.cityId.msg'>{{form.cityId.msg}}</div>
                                 </div>
                                 <div class="selectBox">
-                                    <select name="dist" class="inputObj" v-model='form.distId.value'> 
+                                    <select name="dist" class="inputObj" v-model='form.distId.id'> 
                                         <option v-for="(item,index) in distFn" :key='index' :value='index'>{{item.name}}</option>
                                     </select>
                                     <div class="error" v-if='form.distId.msg'>{{form.distId.msg}}</div>
                                 </div>
                                 <div class="box">
-                                    <input type="text" name="address" class="inputObj" v-model='form.address.value' @change='formIsValidFn(form.address)'>
+                                    <input type="text" name="address" class="inputObj" v-model='form.address.value' @change='onChange(form.address)'>
                                     <div class="error" v-if="form.address.msg">{{form.address.msg}}</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-row">
                         <div class="tit">諮詢內容<span class="must">*</span></div>
                         <div class="content">
-                            <textarea name="content" class="inputObj txtarea" v-model='form.content.value' @change='formIsValid("content")'></textarea>
-                            <div class="error" if='form.content.msg'>{{form.content.msg}}</div>
+                            <Textarea v-model:form='form.content' class='inputObj txtarea'></Textarea>
+                            <!-- <textarea name="content" class="inputObj txtarea" v-model='form.content.value' @change='onChange(form.content)'></textarea>
+                            <div class="error" if='form.content.msg'>{{form.content.msg}}</div> -->
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">驗證碼<span class="must">*</span></div>
-                        <div class="content ">
-                            <div class="code_box">
-                                <input type="text" name="captcha" class="inputObj" v-model='form.captcha.value' @change='formIsValid("captcha")'>
+                        <div class="content">
+                            <Captcha v-model:form='form.captcha' type='text' class='inputObj'></Captcha>
+                            <!-- <div class="code_box">
+                                <input type="text" name="captcha" class="inputObj" v-model='form.captcha.value' @change='onChange(form.captcha)'>
                                 <a href="" title="更換驗證碼"><img src="https://imgur.com/IKAg6jr.jpg" alt=""></a>
                             </div>
-                            <div class="error" v-if="form.captcha.msg">{{form.captcha.msg}}</div>
+                            <div class="error" v-if="form.captcha.msg">{{form.captcha.msg}}</div> -->
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="public_buttons">
-                            <button type="reset" class="btns white-btn" title="清除重填"><span>清除重填</span></button>
+                            <button type="button" class="btns white-btn" title="清除重填" @click='onReset'><span>清除重填</span></button>
                             <button type="submit" class="btns" title="確認送出"><span>確認送出</span></button>
                         </div>
                     </div>
@@ -104,20 +110,25 @@
 </template>
 
 <script>
+    import districts from "@/api/districts"
     import {
-        formIsValid,
         formIsAllValid
     } from '@/customFn/validate'
+    import Input from "@/components/ValidationInput"
+    import Textarea from "@/components/ValidationTextarea"
+    import Captcha from "@/components/ValidationCaptcha"
     export default {
         name: 'contact',
-        // components: {
-        //     formIsValid,
-        //     formIsAllValid,
-        // },
+        components: {
+            Input,
+            Textarea,
+            Captcha
+        },
         data() {
             return {
                 time: 0,
                 pageIs: false,
+                reset: {},
                 form: {
                     name: {
                         value: '',
@@ -195,21 +206,35 @@
                             }
                         }
                     },
-                    address: {
-                        value: '',
-                        msg: '',
-                        valid: '',
-                    },
-                    cityId: {
-                        value: 0,
-                        msg: '',
-                        valid: ''
-                    },
-                    distId: {
-                        value: 0,
-                        msg: '',
-                        valid: ''
-                    },
+                    // address: {
+                    //     value: '',
+                    //     msg: '',
+                    //     valid: {
+                    //         required: {
+                    //             msg: '請輸入地址'
+                    //         }
+                    //     }
+                    // },
+                    // cityId: {
+                    //     id: 0,
+                    //     value: '',
+                    //     msg: '',
+                    //     valid: {
+                    //         required: {
+                    //             msg: '請選擇城市'
+                    //         }
+                    //     }
+                    // },
+                    // distId: {
+                    //     id: 0,
+                    //     value: '',
+                    //     msg: '',
+                    //     valid: {
+                    //         required: {
+                    //             msg: '請選擇區'
+                    //         }
+                    //     }
+                    // },
                     tel: {
                         value: '',
                         msg: '',
@@ -225,9 +250,18 @@
                 }
             }
         },
+        beforeMount() {
+            this.reset = JSON.parse(JSON.stringify(this.form));
+        },
         computed: {
-            distFn() {},
-            cityFn() {}
+            cityFn() {
+                this.form.cityId.value = districts[this.form.cityId.id].name;
+                return districts;
+            },
+            distFn() {
+                this.form.distId.value = districts[this.form.cityId.id].districts[this.form.distId.id].name;
+                return districts[this.form.cityId.id].districts;
+            }
         },
         methods: {
             countdown(second = 5) {
@@ -252,10 +286,11 @@
                     requestAnimationFrame(animation);
                 })
             },
-            formIsValidFn(value) {
-                formIsValid(value)
+            onReset() {
+                this.form = JSON.parse(JSON.stringify(this.reset));
             },
             onSubmit() {
+                // console.log(this.form)
                 if (formIsAllValid(this.form)) return; //formIsError
                 //送出
                 // console.log('send');
@@ -272,7 +307,6 @@
         },
     }
 </script>
-
 <style scoped>
     .register {
         min-height: 480px;
