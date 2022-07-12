@@ -18,33 +18,29 @@
                     <div class="form-row">
                         <div class="tit">主&emsp;&emsp; 旨<span class="must">*</span></div>
                         <div class="content">
-                            <Input v-model:form='form.subject' type='text' class='inputObj'></Input>
-                            <!-- <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='onChange(form.subject)'>
-                            <div class="error" v-if="form.subject.msg">{{form.subject.msg}}</div> -->
+                            <input type="text" name="subject" class="inputObj" v-model='form.subject.value' @change='onChange(form.subject)'>
+                            <div class="error" v-if="form.subject.msg">{{form.subject.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">姓&emsp;&emsp; 名<span class="must">*</span></div>
                         <div class="content">
-                            <Input v-model:form='form.name' type='text' class='inputObj'></Input>
-                            <!-- <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='onChange(form.name)'>
-                            <div class="error" if="form.subject.msg">{{form.name.msg}}</div> -->
+                            <input type="text" name="name" class="inputObj" v-model='form.name.value' @change='onChange(form.name)'>
+                            <div class="error" if="form.subject.msg">{{form.name.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">連絡電話<span class="must">*</span></div>
                         <div class="content">
-                            <Input v-model:form='form.tel' type='text' class='inputObj'></Input>
-                            <!-- <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='onChange(form.tel)'>
-                            <div class="error" if="form.tel.msg">{{form.tel.msg}}</div> -->
+                            <input type="text" name="tel" class="inputObj" v-model='form.tel.value' @change='onChange(form.tel)'>
+                            <div class="error" if="form.tel.msg">{{form.tel.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">聯絡信箱<span class="must">*</span></div>
                         <div class="content">
-                            <Input v-model:form='form.email' type='text' class='inputObj'></Input>
-                            <!-- <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='onChange(form.email)'>
-                            <div class="error" if="form.email.msg">{{form.email.msg}}</div> -->
+                            <input type="text" name="email" class="inputObj" v-model='form.email.value' @change='onChange(form.email)'>
+                            <div class="error" if="form.email.msg">{{form.email.msg}}</div>
                         </div>
                     </div>
                     <!-- <div class="form-row">
@@ -73,20 +69,18 @@
                     <div class="form-row">
                         <div class="tit">諮詢內容<span class="must">*</span></div>
                         <div class="content">
-                            <Textarea v-model:form='form.content' class='inputObj txtarea'></Textarea>
-                            <!-- <textarea name="content" class="inputObj txtarea" v-model='form.content.value' @change='onChange(form.content)'></textarea>
-                            <div class="error" if='form.content.msg'>{{form.content.msg}}</div> -->
+                            <textarea name="content" class="inputObj txtarea" v-model='form.content.value' @change='onChange(form.content)'></textarea>
+                            <div class="error" if='form.content.msg'>{{form.content.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="tit">驗證碼<span class="must">*</span></div>
-                        <div class="content">
-                            <Captcha v-model:form='form.captcha' type='text' class='inputObj'></Captcha>
-                            <!-- <div class="code_box">
+                        <div class="content ">
+                            <div class="code_box">
                                 <input type="text" name="captcha" class="inputObj" v-model='form.captcha.value' @change='onChange(form.captcha)'>
                                 <a href="" title="更換驗證碼"><img src="https://imgur.com/IKAg6jr.jpg" alt=""></a>
                             </div>
-                            <div class="error" v-if="form.captcha.msg">{{form.captcha.msg}}</div> -->
+                            <div class="error" v-if="form.captcha.msg">{{form.captcha.msg}}</div>
                         </div>
                     </div>
                     <div class="form-row">
@@ -112,136 +106,152 @@
 <script>
     import districts from "@/api/districts"
     import {
+        formIsValid,
         formIsAllValid
     } from '@/customFn/validate'
-    import Input from "@/components/ValidationInput"
-    import Textarea from "@/components/ValidationTextarea"
-    import Captcha from "@/components/ValidationCaptcha"
-    import {
-        onMounted,
-        computed,
-        ref,
-        toRefs,
-        reactive
-    } from 'vue'
-    import {
-        useStore
-    } from 'vuex'
     export default {
         name: 'contact',
-        components: {
-            Input,
-            Textarea,
-            Captcha
+        data() {
+            return {
+                time: 0,
+                pageIs: false,
+                reset: {},
+                form: {
+                    name: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入姓名',
+                            },
+                            max: {
+                                number: 5,
+                                msg: '請勿超過5個字',
+                            },
+                            min: {
+                                number: 2,
+                                msg: '請勿少於2個字',
+                            }
+                        }
+                    },
+                    subject: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入主旨'
+                            },
+                            max: {
+                                number: 10,
+                                msg: '請勿超過10個字',
+                            },
+                            min: {
+                                number: 2,
+                                msg: '請勿少於2個字',
+                            }
+                        }
+                    },
+                    content: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入內容'
+                            },
+                            max: {
+                                number: 100,
+                                msg: '請勿超過100個字',
+                            },
+                            min: {
+                                number: 2,
+                                msg: '請勿少於2個字',
+                            }
+                        }
+                    },
+                    captcha: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入驗證碼'
+                            }
+                        }
+                    },
+                    email: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入信箱'
+                            },
+                            email: {
+                                msg: '格式錯誤',
+                            },
+                            max: {
+                                number: 30,
+                                msg: '請勿超過30個字',
+                            }
+                        }
+                    },
+                    address: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入地址'
+                            }
+                        }
+                    },
+                    cityId: {
+                        id: 0,
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請選擇城市'
+                            }
+                        }
+                    },
+                    distId: {
+                        id: 0,
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請選擇區'
+                            }
+                        }
+                    },
+                    tel: {
+                        value: '',
+                        msg: '',
+                        valid: {
+                            required: {
+                                msg: '請輸入電話'
+                            },
+                            phone: {
+                                msg: '格式錯誤'
+                            },
+                        }
+                    }
+                }
+            }
         },
-        setup() {
-            let time = ref(0);
-            let pageIs = ref(false);
-            let reset = reactive({});
-            let form = reactive({
-                name: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入姓名',
-                        },
-                        max: {
-                            number: 5,
-                            msg: '請勿超過5個字',
-                        },
-                        min: {
-                            number: 2,
-                            msg: '請勿少於2個字',
-                        }
-                    }
-                },
-                subject: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入主旨'
-                        },
-                        max: {
-                            number: 10,
-                            msg: '請勿超過10個字',
-                        },
-                        min: {
-                            number: 2,
-                            msg: '請勿少於2個字',
-                        }
-                    }
-                },
-                content: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入內容'
-                        },
-                        max: {
-                            number: 100,
-                            msg: '請勿超過100個字',
-                        },
-                        min: {
-                            number: 2,
-                            msg: '請勿少於2個字',
-                        }
-                    }
-                },
-                captcha: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入驗證碼'
-                        }
-                    }
-                },
-                email: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入信箱'
-                        },
-                        email: {
-                            msg: '格式錯誤',
-                        },
-                        max: {
-                            number: 30,
-                            msg: '請勿超過30個字',
-                        }
-                    }
-                },
-                tel: {
-                    value: '',
-                    msg: '',
-                    valid: {
-                        required: {
-                            msg: '請輸入電話'
-                        },
-                        phone: {
-                            msg: '格式錯誤'
-                        },
-                    }
-                },
-            });
-            onMounted(() => {
-                reset = JSON.parse(JSON.stringify(form));
-            });
-            // const count = computed(() => {
-            //     cityFn() {
-            //         this.form.cityId.value = districts[this.form.cityId.id].name;
-            //         return districts;
-            //     },
-            //     distFn() {
-            //         this.form.distId.value = districts[this.form.cityId.id].districts[this.form.distId.id].name;
-            //         return districts[this.form.cityId.id].districts;
-            //     }
-            // })
-            const countdown = (second = 5) => {
+        beforeMount() {
+            this.reset = JSON.parse(JSON.stringify(this.form));
+        },
+        computed: {
+            cityFn() {
+                this.form.cityId.value = districts[this.form.cityId.id].name;
+                return districts;
+            },
+            distFn() {
+                this.form.distId.value = districts[this.form.cityId.id].districts[this.form.distId.id].name;
+                return districts[this.form.cityId.id].districts;
+            }
+        },
+        methods: {
+            countdown(second = 5) {
                 return new Promise((resolve, reject) => {
                     var start = null;
                     var limit = second * 1000;
@@ -262,44 +272,31 @@
                     }
                     requestAnimationFrame(animation);
                 })
-            }
-            const onReset = () => {
-                // console.log('onReset')
-                Object.assign(form, JSON.parse(JSON.stringify(reset)));
-            }
-            const onSubmit = () => {
-                // console.log('onSubmit')
-                if (formIsAllValid(form)) return; //formIsError
+            },
+            onChange(value) {
+                formIsValid(value)
+            },
+            onReset() {
+                this.form = JSON.parse(JSON.stringify(this.reset));
+            },
+            onSubmit() {
+                if (formIsAllValid(this.form)) return; //formIsError
                 //送出
                 // console.log('send');
-                this.$store.dispatch('contact/send', form)
+                this.$store.dispatch('contact/send', this.form)
                     .then(() => {
-                        pageIs = true;
-                        return countdown();
+                        this.pageIs = true;
+                        return this.countdown();
                     })
                     .then(() => {
                         //跳轉
                         this.$router.push('/');
                     })
-            }
-            return {
-                onSubmit,
-                onReset,
-                form
-            }
+            },
         },
-        // computed: {
-        //     cityFn() {
-        //         this.form.cityId.value = districts[this.form.cityId.id].name;
-        //         return districts;
-        //     },
-        //     distFn() {
-        //         this.form.distId.value = districts[this.form.cityId.id].districts[this.form.distId.id].name;
-        //         return districts[this.form.cityId.id].districts;
-        //     }
-        // },
     }
 </script>
+
 <style scoped>
     .register {
         min-height: 480px;
