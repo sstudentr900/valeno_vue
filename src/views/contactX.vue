@@ -251,6 +251,7 @@
             }
         },
         beforeMount() {
+
             this.reset = JSON.parse(JSON.stringify(this.form));
         },
         computed: {
@@ -287,7 +288,8 @@
                 })
             },
             onReset() {
-                this.form = JSON.parse(JSON.stringify(this.reset));
+                // this.form = JSON.parse(JSON.stringify(this.reset));
+                this.form = this.$options.data().form
             },
             onSubmit() {
                 // console.log(this.form)
