@@ -1,7 +1,9 @@
 <template>
     <div class="code_box">
         <input :type="type" :class="class" v-model='form.value' @change='onChange'>
-        <a href="" title="更換驗證碼"><img src="https://imgur.com/IKAg6jr.jpg" alt=""></a>
+        <a href="" title="更換驗證碼">
+          <img :src="require(`@/assets/code.jpg`)" alt="">
+        </a>
     </div>
     <div class="error" v-if="form.msg">{{form.msg}}</div>
 </template>

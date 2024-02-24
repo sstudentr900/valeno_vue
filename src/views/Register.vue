@@ -4,59 +4,47 @@
             <h3 class="title">#CREATE AN ACCOUNT</h3>
             <p class="sub-tit">歡迎光臨，如果您是新會員，請填寫下面的表單進行註冊。如果您已經是本站的會員，請直接
                 <router-link to="/login" title="登入">登入</router-link>
-                <!-- <a href="member_login.html" title="登入">登入</a> -->
             </p>
         </div>
         <div class="cart_box">
-            <Form @submit="onSubmit">
+            <Form @submit.prevent="onSubmit">
                 <div class="public_form">
                     <div class="half">
-                        <!-- <div class="form-tit">會員帳號</div> -->
                         <div class="form-row">
                             <div class="tit">設定帳號<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="account" type="text" placeholder="請輸入帳號" :rules="validateEmail"/>
-                                <ErrorMessage class="error" name="account" />
-                                <!-- <input name="account" type="text" v-model="account" placeholder="請輸入帳號"> -->
+                                <input name="account" type="text" v-model="from.account.value" placeholder="請輸入帳號" @change='formIsValid("account")'>
+                                <div class="error" v-if="from.account.msg">{{from.account.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="tit">設定密碼<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="password" type="password" placeholder="請輸入密碼" :rules="validatePassword"/>
-                                <ErrorMessage class="error" name="password" />
-                                <!-- <input name="password" type="password" v-model="password" placeholder="請輸入密碼"> -->
+                                <input name="password" type="password" v-model="from.password.value" placeholder="請輸入密碼" @change='formIsValid("password")'>
+                                <div class="error" v-if="from.password.msg">{{from.password.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="tit">確認密碼<span class="must">*</span></div>
                             <div class="content">
-                                <Field name="password1" type="password" placeholder="請輸入確認密碼" :rules="validatePassword1"/>
-                                <ErrorMessage class="error" name="password1" />
-                                <!-- <input name="password1" type="password" v-model="password1" placeholder="請輸入確認密碼"> -->
+                                <input name="password1" type="password" v-model="from.password1.value" placeholder="請輸入確認密碼" @change='formIsValid("password1")'>
+                                <div class="error" v-if="from.password1.msg">{{from.password1.msg}}</div>
                             </div>
                         </div>
-                        <!-- <div class="form-row">
-                            <div class="tit">姓名<span class="must">*</span></div>
-                            <div class="content">
-                                <input type="text" name="name" v-model="name" placeholder="請輸入姓名">
-                            </div>
-                        </div> -->
                     </div>
                     <div class="half">
-                        <!-- <div class="form-tit">會員基本資料</div> -->
                         <div class="form-row">
                             <div class="tit">註冊姓名<span class="must">*</span></div>
                             <div class="content">
                                 <div class="public_col-2">
-                                    <Field type="text" name="name" placeholder="請輸入姓名" :rules="validateName"/>
-                                    <!-- <input type="text" name="name" v-model="name" placeholder="請輸入姓名"> -->
+                                    <input name="name" type="text" v-model="from.name.value" placeholder="請輸入姓名" @change='formIsValid("name")'>
                                     <div class="radios">
-                                        <label class="radio"><Field type="radio" value="m" name="sex" v-model="sex"/><span><i></i></span>&nbsp;先生</label>
-                                        <label class="radio"><Field type="radio" value="w" name="sex" v-model="sex"/><span><i></i></span>&nbsp;小姐</label>
+                                        <label class="radio"><input type="radio" value="m" name="sex" v-model="from.sex.value"/><span><i></i></span>&nbsp;先生</label>
+                                        <label class="radio"><input type="radio" value="w" name="sex" v-model="from.sex.value"/><span><i></i></span>&nbsp;小姐</label>
                                     </div>
                                 </div>
-                                <ErrorMessage class="error" name="name" />
+                                <div class="error" v-if="from.name.msg">{{from.name.msg}}</div>
+                                <div class="error" v-if="from.sex.msg">{{from.sex.msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -82,9 +70,8 @@
                         <div class="form-row">
                             <div class="tit">連絡電話<span class="must">*</span></div>
                             <div class="content">
-                                <Field type="text" name="phone" placeholder="請輸入手機" :rules="validatePhone"/>
-                                <ErrorMessage class="error" name="phone"/>
-                                <!-- <input type="text" name="phone" v-model="phone" placeholder="請輸入手機"> -->
+                                <input type="text" name="phone" v-model="from.phone.value" placeholder="請輸入手機" @change='formIsValid("phone")'>
+                                <div class="error" v-if="from.phone.msg">{{from.phone.msg}}</div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -92,18 +79,24 @@
                             <div class="content">
                                 <div class="public_col-3">
                                     <div>
-                                        <Field name="postalCode" type="text" placeholder="郵遞區號" :rules="validatePostalCode" />
-                                        <ErrorMessage class="error" name="postalCode"/>
+                                        <select name="city" v-model="from.city.value">
+                                            <option v-for="(dis,index) in districts" :key="index" :value="index">{{dis.name}}</option>
+                                        </select>
+                                        <div class="error" v-if="from.city.msg">{{from.city.msg}}</div>
                                     </div>
                                     <div>
-                                        <select name="city_id"><option>請選擇縣市</option></select>
+                                        <select name="dist" v-model="from.area.value">
+                                            <option v-for="(dis,index) in areas" :key="index" :value="index">{{dis.name}}</option>
+                                        </select>
+                                        <div class="error" v-if="from.area.msg">{{from.area.msg}}</div>
                                     </div>
                                     <div>
-                                        <select name="dist_id"><option>請選擇區域</option></select>
+                                        <input type="text" name="zip" placeholder="郵遞區號" v-model="from.zip.value" @change='formIsValid("zip")'>
+                                        <div class="error" v-if="from.zip.msg">{{from.zip.msg}}</div>
                                     </div>
                                 </div>
-                                <Field type="text" name="address" placeholder="請輸入地址" :rules="validateAddress"/>
-                                <ErrorMessage class="error" name="address"/>
+                                <input type="text" name="address" placeholder="請輸入地址" v-model="from.address.value" @change='formIsValid("address")'>
+                                <div class="error" v-if="from.address.msg">{{from.address.msg}}</div>
                             </div>
                         </div>
                         <!-- <div class="form-row">
@@ -118,21 +111,26 @@
                 </div>
                 <div class="public_form">
                     <div class="half">
-                        <label class="check">
-                            <input type="checkbox" v-model="receiveActivity">
-                            <span></span>
-                            &nbsp;我要收到IMAKEGO好康活動電子報
-                        </label>
-                        <label class="check">
-                            <input type="checkbox" v-model="checked">
-                            <span></span>
-                            &nbsp;我已詳細閱讀
-                            <a href="#terms" class="terms">會員條款</a>
-                        </label>
+                        <div class="content checkDiv">
+                            <label class="check">
+                                <input type="checkbox" v-model="from.receiveActivity.value">
+                                <span></span>
+                                &nbsp;我要收到IMAKEGO好康活動電子報
+                            </label>
+                            <div class="error" v-if="from.receiveActivity.msg">{{from.receiveActivity.msg}}</div>
+                        </div>
+                        <div class="content checkDiv">
+                            <label class="check">
+                                <input type="checkbox" v-model="from.checked.value">
+                                <span></span>
+                                &nbsp;我已詳細閱讀
+                                <a href="#" class="terms">會員條款</a>
+                            </label>
+                            <div class="error" v-if="from.checked.msg">{{from.checked.msg}}</div>
+                        </div>
                     </div>
                     <div class="half">
                         <div class="public_buttons">
-                            <!-- <button class="btns" title="確認送出" @click='submit'>確認送出</button> -->
                             <button class="btns" title="確認送出">確認送出</button>
                         </div>
                     </div>
@@ -145,7 +143,6 @@
             <h3 class="title">#您已註冊成功</h3>
             <p class="sub-tit">畫面將在{{time}}秒鐘後自動跳轉....
                 <router-link to="/login" title="登入">登入</router-link>
-                <!-- <a href="member_login.html" title="登入">登入</a> -->
             </p>
         </div>
     </div>
@@ -153,54 +150,104 @@
 
 <script>
     import {
-        Field,
-        Form,
-        ErrorMessage,
-    } from 'vee-validate';
-    import {
         mapState,
         mapMutations,
         mapActions,
     } from 'vuex'
     export default {
         name: 'register',
-        components: {
-            Field,
-            Form,
-            ErrorMessage,
+        components: {},
+        mounted() {
+            this.$store.dispatch('register/districtsAc')
         },
         data() {
             return {
                 time: 0,
                 registerIf: false,
-                getCodeIf: false,
-                // account: '',
-                password: '',
-                // password1: '',
-                // name: '',
-                sex: 'm',
-                year: '',
-                moon: '',
-                day: '',
-                phone: '',
-                address: '',
-                receiveActivity: false,
-                verificationCode: '',
-                checked: false,
+                from: {
+                    receiveActivity: {
+                        value: false,
+                        msg: '',
+                        valid: false
+                    },
+                    checked: {
+                        value: false,
+                        msg: '',
+                        valid: true
+                    },
+                    account: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    city: {
+                        value: 0,
+                        msg: '',
+                        valid: false
+                    },
+                    area: {
+                        value: 0,
+                        msg: '',
+                        valid: false
+                    },
+                    password: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    password1: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    name: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    sex: {
+                        value: 'm',
+                        msg: '',
+                        valid: false
+                    },
+                    phone: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    zip: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    },
+                    address: {
+                        value: '',
+                        msg: '',
+                        valid: true
+                    }
+                }
             }
         },
         computed: {
-            // ...mapState('memberRegister',['codeNumber'])
+            ...mapState('register', ["districts"]),
+            areas() {
+                if (Object.keys(this.districts).length === 0) {
+                    return [];
+                } else {
+                    this.from.zip.value = this.districts[this.from.city.value].districts[this.from.area.value].zip;
+                    return this.districts[this.from.city.value].districts;
+                }
+            },
         },
         methods: {
             countdown(second = 5) {
                 return new Promise((resolve, reject) => {
-                    var start = null;
-                    var limit = second * 1000;
-                    var count = 0;
-                    var number = 0;
-                    var self = this;
-                    var animation = function(t) {
+                    let start = null;
+                    let limit = second * 1000;
+                    let count = 0;
+                    let number = 0;
+                    let self = this;
+                    let animation = function(t) {
                         if (start === null) start = t;
                         count = t - start;
                         number = Math.floor(count / 1000)
@@ -234,37 +281,107 @@
                         this.verificationCode = this.$store.state.user.codeNumber
                     })
             },
-            submit() {
-                const {
-                    account,
-                    password,
-                    password1,
-                    name,
-                    sex,
-                    year,
-                    moon,
-                    day,
-                    phone,
-                    receiveActivity,
-                    verificationCode,
-                    checked
-                } = this;
-                //驗證
-
+            validate_account(value) {
+                // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+                const regex = /\S+@\S+\.\S+/;
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入會員帳號';
+                } else if (!regex.test(value)) {
+                    msg = '格式錯誤';
+                }
+                return msg;
+            },
+            validate_password(value) {
+                const isText = /^[a-zA-Z0-9]+$/;
+                const inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入會員密碼';
+                } else if (!isText.test(value)) {
+                    msg = '請勿包含特殊字元';
+                } else if (value.length < 6) {
+                    msg = '請勿少於6個字';
+                } else if (value.length > 15) {
+                    msg = '請勿超過15個字';
+                } else if (!inclde.test(value)) {
+                    msg = '至少包括一個大小寫字母或數字';
+                }
+                return msg;
+            },
+            validate_password1(value) {
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入會員密碼';
+                } else if (value != this.from.password.value) {
+                    msg = '密碼不一樣'
+                }
+                return msg;
+            },
+            validate_name(value) {
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入會員姓名';
+                } else if (value.length < 2) {
+                    msg = '請勿少於2個字';
+                } else if (value.length > 15) {
+                    msg = '請勿超過15個字';
+                }
+                return msg;
+            },
+            validate_phone(value) {
+                const regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入連絡電話';
+                } else if (!regex.test(value)) {
+                    msg = '格式錯誤';
+                }
+                return msg;
+            },
+            validate_address(value) {
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入聯絡地址';
+                }
+                return msg;
+            },
+            validate_zip(value) {
+                let msg = '';
+                if (!value) {
+                    msg = '請輸入郵遞區號';
+                }
+                return msg;
+            },
+            validate_checked(value) {
+                let msg = '';
+                if (!value) {
+                    msg = '請勾選條款';
+                }
+                return msg;
+            },
+            formIsValid(value) {
+                this.from[value].msg = this['validate_' + value](this.from[value].value)
+            },
+            formIsAllValid() {
+                let data = Object.entries(this.from);
+                data.forEach(([key, keyValue]) => {
+                    if (keyValue.valid) {
+                        keyValue.msg = this['validate_' + key](keyValue.value)
+                    }
+                });
+                return data.find(([key, keyValue]) => {
+                    if (keyValue.valid && keyValue.msg != '') {
+                        return 1; //有錯
+                    } else {
+                        return 0; //沒錯
+                    }
+                });
+            },
+            onSubmit(values) {
+                if (this.formIsAllValid()) return; //formIsError
                 //送出
-                this.$store.dispatch('user/register', {
-                        account: account,
-                        password: password,
-                        name: name,
-                        sex: sex,
-                        year: year,
-                        moon: moon,
-                        day: day,
-                        phone: phone,
-                        receiveActivity: receiveActivity,
-                        verificationCode: verificationCode,
-                        checked: checked
-                    })
+                this.$store.dispatch('user/register', this.from)
                     .then(() => {
                         this.registerIf = true;
                         return this.countdown(5);
@@ -273,82 +390,6 @@
                         //跳轉
                         this.$router.push('/login');
                     })
-            },
-            validateEmail(value) {
-                // const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-                const regex = /\S+@\S+\.\S+/;
-                if (!value) {
-                    return '請輸入會員帳號';
-                } else if (!regex.test(value)) {
-                    return '格式錯誤';
-                } else {
-                    return true;
-                }
-            },
-            validatePassword(value) {
-                const isText = /^[a-zA-Z0-9]+$/;
-                const inclde = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,15}$/;
-                if (!value) {
-                    return '請輸入會員密碼';
-                } else if (!isText.test(value)) {
-                    return '請勿包含特殊字元';
-                } else if (value.length < 6) {
-                    return '請勿少於6個字';
-                } else if (value.length > 15) {
-                    return '請勿超過15個字';
-                } else if (!inclde.test(value)) {
-                    return '至少包括一個大小寫字母或數字';
-                } else {
-                    this.password = value;
-                    return true;
-                }
-            },
-            validatePassword1(value) {
-                if (!value) {
-                    return '請輸入會員密碼';
-                } else if (value != this.password) {
-                    return '密碼不一樣'
-                } else {
-                    return true;
-                }
-            },
-            validateName(value) {
-                if (!value) {
-                    return '請輸入會員姓名';
-                } else if (value.length < 2) {
-                    return '請勿少於2個字';
-                } else if (value.length > 15) {
-                    return '請勿超過15個字';
-                } else {
-                    return true;
-                }
-            },
-            validatePhone(value) {
-                const regex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
-                if (!value) {
-                    return '請輸入連絡電話';
-                } else if (!regex.test(value)) {
-                    return '格式錯誤';
-                } else {
-                    return true;
-                }
-            },
-            validateAddress(value) {
-                if (!value) {
-                    return '請輸入聯絡地址';
-                } else {
-                    return true;
-                }
-            },
-            validatePostalCode(value) {
-                if (!value) {
-                    return '請輸入郵遞區號';
-                } else {
-                    return true;
-                }
-            },
-            onSubmit(values) {
-                console.log(values, null, 2);
             },
         }
     }
@@ -488,5 +529,9 @@
         text-align: right;
         border: none;
         padding-top: 0;
+    }
+    
+    .public_form .checkDiv+.checkDiv {
+        padding-top: 5px;
     }
 </style>

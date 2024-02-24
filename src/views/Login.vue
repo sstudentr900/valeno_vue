@@ -7,7 +7,7 @@
                 <div class="form-row">
                     <div class="tit">會員帳號<span class="must">*</span></div>
                     <div class="input">
-                        <input type="text" name="account" v-model="account" placeholder="請輸入帳號" :class="{ 'is-invalid': accountErrMsg?true:false }" @blur="accountFn">
+                        <input type="text" name="account" v-model="account" placeholder="請輸入帳號" @blur="accountFn">
                         <div class="invalid-feedback">
                             {{ accountErrMsg }}
                         </div>
@@ -16,7 +16,7 @@
                 <div class="form-row">
                     <div class="tit">會員密碼<span class="must">*</span></div>
                     <div class="input">
-                    <input type="password" name="password" v-model="password" placeholder="請輸入密碼" :class="{'is-invalid': passErrMsg?true:false}" @blur="passwordFn">
+                    <input type="password" name="password" v-model="password" placeholder="請輸入密碼" @blur="passwordFn">
                         <div class="invalid-feedback">
                             {{ passErrMsg }}
                         </div>
