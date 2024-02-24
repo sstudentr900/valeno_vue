@@ -2,7 +2,10 @@
     <div class="navObj">
         <div class="top">
             <div class="left">
-                <router-link to="/"><img src="https://imgur.com/DPfIHjk.jpg" alt="" /></router-link>
+                <router-link to="/">
+                  <!-- <img src="https://imgur.com/DPfIHjk.jpg" alt="" /> -->
+                  <img :src="require(`@/assets/logo.jpg`)">
+                </router-link>
             </div>
             <div class="right">
                 <h2>0800-000-070</h2>

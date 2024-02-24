@@ -20,9 +20,9 @@ const slide = [{
 const productList = [{
         "id": 1,
         "href": "product_view",
-        "src": "https://imgur.com/eJEZuLC.jpg",
+        "src": "p01.jpg",
         "en": "TEINT FLUIDE ÉCLAT MAT",
-        "ti": "恆霧光潤粉凝露",
+        "ti": "恆霧光潤粉凝露1",
         "sale": "韓國網紅界熱銷",
         "price": "NT$429",
         "special_price": "NT$329",
@@ -38,7 +38,7 @@ const productList = [{
     {
         "id": 2,
         "href": "product_view",
-        "src": "https://imgur.com/nDjOWZU.jpg",
+        "src": "p02.jpg",
         "en": "crème fortifiante protectrice ",
         "ti": "精萃光采防護精華霜",
         "sale": "周年慶全館85折",
@@ -56,7 +56,7 @@ const productList = [{
     {
         "id": 3,
         "href": "product_view",
-        "src": "https://imgur.com/QLM7KBM.jpg",
+        "src": "p03.jpg",
         "en": "TEINT FLUIDE ÉCLAT NATUREL",
         "ti": "恆潤光采粉凝露",
         "sale": "母檔寵愛限定",
@@ -74,7 +74,7 @@ const productList = [{
     {
         "id": 4,
         "href": "product_view",
-        "src": "https://imgur.com/1Q7xtcu.jpg",
+        "src": "p04.jpg",
         "en": "ÉMULSION FORTIFIANTE",
         "ti": "恆潤絲緞光采粉霜",
         "sale": "周年慶全館85折",
@@ -92,7 +92,7 @@ const productList = [{
     {
         "id": 5,
         "href": "product_view",
-        "src": "https://imgur.com/ULKIm2M.jpg",
+        "src": "p05.jpg",
         "en": "teint poudre éclat FORTIFIANTE",
         "ti": "裸紗光采粉餅蕊",
         "sale": "母檔寵愛限定",
@@ -110,7 +110,7 @@ const productList = [{
     {
         "id": 6,
         "href": "product_view",
-        "src": "https://imgur.com/eJEZuLC.jpg",
+        "src": "p01.jpg",
         "en": "LOTION HYDRO-ADOUCISSANTE N",
         "ti": "精萃光采柔潤保濕露",
         "sale": "韓國網紅界熱銷",
@@ -128,7 +128,7 @@ const productList = [{
     {
         "id": 7,
         "href": "product_view",
-        "src": "https://imgur.com/nDjOWZU.jpg",
+        "src": "p02.jpg",
         "en": "ÉMULSION FORTIFIANTE",
         "ti": "精萃光采修護精華乳",
         "sale": "周年慶全館85折",
@@ -146,7 +146,7 @@ const productList = [{
     {
         "id": 8,
         "href": "product_view",
-        "src": "https://imgur.com/eJEZuLC.jpg",
+        "src": "p03.jpg",
         "en": "teint poudre éclat FORTIFIANTE",
         "ti": "裸紗光采粉餅蕊",
         "sale": "韓國網紅界熱銷",
@@ -164,7 +164,7 @@ const productList = [{
     {
         "id": 9,
         "href": "product_view",
-        "src": "https://imgur.com/eJEZuLC.jpg",
+        "src": "p04.jpg",
         "en": "Mistine - Groove complete",
         "ti": "12色完美眼彩盤",
         "sale": "韓國網紅界熱銷",
@@ -182,7 +182,7 @@ const productList = [{
     {
         "id": 10,
         "href": "product_view",
-        "src": "https://imgur.com/nDjOWZU.jpg",
+        "src": "p05.jpg",
         "en": "Mistine - Groove complete",
         "ti": "超激長捲翹電眼睫毛膏",
         "sale": "母檔寵愛限定",
@@ -200,7 +200,7 @@ const productList = [{
     {
         "id": 11,
         "href": "product_view",
-        "src": "https://imgur.com/QLM7KBM.jpg",
+        "src": "p01.jpg",
         "en": "Mistine - Groove complete",
         "ti": "美肌修修無痕",
         "sale": "韓國網紅界熱銷",
@@ -218,7 +218,7 @@ const productList = [{
     {
         "id": 12,
         "href": "product_view",
-        "src": "https://imgur.com/1Q7xtcu.jpg",
+        "src": "p02.jpg",
         "en": "Mistine - Groove complete",
         "ti": "氣墊式粉底",
         "sale": "周年慶全館85折",
@@ -236,7 +236,7 @@ const productList = [{
     {
         "id": 13,
         "href": "product_view",
-        "src": "https://imgur.com/ULKIm2M.jpg",
+        "src": "p03.jpg",
         "en": "Mistine - Groove complete",
         "ti": "美髮保養",
         "sale": "母檔寵愛限定",

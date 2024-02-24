@@ -2,9 +2,9 @@
     <!-- <a :href="`/${item.href}`" class="public_item"> -->
     <router-link :to="`/${item.href}/${item.id}`" class="public_item">
         <div class="img">
-            <img v-lazy="item.src">
+            <!-- <img v-lazy="item.src"> -->
             <!-- <img class="lazy" :src="item.src" alt=""> -->
-            <!-- <img class="lazy" :src="require(`@/assets/${item.src}`)"> -->
+            <img class="lazy" :src="require(`@/assets/${item.src}`)">
         </div>
         <div class="info">
             <!-- <div class="en">{{item.en}}</div> -->

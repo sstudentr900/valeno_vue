@@ -1,7 +1,8 @@
 <template>
     <div class="newView">
         <div class="img">
-            <img src="https://imgur.com/E2EY2P9.jpg" class="img-responsive">
+            <!-- <img src="https://imgur.com/E2EY2P9.jpg" class="img-responsive"> -->
+            <img class="lazy img-responsive" :src="require(`@/assets/news-ban.jpg`)" alt="">
         </div>
         <div class="flex">
             <div class="share">
@@ -40,11 +41,13 @@
                     <p>&nbsp;</p>
                     <p>Mamonde飾底乳（綠色）（Soft Bloom Make Up Base）<br> Mamonde在韓國由人氣美女朴信惠代言，與LANEIGE、innisfree一樣同屬艾茉莉太平洋集團，除了有大集團當靠山的專櫃級成分，這款綠色飾底乳功能為提亮膚色，適合膚色暗沉者使用，還可創造平滑肌膚效果。
                     </p>
-                    <img src="https://imgur.com/UudMJb6.jpg" alt="">
+                    <!-- <img src="https://imgur.com/UudMJb6.jpg" alt=""> -->
+                    <img class="lazy img-responsive" :src="require(`@/assets/ne01.jpg`)" alt="">
                     <p>&nbsp;</p>
                     <p>VDL三色眉粉<br> 單品中包括一塊眉膏與兩塊眉粉，膏狀可以填滿每處眉毛空隙，再用粉狀定妝，能夠創造超自然眉毛，男生也非常適合！畫完眉毛後，也可使用乾淨的眼影刷從眉頭往鼻樑處刷拭，能將部分眉粉往前延伸創造超自然的立體鼻樑與眼窩。
                     </p>
-                    <img src="https://imgur.com/ecNXMgT.jpg" alt="">
+                    <!-- <img src="https://imgur.com/ecNXMgT.jpg" alt=""> -->
+                    <img class="lazy img-responsive" :src="require(`@/assets/ne02.jpg`)" alt="">
                 </div>
                 <div class="buttons">
                     <a href="new.html" title="返回列表" class="btns">
