@@ -8,7 +8,9 @@
         <div class="items">
             <div class="item" v-bind:class="{active:itemIndex==1}">
                 <!-- <img src="img/pv01.jpg" alt=""> -->
-                <img :src="item.introduce" alt="">
+                <!-- <img :src="item.introduce" alt=""> -->
+                <!-- <img :src="item.introduce" alt=""> -->
+                <img :src="require(`@/assets/${item.introduce}`)" alt="">
             </div>
             <div class="item" v-bind:class="{active:itemIndex==2}">
                 <div v-html="item.illustrate"></div>

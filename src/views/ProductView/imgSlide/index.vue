@@ -2,7 +2,9 @@
     <div class="swiper" ref="cur">
         <div class="swiper-wrapper">
             <div v-for="(imgSrc,index) in item" :key="index" class="swiper-slide" :class="{active:nowImageIndex==index}" @click="changeImageIndex(index)">
-                <img :src="imgSrc" alt="">
+                <!-- <img :src="imgSrc" alt=""> -->
+                <!-- <p>{{ imgSrc }}</p>  -->
+                <img :src="require(`@/assets/${imgSrc}`)">
             </div>
         </div>
         <div class="swiper-button-next"></div>

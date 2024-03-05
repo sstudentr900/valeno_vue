@@ -1,10 +1,12 @@
 <template>
     <div class="preview">
         <!-- <img :src="imgObj[0]" alt=""> -->
-        <img class="mainImg" v-if="item" :src="item[nowImageIndex]" alt="">
+        <!-- <img class="mainImg" v-if="item" :src="item[nowImageIndex]" alt=""> -->
+        <img class="mainImg" v-if="item" :src="require(`@/assets/${item[nowImageIndex]}`)" alt="">
         <div class="event" @mousemove="handler"></div>
         <div class="big">
-            <img v-if="item" :src="item[nowImageIndex]" alt="" ref="bigImg">
+            <!-- <img v-if="item" :src="item[nowImageIndex]" alt="" ref="bigImg"> -->
+            <img v-if="item" :src="require(`@/assets/${item[nowImageIndex]}`)" alt="" ref="bigImg">
         </div>
         <div class="mask" ref="mask"></div>
     </div>
